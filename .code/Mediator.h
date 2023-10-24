@@ -7,7 +7,7 @@
 
 class gameElement;
 
-class Mediator {
+class Mediator { //gameElement will be a concreteMediator
 public:
     virtual void notify(gameElement* element)=0;
 };
