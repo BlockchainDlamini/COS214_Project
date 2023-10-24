@@ -3,8 +3,12 @@
 #include "EmotionState.h"
 class Disgruntaled : public EmotionState
 {
-     bool payBill();
-    void handleChange();
+private:
+
+public:
+    //bool payBill();
+    void handleChange(std::shared_ptr<Customer>);
     std::shared_ptr<Customer> getState();
+    float getTip();
 };
 #endif
