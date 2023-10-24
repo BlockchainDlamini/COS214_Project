@@ -1,16 +1,32 @@
 #ifndef EmotionState_H
 #define EmotionState_H
 #include "Customer.h"
-
+#include <random>
 class EmotionState
 {
-private:
+protected:
     std::shared_ptr<Customer> context;
+    float tip;
 
 public:
     EmotionState(){};
-    virtual bool payBill() = 0;
+    // virtual bool payBill() = 0;
     virtual void handleChange(std::shared_ptr<Customer>) = 0;
     virtual std::shared_ptr<Customer> getState() = 0;
+    virtual float getTip() = 0;
+    int getRandomNumber()
+    {
+        // Seed the random number generator with a value based on the current time
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        // Define the range (0 to 100)
+        std::uniform_int_distribution<int> dist(0, 100);
+
+        // Generate a random number
+        int randomNum = dist(gen);
+
+        return randomNum;
+    }
 };
 #endif
