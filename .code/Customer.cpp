@@ -49,7 +49,7 @@ bool Customer::payBill(char c)
             {
                 if (order != nullptr)
                 {
-                    bankAccountAmount - order->getPrice();
+                    bankAccountAmount - (order->getPrice() + mood->getTip());
                 }
             }
         }
@@ -115,7 +115,7 @@ std::shared_ptr<OrderProcessState> Customer::getOrderProcessState()
 {
     return orderProcess;
 }
-std::vector<std::shared_ptr<Order>> Customer::sendOrder()
+std::vector<std::shared_ptr<Order>> Customer::getOrder()
 {
     return this->orders;
 }
