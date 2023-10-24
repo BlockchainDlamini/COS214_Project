@@ -12,6 +12,7 @@
 #include "Disgruntaled.h"
 #include "OrderReceived.h"
 #include "Order.h"
+#include "Frustrated.h"
 #include "Tab.h"
 #include <iostream>
 #include <memory>
@@ -50,7 +51,7 @@ public:
     void setOrderProcessState(std::shared_ptr<OrderProcessState> orderProcess);
     std::shared_ptr<EmotionState> getMood();
     std::shared_ptr<OrderProcessState> getOrderProcessState();
-    std::vector<std::shared_ptr<Order>> sendOrder();
+    std::vector<std::shared_ptr<Order>> getOrder();
     bool receiveOrder(std::vector<std::shared_ptr<Order>>);
     std::string printCustomer();
     bool hasOrdered;
