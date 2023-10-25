@@ -2,14 +2,19 @@
 #define FLOOR_H
 
 #include <memory>
+#include <vector>
+#include <iterator>
+#include "floorComponent.h"
 
-class floor
+class floor: public floorComponent
 {
+    private:
+        std::vector<std::shared_ptr<floorComponent>> next;
     public:
-        floor(){};
-        virtual void add(std::shared_ptr<floor>)=0;
-        virtual void remove(std::shared_ptr<floor>)=0;
-        virtual ~floor(){};
+        floor();
+        void add(std::shared_ptr<floorComponent>);
+        void remove(std::shared_ptr<floorComponent>);
+        virtual ~floor();    
 };
 
 #endif
