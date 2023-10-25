@@ -1,18 +1,23 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include "floor.h"
+#include "floorComponent.h"
 #include <memory>
 #include <vector>
 
-class table: public floor
+class table: public floorComponent
 {
     private:
-        std::vector<std::shared_ptr<floor>> customers;
+        std::vector<std::shared_ptr<floorComponent>> customers;
+        int space;
     public:
         table();
-        void add(std::shared_ptr<floor>);
-        void remove(std::shared_ptr<floor>);
+        void add(std::shared_ptr<floorComponent>);
+        void remove(std::shared_ptr<floorComponent>);
+        void newCustomers(std::vector<std::shared_ptr<floorComponent>>);
+        void removeCustomers();
+        int spaceAvailable();
+        void setSpace(int);
         ~table();
 };
 

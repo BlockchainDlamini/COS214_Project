@@ -6,11 +6,11 @@
 
 class iterator
 {
-private:
-    /* data */
-public:
-    iterator(/* args */);
-    ~iterator();
+    private:
+        
+    public:
+        iterator(/* args */);
+        ~iterator();
 };
 
 #endif

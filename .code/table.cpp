@@ -2,14 +2,36 @@
 
 table::table()
 {
+    space=0;
 }
 
-void table::add(std::shared_ptr<floor>)
+void table::add(std::shared_ptr<floorComponent>) //Comply with interface
+{}
+
+void table::remove(std::shared_ptr<floorComponent>)//Comply with interface
+{}
+
+void table::newCustomers(std::vector<std::shared_ptr<floorComponent>> newCustomers)
 {
+    customers = newCustomers;
 }
 
-void table::remove(std::shared_ptr<floor>)
+void table::removeCustomers()
 {
+    customers.clear();
+}
+
+int table::spaceAvailable()
+{
+    if(customers.empty())
+        return space;
+
+    return 0;
+}
+
+void table::setSpace(int spce)
+{
+    space = spce;
 }
 
 table::~table()

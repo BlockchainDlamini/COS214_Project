@@ -1,8 +1,7 @@
 #include "floor.h"
 
 floor::floor()
-{
-}
+{}
 
 void floor::add(std::shared_ptr<floorComponent> newUnit)
 {
