@@ -44,7 +44,7 @@ public:
     bool payBill(char c);
     bool isLoyal();
     void startTab();
-    void createOrder(std::shared_ptr<Order> order);
+    void createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> command);
     void beSeated(int tableNum);
     int getTableNum();
     void setEmotionState(std::shared_ptr<EmotionState> mood);

@@ -10,7 +10,7 @@ private:
 public:
     std::string listOutstandingOrders();
     bool payOrder();
-    void addOrder();
+    void addOrder(shared_ptr<OrderMemento>);
     std::vector<std::shared_ptr<OrderMemento>> getTab();
     int getTotal();
 };
