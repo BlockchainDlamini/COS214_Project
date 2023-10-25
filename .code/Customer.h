@@ -13,6 +13,7 @@
 #include "OrderReceived.h"
 #include "Order.h"
 #include "Frustrated.h"
+#include "gameElement.h"
 #include "Tab.h"
 #include <iostream>
 #include <memory>
@@ -20,7 +21,7 @@
 using namespace std;
 class OrderProcessState;
 class EmotionState;
-class Customer : public enable_shared_from_this<Customer>
+class Customer : public enable_shared_from_this<Customer>, public gameElement
 {
 private:
     int ID;
@@ -44,6 +45,7 @@ public:
     bool payBill(char c);
     bool isLoyal();
     void startTab();
+    void payTab();
     void createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> command);
     void beSeated(int tableNum);
     int getTableNum();

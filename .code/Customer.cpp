@@ -53,15 +53,30 @@ bool Customer::payBill(char c)
                 }
             }
         }
-        else if (c == 'T')
+        else if (c == 'T' && isLoyal() == true)
         {
             for (std::shared_ptr<Order> order : orders)
             {
                 if (order != nullptr)
                 {
-                    order->addToTab();
+                    tab->addOrder(order->createOrderMemento());
                 }
             }
+        }
+        else if (c == 'T' && isLoyal() == false)
+        {
+            startTab();
+            for (std::shared_ptr<Order> order : orders)
+            {
+                if (order != nullptr)
+                {
+                    tab->addOrder(order->createOrderMemento());
+                }
+            }
+        }
+        else
+        {
+            cout << "Incorrect input" << endl;
         }
     }
     else
@@ -84,8 +99,17 @@ void Customer::startTab()
 {
     tab = std::make_shared<Tab>();
 }
-void Customer::createOrder(std::shared_ptr<Order> order)
+void Customer::payTab()
 {
+    if (tab->payOrder() == true)
+    {
+        bankAccountAmount - tab->getTotal();
+        tab->clearTab();
+    }
+}
+void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> commands)
+{
+    std::shared_ptr<Order> order = make_shared<Order>(orderID, commands);
     orders.push_back(order);
 }
 void Customer::beSeated(int tableNum)
