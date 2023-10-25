@@ -8,29 +8,25 @@
 #include "customer.h"
 #include "kitchen.h"
 #include "iterator.h"
+#include "gameElement.h"
 
-// should we rather name it floor staff?
-// and then we have waiter and maitreD inheriting from floor staff
 
 using namespace std;
 
-class Waiter {
-private:
-    string name; // name of waiter
-    vector<Customer> assignedCustomers; // vector of customers assigned to the waiter
-    Kitchen kitchen;
-
+class Waiter:gameElement {
 public:
-    Waiter(string name, vector<Customer> assignedCustomers);
-    
-    void assignCustomer(Customer& customer);
-    void takeOrder(Customer& customer, const Order& order); // take order from customer
-    void bringOrder(Customer& customer, const Order& order);
-    void getBill(Customer& customer); // use the iterator class to get the amount of the bill
-    
-    void communicateWithKitchen(const Order& order); // take order to kitchen
-    void pickUpOrderFromKitchen(const Order& order); // pick up order from customer
-    void processPayment(Customer& customer);
+    virtual void takeOrder(Customer& customer, const Order& order) = 0; // take order from customer
+    virtual void bringOrder(Customer& customer, const Order& order) = 0;
+   
+    virtual void communicateWithKitchen(const Order& order) = 0; // take order to kitchen
+    virtual void pickUpOrderFromKitchen(const Order& order) = 0; // pick up order from customer
+    virtual void processPayment(Customer& customer) = 0;
+
+    virtual void get() = 0;
+    virtual void changed() = 0;
+    virtual void set() = 0;
+
+    virtual ~Waiter() {};
 };
 
 #endif // WAITER_H

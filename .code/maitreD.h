@@ -11,10 +11,15 @@ class maitreD : public Waiter {
 public:
     
     MaitreD(const std::string& name);
+
+    // maitreD specific
     void assignCustomer(Customer& customer);
+    void getBill(Customer& customer);
+    void mergeTables();
+
+
     void takeOrder(Customer& customer, const Order& order);
     void bringOrder(Customer& customer, const Order& order);
-    void getBill(Customer& customer);
     
     void communicateWithKitchen(const Order& order);
     void pickUpOrderFromKitchen(const Order& order);
@@ -22,8 +27,9 @@ public:
 
     // extra functions only for the MaitreD
 
-    void seatCustomer(const Customer& customer, Table& table);
-    void mergeTables(Table& table1, Table& table2);
+    void get();
+    void changed();
+    void set();
 
 
 };

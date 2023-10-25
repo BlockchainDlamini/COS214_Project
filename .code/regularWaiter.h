@@ -9,6 +9,9 @@ using namespace std;
 
 class regularWaiter : public Waiter {
 public:
+    string name;
+    vector<Customer> assignedCustomers
+
     regularWaiter(string name, vector<Customer> assignedCustomers);
 
     void assignCustomer(Customer& customer);
@@ -19,6 +22,10 @@ public:
     void communicateWithKitchen(const Order& order);
     void pickUpOrderFromKitchen(const Order& order);
     void processPayment(Customer& customer);
+
+    void get();
+    void changed();
+    void set();
 
 };
 
