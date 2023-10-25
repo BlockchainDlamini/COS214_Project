@@ -4,11 +4,12 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include "order.h"
-#include "customer.h"
-#include "kitchen.h"
+#include "Order.h"
+#include "Customer.h"
+#include "Kitchen.h"
 #include "iterator.h"
 #include "gameElement.h"
+#include "table.h"
 
 
 using namespace std;

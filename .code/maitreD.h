@@ -9,8 +9,13 @@ using namespace std;
 
 class maitreD : public Waiter {
 public:
+    // tables that this specific waiter waiters
+    vector<table> assignedTables; // tables has a vector<Customers>
+
+    Kitchen kitchen;
+    string name;
     
-    MaitreD(const std::string& name);
+    maitreD::maitreD(string name, vector<tables> assignedTables, Kitchen kitchen);
 
     // maitreD specific
     void assignCustomer(Customer& customer);

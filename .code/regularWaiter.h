@@ -2,6 +2,7 @@
 #define REGULARWAITER_H
 
 #include "Waiter.h"
+#include "table.h"
 
 #include <iostream>
 
@@ -9,15 +10,17 @@ using namespace std;
 
 class regularWaiter : public Waiter {
 public:
-    string name;
-    vector<Customer> assignedCustomers
+    // tables that this specific waiter waiters
+    vector<table> assignedTables; // tables has a vector<Customers>
 
-    regularWaiter(string name, vector<Customer> assignedCustomers);
+    Kitchen kitchen;
+    string name;
+
+    regularWaiter(string name, vector<tables> assignedTables, Kitchen kitchen);
 
     void assignCustomer(Customer& customer);
     void takeOrder(Customer& customer, const Order& order);
     void bringOrder(Customer& customer, const Order& order);
-    void getBill(Customer& customer);
     
     void communicateWithKitchen(const Order& order);
     void pickUpOrderFromKitchen(const Order& order);
