@@ -15,6 +15,7 @@ public:
     Order(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
     void addToTab();
     void placeOrder();
+    int getPrice();
     std::shared_ptr<OrderMemento> createOrderMemento();
     void setOrderMemento(std::shared_ptr<OrderMemento>);
     void addMenuItemOrderCommand();
