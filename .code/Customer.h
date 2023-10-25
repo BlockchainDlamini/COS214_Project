@@ -59,6 +59,5 @@ public:
     bool hasOrdered;
     bool hasBill;
     bool hasFood = false;
-    bool has;
 };
 #endif
