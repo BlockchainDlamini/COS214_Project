@@ -10,14 +10,11 @@ private:
     std::vector<std::shared_ptr<MenuItemOrderCommand>> formula;
     int price;
     int orderID;
-    // std::shared_ptr<OrderMemento> order;
 
 public:
-    Order();
+    Order(int);
     Order(int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
     Order(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
-    // Order(shared_ptr<Order>);
-    // void addToTab();
     void placeOrder();
     int getPrice();
     int getOrderID();

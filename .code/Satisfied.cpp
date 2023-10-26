@@ -1,4 +1,8 @@
 #include "Satisfied.h"
+Satisfied::Satisfied()
+{
+    emotion = "Satisfied";
+}
 float Satisfied::getTip()
 {
     tip = 0.10;

@@ -1,5 +1,8 @@
 #include "Happy.h"
-
+Happy::Happy()
+{
+    emotion = "Happy";
+}
 float Happy::getTip()
 {
     tip = 0.20;

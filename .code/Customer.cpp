@@ -38,7 +38,7 @@ void Customer::requestBill()
 {
     // needs to tell the waiter that they want the bill
 }
-bool Customer::payBill(char c)
+bool Customer::payBill(char c) // returns true if the customer has either paid or added the bill to a tab
 {
     int total = 0;
     if (hasBill == true)
@@ -53,7 +53,7 @@ bool Customer::payBill(char c)
                 }
             }
         }
-        else if (c == 'T' && isLoyal() == true)
+        else if (c == 'T' && isLoyal() == true) // has a tab and wants to add to tab
         {
             for (std::shared_ptr<Order> order : orders)
             {
@@ -62,10 +62,11 @@ bool Customer::payBill(char c)
                     tab->addOrder(order->createOrderMemento());
                 }
             }
+            return true;
         }
-        else if (c == 'T' && isLoyal() == false)
+        else if (c == 'T' && isLoyal() == false) // doesn't have a tab but wants to add
         {
-            startTab();
+            startTab();//create a new tab for customer
             for (std::shared_ptr<Order> order : orders)
             {
                 if (order != nullptr)
@@ -73,15 +74,18 @@ bool Customer::payBill(char c)
                     tab->addOrder(order->createOrderMemento());
                 }
             }
+            return true;
         }
         else
         {
             cout << "Incorrect input" << endl;
+            return false;
         }
     }
     else
     {
         cout << "Customer has not received the bill from the waiter" << endl;
+        return false;
     }
 
     if (bankAccountAmount < total)
@@ -93,6 +97,7 @@ bool Customer::payBill(char c)
     {
         int tip = total + (total * mood->getTip());
         bankAccountAmount = bankAccountAmount - (total + tip);
+        return true;
     }
 }
 bool Customer::isLoyal()
@@ -160,7 +165,7 @@ std::shared_ptr<OrderProcessState> Customer::getOrderProcessState()
 {
     return orderProcess;
 }
-std::vector<std::shared_ptr<Order>> Customer::getOrder()
+std::vector<std::shared_ptr<Order>> Customer::getOrders()
 {
     return this->orders;
 }
@@ -172,6 +177,6 @@ bool Customer::receiveOrder(std::vector<std::shared_ptr<Order>> orders)
 
 std::string Customer::printCustomer()
 {
-    std::string output = "";
+    std::string output = "CustomerID: " + to_string(ID) + "Mood: " + mood->getEmotion() + "Table Number: " + to_string(tableNum) + "Bank Account Amount: " + to_string(bankAccountAmount);
     return output;
 }

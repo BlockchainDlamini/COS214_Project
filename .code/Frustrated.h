@@ -4,8 +4,12 @@
 class Frustrated : public EmotionState
 {
     //bool payBill();
+    Frustrated();
     void handleChange(std::shared_ptr<Customer>);
     std::shared_ptr<Customer> getState();
+    string getEmotion(){
+        return emotion;
+    };
     float getTip();
 };
 #endif

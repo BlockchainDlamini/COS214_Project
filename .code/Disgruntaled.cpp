@@ -1,4 +1,8 @@
 #include "Disgruntaled.h"
+Disgruntaled::Disgruntaled()
+{
+    emotion = "Disgruntaled";
+}
 float Disgruntaled::getTip()
 {
     tip = 0;

@@ -42,7 +42,7 @@ public:
     void changedOrderProcessState();
     void setID(int);
     void requestBill();
-    bool payBill(char c);
+    bool payBill(char c); // if the passed in char is P, the customer will pay. If it is T the customer wants to add to the Tab.
     bool isLoyal();
     void startTab();
     void payTab();
@@ -54,7 +54,7 @@ public:
     void setOrderProcessState(std::shared_ptr<OrderProcessState> orderProcess);
     std::shared_ptr<EmotionState> getMood();
     std::shared_ptr<OrderProcessState> getOrderProcessState();
-    std::vector<std::shared_ptr<Order>> getOrder();
+    std::vector<std::shared_ptr<Order>> getOrders();
     bool receiveOrder(std::vector<std::shared_ptr<Order>>);
     std::string printCustomer();
     bool hasOrdered = false;

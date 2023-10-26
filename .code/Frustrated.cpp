@@ -1,5 +1,10 @@
 #include "Frustrated.h"
-float Frustrated ::getTip(){
+Frustrated::Frustrated()
+{
+    emotion = "Frustrated";
+}
+float Frustrated ::getTip()
+{
     tip = 0;
     return tip;
 }
