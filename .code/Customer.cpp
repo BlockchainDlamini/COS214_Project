@@ -3,7 +3,6 @@
 Customer::Customer()
 {
     mood = std::make_shared<EmotionState>();
-    hasOrdered = false;
     tab = nullptr;
     orderProcess = std::make_shared<OrderProcessState>();
     bankAccountAmount = 1000; // each customer brings R1000 when they come to restaurant
@@ -41,6 +40,7 @@ void Customer::requestBill()
 }
 bool Customer::payBill(char c)
 {
+    int total = 0;
     if (hasBill == true)
     {
         if (c == 'P')
@@ -49,7 +49,7 @@ bool Customer::payBill(char c)
             {
                 if (order != nullptr)
                 {
-                    bankAccountAmount - (order->getPrice() + mood->getTip());
+                    total += order->getPrice();
                 }
             }
         }
@@ -83,6 +83,17 @@ bool Customer::payBill(char c)
     {
         cout << "Customer has not received the bill from the waiter" << endl;
     }
+
+    if (bankAccountAmount < total)
+    {
+        cout << "Customer cannot pay the bill, insufficient funds" << endl;
+        return false;
+    }
+    else
+    {
+        int tip = total + (total * mood->getTip());
+        bankAccountAmount = bankAccountAmount - (total + tip);
+    }
 }
 bool Customer::isLoyal()
 {
@@ -106,6 +117,16 @@ void Customer::payTab()
         bankAccountAmount - tab->getTotal();
         tab->clearTab();
     }
+}
+string Customer::printBill()
+{
+    string output = "";
+    output += "CustomerID: " + to_string(ID) + "Bank Account Amount: " + to_string(bankAccountAmount) + "Orders: ";
+    for (shared_ptr<Order> order : orders)
+    {
+        output += "OrderID: " + to_string(order->getOrderID()) + "Price: " + to_string(order->getPrice());
+    }
+    return output;
 }
 void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> commands)
 {

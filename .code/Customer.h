@@ -46,6 +46,7 @@ public:
     bool isLoyal();
     void startTab();
     void payTab();
+    string printBill();
     void createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> command);
     void beSeated(int tableNum);
     int getTableNum();
@@ -56,8 +57,8 @@ public:
     std::vector<std::shared_ptr<Order>> getOrder();
     bool receiveOrder(std::vector<std::shared_ptr<Order>>);
     std::string printCustomer();
-    bool hasOrdered;
-    bool hasBill;
+    bool hasOrdered = false;
+    bool hasBill = false;
     bool hasFood = false;
 };
 #endif
