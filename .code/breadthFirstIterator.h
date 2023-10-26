@@ -3,12 +3,14 @@
 
 #include "iterator.h"
 
-class breadthFirstIterator: public iterator
+class breadthFirstIterator: public myIterator
 {
-    private:
-        /* data */
     public:
-        breadthFirstIterator(/* args */);
+        breadthFirstIterator(std::shared_ptr<floorComponent>);
+        std::shared_ptr<floorComponent> first();
+        std::shared_ptr<floorComponent> next();
+        std::shared_ptr<floorComponent> currentItem();
+        bool isDone();
         ~breadthFirstIterator();
 };
 

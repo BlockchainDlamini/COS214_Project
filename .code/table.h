@@ -14,6 +14,10 @@ class table: public floorComponent
         table();
         void add(std::shared_ptr<floorComponent>);
         void remove(std::shared_ptr<floorComponent>);
+        std::shared_ptr<floorComponent> getChild(int);
+        int getNumChildren();
+        std::shared_ptr<myIterator> getDepthIterator();
+        std::shared_ptr<myIterator> getBreadthIterator();
         void newCustomers(std::vector<std::shared_ptr<floorComponent>>);
         void removeCustomers();
         int spaceAvailable();

@@ -3,14 +3,21 @@
 
 #include <memory>
 #include <vector>
+#include "floorComponent.h"
 
-class iterator
+class myIterator
 {
-    private:
-        
+    protected:
+        std::shared_ptr<floorComponent> head;
+        std::shared_ptr<floorComponent> current;
+        std::shared_ptr<floorComponent> previous;
     public:
-        iterator(/* args */);
-        ~iterator();
+        myIterator(std::shared_ptr<floorComponent>);
+        virtual std::shared_ptr<floorComponent> first() = 0;
+        virtual std::shared_ptr<floorComponent> next() = 0;
+        virtual std::shared_ptr<floorComponent> currentItem() = 0;
+        virtual bool isDone() = 0;
+        virtual ~myIterator(){};
 };
 
 #endif

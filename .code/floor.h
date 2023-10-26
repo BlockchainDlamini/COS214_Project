@@ -5,16 +5,24 @@
 #include <vector>
 #include <iterator>
 #include "floorComponent.h"
+#include "iterator.h" 
+
 
 class floor: public floorComponent
 {
-    private:
+    protected:
         std::vector<std::shared_ptr<floorComponent>> next;
+
     public:
         floor();
         void add(std::shared_ptr<floorComponent>);
         void remove(std::shared_ptr<floorComponent>);
+        std::shared_ptr<floorComponent> getChild(int);
+        int getNumChildren();
+        std::shared_ptr<myIterator> getDepthIterator();
+        std::shared_ptr<myIterator> getBreadthIterator();
         virtual ~floor();    
+
 };
 
 #endif

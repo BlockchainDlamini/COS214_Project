@@ -34,6 +34,26 @@ void table::setSpace(int spce)
     space = spce;
 }
 
+std::shared_ptr<floorComponent> table::getChild(int)
+{
+    return nullptr;
+}
+
+int table::getNumChildren()
+{
+    return 0;
+}
+
+std::shared_ptr<myIterator> table::getDepthIterator()
+{
+    return nullptr;
+}
+
+std::shared_ptr<myIterator> table::getBreadthIterator()
+{
+    return nullptr;
+}
+
 table::~table()
 {
 }

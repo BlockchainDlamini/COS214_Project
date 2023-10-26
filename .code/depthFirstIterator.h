@@ -3,12 +3,14 @@
 
 #include "iterator.h"
 
-class depthFirstIterator: public iterator
+class depthFirstIterator: public myIterator
 {
-    private:
-        /* data */
     public:
-        depthFirstIterator(/* args */);
+        depthFirstIterator(std::shared_ptr<floorComponent>);
+        std::shared_ptr<floorComponent> first();
+        std::shared_ptr<floorComponent> next();
+        std::shared_ptr<floorComponent> currentItem();
+        bool isDone();
         ~depthFirstIterator();
 };
 
