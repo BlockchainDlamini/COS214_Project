@@ -1,49 +1,19 @@
 #include "depthFirstIterator.h"
 
 depthFirstIterator::depthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
-{}
-
-std::shared_ptr<floorComponent> depthFirstIterator::first()
 {
-    return head;
+    flattenTree(head);
 }
 
-void depthFirstIterator::next()
+void depthFirstIterator::flattenTree(std::shared_ptr<floorComponent> currNode)
 {
-    if(current->getNumChildren()==0) //in leaf -> need to go back up again
+    flattenedTree.push(currNode);
+    for (int i = 0; i < currNode->getNumChildren(); i++)
     {
-        current = previous;
-       previous = findPrevious(previous, head);        
-    }
-    else //need to move down 
-    {
-        std::shared_ptr<floorComponent> temp = current->getChild(current->getCurretnChild());
-        current->setCurrentChild(current->getCurretnChild()+1); //increating the index of the child I need to move to
-        previous = current;
-        current = temp;
-    }
-}
-
-std::shared_ptr<floorComponent> depthFirstIterator::findPrevious(std::shared_ptr<floorComponent> curr, std::shared_ptr<floorComponent> hd)
-{
-    for (int i = 0; i < hd->getNumChildren(); i++)
-    {
-        if(curr==hd->getChild(i))
-            return hd;
-        else
-            return findPrevious(curr,hd->getChild(i));
+        flattenTree(currNode->getChild(i));
+        flattenedTree.push(currNode->getChild(i));
     }
     
-}
-
-std::shared_ptr<floorComponent> depthFirstIterator::currentItem()
-{
-    return current;
-}
-
-bool depthFirstIterator::hasNext()
-{
-
 }
 
 depthFirstIterator::~depthFirstIterator()

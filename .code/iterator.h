@@ -8,16 +8,17 @@
 class myIterator
 {
     protected:
+        std::queue<std::shared_ptr<floorComponent>> flattenedTree;
+        virtual void flattenTree(std::shared_ptr<floorComponent>) = 0;
         std::shared_ptr<floorComponent> head;
         std::shared_ptr<floorComponent> current;
-        std::shared_ptr<floorComponent> previous;
     public:
         myIterator(std::shared_ptr<floorComponent>);
-        virtual std::shared_ptr<floorComponent> first() = 0;
-        virtual void next() = 0; //moves pointer
-        virtual std::shared_ptr<floorComponent> currentItem() = 0;
-        virtual bool hasNext() = 0;
-        virtual ~myIterator(){};
+        virtual std::shared_ptr<floorComponent> first();
+        virtual void next(); //moves pointer
+        virtual std::shared_ptr<floorComponent> currentItem();
+        virtual bool hasNext();
+        virtual ~myIterator();
 };
 
 #endif

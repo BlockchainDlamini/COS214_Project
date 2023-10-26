@@ -1,25 +1,20 @@
 #include "breadthFirstIterator.h"
 
 breadthFirstIterator::breadthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
-{}
-
-std::shared_ptr<floorComponent> breadthFirstIterator::first()
 {
-    return head;
+    flattenTree(head);
 }
 
-void breadthFirstIterator::next()
+void breadthFirstIterator::flattenTree(std::shared_ptr<floorComponent> currNode)
 {
-    
-}
-
-std::shared_ptr<floorComponent> breadthFirstIterator::currentItem()
-{
-    return current;
-}
-
-bool breadthFirstIterator::hasNext()
-{
+    for (int i = 0; i < currNode->getNumChildren(); i++)
+    {
+        flattenedTree.push(currNode->getChild(i));
+    }
+    for (int i = 0; i < currNode->getNumChildren(); i++)
+    {
+        flattenTree(currNode->getChild(i));
+    }
     
 }
 

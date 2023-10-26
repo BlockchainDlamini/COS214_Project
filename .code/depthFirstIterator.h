@@ -6,13 +6,13 @@
 class depthFirstIterator: public myIterator
 {
     private:
-        std::shared_ptr<floorComponent> findPrevious(std::shared_ptr<floorComponent>,std::shared_ptr<floorComponent>);
+        void depthFirstIterator::flattenTree(std::shared_ptr<floorComponent>);
     public:
         depthFirstIterator(std::shared_ptr<floorComponent>);
-        std::shared_ptr<floorComponent> first();
-        void next();
-        std::shared_ptr<floorComponent> currentItem();
-        bool hasNext();
+        std::shared_ptr<floorComponent> first(){};
+        void next(){};
+        std::shared_ptr<floorComponent> currentItem(){};
+        bool hasNext(){};
         ~depthFirstIterator();
 };
 
