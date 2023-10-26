@@ -1,6 +1,6 @@
 #include "breadthFirstIterator.h"
 
-breadthFirstIterator::breadthFirstIterator(std::shared_ptr<floorComponent> head) : iterator(head)
+breadthFirstIterator::breadthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
 {}
 
 std::shared_ptr<floorComponent> breadthFirstIterator::first()
@@ -8,7 +8,7 @@ std::shared_ptr<floorComponent> breadthFirstIterator::first()
     return head;
 }
 
-std::shared_ptr<floorComponent> breadthFirstIterator::next()
+void breadthFirstIterator::next()
 {
     
 }
@@ -18,7 +18,7 @@ std::shared_ptr<floorComponent> breadthFirstIterator::currentItem()
     return current;
 }
 
-bool isDone()
+bool breadthFirstIterator::hasNext()
 {
     
 }

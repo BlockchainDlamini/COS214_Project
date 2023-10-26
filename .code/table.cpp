@@ -44,13 +44,30 @@ int table::getNumChildren()
     return 0;
 }
 
+int table::getIndexOfChild(std::shared_ptr<floorComponent>)
+{
+    return -1;
+}
+
+void table::setCurrentChild(int)
+{
+    currentChild = -1;
+}
+
+int getCurretnChild()
+{
+    return -1;
+}
+
 std::shared_ptr<myIterator> table::getDepthIterator()
 {
+    currentChild = -1;
     return nullptr;
 }
 
 std::shared_ptr<myIterator> table::getBreadthIterator()
 {
+    currentChild = -1;
     return nullptr;
 }
 
