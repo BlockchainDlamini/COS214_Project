@@ -24,14 +24,6 @@ public:
     void changed();
     void set();
 
-
-    //These 2 visit functions are for seating the customers
-    void visitTable(std::shared_ptr<table>); 
-    void visitFloor(std::shared_ptr<floor>); 
-    void seatCustomer(std::shared_ptr<customer>);
-    void merdgeTable();
-    void unmerdgeTable();
-
 };
 
 #endif //MAITRED_H

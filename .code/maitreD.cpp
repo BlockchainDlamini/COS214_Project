@@ -58,28 +58,3 @@ void regularWaiter::changed() {
 void regularWaiter::set() {
 }
 
-// maitreD is the one who can get the bill
-void Waiter::getBill(Customer& customer) {
-
-}
-
-void maitreD::visitTable(std::shared_ptr<table> tble)
-{
-    
-} 
-void maitreD::visitFloor(std::shared_ptr<floor>)
-{
-
-}
-void maitreD::seatCustomer(std::shared_ptr<customer> )
-{
-
-}
-void maitreD::merdgeTable()
-{
-    
-}
-void maitreD::unmerdgeTable()
-{
-
-}

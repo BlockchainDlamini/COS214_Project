@@ -24,10 +24,6 @@ public:
     virtual void get() = 0;
     virtual void changed() = 0;
     virtual void set() = 0;
-
-    virtual void visitTable(std::shared_ptr<table>)=0;
-    virtual void visitFloor(std::shared_ptr<floor>)=0;
-
     virtual ~Waiter() {};
 };
 

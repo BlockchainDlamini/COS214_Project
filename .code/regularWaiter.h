@@ -27,10 +27,6 @@ public:
     void changed();
     void set();
 
-    //These 2 visit functions are for obtaining the bill
-    void visitTable(std::shared_ptr<table>); 
-    void visitFloor(std::shared_ptr<floor>); 
-
 
 };
 
