@@ -2,11 +2,12 @@
 #define __MAKE_BASE_H__
 
 #include "MenuItemCommand.h"
+#include <memory>
 
 class MakeBase : public MenuItemCommand {
     public:
-        MakeBase(shared_ptr<Kitchen>);
-        shared_ptr<FoodItem> execute();
+        MakeBase(std::shared_ptr<Kitchen>);
+        std::shared_ptr<FoodItem> execute();
 };
 
 #endif

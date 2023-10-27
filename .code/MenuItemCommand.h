@@ -8,11 +8,11 @@
 
 class MenuItemCommand : gameElement {
     public:
-        MenuItemCommand(shared_ptr<Kitchen>);
-        shared_ptr<FoodItem> virtual execute() = 0;
-        shared_ptr<Kitchen> getState();
+        MenuItemCommand(std::shared_ptr<Kitchen>);
+        std::shared_ptr<FoodItem> virtual execute() = 0;
+        std::shared_ptr<Kitchen> getState();
     protected: 
-        shared_ptr<Kitchen> state;
+        std::shared_ptr<Kitchen> state;
 };
 
 #endif

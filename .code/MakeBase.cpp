@@ -1,5 +1,6 @@
 #include "MakeBase.h"
 #include "BaseChef.h"
+using namespace std;
 
 MakeBase::MakeBase(shared_ptr<Kitchen> state) : MenuItemCommand(state) {}
 

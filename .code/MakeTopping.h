@@ -5,8 +5,8 @@
 
 class MakeTopping : public MenuItemCommand {
     public:
-        MakeTopping(shared_ptr<Kitchen>);
-        shared_ptr<FoodItem> execute();
+        MakeTopping(std::shared_ptr<Kitchen>);
+        std::shared_ptr<FoodItem> execute();
 };
 
 #endif
