@@ -6,6 +6,8 @@
 #include "iterator.h"
 #include "depthFirstIterator.h"
 #include "breadthFirstIterator.h"
+#include <string>
+//#include "maitreD.h"
 class floorComponent
 {
     protected:
@@ -21,6 +23,8 @@ class floorComponent
         virtual int getCurretnChild()=0;
         virtual std::shared_ptr<myIterator> getDepthIterator()=0;
         virtual std::shared_ptr<myIterator> getBreadthIterator()=0;
+        virtual std::string toString()=0;
+        //virtual void acceptVisitor(std::shared_ptr<maitreD>)=0;
         virtual ~floorComponent(){};    
 
 };

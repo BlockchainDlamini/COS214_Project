@@ -13,7 +13,8 @@ std::shared_ptr<floorComponent> myIterator::first()
 
 void myIterator::next()
 {
-    bool found = false;
+    return flattenedTree.pop();
+    /*bool found = false;
 
     while(!flattenedTree.empty())
     {
@@ -26,7 +27,7 @@ void myIterator::next()
         }
     }
     if(!found)
-        current = nullptr;
+        current = nullptr;*/
 }
 
 std::shared_ptr<floorComponent> myIterator::currentItem()
@@ -36,7 +37,11 @@ std::shared_ptr<floorComponent> myIterator::currentItem()
 
 bool myIterator::hasNext()
 {
-    bool found = false;
+    if(flattenedTree.front()!=nullptr)
+        return true;
+    
+    return false;
+    /*bool found = false;
 
     while(!flattenedTree.empty())
     {
@@ -45,7 +50,7 @@ bool myIterator::hasNext()
         if(front == current)
             return true;
     }
-    return false;
+    return false;*/
 }
 
 myIterator::~myIterator()

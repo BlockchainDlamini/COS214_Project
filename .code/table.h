@@ -9,9 +9,9 @@ class table: public floorComponent
 {
     private:
         std::vector<std::shared_ptr<floorComponent>> customers;
-        int space;
+        int space, number;
     public:
-        table();
+        table(int);
         void add(std::shared_ptr<floorComponent>);
         void remove(std::shared_ptr<floorComponent>);
         std::shared_ptr<floorComponent> getChild(int);
@@ -25,6 +25,8 @@ class table: public floorComponent
         void removeCustomers();
         int spaceAvailable();
         void setSpace(int);
+        std::string toString();
+        //void acceptVisitor(std::shared_ptr<maitreD>);
         ~table();
 };
 

@@ -11,8 +11,7 @@ void depthFirstIterator::flattenTree(std::shared_ptr<floorComponent> currNode)
     for (int i = 0; i < currNode->getNumChildren(); i++)
     {
         flattenTree(currNode->getChild(i));
-    }
-    
+    }    
 }
 
 depthFirstIterator::~depthFirstIterator()

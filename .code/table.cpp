@@ -1,8 +1,9 @@
 #include "table.h"
 
-table::table()
+table::table(int num)
 {
     space=0;
+    number = num;
 }
 
 void table::add(std::shared_ptr<floorComponent>) //Comply with interface
@@ -69,6 +70,16 @@ std::shared_ptr<myIterator> table::getBreadthIterator()
 {
     currentChild = -1;
     return nullptr;
+}
+
+/*void table::acceptVisitor(std::shared_ptr<maitreD> visitor)
+{
+
+}*/
+
+std::string table::toString()
+{
+    return "This is table number: " + number;
 }
 
 table::~table()

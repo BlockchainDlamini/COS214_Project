@@ -1,7 +1,9 @@
 #include "floor.h"
 
-floor::floor()
-{}
+floor::floor(int num)
+{
+    number = num;
+}
 
 void floor::add(std::shared_ptr<floorComponent> newUnit)
 {
@@ -72,6 +74,16 @@ int floor::getCurretnChild()
 {
     return currentChild;
 }
+
+std::string floor::toString()
+{
+    return "This is a floor piece number: " + number;
+}
+
+/*void acceptVisitor(std::shared_ptr<maitreD> visitor)
+{
+
+}*/
 
 floor::~floor()
 {
