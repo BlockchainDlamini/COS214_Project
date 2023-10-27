@@ -1,16 +1,18 @@
 #include "floor.h"
+#include "depthFirstIterator.h"
+#include "breadthFirstIterator.h"
 
-floor::floor(int num)
+myFloor::myFloor(int num)
 {
     number = num;
 }
 
-void floor::add(std::shared_ptr<floorComponent> newUnit)
+void myFloor::add(std::shared_ptr<floorComponent> newUnit)
 {
     next.push_back(newUnit);
 }
 
-void floor::remove(std::shared_ptr<floorComponent> unit)
+void myFloor::remove(std::shared_ptr<floorComponent> unit)
 {
     std::vector<std::shared_ptr<floorComponent>>::iterator it = next.begin();
     bool found = false;
@@ -26,12 +28,12 @@ void floor::remove(std::shared_ptr<floorComponent> unit)
     } 
 }
 
-std::shared_ptr<floorComponent> floor::getChild(int i)
+std::shared_ptr<floorComponent> myFloor::getChild(int i)
 {
     return next[i];
 }
 
-int floor::getIndexOfChild(std::shared_ptr<floorComponent> child)
+int myFloor::getIndexOfChild(std::shared_ptr<floorComponent> child)
 {
     std::vector<std::shared_ptr<floorComponent>>::iterator it = next.begin();
     int count = 0;
@@ -48,34 +50,34 @@ int floor::getIndexOfChild(std::shared_ptr<floorComponent> child)
 
     return -1;
 }
-std::shared_ptr<myIterator> floor::getDepthIterator()
+std::shared_ptr<myIterator> myFloor::getDepthIterator()
 {
     currentChild = 0;
     return  std::make_shared<myIterator>(depthFirstIterator(std::make_shared<floorComponent>(this)));
 }
 
-std::shared_ptr<myIterator> floor::getBreadthIterator()
+std::shared_ptr<myIterator> myFloor::getBreadthIterator()
 {
     currentChild = 0;
     return  std::make_shared<myIterator>(breadthFirstIterator(std::make_shared<floorComponent>(this)));
 }
 
-int floor::getNumChildren()
+int myFloor::getNumChildren()
 {
     return next.size();
 }
 
-void floor::setCurrentChild(int indx)
+void myFloor::setCurrentChild(int indx)
 {
     currentChild = indx;
 }
 
-int floor::getCurretnChild()
+int myFloor::getCurretnChild()
 {
     return currentChild;
 }
 
-std::string floor::toString()
+std::string myFloor::toString()
 {
     return "This is a floor piece number: " + number;
 }
@@ -85,6 +87,6 @@ std::string floor::toString()
 
 }*/
 
-floor::~floor()
+myFloor::~myFloor()
 {
 }

@@ -1,4 +1,5 @@
 #include "depthFirstIterator.h"
+#include "iterator.h"
 
 depthFirstIterator::depthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
 {

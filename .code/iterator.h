@@ -1,8 +1,9 @@
-#ifndef ITERATOR_H
-#define ITERATOR_H
+#ifndef MYITERATOR_H
+#define MYITERATOR_H
 
 #include <memory>
 #include <vector>
+#include <queue>
 #include "floorComponent.h"
 
 class myIterator

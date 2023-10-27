@@ -2,8 +2,8 @@
 #define TABLE_H
 
 #include "floorComponent.h"
-#include <memory>
 #include <vector>
+#include <memory>
 
 class table: public floorComponent
 {

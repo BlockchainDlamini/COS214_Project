@@ -1,4 +1,5 @@
 #include "breadthFirstIterator.h"
+#include "iterator.h"
 
 breadthFirstIterator::breadthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
 {

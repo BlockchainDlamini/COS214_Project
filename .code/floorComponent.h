@@ -1,13 +1,14 @@
 #ifndef FLOORCOMPONENT_H
 #define FLOORCOMPONENT_H
 
-#include <memory>
 #include <vector>
-#include "iterator.h"
-#include "depthFirstIterator.h"
-#include "breadthFirstIterator.h"
+#include <memory>
 #include <string>
 //#include "maitreD.h"
+
+class myIterator;
+class depthFirstIterator;
+class breadthFirstIterator;
 class floorComponent
 {
     protected:
@@ -26,7 +27,6 @@ class floorComponent
         virtual std::string toString()=0;
         //virtual void acceptVisitor(std::shared_ptr<maitreD>)=0;
         virtual ~floorComponent(){};    
-
 };
 
 #endif

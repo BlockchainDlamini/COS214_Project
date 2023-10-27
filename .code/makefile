@@ -1,5 +1,5 @@
 a: *.cpp
-	g++ *.cpp -o task1
+	g++  table.cpp iterator.cpp breadthFirstIterator.cpp depthFirstIterator.cpp floor.cpp test.cpp -o task1
 	
 run:
 	./task1
