@@ -1,0 +1,14 @@
+name: cpplint
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+    - run: pip install cpplint
+    - run: cpplint --linelength=200 --filter=-whitespace,-whitespace/braces,-legal/copyright,-build/include_what_you_use,-build/endif_comment,-build/namespaces_headers,-runtime/explicit,-whitespace/blank_line,-build/namespaces_literals,-build/namespaces,-build/header_guard,-runtime/references --quiet --extensions=h,cpp,hpp $( find . -name \*.h -or -name \*.cc | grep -vE "^\.\/build\/" )
