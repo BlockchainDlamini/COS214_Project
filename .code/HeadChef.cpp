@@ -10,7 +10,7 @@ void HeadChef::handleOrder(vector<shared_ptr<FoodItem>> order) {
 }
 
 void HeadChef::bakePizza(vector<shared_ptr<FoodItem>> order) {
-    Pizza(order);
+    pizza = new Pizza(order);
 }
 
 shared_ptr<Pizza> HeadChef::getPizza(){
