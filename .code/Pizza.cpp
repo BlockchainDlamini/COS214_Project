@@ -1,3 +1,8 @@
+/*@file Pizza.cpp
+@brief contains the Pizza class
+    *which is a subclass of FoodItem
+    *and creates a pizza
+*/
 #include "Pizza.h"
 using namespace std;
 

@@ -1,3 +1,9 @@
+/*@file Pizza.h
+@brief contains the Pizza class
+       *which is a subclass of gameElement
+       *and creates a pizza for the player
+       *to eat
+*/
 #ifndef __PIZZA_H_
 #define __PIZZA_H_
 
@@ -8,7 +14,15 @@ using namespace std;
 
 class Pizza : gameElement {
     public:
+        /*@brief constructor for Pizza
+         *@param none
+         *@return none
+        */
         Pizza();
+        /*@brief constructor for Pizza
+         *@param vector<shared_ptr<FoodItem>>
+         *@return none
+        */
         Pizza(vector<shared_ptr<FoodItem>>);
     private:
         shared_ptr<FoodItem> base;

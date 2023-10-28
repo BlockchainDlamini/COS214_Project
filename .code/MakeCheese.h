@@ -1,3 +1,12 @@
+/*@file
+*@brief 
+ *@brief contains the MakeCheese class
+ *       which is a subclass of MenuItemCommand
+ *       and creates a sauce for a food item
+ *       in the kitchen
+ @bug No known bugs.
+
+*/
 #ifndef __MAKE_CHEESE_H__
 #define __MAKE_CHEESE_H__
 

@@ -1,3 +1,11 @@
+/*@file MakeCheese.cpp
+ *@brief 
+  *@brief contains the MakeCheese class
+  *       which is a subclass of MenuItemCommand
+  *       and creates a sauce for a food item
+  *       in the kitchen
+  *@bug No known bugs.
+*/
 #include "MakeCheese.h"
 #include "CheeseChef.h"
 using namespace std;

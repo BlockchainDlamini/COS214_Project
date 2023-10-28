@@ -1,3 +1,10 @@
+/*@file HeadChef.cpp
+    *@brief contains the HeadChef class
+    *       which is a subclass of Kitchen
+    *       and creates a pizza
+    *@bug No known bugs.
+*/
+
 #include "HeadChef.h"
 using namespace std;
 
