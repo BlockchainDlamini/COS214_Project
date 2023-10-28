@@ -1,26 +1,52 @@
 #ifndef EmotionState_H
 #define EmotionState_H
+
 #include "Customer.h"
 #include <random>
 #include <memory>
 #include <string>
+
 class Customer;
-class EmotionState
-{
+
+/**
+ * @class EmotionState
+ * @brief Abstract base class representing the emotional state of a customer.
+ */
+class EmotionState {
 protected:
-    std::shared_ptr<Customer> context;
-    float tip;
-    std::string emotion;
+    std::shared_ptr<Customer> context; ///< The customer context associated with this emotion state.
+    float tip; ///< The tip amount associated with this emotion state.
+    std::string emotion; ///< The emotional state's name.
 
 public:
+    /**
+     * @brief Default constructor for EmotionState.
+     */
     EmotionState();
-    // virtual bool payBill() = 0;
+
+    /**
+     * @brief Handle a change in the customer's emotional state.
+     * @param customer A shared pointer to the customer whose state is changing.
+     */
     virtual void handleChange(std::shared_ptr<Customer> customer) = 0;
-   // virtual std::shared_ptr<Customer> getState() = 0;
+
+    /**
+     * @brief Get the tip amount associated with the emotional state.
+     * @return The tip amount.
+     */
     virtual float getTip() = 0;
+
+    /**
+     * @brief Get the name of the emotional state.
+     * @return The name of the emotional state.
+     */
     virtual std::string getEmotion() = 0;
-    int getRandomNumber()
-    {
+
+    /**
+     * @brief Generate a random number between 0 and 100.
+     * @return A random number between 0 and 100.
+     */
+    int getRandomNumber() {
         // Seed the random number generator with a value based on the current time
         std::random_device rd;
         std::mt19937 gen(rd());
@@ -34,4 +60,5 @@ public:
         return randomNum;
     }
 };
+
 #endif

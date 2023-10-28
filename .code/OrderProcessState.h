@@ -1,22 +1,45 @@
 #ifndef OrderProcessState_H
 #define OrderProcessState_H
+
 #include "Customer.h"
 #include <iostream>
 #include <memory>
 #include <string>
 using namespace std;
+
 class Customer;
-class OrderProcessState
-{
+
+/**
+ * @class OrderProcessState
+ * @brief Abstract base class for representing various states in the order processing system.
+ */
+class OrderProcessState {
 protected:
     std::shared_ptr<Customer> context;
 
 public:
     std::string stateName;
+
+    /**
+     * @brief Default constructor for OrderProcessState.
+     */
     OrderProcessState();
+
+    /**
+     * @brief Execute the state-specific behavior.
+     */
     virtual void execute() = 0;
+
+    /**
+     * @brief Handle a change in the state by moving to the next state.
+     * @param customer A shared pointer to the customer context.
+     */
     virtual void handleChange(std::shared_ptr<Customer> customer) = 0;
-    // virtual std::shared_ptr<Customer> getState();
+
+    /**
+     * @brief Print information about the state change.
+     */
     void printStateChange();
 };
+
 #endif
