@@ -1,19 +1,18 @@
 #include "Customer.h"
 
-Customer::Customer()
+Customer::Customer(int bankAmount, int id)
 {
-    mood = std::make_shared<EmotionState>();
-    tab = nullptr;
-    orderProcess = std::make_shared<OrderProcessState>();
-    bankAccountAmount = 1000; // each customer brings R1000 when they come to restaurant
+    bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
+    ID = id;
 }
 Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount)
 {
     this->mood = mood;
     this->bankAccountAmount = bankAccountAmount;
 }
-void Customer::get()
+gameElement *Customer::get()
 {
+    return this;
 }
 
 void Customer::set()
@@ -66,7 +65,7 @@ bool Customer::payBill(char c) // returns true if the customer has either paid o
         }
         else if (c == 'T' && isLoyal() == false) // doesn't have a tab but wants to add
         {
-            startTab();//create a new tab for customer
+            startTab(); // create a new tab for customer
             for (std::shared_ptr<Order> order : orders)
             {
                 if (order != nullptr)
@@ -114,6 +113,7 @@ bool Customer::isLoyal()
 void Customer::startTab()
 {
     tab = std::make_shared<Tab>();
+    cout << "CustomerID: " + to_string(ID) + " has created a new tab" << endl;
 }
 void Customer::payTab()
 {
@@ -121,6 +121,7 @@ void Customer::payTab()
     {
         bankAccountAmount - tab->getTotal();
         tab->clearTab();
+        cout << "CustomerID: " + to_string(ID) + " has cleared his tab" << endl;
     }
 }
 string Customer::printBill()
@@ -138,6 +139,7 @@ void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>>
     std::shared_ptr<Order> order = make_shared<Order>(orderID, commands);
     orders.push_back(order);
 }
+
 void Customer::beSeated(int tableNum)
 {
     this->tableNum = tableNum;
@@ -170,13 +172,19 @@ std::vector<std::shared_ptr<Order>> Customer::getOrders()
     return this->orders;
 }
 
-bool Customer::receiveOrder(std::vector<std::shared_ptr<Order>> orders)
+bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
 {
-    this->orders = orders;
+    this->pizza = pizza;
 }
 
 std::string Customer::printCustomer()
 {
     std::string output = "CustomerID: " + to_string(ID) + "Mood: " + mood->getEmotion() + "Table Number: " + to_string(tableNum) + "Bank Account Amount: " + to_string(bankAccountAmount);
     return output;
+}
+
+bool Customer::hasFood(){
+    if(pizza != nullptr){
+        return true;
+    }return false;
 }

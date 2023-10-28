@@ -9,6 +9,7 @@ std::string Tab::listOutstandingOrders()
     {
         output += "Order ID: " + to_string(order->getID()) + "Price: " + to_string(order->getPrice()) + "\n";
     }
+    output += "Total: " + getTotal();
     return output;
 }
 

@@ -2,18 +2,9 @@
 #define Customer_H
 #include "EmotionState.h"
 #include "OrderProcessState.h"
-#include "Happy.h"
-#include "Ordering.h"
-#include "Preorder.h"
-#include "Waiting.h"
-#include "Satisfied.h"
-#include "Disgruntaled.h"
-#include "DinnerDone.h"
-#include "Disgruntaled.h"
-#include "OrderReceived.h"
 #include "Order.h"
-#include "Frustrated.h"
 #include "gameElement.h"
+#include "Pizza.h"
 #include "Tab.h"
 #include <iostream>
 #include <memory>
@@ -25,17 +16,18 @@ class Customer : public enable_shared_from_this<Customer>, public gameElement
 {
 private:
     int ID;
-    std::shared_ptr<EmotionState> mood;
-    std::shared_ptr<OrderProcessState> orderProcess;
+    std::shared_ptr<EmotionState> mood = std::make_shared<EmotionState>();
+    std::shared_ptr<OrderProcessState> orderProcess = std::make_shared<OrderProcessState>();
     int bankAccountAmount;
-    std::shared_ptr<Tab> tab;
+    std::shared_ptr<Tab> tab = nullptr;
     int tableNum;
+    std::shared_ptr<Pizza> pizza = nullptr;
     std::vector<std::shared_ptr<Order>> orders;
 
 public:
-    Customer();
+    Customer(int, int);
     Customer(std::shared_ptr<EmotionState>, int);
-    void get();
+    gameElement *get();
     void changed();
     void set();
     void changeMood();
@@ -55,10 +47,10 @@ public:
     std::shared_ptr<EmotionState> getMood();
     std::shared_ptr<OrderProcessState> getOrderProcessState();
     std::vector<std::shared_ptr<Order>> getOrders();
-    bool receiveOrder(std::vector<std::shared_ptr<Order>>);
+    bool receiveOrder(std::shared_ptr<Pizza>);
     std::string printCustomer();
     bool hasOrdered = false;
     bool hasBill = false;
-    bool hasFood = false;
+    bool hasFood();
 };
 #endif
