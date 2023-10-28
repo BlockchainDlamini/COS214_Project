@@ -7,7 +7,7 @@ std::string Tab::listOutstandingOrders()
     string output = "";
     for (shared_ptr<OrderMemento> order : tab)
     {
-        output += "Order ID: " + to_string(order->getID()) + "Price: " + to_string(order->getPrice()) + "\n";
+        output += "Order ID: " + to_string(order->getID()) + "\n";
     }
     output += "Total: " + getTotal();
     return output;
