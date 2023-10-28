@@ -2,7 +2,7 @@
 #include "Kitchen.h"
 #include "iterator.h"
 
-regularWaiter::regularWaiter(string name, vector<tables> assignedTables, Kitchen kitchen) {
+regularWaiter::regularWaiter(string name, vector<shared_ptr<table>> assignedTables, Kitchen kitchen) {
     this->name=name;
     this->assignedTables=assignedTables;
     this->kitchen = kitchen
@@ -11,6 +11,8 @@ regularWaiter::regularWaiter(string name, vector<tables> assignedTables, Kitchen
 void regularWaiter::assignTable(shared_ptr<table> table)
 {
     tables.push_back(table);
+    std::cout << name << " has been assigned table number " << table->getNum() << std::endl;
+    //ADD getNum() to table class
 }
 
 void regularWaiter::assignCustomer(std::shared_ptr<Customer> customer) {
@@ -18,25 +20,26 @@ void regularWaiter::assignCustomer(std::shared_ptr<Customer> customer) {
     std::cout << name << " has been assigned to serve Customer " << customer->getID() << std::endl;
 }
 
-void regularWaiter::takeOrder(Customer& customer, const Order& order) {
+void regularWaiter::takeOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order) {
     cout << name << " takes the order down from Customer " << customer.getID() << endl;
     communicateWithKitchen(order);
 }
 
-void regularWaiter::bringOrder(Customer& customer, const Order& order) {
+void regularWaiter::bringOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order) {
     cout << name << " brings the order to Customer " << customer.getID() << endl;
     pickUpOrderFromKitchen(order);
     customer.getOrder(order);
 }
 
 // to send the order to the kitchen
-void regularWaiter::communicateWithKitchen(const Order& order) {
+void regularWaiter::communicateWithKitchen(std::shared_ptr<Order> order) {
     kitchen.receiveOrder(order);
     cout << name << " communicates the order to the kitchen." << endl;
 }
 
+// only when notified by kitchen
 // pick up the order from the kitchen
-void regularWaiter::pickUpOrderFromKitchen(const Order& order) {
+void regularWaiter::pickUpOrderFromKitchen(std::shared_ptr<Order> order) {
     kitchen.prepareOrder(order);
     cout << name << " picks up the order from the kitchen." << endl;
 }

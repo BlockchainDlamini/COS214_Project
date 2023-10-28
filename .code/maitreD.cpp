@@ -14,25 +14,25 @@ void maitreD::assignCustomer(std::shared_ptr<Customer> customer) {
 }
 
 
-void regularWaiter::takeOrder(Customer& customer, const Order& order) {
+void regularWaiter::takeOrder(Customer& customer, std::shared_ptr<Order> order) {
     cout << name << " takes the order down from Customer " << customer.getID() << endl;
     communicateWithKitchen(order);
 }
 
-void regularWaiter::bringOrder(Customer& customer, const Order& order) {
+void regularWaiter::bringOrder(Customer& customer, std::shared_ptr<Order> order) {
     cout << name << " brings the order to Customer " << customer.getID() << endl;
     pickUpOrderFromKitchen(order);
     customer.getOrder(order);
 }
 
 // to send the order to the kitchen
-void regularWaiter::communicateWithKitchen(const Order& order) {
+void regularWaiter::communicateWithKitchen(std::shared_ptr<Order> order) {
     kitchen.receiveOrder(order);
     cout << name << " communicates the order to the kitchen." << endl;
 }
 
 // pick up the order from the kitchen
-void regularWaiter::pickUpOrderFromKitchen(const Order& order) {
+void regularWaiter::pickUpOrderFromKitchen(std::shared_ptr<Order> order) {
     kitchen.prepareOrder(order);
     cout << name << " picks up the order from the kitchen." << endl;
 }

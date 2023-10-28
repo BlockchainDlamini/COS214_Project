@@ -23,11 +23,11 @@ public:
     void mergeTables();
 
     void assignCustomer(shared_ptr<Customer> customer);
-    void takeOrder(shared_ptr<Customer> customer, const Order& order);
-    void bringOrder(shared_ptr<Customer> customer, const Order& order);
+    void takeOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order);
+    void bringOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order);
     
-    void communicateWithKitchen(const Order& order);
-    void pickUpOrderFromKitchen(const Order& order);
+    void communicateWithKitchen(std::shared_ptr<Order> order);
+    void pickUpOrderFromKitchen(std::shared_ptr<Order> order);
     void processPayment(shared_ptr<Customer> customer);
 
 
