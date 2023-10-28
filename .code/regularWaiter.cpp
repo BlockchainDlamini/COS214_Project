@@ -1,60 +1,162 @@
 #include "regularWaiter.h"
-#include "Kitchen.h"
-#include "iterator.h"
 
-regularWaiter::regularWaiter(string name, vector<shared_ptr<table>> assignedTables, Kitchen kitchen) {
-    this->name=name;
+regularWaiter::regularWaiter(int Id, vector<shared_ptr<table>> assignedTables) {
+    this->Id=Id;
     this->assignedTables=assignedTables;
-    this->kitchen = kitchen
 }
 
 void regularWaiter::assignTable(shared_ptr<table> table)
 {
     tables.push_back(table);
-    std::cout << name << " has been assigned table number " << table->getNum() << std::endl;
+    std::cout << Id << " has been assigned table number " << table->getNum() << std::endl;
     //ADD getNum() to table class
 }
 
-void regularWaiter::assignCustomer(std::shared_ptr<Customer> customer) {
-    assignedCustomers.push_back(customer);
-    std::cout << name << " has been assigned to serve Customer " << customer->getID() << std::endl;
+
+void regularWaiter::takeOrder(int tableId) {
+    this->tableID = tableId;
+    // iterate through this waiters tables' customers
+    string command = getOperation();
+
+    if(command == "make Order"){ // then proceed to take the order
+
+        for (const auto& table : assignedTables) {
+            // only get the orders of the specific table that wants to order
+            if (table->getTableId() == tableId) {
+
+                vector<shared_ptr<Customer>> customers = table->getCustomers();
+                for (const auto& customer : customers) {
+                    vector<Order> customerOrders = customer->getOrders();
+                    ordersForATable.insert(ordersForATable.end(), customerOrders.begin(), customerOrders.end());
+                }
+                
+            }
+        }
+
+        // then send the vector of orders (with waiter id) to the kitchen - to the mediator
+        // Mediator
+        forKitchen = make_pair{Id, ordersForATable};
+
+        setOperation("sendToKitchen");
+        changed();
+    }
+
 }
 
-void regularWaiter::takeOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order) {
-    cout << name << " takes the order down from Customer " << customer.getID() << endl;
-    communicateWithKitchen(order);
+
+pair <int, vector<shared_ptr<orders>>> regularWaiter::getForKitchen(){
+    return forKitchen;
 }
 
-void regularWaiter::bringOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order) {
-    cout << name << " brings the order to Customer " << customer.getID() << endl;
-    pickUpOrderFromKitchen(order);
-    customer.getOrder(order);
-}
 
-// to send the order to the kitchen
-void regularWaiter::communicateWithKitchen(std::shared_ptr<Order> order) {
-    kitchen.receiveOrder(order);
-    cout << name << " communicates the order to the kitchen." << endl;
-}
+void regularWaiter::takeOrderToTable(vector<shared_ptr<pizza>> pizzasForTable) {
+    this->pizzasForTable = pizzasForTable;
+    // iterate through this waiters tables' customers
+    string command = getOperation();
 
-// only when notified by kitchen
-// pick up the order from the kitchen
-void regularWaiter::pickUpOrderFromKitchen(std::shared_ptr<Order> order) {
-    kitchen.prepareOrder(order);
-    cout << name << " picks up the order from the kitchen." << endl;
-}
+    if(command == "Take to Customer"){ // then proceed to hand out the order
 
-void regularWaiter::processPayment(Customer& customer) {
-    //send bill to the customer
-    //payBill can be P or T
-    // bool paid = customer.sendBill(amountOfBill);
+        for (const auto& table : assignedTables) {
+            // only get the orders of the specific table that wants to order
+            if (table->getTableId() == this->tableID) {
 
-    // if (paid) {
-    //     cout << name << " processes the payment for Customer " << customer.getID() << endl;
-    //     cout << name << " payment successful " << customer.getID() << endl;
-    // } else {
-    //     cout << "Payment processing failed for Customer " << customer.getID() << endl;
-    // }
+                vector<shared_ptr<Customer>> customers = table->getCustomers();
+                for (int r = 0; r < customers.size(); r++) {
+
+                    cout << "Customer: " << customers[r]->getName() << " received order." << endl;
+
+                    // pizza.tostring();
+                    // cout << pizza->getOrders() << endl;
+
+                }
+                
+            }
+        }
+
+    }
+
+} 
+
+void::regularWaiter::payBill(){
+    // use mediator to
+    // pizza obj will have the price - not the order
+
+
+    // get full total of the bill
+    int orderAmount;
+    for (const auto& table : assignedTables) {
+        if (table->getTableId() == this->tableID) {
+            vector<shared_ptr<Customer>> customers = table->getCustomers();
+            // iterate through
+            // for (const auto& customer : customers) {
+            //     orderAmount += customer->getOrders()->orderAmount();
+            // }
+            for (const auto& pizza : pizzasForTables) {
+                orderAmount += pizza->getTotal();
+            }    
+        }
+    }
+
+
+    // terminal get if split
+    string splitChoice;
+
+    cout << "Would you like to split the bill? (yes/no): ";
+    cin >> splitChoice;
+
+    // ----------------------------------- if splitting bill -----------------------------------
+    if(splitChoice == "yes"){
+        // then the head of the table must pay
+        cout << "Full amount payable: " << orderAmount;
+        for (const auto& table : assignedTables) {
+            if (table->getTableId() == this->tableID) {
+                vector<shared_ptr<Customer>> customers = table->getCustomers();
+
+                for (const auto& customer : customers) {
+
+                    string tabChoice;
+
+                    cout << "Would you like to put the bill on your tab? (yes/no): ";
+                    cin >> tabChoice;
+
+                    if(tabChoice == "yes"){
+                        if(customer->isLoyal()){
+                            cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
+                            customer->payBill('T');
+                        }
+                        else{
+                            customer->startTab();
+                            cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
+                            customer->payBill('T');
+                        }
+                        
+                    }
+                    else{
+                        cout << "Paying the bill of amount: " << orderAmount << endl;
+                        customer->payBill('P');
+                    }
+                }
+
+            }
+        }
+    }
+    else{
+        // ----------------------------------- if NOT splitting bill -----------------------------------
+        int orderAmount;
+        for (const auto& table : assignedTables) {
+
+            if (table->getTableId() == this->tableID) {
+
+                vector<shared_ptr<Customer>> customers = table->getCustomers();
+
+                cout<< "Customer " << customer->getID() << " amount due: " << customer->getOrders()->orderAmount() << endl;
+                customer[0]->pay('P');// orderAmount
+                        
+            }
+        }
+    }
+    
+    
 }
 
 void regularWaiter::get() {

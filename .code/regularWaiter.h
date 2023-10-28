@@ -1,39 +1,33 @@
 #ifndef REGULARWAITER_H
 #define REGULARWAITER_H
 
-#include "Waiter.h"
+#include <vector>
+#include <memory>
+#include <string>
 #include "table.h"
-
-#include <iostream>
-
-using namespace std;
+#include "Waiter.h"
 
 class regularWaiter : public Waiter {
-private:
-    // tables that this specific waiter waiters
-    vector<shared_ptr<table>> assignedTables;
 public:
+    regularWaiter(int Id, std::vector<std::shared_ptr<table>> assignedTables);
+    void assignTable(std::shared_ptr<table> table);
+    void takeOrder(int tableId);
+    std::pair<int, std::vector<std::shared_ptr<orders>>> getForKitchen();
+    void takeOrderToTable(std::vector<std::shared_ptr<pizza>> pizzasForTable);
+    void payBill();
     
-
-    Kitchen kitchen;
-    string name;
-
-    regularWaiter(string name, vector<shared_ptr<table>> assignedTables, Kitchen kitchen);
-
-    void assignTable(shared_ptr<table> table);
-
-    void assignCustomer(shared_ptr<Customer> customer);
-    void takeOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order);
-    void bringOrder(shared_ptr<Customer> customer, std::shared_ptr<Order> order);
-    
-    void communicateWithKitchen(std::shared_ptr<Order> order);
-    void pickUpOrderFromKitchen(std::shared_ptr<Order> order);
-    void processPayment(shared_ptr<Customer> customer);
-
     void get();
     void changed();
-    void set();
+    void set(string op);
 
+private:
+    std::vector<shared_ptr<pizza>> pizzasForTables;
+    int Id;
+    std::vector<std::shared_ptr<table>> assignedTables;
+    // std::vector<std::shared_ptr<table>> tables;
+    int tableID;
+    std::vector<shared_ptr<orders>> ordersForATable;
+    std::pair<int, std::vector<std::shared_ptr<orders>>> forKitchen;
 };
 
-#endif //REGULARWAITER_H
+#endif  // REGULARWAITER_H
