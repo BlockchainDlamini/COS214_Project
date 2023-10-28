@@ -185,7 +185,10 @@ std::string Customer::printCustomer()
     std::string output = "CustomerID: [" + to_string(ID) + "] Mood: [" + mood->getEmotion() + "] Table Number: [" + to_string(tableNum) + "] Bank Account Amount: [" + to_string(bankAccountAmount) + "]" + " Order Status: " + orderProcess->stateName;
     return output;
 }
-
+int Customer::getID()
+{
+    return ID;
+}
 bool Customer::hasFood()
 {
     if (pizza != nullptr)

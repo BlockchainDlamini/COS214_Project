@@ -177,6 +177,8 @@ public:
      */
     std::string printCustomer();
 
+    int getID();
+
     bool hasOrdered = false; /**< A flag indicating whether the customer has placed an order. */
     bool hasBill = false; /**< A flag indicating whether the customer has a bill. */
 
