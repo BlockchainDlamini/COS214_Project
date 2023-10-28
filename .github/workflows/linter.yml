@@ -18,11 +18,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_CPP: true
-          DEFAULT_BRANCH: "main"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: cpplint
+        on: [ push, pull_request ]
+        jobs:
+        cpplint:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - uses: actions/setup-python@v1
+        - run: pip install cpplint
+        - run: cpplint --linelength=200 --filter=-whitespace,-whitespace/braces,-legal/copyright,-build/include_what_you_use --quiet --extensions=h,cpp,hpp $( find . -name \*.h -or -name \*.cc | grep -vE "^\.\/build\/" )
