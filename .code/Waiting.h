@@ -10,7 +10,7 @@ public:
         stateName = "Waiting";
     }
     void execute();
-    void handleChange();
+    void handleChange(std::shared_ptr<Customer>);
     std::shared_ptr<Customer> getState();
 };
 #endif

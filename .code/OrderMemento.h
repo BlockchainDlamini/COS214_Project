@@ -1,6 +1,7 @@
 #ifndef OrderMemento_H
 #define OrderMemento_H
 #include "Order.h"
+#include <memory>
 class OrderMemento : public enable_shared_from_this<OrderMemento>
 {
 private:

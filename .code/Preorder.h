@@ -10,7 +10,7 @@ public:
         stateName = "Preorder";
     }
     void execute();
-    void handleChange();
-    std::shared_ptr<Customer> getState();
+    void handleChange(std::shared_ptr<Customer>);
+   // std::shared_ptr<Customer> getState();
 };
 #endif

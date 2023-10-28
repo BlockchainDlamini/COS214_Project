@@ -2,6 +2,7 @@
 #define Tab_H
 #include "OrderMemento.h"
 #include <string>
+#include <memory>
 class Tab
 {
 private:
