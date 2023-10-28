@@ -1,32 +1,36 @@
-#ifndef FLOOR_H
+#ifndef FLOOR_H 
 #define FLOOR_H
 
-#include <vector>
 #include <memory>
 #include "floorComponent.h"
+#include "table.h"
+#include "floorComposite.h"
+#include "gameElement.h"
+#include "iterator.h"
+#include "breadthFirstIterator.h"
+#include "depthFirstIterator.h"
+#include <iostream>
+#include <vector>
 
-class myFloor: public floorComponent
+class floor: public gameElement
 {
-    protected:
-        std::vector<std::shared_ptr<floorComponent>> next;
-        int number;
-
+    private:
+        std::shared_ptr<floorComponent> myFloor;
+        int sideLenght;
+        void merdgeTile(int);
+        void unmerdgeTiles();
     public:
-        myFloor(int);
-        void add(std::shared_ptr<floorComponent>);
-        void remove(std::shared_ptr<floorComponent>);
-        std::shared_ptr<floorComponent> getChild(int);
-        int getNumChildren();
-        int getIndexOfChild(std::shared_ptr<floorComponent>);
-        void setCurrentChild(int);
-        int getCurretnChild();
-        std::shared_ptr<myIterator> getDepthIterator();
-        std::shared_ptr<myIterator> getBreadthIterator();
-        std::string toString();
-        //void acceptVisitor(std::shared_ptr<maitreD>);
-        virtual ~myFloor();    
-
+        floor(int);
+        bool hasSpace(int);
+        bool seatCustomer(std::vector<std::shared_ptr<customer>>);
+        void printBreadth();
+        void printDepth();
+        //get bill functions need to be added. How will bills be returned
+        void changed(){};
+        void set(){};
+        void get(){};
+        ~floor();
 };
 
-#endif
 
+#endif

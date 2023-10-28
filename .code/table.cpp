@@ -1,9 +1,9 @@
 #include "table.h"
 
-table::table(int num)
+table::table(int num, int spce)
 {
-    space=0;
-    number = num;
+    space=spce;
+    tableNumber = num;
 }
 
 void table::add(std::shared_ptr<floorComponent>) //Comply with interface
@@ -45,21 +45,6 @@ int table::getNumChildren()
     return 0;
 }
 
-int table::getIndexOfChild(std::shared_ptr<floorComponent>)
-{
-    return -1;
-}
-
-void table::setCurrentChild(int)
-{
-    currentChild = -1;
-}
-
-int getCurretnChild()
-{
-    return -1;
-}
-
 std::shared_ptr<myIterator> table::getDepthIterator()
 {
     currentChild = -1;
@@ -72,14 +57,16 @@ std::shared_ptr<myIterator> table::getBreadthIterator()
     return nullptr;
 }
 
-/*void table::acceptVisitor(std::shared_ptr<maitreD> visitor)
+int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 {
-
-}*/
+    if(isSpaceAvailable)
+        return visitor->visitTable(std::make_shared<table>(this));
+    return 0;
+}
 
 std::string table::toString()
 {
-    return "This is table number: " + number;
+    return "This is table number: " + tableNumber;
 }
 
 table::~table()

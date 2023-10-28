@@ -9,16 +9,14 @@ class table: public floorComponent
 {
     private:
         std::vector<std::shared_ptr<floorComponent>> customers;
-        int space, number;
+        int space, tableNumber;
+        bool isSpaceAvailable;
     public:
-        table(int);
+        table(int, int);
         void add(std::shared_ptr<floorComponent>);
         void remove(std::shared_ptr<floorComponent>);
         std::shared_ptr<floorComponent> getChild(int);
         int getNumChildren();
-        int getIndexOfChild(std::shared_ptr<floorComponent>);
-        void setCurrentChild(int);
-        int getCurretnChild();
         std::shared_ptr<myIterator> getDepthIterator();
         std::shared_ptr<myIterator> getBreadthIterator();
         void newCustomers(std::vector<std::shared_ptr<floorComponent>>);
@@ -26,7 +24,7 @@ class table: public floorComponent
         int spaceAvailable();
         void setSpace(int);
         std::string toString();
-        //void acceptVisitor(std::shared_ptr<maitreD>);
+        int acceptVisitor(std::shared_ptr<visitor>);
         ~table();
 };
 

@@ -1,92 +1,103 @@
 #include "floor.h"
-#include "depthFirstIterator.h"
-#include "breadthFirstIterator.h"
+#include "findSpaceVisitor.h"
 
-myFloor::myFloor(int num)
+
+floor::floor(int size)
 {
-    number = num;
-}
+    sideLenght = size;
+    myFloor = std::make_shared<floorComponent>(compositeFloor(0));
 
-void myFloor::add(std::shared_ptr<floorComponent> newUnit)
-{
-    next.push_back(newUnit);
-}
-
-void myFloor::remove(std::shared_ptr<floorComponent> unit)
-{
-    std::vector<std::shared_ptr<floorComponent>>::iterator it = next.begin();
-    bool found = false;
-
-    while(it!=next.end() && !found)
+    for (int i = 0; i < 4; i++)
     {
-        if(*it == unit)
+        for (int x = 0; x < size; i++)
         {
-            found = true;
-            next.erase(it);
+            std::shared_ptr<floorComponent> tile = std::make_shared<floorComponent>(compositeFloor(1+i));
+            std::shared_ptr<floorComponent> tb = std::make_shared<floorComponent>(table(1+i));
+            tile->add(tb);
+            myFloor->add(tile);
         }
-        ++it;
-    } 
+    }
 }
 
-std::shared_ptr<floorComponent> myFloor::getChild(int i)
+bool floor::hasSpace(int amount) 
 {
-    return next[i];
-}
+    std::shared_ptr<myIterator> it = myFloor->getDepthIterator();
+    std::shared_ptr<visitor> visit = std::make_shared<visitor>(new findSpaceVisitor());
 
-int myFloor::getIndexOfChild(std::shared_ptr<floorComponent> child)
-{
-    std::vector<std::shared_ptr<floorComponent>>::iterator it = next.begin();
-    int count = 0;
-
-    while(it!=next.end())
+    while(it->hasNext())
     {
-        if(*it == child)
+        if(it->currentItem()->acceptVisitor(visit)>=amount)
+            return true;
+        it->next();
+    }
+    return false;
+}
+
+bool floor::seatCustomer(std::vector<std::shared_ptr<customer>> customers)
+{
+    if(hasSpace(customers->size()))
+    {
+
+    }
+    else
+        return false;
+}
+
+void floor::merdgeTile(int amount)
+{
+    std::shared_ptr<myIterator> curr = myFloor->getDepthIterator();
+    std::shared_ptr<myIterator> prev = myFloor->getDepthIterator();
+    std::shared_ptr<visitor> visit = std::make_shared<visitor>(new findSpaceVisitor());
+    std::queue<std::shared_ptr<floorComponent>> tables;
+    std::queue<std::shared_ptr<floorComponent>> tiles;
+    int temp;
+
+    curr->next();
+    //Finding the tables to merdge
+    while(curr->hasNext() && amount>0)
+    {
+        temp = curr->currentItem()->acceptVisitor(visit);
+        if(temp>0)
         {
-            return count;
+            tables.push(curr->currentItem());
+            tiles.push(prev->currentItem());
+            amount-=temp;
         }
-        ++it;
-        ++count;
-    } 
+        curr->next();
+        prev->next();
+    }
 
-    return -1;
-}
-std::shared_ptr<myIterator> myFloor::getDepthIterator()
-{
-    currentChild = 0;
-    return  std::make_shared<myIterator>(depthFirstIterator(std::make_shared<floorComponent>(this)));
+    
+
+
+
 }
 
-std::shared_ptr<myIterator> myFloor::getBreadthIterator()
+void floor::unmerdgeTiles()
 {
-    currentChild = 0;
-    return  std::make_shared<myIterator>(breadthFirstIterator(std::make_shared<floorComponent>(this)));
+
 }
 
-int myFloor::getNumChildren()
+void floor::printBreadth()
 {
-    return next.size();
+    std::shared_ptr<myIterator> it = myFloor->getBreadthIterator();
+    while(it->hasNext())
+    {
+        std::cout<<it->currentItem()<<std::endl;
+        it->next();
+    }
 }
 
-void myFloor::setCurrentChild(int indx)
+void floor::printDepth()
 {
-    currentChild = indx;
+    std::shared_ptr<myIterator> it = myFloor->getDepthIterator();
+    while(it->hasNext())
+    {
+        std::cout<<it->currentItem()<<std::endl;
+        it->next();
+    }
 }
 
-int myFloor::getCurretnChild()
-{
-    return currentChild;
-}
-
-std::string myFloor::toString()
-{
-    return "This is a floor piece number: " + number;
-}
-
-/*void acceptVisitor(std::shared_ptr<maitreD> visitor)
-{
-
-}*/
-
-myFloor::~myFloor()
+floor::~floor()
 {
 }
