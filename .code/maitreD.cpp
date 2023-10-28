@@ -10,6 +10,7 @@ maitreD::maitreD(string name, vector<tables> assignedTables) {
 }
 
 void regularWaiter::get() {
+    return *this;
 }
 
 void regularWaiter::changed() {

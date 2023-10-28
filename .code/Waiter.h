@@ -24,12 +24,28 @@ using namespace std;
 class Waiter : public gameElement {
 public:
     /**
-     * @brief Get, Set and changer for Mediator
+     * @brief Get function for Mediator.
+     * @details This function is used to get information from the Mediator.
      */
     virtual void get() = 0;
+
+    /**
+     * @brief Changed function for Mediator.
+     * @details This function is called when the Mediator needs to notify the Waiter of a change.
+     */
     virtual void changed() = 0;
+
+    /**
+     * @brief Set function for Mediator.
+     * @param op The operation to be performed by the Mediator.
+     * @details This function is used to send a request to the Mediator with a specified operation.
+     */
     virtual void set(string op) = 0;
 
+    /**
+     * @brief Destructor for the Waiter class.
+     * @details This virtual destructor is provided for proper cleanup when derived classes are destroyed.
+     */
     virtual ~Waiter() {};
 };
 

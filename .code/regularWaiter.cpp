@@ -131,7 +131,7 @@ void::regularWaiter::payBill(){
         cout << "Full amount payable: " << orderAmount;
 
         float floatValue = std::stof(orderAmount);
-        
+
         cout<< "Customer " << customer->getID() << " amount due: " << customer->getOrders()->orderAmount() << endl;
         customer[0]->pay(floatValue, 'P');// orderAmount
 
@@ -141,6 +141,7 @@ void::regularWaiter::payBill(){
 }
 
 void regularWaiter::get() {
+    return *this;
 }
 
 void regularWaiter::changed() {
