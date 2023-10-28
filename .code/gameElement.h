@@ -6,18 +6,32 @@
 #define CODE_GAMEELEMENT_H
 
 #include <memory>
+#include <utility>
+#include <string>
+#include <iostream>
 
-//#include "gameEngine.h" //This will be uncommented soon
-class gameEngine;
+using namespace std;
+class Mediator;
 
-class gameElement {
+class gameElement: public enable_shared_from_this<gameElement> {
 public:
     gameElement();
-    explicit gameElement(const std::shared_ptr<gameEngine> &myGameEngine);
+    gameElement(const std::shared_ptr<Mediator> &myGameEngine);
+    gameElement(const std::shared_ptr<Mediator> &myGameEngine,int id);
     virtual ~gameElement();
-    void setGameEngine(const std::shared_ptr<gameEngine> &gameEngine);
-private:
-    std::shared_ptr<gameEngine> myGameEngine= nullptr;
+    void setGameEngine(const std::shared_ptr<Mediator> &gameEngine);
+    void setMyGameEngine(const shared_ptr<Mediator> &myGameEngine);
+    int getMyId() const;
+    void setMyId(int myId);
+
+    //Communication functions
+    virtual void changed();
+    virtual string get();
+    virtual void setOperation(string op);
+protected:
+    std::shared_ptr<Mediator> gameEngine;
+    int myID;
+    string operation;
 };
 
 
