@@ -1,7 +1,8 @@
-#ifndef Customer_H
-#define Customer_H
+#ifndef CUSTOMER_H
+#define CUSTOMER_H
 #include "EmotionState.h"
 #include "OrderProcessState.h"
+#include "Preorder.h"
 #include "Order.h"
 #include "gameElement.h"
 #include "Pizza.h"
@@ -10,15 +11,15 @@
 #include <memory>
 #include <vector>
 using namespace std;
-class OrderProcessState;
-class EmotionState;
+// class OrderProcessState;
+// class EmotionState;
 class Customer : public enable_shared_from_this<Customer>, public gameElement
 {
 private:
     int ID;
-    std::shared_ptr<EmotionState> mood = std::make_shared<EmotionState>();
-    std::shared_ptr<OrderProcessState> orderProcess = std::make_shared<OrderProcessState>();
-    int bankAccountAmount;
+    std::shared_ptr<EmotionState> mood = nullptr;
+    std::shared_ptr<OrderProcessState> orderProcess = make_shared<Preorder>();
+    float bankAccountAmount;
     std::shared_ptr<Tab> tab = nullptr;
     int tableNum;
     std::shared_ptr<Pizza> pizza = nullptr;
@@ -34,7 +35,7 @@ public:
     void changedOrderProcessState();
     void setID(int);
     void requestBill();
-    bool payBill(char c); // if the passed in char is P, the customer will pay. If it is T the customer wants to add to the Tab.
+    bool payBill(char c,float t); // if the passed in char is P, the customer will pay. If it is T the customer wants to add to the Tab.
     bool isLoyal();
     void startTab();
     void payTab();

@@ -37,19 +37,23 @@ void Customer::requestBill()
 {
     // needs to tell the waiter that they want the bill
 }
-bool Customer::payBill(char c) // returns true if the customer has either paid or added the bill to a tab
+bool Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
 {
-    int total = 0;
+    float total = t;
     if (hasBill == true)
     {
-        if (c == 'P')
+        if (c == 'P' || c == 'p')
         {
-            for (std::shared_ptr<Order> order : orders)
+            if (bankAccountAmount < total)
             {
-                if (order != nullptr)
-                {
-                    total += order->getPrice();
-                }
+                cout << "Customer cannot pay the bill, insufficient funds" << endl;
+                return false;
+            }
+            else
+            {
+                float tip = total + (total * mood->getTip());
+                bankAccountAmount = bankAccountAmount - (total + tip);
+                return true;
             }
         }
         else if (c == 'T' && isLoyal() == true) // has a tab and wants to add to tab
@@ -86,18 +90,6 @@ bool Customer::payBill(char c) // returns true if the customer has either paid o
         cout << "Customer has not received the bill from the waiter" << endl;
         return false;
     }
-
-    if (bankAccountAmount < total)
-    {
-        cout << "Customer cannot pay the bill, insufficient funds" << endl;
-        return false;
-    }
-    else
-    {
-        int tip = total + (total * mood->getTip());
-        bankAccountAmount = bankAccountAmount - (total + tip);
-        return true;
-    }
 }
 bool Customer::isLoyal()
 {
@@ -113,7 +105,7 @@ bool Customer::isLoyal()
 void Customer::startTab()
 {
     tab = std::make_shared<Tab>();
-    cout << "CustomerID: " + to_string(ID) + " has created a new tab" << endl;
+    cout << "CustomerID: [" + to_string(ID) + "] has created a new tab" << endl;
 }
 void Customer::payTab()
 {
@@ -121,23 +113,29 @@ void Customer::payTab()
     {
         bankAccountAmount - tab->getTotal();
         tab->clearTab();
-        cout << "CustomerID: " + to_string(ID) + " has cleared his tab" << endl;
+        cout << "CustomerID: [" + to_string(ID) + " has cleared his tab" << endl;
     }
 }
 string Customer::printBill()
 {
     string output = "";
-    output += "CustomerID: " + to_string(ID) + "Bank Account Amount: " + to_string(bankAccountAmount) + "Orders: ";
-    for (shared_ptr<Order> order : orders)
+    if (hasBill == true)
     {
-        output += "OrderID: " + to_string(order->getOrderID()) + "Price: " + to_string(order->getPrice());
+
+        output += "CustomerID: [" + to_string(ID) + "] Bank Account Amount: [R" + to_string(bankAccountAmount) + "] Tip Percentage: [" + to_string(mood->getTip()) + "] \nOrders: " + "\n";
+        for (shared_ptr<Order> order : orders)
+        {
+            output += "OrderID: [" + to_string(order->getOrderID()) + "] Price: [" + to_string(order->getPrice()) + "] \n";
+        }
     }
+    output = "CustomerID [" + to_string(ID) + "]  has not received the bill yet\n";
     return output;
 }
 void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> commands)
 {
     std::shared_ptr<Order> order = make_shared<Order>(orderID, commands);
     orders.push_back(order);
+    std::cout << "Order: " + to_string(orderID) + " has been added" << endl;
 }
 
 void Customer::beSeated(int tableNum)
@@ -174,17 +172,25 @@ std::vector<std::shared_ptr<Order>> Customer::getOrders()
 
 bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
 {
-    this->pizza = pizza;
+    if (pizza != nullptr)
+    {
+        this->pizza = pizza;
+        return true;
+    }
+    return false;
 }
 
 std::string Customer::printCustomer()
 {
-    std::string output = "CustomerID: " + to_string(ID) + "Mood: " + mood->getEmotion() + "Table Number: " + to_string(tableNum) + "Bank Account Amount: " + to_string(bankAccountAmount);
+    std::string output = "CustomerID: [" + to_string(ID) + "] Mood: [" + mood->getEmotion() + "] Table Number: [" + to_string(tableNum) + "] Bank Account Amount: [" + to_string(bankAccountAmount) + "]" + " Order Status: " + orderProcess->stateName;
     return output;
 }
 
-bool Customer::hasFood(){
-    if(pizza != nullptr){
+bool Customer::hasFood()
+{
+    if (pizza != nullptr)
+    {
         return true;
-    }return false;
+    }
+    return false;
 }
