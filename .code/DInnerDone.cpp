@@ -2,7 +2,7 @@
 void DinnerDone::execute(){
     context->requestBill();
 }
-void DinnerDone::handleChange(){
+void DinnerDone::handleChange(std::shared_ptr<Customer> context){
 
 }
 
