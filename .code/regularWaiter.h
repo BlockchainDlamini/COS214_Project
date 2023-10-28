@@ -10,10 +10,10 @@ using namespace std;
 
 class regularWaiter : public Waiter {
 private:
+    // tables that this specific waiter waiters
     vector<shared_ptr<table>> assignedTables;
 public:
-    // tables that this specific waiter waiters
-    // vector<table> assignedTables; // tables has a vector<Customers>
+    
 
     Kitchen kitchen;
     string name;
