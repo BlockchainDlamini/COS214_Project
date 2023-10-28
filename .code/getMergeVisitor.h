@@ -1,18 +1,18 @@
-#ifndef FINDSPACEVISITOR_H
-#define FINDSPACEVISITOR_H
+#ifndef GETMERGEVISITOR_H
+#define GETMERGEVISITOR_H
 
 #include "floorComponent.h"
 #include "floorComposite.h"
 #include "table.h"
 #include <memory>
 
-class findSpaceVisitor: public visitor
+class getMergeVisitor: public visitor
 {
     public:
-        findSpaceVisitor():visitor(){};
+        getMergeVisitor():visitor(){};
         int visitTable(std::shared_ptr<table>);
         int visitTile(std::shared_ptr<floorComposite>);
-        ~findSpaceVisitor(){};
+        ~getMergeVisitor(){};
 };
 
 #endif

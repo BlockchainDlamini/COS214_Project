@@ -60,6 +60,8 @@
         "queue": "cpp",
         "ranges": "cpp",
         "span": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "set": "cpp",
+        "xtree": "cpp"
     }
 }

@@ -10,13 +10,17 @@ class table: public floorComponent
     private:
         std::vector<std::shared_ptr<floorComponent>> customers;
         int space, tableNumber;
-        bool isSpaceAvailable;
+        bool isSpaceAvailable, isVisible, isMerged;
     public:
         table(int, int);
         void add(std::shared_ptr<floorComponent>);
         void remove(std::shared_ptr<floorComponent>);
         std::shared_ptr<floorComponent> getChild(int);
         int getNumChildren();
+        bool getIsVisible();
+        void setIsVisible(bool);
+        bool getIsMerged();
+        void setIsMerged(bool);
         std::shared_ptr<myIterator> getDepthIterator();
         std::shared_ptr<myIterator> getBreadthIterator();
         void newCustomers(std::vector<std::shared_ptr<floorComponent>>);

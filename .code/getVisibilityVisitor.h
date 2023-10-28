@@ -1,18 +1,18 @@
-#ifndef FINDSPACEVISITOR_H
-#define FINDSPACEVISITOR_H
+#ifndef GETVISIBILITYVISITOR_h
+#define GETVISIBILITYVISITOR_h
 
 #include "floorComponent.h"
 #include "floorComposite.h"
 #include "table.h"
 #include <memory>
 
-class findSpaceVisitor: public visitor
+class getVisibilityVisitor: public visitor
 {
     public:
-        findSpaceVisitor():visitor(){};
+        getVisibilityVisitor():visitor(){};
         int visitTable(std::shared_ptr<table>);
         int visitTile(std::shared_ptr<floorComposite>);
-        ~findSpaceVisitor(){};
+        ~getVisibilityVisitor(){};
 };
 
 #endif

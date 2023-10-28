@@ -4,6 +4,8 @@ table::table(int num, int spce)
 {
     space=spce;
     tableNumber = num;
+    isVisible = true;
+    isMerged = false;
 }
 
 void table::add(std::shared_ptr<floorComponent>) //Comply with interface
@@ -15,11 +17,23 @@ void table::remove(std::shared_ptr<floorComponent>)//Comply with interface
 void table::newCustomers(std::vector<std::shared_ptr<floorComponent>> newCustomers)
 {
     customers = newCustomers;
+    isVisible=false;
 }
 
 void table::removeCustomers()
 {
     customers.clear();
+    isVisible = true;
+}
+
+bool table::getIsVisible()
+{
+    return isVisible;
+}
+
+void table::setIsVisible(bool vis)
+{
+    isVisible = vis;
 }
 
 int table::spaceAvailable()
@@ -28,6 +42,16 @@ int table::spaceAvailable()
         return space;
 
     return 0;
+}
+
+bool table::getIsMerged()
+{
+    return isMerged;
+}
+
+void table::setIsMerged(bool merge)
+{
+    isMerged = merge;
 }
 
 void table::setSpace(int spce)
@@ -66,7 +90,10 @@ int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 
 std::string table::toString()
 {
-    return "This is table number: " + tableNumber;
+    if(isVisible)
+        return "This is table number: " + tableNumber;
+    else
+        return "";
 }
 
 table::~table()

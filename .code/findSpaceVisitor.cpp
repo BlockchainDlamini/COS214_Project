@@ -1,10 +1,12 @@
 #include "findSpaceVisitor.h"
 
-int visitTable(std::shared_ptr<table> tble)
+int findSpaceVisitor::visitTable(std::shared_ptr<table> tble)
 {
-    return tble->spaceAvailable();
+    if(tble->getIsVisible())
+        return tble->spaceAvailable();
+    return 0;
 }
-int visitTile(std::shared_ptr<floorComposite>)
+int findSpaceVisitor::visitTile(std::shared_ptr<floorComposite>)
 {
     return 0;
 }

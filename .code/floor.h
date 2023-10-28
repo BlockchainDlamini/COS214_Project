@@ -16,16 +16,16 @@ class floor: public gameElement
 {
     private:
         std::shared_ptr<floorComponent> myFloor;
-        int sideLenght;
+        int sideLenght, tableSpace;
         void merdgeTile(int);
         void unmerdgeTiles();
     public:
         floor(int);
         bool hasSpace(int);
-        bool seatCustomer(std::vector<std::shared_ptr<customer>>);
+        //bool seatCustomer(std::vector<std::shared_ptr<customer>>);
         void printBreadth();
         void printDepth();
-        //get bill functions need to be added. How will bills be returned
+        std::shared_ptr<table> getTableAt(int);
         void changed(){};
         void set(){};
         void get(){};
