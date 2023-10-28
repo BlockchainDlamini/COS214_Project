@@ -1,15 +1,16 @@
 #include "regularWaiter.h"
 
-regularWaiter::regularWaiter(int Id, vector<shared_ptr<table>> assignedTables, Floor floor) {
+regularWaiter::regularWaiter(int Id, std::vector<int> assignedTables, floor floorObj)
+{
     this->Id=Id;
     this->assignedTables=assignedTables;
-    this->floor = floor;
+    this->floorObj = floorObj;
 }
 
 void regularWaiter::assignTable(shared_ptr<table> table)
 {
-    tables.push_back(table);
-    std::cout << Id << " has been assigned table number " << table->getNum() << std::endl;
+    // tables.push_back(table);
+    // std::cout << Id << " has been assigned table number " << table->getNum() << std::endl;
     //ADD getNum() to table class
 }
 
@@ -17,7 +18,7 @@ void regularWaiter::assignTable(shared_ptr<table> table)
 void regularWaiter::takeOrder(int tableId) {
     this->tableID = tableId;
     // iterate through this waiters tables' customers
-    string command = getOperation();
+    string command = get();
 
     if(command == "make Order"){ // then proceed to take the order
 
@@ -26,7 +27,8 @@ void regularWaiter::takeOrder(int tableId) {
 
         vector<shared_ptr<Customer>> customers = table->getCustomers();
         for (const auto& customer : customers) {
-            vector<Order> customerOrders = customer->getOrders();
+            
+            vector<std::shared_ptr<Order>> customerOrders = customer->getOrders();
             ordersForATable.insert(ordersForATable.end(), customerOrders.begin(), customerOrders.end());
         }
 
@@ -41,15 +43,15 @@ void regularWaiter::takeOrder(int tableId) {
 }
 
 
-pair <int, vector<shared_ptr<orders>>> regularWaiter::getForKitchen(){
+pair <int, vector<shared_ptr<Order>>> regularWaiter::getForKitchen(){
     return forKitchen;
 }
 
 
-void regularWaiter::takeOrderToTable(vector<shared_ptr<pizza>> pizzasForTable) {
+void regularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
     this->pizzasForTable = pizzasForTable;
     // iterate through this waiters tables' customers
-    string command = getOperation();
+    string command = get();
 
     if(command == "Take to Customer"){ // then proceed to hand out the order
 
@@ -58,7 +60,7 @@ void regularWaiter::takeOrderToTable(vector<shared_ptr<pizza>> pizzasForTable) {
         vector<shared_ptr<Customer>> customers = table->getCustomers();
         for (int r = 0; r < customers.size(); r++) {
 
-            cout << "Customer: " << customers[r]->getName() << " received order: " << pizzasForTable[r].toString() << endl;
+            cout << "Customer: " << customers[r]->getID() << " received order: " << pizzasForTable[r].toString() << endl;
 
         }
 
@@ -95,10 +97,11 @@ void::regularWaiter::payBill(){
             int count = 0;
             for (const auto& customer : customers) {
 
-                orderAmount = pizza[count]->getTotal();
-                float floatValue = std::stof(orderAmount);
+                orderAmount = pizzasForTables[count]->getTotal();
+                std::string orderAmountStr = std::to_string(orderAmount);
 
-                cout << "Amount payable for " << customer->getID() << " is: " << pizza[count]->getTotal() << " ZAR";
+                float floatValue = std::stof(orderAmountStr);
+                cout << "Amount payable for " << customer->getID() << " is: " << pizzasForTables[count]->getTotal() << " ZAR";
 
                 string tabChoice;
 
@@ -130,22 +133,28 @@ void::regularWaiter::payBill(){
         // ----------------------------------- if NOT splitting bill -----------------------------------
         cout << "Full amount payable: " << orderAmount;
 
-        float floatValue = std::stof(orderAmount);
+        std::string orderAmountStr = std::to_string(orderAmount);
 
-        cout<< "Customer " << customer->getID() << " amount due: " << customer->getOrders()->orderAmount() << endl;
-        customer[0]->pay(floatValue, 'P');// orderAmount
+        float floatValue = std::stof(orderAmountStr);
+
+        cout<< "Customer " << customers[0]->getID() << " amount due: " << orderAmount << endl;
+        customers[0]->payBill(floatValue, 'P');// orderAmount
 
     }
     
     
 }
 
-void regularWaiter::get() {
-    return *this;
+string regularWaiter::get() {
+    return operation;
 }
 
 void regularWaiter::changed() {
+    // this->notify();
 }
 
-void regularWaiter::set() {
+void regularWaiter::setOperation(string op) {
+    this->operation = op;
 }
+
+

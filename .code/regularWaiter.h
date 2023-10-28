@@ -6,31 +6,33 @@
 #include <string>
 #include "table.h"
 #include "Waiter.h"
-#include "Floor.h"
+#include "floor.h"
+#include "Order.h"
+#include "Pizza.h"
 
 class regularWaiter : public Waiter {
 public:
-    regularWaiter(int Id, std::vector<std::shared_ptr<table>> assignedTables, Floor floor);
+    regularWaiter(int Id, std::vector<int> assignedTables, floor floorObj);
     void assignTable(std::shared_ptr<table> table);
     void takeOrder(int tableId);
-    std::pair<int, std::vector<std::shared_ptr<orders>>> getForKitchen();
-    void takeOrderToTable(std::vector<std::shared_ptr<pizza>> pizzasForTable);
+    std::pair<int, std::vector<std::shared_ptr<Order>>> getForKitchen();
+    void takeOrderToTable(std::vector<std::shared_ptr<Pizza>> pizzasForTable);
     void payBill();
 
-    void get();
+    virtual string get();
     void changed();
-    void set(string op);
+    void setOperation(string op);
 
 private:
-    Floor floor;
-    std::vector<shared_ptr<pizza>> pizzasForTables;
+    floor floorObject;
+    std::vector<shared_ptr<Pizza>> pizzasForTable;
     int Id;
     // std::vector<std::shared_ptr<table>> assignedTables;
-    std::vector<int> assignedTables // all the ids of the tables assigned to waiter
+    std::vector<int> assignedTables; // all the ids of the tables assigned to waiter
     // std::vector<std::shared_ptr<table>> tables;
     int tableID;
-    std::vector<shared_ptr<orders>> ordersForATable;
-    std::pair<int, std::vector<std::shared_ptr<orders>>> forKitchen;
+    std::vector<shared_ptr<Order>> ordersForATable;
+    std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
 };
 
 #endif  // REGULARWAITER_H

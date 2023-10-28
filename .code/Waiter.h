@@ -9,11 +9,9 @@
 #include <vector>
 #include <iostream>
 #include "Customer.h"
-#include "Kitchen.h"
-#include "iterator.h"
+// #include "iterator.h"
 #include "gameElement.h"
 #include "table.h"
-#include "Order.h"
 
 using namespace std;
 
@@ -27,7 +25,7 @@ public:
      * @brief Get function for Mediator.
      * @details This function is used to get information from the Mediator.
      */
-    virtual void get() = 0;
+    virtual string get() = 0;
 
     /**
      * @brief Changed function for Mediator.
@@ -40,7 +38,7 @@ public:
      * @param op The operation to be performed by the Mediator.
      * @details This function is used to send a request to the Mediator with a specified operation.
      */
-    virtual void set(string op) = 0;
+    virtual void setOperation(string op) = 0;
 
     /**
      * @brief Destructor for the Waiter class.

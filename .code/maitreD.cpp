@@ -1,26 +1,22 @@
 #include "maitreD.h"
-#include "Kitchen.h"
-#include "iterator.h"
 
-// dont use a kitchen obj, send the commands to the mediator
-
-maitreD::maitreD(string name, vector<tables> assignedTables) {
+maitreD::maitreD(string name, shared_ptr<floor> floor) {
     this->name=name;
-    this->assignedTables=assignedTables;
+    this->floor = floor;
 }
 
-void regularWaiter::get() {
-    return *this;
+string maitreD::get() {
+    return operation;
 }
 
-void regularWaiter::changed() {
+void maitreD::changed() {
 }
 
-void regularWaiter::set(string op) {
+void maitreD::setOperation(string op) {
     operation = op;
 }
 
 void maitreD::seatCustomers(std::shared_ptr<Customer> customer)
 {
-    floor.seatCustomer(vector list of customers);
+    floor.seatCustomer(customer);
 }

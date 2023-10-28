@@ -2,27 +2,28 @@
 #define MAITRED_H
 
 #include "Waiter.h"
-#include "Floor.h"
+#include "floor.h"
 
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
 class maitreD : public Waiter {
 public:
-    maitreD::maitreD(string name, vector<tables> assignedTables, shared_ptr<Floor> floor);
+    maitreD::maitreD(string name, shared_ptr<floor> floor);
 
     // maitreD specific
     // void mergeTables(); - floor deals with merging tables
-    void seatCustomers();
+    void seatCustomers(std::shared_ptr<Customer> customer);
 
-    void get();
+    virtual string get();
     void changed();
-    void set(string op);
+    void setOperation(string op);
 
 private:
     vector<table> assignedTables;
-    Floor floor;
+    shared_ptr<floor> floorobj;
     string name;
 };
 
