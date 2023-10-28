@@ -11,19 +11,21 @@
 #include "gameElement.h"
 #include "table.h"
 
-
 using namespace std;
 
-class Waiter:gameElement {
+class Waiter : public gameElement {
 public:
-    virtual void takeOrder(Customer& customer, const Order& order) = 0; // take order from customer
-    virtual void bringOrder(Customer& customer, const Order& order) = 0;
-    virtual void communicateWithKitchen(const Order& order) = 0; // take order to kitchen
-    virtual void pickUpOrderFromKitchen(const Order& order) = 0; // pick up order from customer
-    virtual void processPayment(Customer& customer) = 0;
+    virtual void takeOrder(std::shared_ptr<Customer> customer, std::shared_ptr<Order> order) = 0; // take order from customer
+    virtual void bringOrder(std::shared_ptr<Customer> customer, std::shared_ptr<Order> order) = 0;
+   
+    virtual void communicateWithKitchen(std::shared_ptr<Order> order) = 0; // take order to kitchen
+    virtual void pickUpOrderFromKitchen(std::shared_ptr<Order> order) = 0; // pick up order from customer
+    virtual void processPayment(std::shared_ptr<Customer> customer) = 0;
+
     virtual void get() = 0;
     virtual void changed() = 0;
     virtual void set() = 0;
+
     virtual ~Waiter() {};
 };
 

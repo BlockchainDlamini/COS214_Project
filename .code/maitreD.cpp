@@ -8,10 +8,11 @@ maitreD::maitreD(string name, vector<tables> assignedTables, Kitchen kitchen) {
     this->kitchen = kitchen
 }
 
-void regularWaiter::assignCustomer(Customer& customer) {
+void maitreD::assignCustomer(std::shared_ptr<Customer> customer) {
     assignedCustomers.push_back(customer);
-    cout << name << " has been assigned to serve Customer " << customer.getID() << endl;
+    std::cout << name << " has been assigned to serve Customer " << customer->getID() << std::endl;
 }
+
 
 void regularWaiter::takeOrder(Customer& customer, const Order& order) {
     cout << name << " takes the order down from Customer " << customer.getID() << endl;
@@ -58,3 +59,7 @@ void regularWaiter::changed() {
 void regularWaiter::set() {
 }
 
+// maitreD is the one who can get the bill
+void Waiter::getBill(Customer& customer) {
+
+}

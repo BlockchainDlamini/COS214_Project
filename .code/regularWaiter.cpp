@@ -8,9 +8,14 @@ regularWaiter::regularWaiter(string name, vector<tables> assignedTables, Kitchen
     this->kitchen = kitchen
 }
 
-void regularWaiter::assignCustomer(Customer& customer) {
+void regularWaiter::assignTable(shared_ptr<table> table)
+{
+    tables.push_back(table);
+}
+
+void regularWaiter::assignCustomer(std::shared_ptr<Customer> customer) {
     assignedCustomers.push_back(customer);
-    cout << name << " has been assigned to serve Customer " << customer.getID() << endl;
+    std::cout << name << " has been assigned to serve Customer " << customer->getID() << std::endl;
 }
 
 void regularWaiter::takeOrder(Customer& customer, const Order& order) {
