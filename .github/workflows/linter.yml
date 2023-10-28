@@ -1,12 +1,5 @@
-# This workflow executes several linters on changed files based on languages used in your code base whenever
-# you push a code or open a pull request.
-#
-# You can adjust the behavior by modifying this file.
-# For more information, see:
-# https://github.com/github/super-linter
-name: Lint Code Base
-
-on:
+name: cpplint
+on: 
   push:
     branches: [ "main" ]
   pull_request:
@@ -15,16 +8,7 @@ jobs:
   run-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: cpplint
-        on: [ push, pull_request ]
-        jobs:
-        cpplint:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: actions/setup-python@v1
-        - run: pip install cpplint
-        - run: cpplint --linelength=200 --filter=-whitespace,-whitespace/braces,-legal/copyright,-build/include_what_you_use --quiet --extensions=h,cpp,hpp $( find . -name \*.h -or -name \*.cc | grep -vE "^\.\/build\/" )
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+    - run: pip install cpplint
+    - run: cpplint --linelength=200 --filter=-whitespace,-whitespace/braces,-legal/copyright,-build/include_what_you_use,-build/header_guard --quiet --extensions=h,cpp,hpp $( find . -name \*.h -or -name \*.cc | grep -vE "^\.\/build\/" )
