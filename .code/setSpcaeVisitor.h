@@ -1,9 +1,6 @@
 #ifndef SETSPACEVISITOR_H
 #define SETSPACEVISITOR_H
 
-#include "floorComponent.h"
-#include "floorComposite.h"
-#include "table.h"
 #include "visitor.h"
 #include <memory>
 

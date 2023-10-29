@@ -1,9 +1,6 @@
 #ifndef GETVISIBILITYVISITOR_h
 #define GETVISIBILITYVISITOR_h
 
-#include "floorComponent.h"
-#include "floorComposite.h"
-#include "table.h"
 #include "visitor.h"
 #include <memory>
 

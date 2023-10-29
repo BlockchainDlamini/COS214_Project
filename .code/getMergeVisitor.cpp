@@ -1,4 +1,5 @@
 #include "getMergeVisitor.h"
+#include "table.h"
 
 int getMergeVisitor::visitTable(std::shared_ptr<table> tble)
 {

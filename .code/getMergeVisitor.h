@@ -1,9 +1,6 @@
 #ifndef GETMERGEVISITOR_H
 #define GETMERGEVISITOR_H
 
-#include "floorComponent.h"
-#include "floorComposite.h"
-#include "table.h"
 #include "visitor.h"
 #include <memory>
 

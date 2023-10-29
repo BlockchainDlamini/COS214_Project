@@ -1,7 +1,7 @@
 #include "floorComposite.h"
 #include "depthFirstIterator.h"
 #include "breadthFirstIterator.h"
-#include "visitor.h"
+
 
 floorComposite::floorComposite(int newId):floorComponent(newId)
 {}
@@ -34,12 +34,14 @@ std::shared_ptr<floorComponent> floorComposite::getChild(int i)
 
 std::shared_ptr<myIterator> floorComposite::getDepthIterator()
 {
-    return  std::make_shared<myIterator>(depthFirstIterator(std::make_shared<floorComposite>(this)));
+    std::shared_ptr<myIterator> temp = std::dynamic_pointer_cast<myIterator>(std::make_shared<depthFirstIterator>(depthFirstIterator(shared_from_this())));
+    return temp; //Needs to pass floorComponent object in breathFirstIterator
 }
 
 std::shared_ptr<myIterator> floorComposite::getBreadthIterator()
 {
-    return  std::make_shared<myIterator>(breadthFirstIterator(std::make_shared<floorComposite>(this)));
+    std::shared_ptr<myIterator> temp = std::dynamic_pointer_cast<myIterator>(std::make_shared<breadthFirstIterator>(breadthFirstIterator(shared_from_this())));
+    return temp; //Needs to pass floorComponent object in breathFirstIterator
 }
 
 int floorComposite::getNumChildren()
@@ -54,7 +56,8 @@ std::string floorComposite::toString()
 
 int floorComposite::acceptVisitor(std::shared_ptr<visitor> visitor)
 {
-    return visitor->visitTile(std::make_shared<floorComposite>(this));
+    std::shared_ptr<floorComposite> temp = std::dynamic_pointer_cast<floorComposite>(shared_from_this());
+    return visitor->visitTile(temp);//Needs to pass floorComposite object in visitTile
 }
 
 floorComposite::~floorComposite()

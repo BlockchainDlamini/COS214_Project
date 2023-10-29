@@ -1,16 +1,9 @@
 #ifndef FLOOR_H 
 #define FLOOR_H
 
-#include <memory>
-#include "floorComponent.h"
-#include "table.h"
-#include "floorComposite.h"
 #include "gameElement.h"
-#include "iterator.h"
-#include "breadthFirstIterator.h"
-#include "depthFirstIterator.h"
+#include "floorComponent.h"
 #include <iostream>
-#include <vector>
 
 class myFloor: public gameElement
 {

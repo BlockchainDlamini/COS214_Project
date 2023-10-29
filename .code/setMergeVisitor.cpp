@@ -1,4 +1,5 @@
 #include "setMergeVisitor.h"
+#include "table.h"
 
 setMergeVisitor::setMergeVisitor(int newMerge):visitor()
 {

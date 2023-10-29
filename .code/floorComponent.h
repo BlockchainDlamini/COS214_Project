@@ -4,12 +4,13 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include "visitor.h"
 
 class myIterator;
 class depthFirstIterator;
 class breadthFirstIterator;
-class visitor;
-class floorComponent
+
+class floorComponent: public std::enable_shared_from_this<floorComponent>
 {
     protected:
         int id;

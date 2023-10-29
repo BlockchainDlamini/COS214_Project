@@ -1,4 +1,5 @@
 #include "findSpaceVisitor.h"
+#include "table.h"
 
 int findSpaceVisitor::visitTable(std::shared_ptr<table> tble)
 {

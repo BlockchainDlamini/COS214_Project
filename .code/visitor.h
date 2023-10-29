@@ -1,10 +1,10 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
-#include "floorComponent.h"
-#include "floorComposite.h"
-#include "table.h"
 #include <memory>
+
+class floorComposite;
+class table;
 
 class visitor
 {

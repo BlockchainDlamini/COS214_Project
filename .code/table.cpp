@@ -82,7 +82,10 @@ std::shared_ptr<myIterator> table::getBreadthIterator()
 int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 {
     if(isSpaceAvailable)
-        return visitor->visitTable(std::make_shared<table>(this));
+    {
+        std::shared_ptr<table> temp = std::dynamic_pointer_cast<table>(shared_from_this());
+        return visitor->visitTable(temp);
+    }
     return 0;
 }
 

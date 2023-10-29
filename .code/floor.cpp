@@ -5,6 +5,10 @@
 #include "setMergeVisitor.h"
 #include "getMergeVisitor.h"
 #include "getVisibilityVisitor.h"
+#include "depthFirstIterator.h"
+#include "breadthFirstIterator.h"
+#include "floorComposite.h"
+#include "table.h"
 
 myFloor::myFloor(int size)
 {
@@ -27,7 +31,7 @@ myFloor::myFloor(int size)
 bool myFloor::hasSpace(int amount) 
 {
     std::shared_ptr<myIterator> it = theFloor->getDepthIterator();
-    std::shared_ptr<visitor> visit = std::make_shared<findSpaceVisitor>(new findSpaceVisitor());
+    std::shared_ptr<visitor> visit = std::make_shared<findSpaceVisitor>();
 
     while(it->hasNext())
     {
@@ -49,7 +53,7 @@ bool myFloor::hasSpace(int amount)
 
     while(curr->hasNext())
     {
-        temp = curr->currentItem()->acceptVisitor(std::make_shared<visitor>(new findSpaceVisitor()));
+        temp = curr->currentItem()->acceptVisitor(std::make_shared<visitor>());
         if(temp==customer.size())
         {
             (std::shared_ptr<table>) curr->seatCustomers(customers);
@@ -69,7 +73,7 @@ bool myFloor::merdgeTile(int amount)
     //Finding the tables to merdge
     while(curr->hasNext() && amount>0)
     {
-        temp = curr->currentItem()->acceptVisitor(std::make_shared<findSpaceVisitor>(new findSpaceVisitor()));
+        temp = curr->currentItem()->acceptVisitor(std::make_shared<findSpaceVisitor>());
         if(temp>0)
         {
             tables.push_back(curr->currentItem());
@@ -83,13 +87,13 @@ bool myFloor::merdgeTile(int amount)
 
     int newSpace = 0;    
     for (int i = 0; i < tables.size(); i++)
-        newSpace += tables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>(new findSpaceVisitor()));
+        newSpace += tables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>());
     
-    tables.at(0)->acceptVisitor(std::make_shared<setSpaceVisitor>(new setSpaceVisitor(newSpace)));
-    tables.at(0)->acceptVisitor(std::make_shared<setMergeVisitor>(new setMergeVisitor(1)));
+    tables.at(0)->acceptVisitor(std::make_shared<setSpaceVisitor>(setSpaceVisitor(newSpace)));
+    tables.at(0)->acceptVisitor(std::make_shared<setMergeVisitor>(setMergeVisitor(1)));
     for (int i = 1; i < tables.size(); i++)
     {
-        tables.at(i)->acceptVisitor(std::make_shared<setSpaceVisitor>(new setSpaceVisitor(0)));
+        tables.at(i)->acceptVisitor(std::make_shared<setSpaceVisitor>(setSpaceVisitor(0)));
     }
     return true;
 }
@@ -104,9 +108,9 @@ void myFloor::unmerdgeTiles()
     //Finding the tables to merdge
     while(curr->hasNext())
     {
-        if(curr->currentItem()->acceptVisitor(std::make_shared<getMergeVisitor>(new getMergeVisitor()))==1)
+        if(curr->currentItem()->acceptVisitor(std::make_shared<getMergeVisitor>())==1)
             mergedTables.push_back(curr->currentItem());
-        else if(curr->currentItem()->acceptVisitor(std::make_shared<getVisibilityVisitor>(new getVisibilityVisitor()))==0)
+        else if(curr->currentItem()->acceptVisitor(std::make_shared<getVisibilityVisitor>())==0)
             hidenTables.push_back(curr->currentItem());
         
         curr->next();
@@ -114,13 +118,13 @@ void myFloor::unmerdgeTiles()
 
     for (int i = 0; i < mergedTables.size(); i++)
     {
-        int newSize = mergedTables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>(new findSpaceVisitor())); 
+        int newSize = mergedTables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>()); 
         for (int x = 0; x < hidenTables.size() && newSize>=4; x++)
         {
-            newSize -= hidenTables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>(new findSpaceVisitor()));
-            hidenTables.at(i)->acceptVisitor(std::make_shared<setVisibilityVisitor>(new setVisibilityVisitor(1)));
+            newSize -= hidenTables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>());
+            hidenTables.at(i)->acceptVisitor(std::make_shared<setVisibilityVisitor>(setVisibilityVisitor(1)));
         }
-        mergedTables.at(0)->acceptVisitor(std::make_shared<setMergeVisitor>(new setMergeVisitor(0)));        
+        mergedTables.at(0)->acceptVisitor(std::make_shared<setMergeVisitor>(setMergeVisitor(0)));        
     }
 }
 
@@ -134,6 +138,7 @@ std::shared_ptr<floorComponent> myFloor::getTableAt(int id)
             return curr->currentItem();
         curr->next();
     }
+    return nullptr;
 }
 
 void myFloor::printBreadth()
