@@ -8,14 +8,13 @@
 #include "Mediator.h"
 using namespace std;
 
+int gameElement::sharedID = 0;
 
-gameElement::gameElement(const shared_ptr<Mediator> &myGameEngine, int id): gameEngine(myGameEngine), myID(id) {
+gameElement::gameElement(const shared_ptr<Mediator> &myGameEngine, int id): gameEngine(myGameEngine), myID(id) {}
 
-}
+gameElement::gameElement(const shared_ptr<Mediator> &myGameEngine) : gameEngine(myGameEngine) {myID=sharedID++;}
 
-gameElement::gameElement(const shared_ptr<Mediator> &myGameEngine) : gameEngine(myGameEngine) {}
-
-gameElement::gameElement() {}
+gameElement::gameElement() {myID=sharedID++;}
 
 gameElement::~gameElement() {}
 
@@ -25,7 +24,7 @@ void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
 
 void gameElement::changed() {
     if (gameEngine) {
-        gameEngine->notify(shared_from_this());
+        gameEngine->notify(this);
         return;
     }
 
@@ -33,7 +32,7 @@ void gameElement::changed() {
 }
 
 void gameElement::setMyGameEngine(const shared_ptr<Mediator> &mediator) {
-    shared_from_this()->gameEngine = mediator;
+    gameEngine = mediator;
 }
 
 
@@ -50,6 +49,6 @@ string gameElement::get() {
 }
 
 void gameElement::setOperation(string op) {
-    shared_from_this()->operation = op;
+    operation = op;
 }
 

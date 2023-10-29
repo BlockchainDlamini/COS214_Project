@@ -13,7 +13,7 @@
 using namespace std;
 class Mediator;
 
-class gameElement: public enable_shared_from_this<gameElement> {
+class gameElement{
 public:
     gameElement();
     gameElement(const std::shared_ptr<Mediator> &myGameEngine);
@@ -31,8 +31,11 @@ public:
 protected:
     std::shared_ptr<Mediator> gameEngine;
     int myID;
+    static int sharedID;
     string operation;
 };
+
+
 
 
 #endif //CODE_GAMEELEMENT_H
