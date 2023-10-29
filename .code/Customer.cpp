@@ -15,21 +15,21 @@ string Customer::get()
     // return this;
 }
 
-void Customer::setOperation(string operation)
-{
-    shared_from_this()->operation = operation;
-}
-void Customer::changed()
-{
-}
-void Customer ::changeMood()
-{
-    mood->handleChange(shared_from_this());
-}
-void Customer::changedOrderProcessState()
-{
-    orderProcess->handleChange(shared_from_this());
-}
+// void Customer::setOperation(string operation)
+// {
+//     this->operation = operation;
+// }
+// void Customer::changed()
+// {
+// }
+// void Customer ::changeMood()
+// {
+//     mood->handleChange(shared_from_this());
+// }
+// void Customer::changedOrderProcessState()
+// {
+//     orderProcess->handleChange(shared_from_this());
+// }
 void Customer::setID(int id)
 {
     ID = id;
