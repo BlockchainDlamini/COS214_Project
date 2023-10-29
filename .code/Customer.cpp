@@ -1,11 +1,11 @@
 #include "Customer.h"
 
-Customer::Customer(int bankAmount, int id)
+Customer::Customer(int bankAmount, int id) : gameElement()
 {
     bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
     ID = id;
 }
-Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount)
+Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount):gameElement()
 {
     this->mood = mood;
     this->bankAccountAmount = bankAccountAmount;
