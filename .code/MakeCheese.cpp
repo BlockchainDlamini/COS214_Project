@@ -1,11 +1,17 @@
+/*@file MakeCheese.cpp
+ *@brief 
+  *@brief contains the MakeCheese class
+  *       which is a subclass of MenuItemCommand
+  *       and creates a sauce for a food item
+  *       in the kitchen
+  *@bug No known bugs.
+*/
 #include "MakeCheese.h"
 #include "CheeseChef.h"
+using namespace std;
 
 MakeCheese::MakeCheese(shared_ptr<Kitchen> state) : MenuItemCommand(state) {}
 
 shared_ptr<FoodItem> MakeCheese::execute() {
-    if (typeid(state) == typeid(CheeseChef)) {
-        return state.execute();
-    }
-    return nullptr;
+    return state.execute();
 }
