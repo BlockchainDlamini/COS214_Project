@@ -9,7 +9,13 @@
 
 #include "gameElement.h"
 #include "FoodItem.h"
+#include "Cheese.h"
+#include "Toppings.h"
+#include "Sauce.h"
+#include "Base.h"
 #include <vector>
+#include <list>
+#include <string>
 using namespace std;
 
 class Pizza : gameElement {
@@ -23,12 +29,14 @@ class Pizza : gameElement {
          *@param vector<shared_ptr<FoodItem>>
          *@return none
         */
-        Pizza(vector<shared_ptr<FoodItem>>);
+        string getDescription();
+        float getPrice();
     private:
         shared_ptr<FoodItem> base;
-        shared_ptr<FoodItem> cheese;
-        shared_ptr<FoodItem> sauce; 
-        shared_ptr<FoodItem> toppings;
+        list<shared_ptr<FoodItem>> cheeseList;
+        list<shared_ptr<FoodItem>> sauceList; 
+        list<shared_ptr<FoodItem>> toppingsList;
+        float price;
 
 };
 

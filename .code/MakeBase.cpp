@@ -13,5 +13,5 @@ using namespace std;
 MakeBase::MakeBase(shared_ptr<Kitchen> state) : MenuItemCommand(state) {}
 
 shared_ptr<FoodItem> MakeBase::execute() {
-    return state.execute();
-}
+    return state->execute();
+} 

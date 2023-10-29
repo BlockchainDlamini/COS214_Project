@@ -1,3 +1,6 @@
+/*@file MakeBlueCheese.h
+*@brief Contains the class declarations for the MakeBlueCheese class
+*/
 #ifndef __MAKE_BLUECHEESE_H__
 #define __MAKE_BLUECHEESE_H__
 

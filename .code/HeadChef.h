@@ -11,6 +11,10 @@
 #include "Kitchen.h"
 #include "Pizza.h"
 #include "FoodItem.h"
+#include "Toppings.h"
+#include "Base.h"
+#include "Cheese.h"
+#include "Sauce.h"
 #include <queue>
 #include <vector>
 #include <memory>
@@ -42,6 +46,10 @@ class HeadChef : public Kitchen {
             * @param none
             * @return shared_ptr<Pizza> pizza
         */
+        void addTopping(shared_ptr<FoodItem>);
+        void addSauce(shared_ptr<FoodItem>);
+        void addBase(shared_ptr<FoodItem>);
+        void addCheese(shared_ptr<FoodItem>);
         shared_ptr<Pizza> getPizza();
     private:
         shared_ptr<Pizza> pizza;

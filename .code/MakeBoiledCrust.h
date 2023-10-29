@@ -1,3 +1,6 @@
+/*@file 
+* @brief contains the MakeBoiledCrust class
+*/
 #ifndef __MAKE_BOILED_CRUST_H__
 #define __MAKE_BOILED_CRUST_H__
 
