@@ -1,13 +1,18 @@
-#include "regularWaiter.h"
+#include "RegularWaiter.h"
 
-regularWaiter::regularWaiter(int Id, std::vector<int> assignedTables, Floor floorObj)
+RegularWaiter::RegularWaiter(int Id, std::vector<int> assignedTables, Floor floorObj)
 {
     this->Id=Id;
     this->assignedTables=assignedTables;
     this->floorObject = floorObj;
 }
 
-void regularWaiter::assignTable(shared_ptr<table> table)
+// RegularWaiter::RegularWaiter(int Id, std::vector<int> assignedTables, Floor floorObj)
+//     : floorObject(floorObj), Id(Id), assignedTables(assignedTables) {
+// }
+
+
+void RegularWaiter::assignTable(shared_ptr<table> table)
 {
     // tables.push_back(table);
     // std::cout << Id << " has been assigned table number " << table->getNum() << std::endl;
@@ -15,7 +20,7 @@ void regularWaiter::assignTable(shared_ptr<table> table)
 }
 
 
-void regularWaiter::takeOrder(int tableId) {
+void RegularWaiter::takeOrder(int tableId) {
     this->tableID = tableId;
     // iterate through this waiters tables' customers
     string command = get();
@@ -43,12 +48,12 @@ void regularWaiter::takeOrder(int tableId) {
 }
 
 
-pair <int, vector<shared_ptr<Order>>> regularWaiter::getForKitchen(){
+pair <int, vector<shared_ptr<Order>>> RegularWaiter::getForKitchen(){
     return forKitchen;
 }
 
 
-void regularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
+void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
     this->pizzasForTable = pizzasForTable;
     // iterate through this waiters tables' customers
     string command = get();
@@ -76,7 +81,7 @@ void regularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
 
 } 
 
-void::regularWaiter::payBill(){
+void::RegularWaiter::payBill(){
     // use mediator to
     // pizza obj will have the price - not the order
 
@@ -153,15 +158,15 @@ void::regularWaiter::payBill(){
     
 }
 
-string regularWaiter::get() {
+string RegularWaiter::get() {
     return operation;
 }
 
-void regularWaiter::changed() {
+void RegularWaiter::changed() {
     // this->notify();
 }
 
-void regularWaiter::setOperation(string op) {
+void RegularWaiter::setOperation(string op) {
     this->operation = op;
 }
 

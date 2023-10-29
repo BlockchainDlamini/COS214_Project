@@ -1,18 +1,19 @@
-#ifndef REGULARWAITER_H
-#define REGULARWAITER_H
+#ifndef R_H
+#define R_H
 
 #include <vector>
 #include <memory>
 #include <string>
+
 #include "table.h"
 #include "Waiter.h"
-#include "Floor.h"
 #include "Order.h"
 #include "Pizza.h"
+#include "Floor.h"
 
-class regularWaiter : public Waiter {
+class RegularWaiter : public Waiter {
 public:
-    regularWaiter(int Id, std::vector<int> assignedTables, Floor floorObj);
+    RegularWaiter(int Id, std::vector<int> assignedTables, Floor floorObj);
     void assignTable(std::shared_ptr<table> table);
     void takeOrder(int tableId);
     std::pair<int, std::vector<std::shared_ptr<Order>>> getForKitchen();
@@ -35,4 +36,4 @@ private:
     std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
 };
 
-#endif  // REGULARWAITER_H
+#endif  // R_H
