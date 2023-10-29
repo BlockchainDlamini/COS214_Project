@@ -9,8 +9,6 @@ class floorComposite: public floorComponent
 {
     protected:
         std::vector<std::shared_ptr<floorComponent>> next;
-        int number;
-
     public:
         floorComposite(int);
         void add(std::shared_ptr<floorComponent>);
@@ -22,7 +20,6 @@ class floorComposite: public floorComponent
         std::string toString();
         int acceptVisitor(std::shared_ptr<visitor>);
         virtual ~floorComposite();    
-
 };
 
 #endif

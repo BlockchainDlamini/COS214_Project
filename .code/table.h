@@ -9,7 +9,7 @@ class table: public floorComponent
 {
     private:
         std::vector<std::shared_ptr<floorComponent>> customers;
-        int space, tableNumber;
+        int space;
         bool isSpaceAvailable, isVisible, isMerged;
     public:
         table(int, int);

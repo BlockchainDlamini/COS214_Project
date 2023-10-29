@@ -1,9 +1,9 @@
 #include "table.h"
+#include "visitor.h"
 
-table::table(int num, int spce)
+table::table(int id, int spce):floorComponent(id)
 {
     space=spce;
-    tableNumber = num;
     isVisible = true;
     isMerged = false;
 }
@@ -71,13 +71,11 @@ int table::getNumChildren()
 
 std::shared_ptr<myIterator> table::getDepthIterator()
 {
-    currentChild = -1;
     return nullptr;
 }
 
 std::shared_ptr<myIterator> table::getBreadthIterator()
 {
-    currentChild = -1;
     return nullptr;
 }
 
@@ -91,7 +89,7 @@ int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 std::string table::toString()
 {
     if(isVisible)
-        return "This is table number: " + tableNumber;
+        return "This is table number: " + id;
     else
         return "";
 }

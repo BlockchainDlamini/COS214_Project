@@ -1,11 +1,10 @@
 #include "floorComposite.h"
 #include "depthFirstIterator.h"
 #include "breadthFirstIterator.h"
+#include "visitor.h"
 
-floorComposite::floorComposite(int num)
-{
-    number = num;
-}
+floorComposite::floorComposite(int newId):floorComponent(newId)
+{}
 
 void floorComposite::add(std::shared_ptr<floorComponent> newUnit)
 {
@@ -35,14 +34,12 @@ std::shared_ptr<floorComponent> floorComposite::getChild(int i)
 
 std::shared_ptr<myIterator> floorComposite::getDepthIterator()
 {
-    currentChild = 0;
-    return  std::make_shared<myIterator>(depthFirstIterator(std::make_shared<floorComponent>(this)));
+    return  std::make_shared<myIterator>(depthFirstIterator(std::make_shared<floorComposite>(this)));
 }
 
 std::shared_ptr<myIterator> floorComposite::getBreadthIterator()
 {
-    currentChild = 0;
-    return  std::make_shared<myIterator>(breadthFirstIterator(std::make_shared<floorComponent>(this)));
+    return  std::make_shared<myIterator>(breadthFirstIterator(std::make_shared<floorComposite>(this)));
 }
 
 int floorComposite::getNumChildren()
@@ -52,7 +49,7 @@ int floorComposite::getNumChildren()
 
 std::string floorComposite::toString()
 {
-    return "This is a floor piece number: " + number;
+    return "This is a tile: ";
 }
 
 int floorComposite::acceptVisitor(std::shared_ptr<visitor> visitor)

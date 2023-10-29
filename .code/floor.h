@@ -12,24 +12,24 @@
 #include <iostream>
 #include <vector>
 
-class floor: public gameElement
+class myFloor: public gameElement
 {
     private:
-        std::shared_ptr<floorComponent> myFloor;
+        std::shared_ptr<floorComponent> theFloor;
         int sideLenght, tableSpace;
-        void merdgeTile(int);
+        bool merdgeTile(int);
         void unmerdgeTiles();
     public:
-        floor(int);
+        myFloor(int);
         bool hasSpace(int);
         //bool seatCustomer(std::vector<std::shared_ptr<customer>>);
         void printBreadth();
         void printDepth();
-        std::shared_ptr<table> getTableAt(int);
+        std::shared_ptr<floorComponent> getTableAt(int);
         void changed(){};
         void set(){};
         void get(){};
-        ~floor();
+        virtual ~myFloor();
 };
 
 
