@@ -77,6 +77,9 @@ public:
      * @return A string representation of the order's formula.
      */
     string showFormula();
+
+std::vector<std::shared_ptr<MenuItemOrderCommand>> getFormula();
+
 };
 
 #endif

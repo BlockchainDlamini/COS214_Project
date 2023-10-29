@@ -25,7 +25,7 @@ void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
 
 void gameElement::changed() {
     if (gameEngine) {
-        gameEngine->notify(shared_from_this());
+        gameEngine->notify(this);
         return;
     }
 
@@ -33,7 +33,7 @@ void gameElement::changed() {
 }
 
 void gameElement::setMyGameEngine(const shared_ptr<Mediator> &mediator) {
-    shared_from_this()->gameEngine = mediator;
+    this->gameEngine = mediator;
 }
 
 
@@ -50,5 +50,5 @@ string gameElement::get() {
 }
 
 void gameElement::setOperation(string op) {
-    shared_from_this()->operation = op;
+    this->operation = op;
 }

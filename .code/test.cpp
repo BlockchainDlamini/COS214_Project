@@ -18,7 +18,7 @@
 int main()
 {
     vector<shared_ptr<MenuItemOrderCommand>> commands;
-    shared_ptr<Customer> test = make_shared<Customer>(1000, 1);
+    shared_ptr<Customer> test = make_shared<Customer>(1000, 1,1);
     test->beSeated(1);
     test->startTab();
     for (int i = 0; i < 5; i++)

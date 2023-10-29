@@ -45,3 +45,8 @@ void Order::addMenuItemOrderCommand(shared_ptr<MenuItemOrderCommand> command)
 {
     formula.push_back(command);
 }
+
+std::vector<std::shared_ptr<MenuItemOrderCommand>> Order::getFormula()
+{
+    return formula;
+}

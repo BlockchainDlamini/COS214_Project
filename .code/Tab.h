@@ -9,9 +9,11 @@
  * @class Tab
  * @brief Represents a tab that stores a list of outstanding orders as OrderMementos.
  */
-class Tab {
+class Tab
+{
 private:
     std::vector<std::shared_ptr<OrderMemento>> tab;
+    string ID; // unique id for customer
 
 public:
     /**
@@ -31,6 +33,8 @@ public:
      */
     bool payOrder();
 
+    void setID();
+
     /**
      * @brief Add an OrderMemento to the tab.
      * @param orderMemento A shared pointer to the OrderMemento to add.
@@ -49,6 +53,7 @@ public:
      */
     int getTotal();
 
+    bool checkID();
     /**
      * @brief Clear the tab by removing all outstanding orders.
      */

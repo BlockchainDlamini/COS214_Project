@@ -5,6 +5,9 @@ Tab::Tab()
 std::string Tab::listOutstandingOrders()
 {
     string output = "";
+    // customerid
+    // totoal
+
     for (shared_ptr<OrderMemento> order : tab)
     {
         output += "Order ID: " + to_string(order->getID()) + "\n";
@@ -43,6 +46,11 @@ int Tab::getTotal()
         total += order->getPrice();
     }
     return total;
+}
+
+bool Tab::checkID()
+{
+    return false;
 }
 
 void Tab::clearTab()
