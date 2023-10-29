@@ -10,13 +10,14 @@ Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount)
     this->mood = mood;
     this->bankAccountAmount = bankAccountAmount;
 }
-gameElement *Customer::get()
+string Customer::get()
 {
-    return this;
+    // return this;
 }
 
-void Customer::set()
+void Customer::setOperation(string operation)
 {
+    shared_from_this()->operation = operation;
 }
 void Customer::changed()
 {

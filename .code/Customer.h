@@ -22,9 +22,9 @@ using namespace std;
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
-class Customer : public enable_shared_from_this<Customer>, public gameElement {
+class Customer : public gameElement, enable_shared_from_this<Customer>{
 private:
-    int ID; /**< The unique identifier of the customer. */
+    int ID; /**< The unique identifier of the customer's order. */
     std::shared_ptr<EmotionState> mood = nullptr; /**< The emotional state of the customer. */
     std::shared_ptr<OrderProcessState> orderProcess = make_shared<Preorder>(); /**< The current order process state. */
     float bankAccountAmount; /**< The amount of money in the customer's bank account. */
@@ -52,7 +52,7 @@ public:
      * @brief Get a pointer to the current game element.
      * @return A pointer to the game element.
      */
-    gameElement *get();
+    string get();
 
     /**
      * @brief Trigger a change in the customer's state.
@@ -62,7 +62,7 @@ public:
     /**
      * @brief Set the customer's state.
      */
-    void set();
+    void setOperation(string);
 
     /**
      * @brief Change the emotional state of the customer.
