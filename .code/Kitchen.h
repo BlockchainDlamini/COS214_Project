@@ -1,6 +1,7 @@
 #ifndef KITCHEN_H
 #define KITCHEN_H
-#include "Toppings.h"
+#include "DeepDish.h"
+//THIS IS THE CLASS AT TEH TOP OF THE LINKING BETWEEN THE KITCHEN CLASSES
 class Kitchen
 {
 protected: 

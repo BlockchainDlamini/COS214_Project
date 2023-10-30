@@ -1,7 +1,8 @@
 #include "FoodItem.h"
 
-FoodItem::FoodItem(string nm)
+FoodItem::FoodItem(string nm, double p)
 {
+	price = p;
 	name = nm;
 }
 

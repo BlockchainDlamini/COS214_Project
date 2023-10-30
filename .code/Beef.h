@@ -1,6 +1,10 @@
-#pragma once
+#ifndef BEEF_H
+#define BEEF_H
+#include "Chicken.h"
 class Beef :
-    public Topping
+    public Toppings
 {
+public:
+    Beef();
 };
-
+#endif

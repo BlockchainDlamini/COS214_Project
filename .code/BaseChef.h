@@ -1,9 +1,11 @@
 #ifndef BASECHEF_H
 #define BASECHEF_H
-#include "Kitchen.h"
+//THIS IS THE CLASS AT THE BOTTOM OF ALL THE CLASSES THAT HAVE BEEN LINKED TOGETHER
+#include "CheeseChef.h"
 class BaseChef :
     public Kitchen
 {
+public:
     BaseChef(shared_ptr<Kitchen> ptr);
     void handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
     shared_ptr<FoodItem> createFoodItem();

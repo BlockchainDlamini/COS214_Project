@@ -1,10 +1,10 @@
 #ifndef CHEESECHEFF_H
 #define CHEESECHEFF_H
-#include "Kitchen.h"
-#include "Cheese.h"
+#include "SauceChef.h"
 class CheeseChef :
     public Kitchen
 {
+public:
     CheeseChef(shared_ptr<Kitchen> ptr);
     void handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
     shared_ptr<FoodItem> createFoodItem();

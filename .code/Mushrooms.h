@@ -1,6 +1,10 @@
-#pragma once
+#ifndef MUSHROOMS_H
+#define MUSHROOMS_H
+#include "Olives.h"
 class Mushrooms :
-    public Topping
+    public Toppings
 {
+public:
+    Mushrooms();
 };
-
+#endif

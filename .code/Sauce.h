@@ -4,5 +4,7 @@
 class Sauce :
     public FoodItem
 {
+public:
+    Sauce(string, double);
 };
 #endif

@@ -1,6 +1,10 @@
-#pragma once
+#ifndef PEPPERONI_H
+#define PEPPERONI_H
+#include "Toppings.h"
 class Pepperoni :
-    public Topping
+    public Toppings
 {
+public:
+    Pepperoni();
 };
-
+#endif
