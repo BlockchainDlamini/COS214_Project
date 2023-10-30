@@ -10,7 +10,7 @@
 using namespace std;
 
 //
-//    class kitchen;
+//    class Kitchen;
 //    class waiter;
 //    class regularWaiter;
 
@@ -31,11 +31,11 @@ void Mediator::notify(gameElement* element) {
     string temp = element->get();
     transform(temp.begin(), temp.end(), temp.begin(), ::toupper);
     //if (...)  //Mediator logic using get():string
-    if (temp == "SENDTOKITCHEN") {
-/*        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
-            if (dynamic_cast<kitchen*>(listOfElements[i])) {
+/*    if (temp == "SENDTOKITCHEN") {
+        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
+            if (dynamic_cast<Kitchen*>(listOfElements[i])) {
                auto a = dynamic_cast<regularWaiter*>(element)->getForKitchen();
-                dynamic_cast<kitchen*>(listOfElements[i])->
+                dynamic_cast<Kitchen*>(listOfElements[i])->
             }
         }*/
     } //else if () {}
