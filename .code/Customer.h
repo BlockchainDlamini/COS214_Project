@@ -27,7 +27,7 @@ class Customer : public gameElement, public enable_shared_from_this<Customer>
 private:
     int ID;
     string tabID;                                                              /**< The unique identifier of the customer's order. */
-    std::shared_ptr<EmotionState> mood = nullptr;                              /**< The emotional state of the customer. */
+    std::shared_ptr<EmotionState> mood = make_shared<Happy>();                              /**< The emotional state of the customer. */
     std::shared_ptr<OrderProcessState> orderProcess = make_shared<Preorder>(); /**< The current order process state. */
     float bankAccountAmount;                                                   /**< The amount of money in the customer's bank account. */
     std::shared_ptr<Tab> tab = nullptr;                                        /**< The customer's tab for keeping track of orders. */
@@ -175,6 +175,7 @@ public:
      * @return True if the customer has received food, false otherwise.
      */
     bool hasFood();
+    bool hasPizza();
 
     shared_ptr<Customer> getMe();
 

@@ -14,20 +14,21 @@ Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : 
 }
 void Customer ::changeMood()
 {
-    mood->handleChange(shared_from_this());
+    mood->handleChange(enable_shared_from_this<Customer>::shared_from_this());
 }
 void Customer::changedOrderProcessState()
 {
-    orderProcess->execute(shared_from_this());
+    orderProcess->execute(enable_shared_from_this<Customer>::shared_from_this());
 }
 
-void Customer::requestBill()
+void Customer::requestBill() // sets the hasBill to true.
 {
     // needs to tell the waiter that they want the bill
     hasBill = true;
 }
 bool Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
 {
+    changedOrderProcessState();
     setTotal(t);
     if (hasBill == true)
     {
@@ -135,7 +136,9 @@ void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>>
 
 void Customer::beSeated(int tableNum)
 {
+
     this->tableNum = tableNum; // set the table number for the customer when he is seated
+    changedOrderProcessState();
 }
 
 int Customer::getTableNum()
@@ -176,9 +179,9 @@ bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
     if (pizza != nullptr)
     {
         this->pizza = pizza;
-
         return true;
     }
+    changedOrderProcessState(); // should change the state to order received
     return false;
 }
 
@@ -191,6 +194,16 @@ std::string Customer::printCustomer()
 // {
 //     return ID;
 // }
+bool Customer::hasPizza()
+{
+    if (pizza != nullptr)
+    {
+        return true;
+    }
+    changedOrderProcessState();
+    return false;
+}
+
 bool Customer::hasFood()
 {
     if (pizza != nullptr)

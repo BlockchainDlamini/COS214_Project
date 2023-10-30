@@ -29,39 +29,41 @@ int main()
      {
           test->createOrder(i, commands);
      }
+     // test->getMe();
      // the Emotion changes, starting from happy
      cout << "Starting From Happy" << endl;
      test->setEmotionState(std::make_shared<Happy>());
      test->changeMood();
      cout << test->printCustomer() << endl;
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl
           << endl;
 
      // the Emotion changes, starting from Frustrated
      cout << "Starting From Frustrated" << endl;
      test->setEmotionState(std::make_shared<Frustrated>());
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl;
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl
           << endl;
 
      // the Emotion changes, starting from Satisfied
      cout << "Starting From Satisfied" << endl;
      test->setEmotionState(std::make_shared<Satisfied>());
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl;
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl
           << endl;
+     test->changedOrderProcessState();
 
      // the Emotion changes, starting from Disgruntaled
      cout << "Starting From Disgruntaled" << endl;
      test->setEmotionState(std::make_shared<Disgruntaled>());
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl;
-     test->changeMood();
+     // test->changeMood();
      cout << test->printCustomer() << endl
           << endl;
 
@@ -78,7 +80,7 @@ int main()
      cout << test->printBill() << endl;
 
      // Paying the bill
-    // test->hasBill = false;
+     // test->hasBill = false;
      //     test->payBill('g', 0);
      //     test->payBill('P', 100);  // within the budget
      //     test->payBill('P', 2000); // outside the budget, overpaid
@@ -86,6 +88,6 @@ int main()
      // test->payBill('T', 2000);
      cout << test->printBill() << endl;
 
-     cout << test->getTab()->listOutstandingOrders() <<endl;
+     cout << test->getTab()->listOutstandingOrders() << endl;
      return 0;
 }
