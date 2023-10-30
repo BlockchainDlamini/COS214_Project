@@ -21,6 +21,7 @@ We have used several design patterns in this project to ensure that the code is 
 - **Memento**: For saving and retrieving customer information, used when users try to repay or access their **Tab**.
 - **State**: To model customers' emotional state throughout the course of the game.
 - **Template Method**: For customers to choose how they'd like their meal prepared. E.g. Fried/Grilled
+- **Builder**: Once pizza components(E.g. toppings/sauce) are made they are put together to make the final product pizza
 ## Group Members
 - u20448903
 - u20426586
