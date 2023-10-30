@@ -37,8 +37,8 @@ void Mediator::notify(gameElement* element) {
                auto a = dynamic_cast<regularWaiter*>(element)->getForKitchen();
                 dynamic_cast<Kitchen*>(listOfElements[i])->
             }
-        }*/
-    } //else if () {}
+        }
+    } //else if () {}*/
 }
 
 void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Still to be tested
