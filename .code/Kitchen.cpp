@@ -1,14 +1,13 @@
 #include "Kitchen.h"
 
 
-Kitchen::Kitchen(shared_ptr<Kitchen> ptr)
-{
-	nextChef = ptr;
-}
+
+Kitchen::Kitchen()
+{}
+
 void Kitchen::handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>)
 {
 	cout << "Nothing was handled";
-
 }
 
 void Kitchen::handleOrder(pair<int, vector<shared_ptr<Order>>> pr)
@@ -22,10 +21,11 @@ shared_ptr<FoodItem> Kitchen::execute()
 	return 0;
 }
 
-void Kitchen::handleOrder(pair<int, vector<shared_ptr<Order>>>)
+void Kitchen::handleOrder(int, vector<shared_ptr<FoodItem>>)
 {
-	cout << "Nothing was handled";
+
 }
+
 
 shared_ptr<FoodItem> Kitchen::createFoodItem()
 {
