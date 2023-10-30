@@ -9,7 +9,7 @@
 #include "OrderProcessState.h"
 #include "Preorder.h"
 #include "Order.h"
-#include "gameElement.h"
+// #include "gameElement.h"
 #include "Pizza.h"
 #include "Tab.h"
 #include <iostream>
@@ -22,7 +22,7 @@ using namespace std;
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
-class Customer : public gameElement, public enable_shared_from_this<Customer>
+class Customer : public enable_shared_from_this<Customer>
 {
 private:
     int ID;

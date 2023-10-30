@@ -1,13 +1,13 @@
 #include "Customer.h"
 
-Customer::Customer(int bankAmount, int id) : gameElement()
+Customer::Customer(int bankAmount, int id) 
 {
     bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
     ID = id;
     tabID = "No Tab";
     // this->tableNum = tableNum;
 }
-Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : gameElement()
+Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount)
 {
     this->mood = mood;
     this->bankAccountAmount = bankAccountAmount;
@@ -114,7 +114,7 @@ string Customer::printBill()
     if (hasBill == true)
     {
 
-        output += "CustomerID: [" + to_string(myID) + "] Bank Account Amount: [R" + to_string(bankAccountAmount) + "] Tip Percentage: [" + to_string(mood->getTip()) + "] \nOrders: [" + to_string(ID) + "]\n";
+       // output += "CustomerID: [" + to_string(myID) + "] Bank Account Amount: [R" + to_string(bankAccountAmount) + "] Tip Percentage: [" + to_string(mood->getTip()) + "] \nOrders: [" + to_string(ID) + "]\n";
         for (shared_ptr<Order> order : orders)
         {
             output += order->showOrder() + "\n";
@@ -122,7 +122,7 @@ string Customer::printBill()
         output += "Total Amount: [" + to_string(getTotal()) + "]";
         return output;
     }
-    output = "CustomerID [" + to_string(myID) + "]  has not received the bill yet\n";
+   // output = "CustomerID [" + to_string(myID) + "]  has not received the bill yet\n";
     return output;
 }
 void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> commands)
