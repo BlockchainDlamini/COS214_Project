@@ -24,7 +24,7 @@ void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
 
 void gameElement::changed() {
     if (gameEngine) {
-        gameEngine->notify(this);
+        gameEngine->notify(shared_from_this());
         return;
     }
 

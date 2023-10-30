@@ -18,7 +18,7 @@ class Mediator;
  * @class gameElement
  * @brief A class to represent a game element.
  */
-class gameElement{
+class gameElement:enable_shared_from_this<gameElement>{
 public:
     /**
      * @brief Construct a new game element object.

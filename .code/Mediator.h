@@ -20,7 +20,7 @@ public:
     * @brief Notify a game element.
     * @param element The game element to be notified.
     */
-    virtual void notify(gameElement* element);
+    virtual void notify(std::shared_ptr<gameElement> element);
 
     /**
     * @brief Add a game element to the list of elements.
