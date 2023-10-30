@@ -7,52 +7,63 @@
 #include "HeadChef.h"
 using namespace std;
 
-HeadChef::HeadChef() {
-    next = NULL;
+HeadChef::HeadChef() : Kitchen() {
+    nextChef = nullptr;
 }
 
-void HeadChef::handleOrder(vector<shared_ptr<FoodItem>> order) {
+void HeadChef::handleOrder(int waiterID, vector<shared_ptr<FoodItem>> order) {
     bakePizza(order);
+    pizzas.first = waiterID;
+    pizzas.second.push_back(bakePizza(order));
+    setOperation("COLLECTORDER");
+    if (!nextChef->ordersComplete()) 
+        nextChef->handleOrder(waiterID);
+    //send the pizza out be sent to waiter ask Hamza again
 }
 
-void HeadChef::bakePizza(vector<shared_ptr<FoodItem>> order) {
-    pizza = make_shared<Pizza>();
-    for (shared_ptr<Base> item : order) {
-        addBase(item);
-        pizza->price += item->getPrice();
+shared_ptr<Pizza> HeadChef::bakePizza(vector<shared_ptr<FoodItem>> order) {
+    shared_ptr<Pizza> pizza = make_shared<Pizza>();
+    for (shared_ptr<FoodItem> item : order) {
+        if (typeid(item) == typeid(Base)) {
+            addBase(pizza, item);
+            pizza->price += item->getPrice();
+        }
     } 
-    for (shared_ptr<Toppings> item : order) {
-        addTopping(item);
-        pizza->price += item->getPrice();
+    for (shared_ptr<FoodItem> item : order) {
+        if (typeid(item) == typeid(Toppings)) {
+            addTopping(pizza, item);
+            pizza->price += item->getPrice();
+        }
     } 
-    for (shared_ptr<Sauce> item : order) {
-        addSauce(item);
-        pizza->price += item->getPrice();
-
+    for (shared_ptr<FoodItem> item : order) {
+        if (typeid(item) == typeid(Sauce)) {
+            addSauce(pizza, item);
+            pizza->price += item->getPrice();
+        }
     }
-    for (shared_ptr<Cheese> item : order) {
-        addCheese(item);
-        pizza->price += item->getPrice();
+    for (shared_ptr<FoodItem> item : order) {
+        if (typeid(item) == typeid(Cheese)) {
+            addCheese(pizza, item);
+            pizza->price += item->getPrice();
+        }
     }
+    return pizza;
 }
 
-void HeadChef::addTopping(shared_ptr<FoodItem> item) {
-    pizza->toppingsList->insert(item);
+void HeadChef::addTopping(shared_ptr<Pizza> pizza, shared_ptr<FoodItem> item) {
+    pizza->toppingsList.push_back(item);
 }
 
-void HeadChef::addSauce(shared_ptr<FoodItem> item) {
-    pizza->sauce->insert(item);
+void HeadChef::addSauce(shared_ptr<Pizza> pizza, shared_ptr<FoodItem> item) {
+    pizza->sauceList.push_back(item);
 }
 
-void HeadChef::addBase(shared_ptr<FoodItem> item) {
+void HeadChef::addBase(shared_ptr<Pizza> pizza, shared_ptr<FoodItem> item) {
     pizza->base = item;
 }
 
-void HeadChef::addCheese(shared_ptr<FoodItem> item) {
-    pizza->cheese->insert(item);
+void HeadChef::addCheese(shared_ptr<Pizza> pizza, shared_ptr<FoodItem> item) {
+    pizza->cheeseList.push_back(item);
 }
 
-shared_ptr<Pizza> HeadChef::getPizza() {
-    return pizza;
-}
 

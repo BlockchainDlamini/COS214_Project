@@ -4,7 +4,9 @@
     *and creates a pizza
 */
 #include "Pizza.h"
+#include "HeadChef.h"
 using namespace std;
+
 
 Pizza::Pizza() {
     price = 0;

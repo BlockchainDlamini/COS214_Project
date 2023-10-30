@@ -1,20 +1,32 @@
-/*@file MakeBase.h
-*@brief contains the MakeBase class
-*       which is a subclass of MenuItemCommand
-*       and creates a base for a food item
-*       in the kitchen
-*@bug No known bugs.
-*/
+/**
+ * @file MakeBase.h
+ * @brief Contains the MakeBase class, a subclass of MenuItemCommand, responsible for creating a base for a food item in the kitchen.
+ * @bug No known bugs.
+ */
+
 #ifndef __MAKE_BASE_H__
 #define __MAKE_BASE_H__
 
 #include "MenuItemCommand.h"
 #include <memory>
 
+/**
+ * @class MakeBase
+ * @brief Represents the MakeBase class, responsible for creating a base for a food item in the kitchen.
+ */
 class MakeBase : public MenuItemCommand {
-    public:
-        MakeBase(std::shared_ptr<Kitchen>);
-        std::shared_ptr<FoodItem> execute();
+public:
+    /**
+     * @brief Constructor for the MakeBase class.
+     * @param kitchen A shared pointer to the Kitchen where the base is created.
+     */
+    MakeBase(std::shared_ptr<Kitchen> kitchen);
+
+    /**
+     * @brief Execute the MakeBase command, creating and returning a shared pointer to the FoodItem representing the base.
+     * @return A shared pointer to the created FoodItem object.
+     */
+    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

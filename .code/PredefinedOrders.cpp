@@ -4,39 +4,36 @@ using namespace std;
 PredefinedOrders::PredefinedOrders() {
     headChef = make_shared<HeadChef>();
 } 
-shared_ptr<Pizza> PredefinedOrders::makeMozzarellaPizza() {
+
+void PredefinedOrders::makeMozzarellaPizza(int waiterID) {
     vector<shared_ptr<FoodItem>> ingredients = {
         make_shared<Mozzarella>(),
         make_shared<ThinCrust>(),
     };
-    headChef->handleOrder(ingredients);
-    return headChef->getPizza();
+    headChef->handleOrder(waiterID, ingredients);
 }
 
-shared_ptr<Pizza> PredefinedOrders::makePepperoniPizza() {
+void PredefinedOrders::makePepperoniPizza(int waiterID) {
     vector<shared_ptr<FoodItem>> ingredients = {
         make_shared<Pepperoni>(),
         make_shared<ThinCrust>(),
     };
-    headChef->handleOrder(ingredients);
-    return headChef->getPizza();
+    headChef->handleOrder(waiterID, ingredients);
 }
 
-shared_ptr<Pizza> PredefinedOrders::makeCheesyPizza() {
+void PredefinedOrders::makeCheesyPizza(int waiterID) {
     vector<shared_ptr<FoodItem>> ingredients = {
         make_shared<Mozzarella>(),
         make_shared<Cheddar>(),
         make_shared<ThinCrust>(),
     };
-    headChef->handleOrder(ingredients);
-    return headChef->getPizza();
+    headChef->handleOrder(waiterID, ingredients);
 }
 
-shared_ptr<Pizza> PredefinedOrders::makeChickenDoubleDeckerPizza() {
+void PredefinedOrders::makeChickenDoubleDeckerPizza(int waiterID) {
     vector<shared_ptr<FoodItem>> ingredients = {
         make_shared<DoubleDecker>(),
         make_shared<Chicken>(),
     };
-    headChef->handleOrder(ingredients);
-    return headChef->getPizza();
+    headChef->handleOrder(waiterID, ingredients);
 }
