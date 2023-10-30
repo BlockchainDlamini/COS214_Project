@@ -8,17 +8,6 @@ public:
     SauceChef(shared_ptr<Kitchen> ptr);
     void handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
     shared_ptr<FoodItem> createFoodItem();
-    shared_ptr<FoodItem> execute();
+    shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand>);
 };
 #endif
-
-SauceChef::SauceChef(shared_ptr<Kitchen> ptr) :Kitchen(ptr) {}
-void SauceChef::handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>) {}
-shared_ptr<FoodItem> SauceChef::createFoodItem() 
-{
-    return make_shared<>();
-}
-shared_ptr<FoodItem> SauceChef::execute()
-{
-    createFoodItem();
-}

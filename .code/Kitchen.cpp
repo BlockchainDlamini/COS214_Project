@@ -32,3 +32,4 @@ shared_ptr<FoodItem> Kitchen::createFoodItem()
 	cout << "Nothing was created";
 	return 0;
 }
+void Kitchen::handleOrder(int, vector<shared_ptr<FoodItem>>){}

@@ -4,9 +4,10 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include "gameElement.h"
 using namespace std;
 //THIS IS THE CLASS AT THE TOP OF THE LINK BETWEEN FILES
-class FoodItem
+class FoodItem: public gameElement
 {
 protected:
 	double price;
