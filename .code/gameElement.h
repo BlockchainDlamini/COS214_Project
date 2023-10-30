@@ -108,27 +108,7 @@ protected:
     string operation;
 };
 
-/*class gameElement{
-public:
-    gameElement();
-    gameElement(const std::shared_ptr<Mediator> &myGameEngine);
-    gameElement(const std::shared_ptr<Mediator> &myGameEngine,int id);
-    virtual ~gameElement();
-    void setGameEngine(const std::shared_ptr<Mediator> &gameEngine);
-    void setMyGameEngine(const shared_ptr<Mediator> &myGameEngine);
-    int getMyId() const;
-    void setMyId(int myId);
 
-    //Communication functions
-    virtual void changed();
-    virtual string get();
-    virtual void setOperation(string op);
-protected:
-    std::shared_ptr<Mediator> gameEngine;
-    int myID;
-    static int sharedID;
-    string operation;
-};*/
 
 
 
