@@ -5,9 +5,7 @@ Tab::Tab()
 std::string Tab::listOutstandingOrders()
 {
     string output = "";
-    // customerid
-    // totoal
-
+    output += "Customer ID: " + ID+"\n";
     for (shared_ptr<OrderMemento> order : tab)
     {
         output += "Order ID: " + to_string(order->getID()) + "\n";
@@ -28,8 +26,15 @@ bool Tab::payOrder()
     }
 }
 
-void Tab::addOrder(std::shared_ptr<OrderMemento> order)
+void Tab::setID(string id)
 {
+    ID = id;
+}
+
+void Tab::addOrder(std::shared_ptr<OrderMemento> order, string ID)
+{
+    setID(ID);
+    // checkID(ID);
     tab.push_back(order);
 }
 
@@ -40,7 +45,7 @@ std::vector<std::shared_ptr<OrderMemento>> Tab::getTab()
 
 int Tab::getTotal()
 {
-    int total = 0;
+    float total = 0;
     for (shared_ptr<OrderMemento> order : tab)
     {
         total += order->getPrice();
@@ -48,9 +53,18 @@ int Tab::getTotal()
     return total;
 }
 
-bool Tab::checkID()
+bool Tab::checkID(string ID)
 {
+    if (this->ID == ID)
+    {
+        return true;
+    }
     return false;
+}
+
+string Tab::getID()
+{
+    return ID;
 }
 
 void Tab::clearTab()

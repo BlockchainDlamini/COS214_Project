@@ -20,7 +20,8 @@ public:
     /**
      * @brief Execute the OrderReceived state.
      */
-    void execute();
+    void execute(std::shared_ptr<Customer> context);
+    std::string getName();
 
     /**
      * @brief Handle a change in the state by moving to the next state.

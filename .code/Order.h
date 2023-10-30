@@ -13,7 +13,7 @@ class Order : public enable_shared_from_this<Order>
 {
 private:
     std::vector<std::shared_ptr<MenuItemOrderCommand>> formula; /**< The list of menu items in the order. */
-    int price;                                                  /**< The total price of the order. */
+    float price;                                                /**< The total price of the order. */
     int orderID;                                                /**< The unique identifier for the order.*/
 public:
     /**
@@ -40,7 +40,7 @@ public:
     /**
      * @brief Place the order.
      */
-    void placeOrder();
+    // void placeOrder();
 
     /**
      * @brief Get the total price of the order.
@@ -76,10 +76,12 @@ public:
      * @brief Show the formula of the order as a string.
      * @return A string representation of the order's formula.
      */
-    string showFormula();
+    // string showFormula();
+    string showOrder();
 
-std::vector<std::shared_ptr<MenuItemOrderCommand>> getFormula();
+    void setPrice(float price);
 
+    std::vector<std::shared_ptr<MenuItemOrderCommand>> getFormula();
 };
 
 #endif

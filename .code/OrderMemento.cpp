@@ -13,12 +13,18 @@ OrderMemento::OrderMemento(int price, int orderID, std::vector<std::shared_ptr<M
     this->formula = order;
 }
 
-int OrderMemento::getPrice()
+OrderMemento::OrderMemento(int price, std::vector<std::shared_ptr<MenuItemOrderCommand>> formula)
+{
+    this->price = price;
+    this->formula = formula;
+}
+
+float OrderMemento::getPrice()
 {
     return price;
 }
 
-void OrderMemento::setPrice(int price)
+void OrderMemento::setPrice(float price)
 {
     this->price = price;
 }

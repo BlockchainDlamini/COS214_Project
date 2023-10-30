@@ -25,14 +25,16 @@ using namespace std;
 class Customer : public gameElement, public enable_shared_from_this<Customer>
 {
 private:
-   // int ID;                                                                  /**< The unique identifier of the customer's order. */
+    int ID;
+    string tabID;                                                              /**< The unique identifier of the customer's order. */
     std::shared_ptr<EmotionState> mood = nullptr;                              /**< The emotional state of the customer. */
     std::shared_ptr<OrderProcessState> orderProcess = make_shared<Preorder>(); /**< The current order process state. */
     float bankAccountAmount;                                                   /**< The amount of money in the customer's bank account. */
     std::shared_ptr<Tab> tab = nullptr;                                        /**< The customer's tab for keeping track of orders. */
-    int tableNum;                                                              /**< The table number where the customer is seated. */
-    std::shared_ptr<Pizza> pizza = nullptr;                                    /**< The pizza ordered by the customer. */
-    std::vector<std::shared_ptr<Order>> orders;                                /**< A vector of customer's orders. */
+    int tableNum;
+    float total;                                /**< The table number where the customer is seated. */
+    std::shared_ptr<Pizza> pizza = nullptr;     /**< The pizza ordered by the customer. */
+    std::vector<std::shared_ptr<Order>> orders; /**< A vector of customer's orders. */
 
 public:
     /**
@@ -40,14 +42,15 @@ public:
      * @param id The unique identifier of the customer.
      * @param tableNum The table number where the customer is seated.
      */
-    Customer(int id, int tableNum,int bankAccountAmount);
+    Customer(int id, int bankAccountAmount);
 
     /**
      * @brief Constructor for a Customer with an initial emotional state.
      * @param mood The initial emotional state of the customer.
      * @param tableNum The table number where the customer is seated.
      */
-    Customer(std::shared_ptr<EmotionState> mood, int tableNum);
+    Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount);
+    Customer(int bankAccount);
 
     /**
      * @brief Change the emotional state of the customer.
@@ -136,6 +139,9 @@ public:
      */
     std::shared_ptr<EmotionState> getMood();
 
+    void setTotal(float total);
+    float getTotal();
+
     /**
      * @brief Get the order process state of the customer.
      * @return A shared pointer to the order process state.
@@ -161,7 +167,6 @@ public:
      */
     std::string printCustomer();
 
-
     bool hasOrdered = false; /**< A flag indicating whether the customer has placed an order. */
     bool hasBill = false;    /**< A flag indicating whether the customer has a bill. */
 
@@ -172,6 +177,23 @@ public:
     bool hasFood();
 
     shared_ptr<Customer> getMe();
+
+    std::string generateRandomString(int length)
+    {
+        const std::string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        std::string randomString;
+        srand(static_cast<unsigned int>(time(nullptr))); // Seed the random number generator with the current time
+
+        for (int i = 0; i < length; ++i)
+        {
+            int randomIndex = rand() % characters.length();
+            randomString += characters[randomIndex];
+        }
+
+        return randomString;
+    }
+ std::shared_ptr<Tab> getTab();
+    bool leave(int);
 };
 
 #endif

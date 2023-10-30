@@ -16,10 +16,12 @@ public:
         stateName = "DinnerDone";
     }
 
+    std::string getName();
+
     /**
      * @brief Execute the DinnerDone state, triggering the requestBill function in the customer.
      */
-    void execute();
+    void execute(std::shared_ptr<Customer> context);
 
     /**
      * @brief Handle a change in the state by moving to the next state.

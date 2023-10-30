@@ -33,13 +33,15 @@ public:
      */
     bool payOrder();
 
-    void setID();
+    void setID(string id);
+
+    string getID();
 
     /**
      * @brief Add an OrderMemento to the tab.
      * @param orderMemento A shared pointer to the OrderMemento to add.
      */
-    void addOrder(std::shared_ptr<OrderMemento> orderMemento);
+    void addOrder(std::shared_ptr<OrderMemento> orderMemento, string ID);
 
     /**
      * @brief Get the list of outstanding orders in the tab.
@@ -53,7 +55,7 @@ public:
      */
     int getTotal();
 
-    bool checkID();
+    bool checkID(string ID);
     /**
      * @brief Clear the tab by removing all outstanding orders.
      */

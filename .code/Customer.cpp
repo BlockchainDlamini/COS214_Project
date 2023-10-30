@@ -1,9 +1,11 @@
 #include "Customer.h"
 
-Customer::Customer(int bankAmount, int id, int tableNum) : gameElement()
+Customer::Customer(int bankAmount, int id) : gameElement()
 {
     bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
-    this->tableNum = tableNum;
+    ID = id;
+    tabID = "No Tab";
+    // this->tableNum = tableNum;
 }
 Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : gameElement()
 {
@@ -16,16 +18,17 @@ void Customer ::changeMood()
 }
 void Customer::changedOrderProcessState()
 {
-    orderProcess->handleChange(shared_from_this());
+    orderProcess->execute(shared_from_this());
 }
 
 void Customer::requestBill()
 {
     // needs to tell the waiter that they want the bill
+    hasBill = true;
 }
 bool Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
 {
-    float total = t;
+    setTotal(t);
     if (hasBill == true)
     {
         if (c == 'P' || c == 'p')
@@ -46,9 +49,10 @@ bool Customer::payBill(char c, float t) // returns true if the customer has eith
         {
             for (std::shared_ptr<Order> order : orders)
             {
+                order->setPrice(total);
                 if (order != nullptr)
                 {
-                    tab->addOrder(order->createOrderMemento());
+                    tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
             return true;
@@ -60,7 +64,7 @@ bool Customer::payBill(char c, float t) // returns true if the customer has eith
             {
                 if (order != nullptr)
                 {
-                    tab->addOrder(order->createOrderMemento());
+                    tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
             return true;
@@ -76,6 +80,7 @@ bool Customer::payBill(char c, float t) // returns true if the customer has eith
         cout << "Customer has not received the bill from the waiter" << endl;
         return false;
     }
+    leave(tableNum);
 }
 bool Customer::isLoyal()
 {
@@ -90,8 +95,9 @@ bool Customer::isLoyal()
 }
 void Customer::startTab()
 {
+    tabID = generateRandomString(6);
     tab = std::make_shared<Tab>();
-    cout << "CustomerID: [" + to_string(1) + "] has created a new tab" << endl;
+    cout << "CustomerID: [" + tabID + "] has created a new tab" << endl;
 }
 void Customer::payTab()
 {
@@ -108,17 +114,20 @@ string Customer::printBill()
     if (hasBill == true)
     {
 
-        output += "CustomerID: [" + to_string(1) + "] Bank Account Amount: [R" + to_string(bankAccountAmount) + "] Tip Percentage: [" + to_string(mood->getTip()) + "] \nOrders: " + "\n";
+        output += "CustomerID: [" + to_string(myID) + "] Bank Account Amount: [R" + to_string(bankAccountAmount) + "] Tip Percentage: [" + to_string(mood->getTip()) + "] \nOrders: [" + to_string(ID) + "]\n";
         for (shared_ptr<Order> order : orders)
         {
-            output += "OrderID: [" + to_string(order->getOrderID()) + "] Price: [" + to_string(order->getPrice()) + "] \n";
+            output += order->showOrder() + "\n";
         }
+        output += "Total Amount: [" + to_string(getTotal()) + "]";
+        return output;
     }
-    output = "CustomerID [" + to_string(1) + "]  has not received the bill yet\n";
+    output = "CustomerID [" + to_string(myID) + "]  has not received the bill yet\n";
     return output;
 }
 void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> commands)
 {
+    ID = orderID;
     std::shared_ptr<Order> order = make_shared<Order>(orderID, commands);
     orders.push_back(order);
     std::cout << "Order: " + to_string(orderID) + " has been added" << endl;
@@ -126,7 +135,7 @@ void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>>
 
 void Customer::beSeated(int tableNum)
 {
-    this->tableNum = tableNum;
+    this->tableNum = tableNum; // set the table number for the customer when he is seated
 }
 
 int Customer::getTableNum()
@@ -141,7 +150,7 @@ void Customer::setEmotionState(std::shared_ptr<EmotionState> mood)
 
 shared_ptr<Customer> Customer::getMe()
 {
-  
+
     return enable_shared_from_this<Customer>::shared_from_this();
 }
 
@@ -167,6 +176,7 @@ bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
     if (pizza != nullptr)
     {
         this->pizza = pizza;
+
         return true;
     }
     return false;
@@ -174,7 +184,7 @@ bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
 
 std::string Customer::printCustomer()
 {
-    std::string output = "CustomerID: [" + to_string(1) + "] Mood: [" + mood->getEmotion() + "] Table Number: [" + to_string(tableNum) + "] Bank Account Amount: [" + to_string(bankAccountAmount) + "]" + " Order Status: " + orderProcess->stateName;
+    std::string output = "CustomerID: [" + to_string(1) + "] Mood: [" + mood->getEmotion() + "] Table Number: [" + to_string(tableNum) + "] Bank Account Amount: [" + to_string(bankAccountAmount) + "]" + " Order Status: [" + orderProcess->stateName + "]";
     return output;
 }
 // int Customer::getID()
@@ -188,4 +198,28 @@ bool Customer::hasFood()
         return true;
     }
     return false;
+}
+
+bool Customer::leave(int tableNum)
+{
+    if (orderProcess->getName() == "DinnerDone" && this->tableNum == tableNum)
+    {
+        return true;
+    }
+    return false;
+}
+
+float Customer::getTotal()
+{
+    return total;
+}
+
+void Customer::setTotal(float t)
+{
+    total = t;
+}
+
+std::shared_ptr<Tab> Customer::getTab()
+{
+    return tab;
 }

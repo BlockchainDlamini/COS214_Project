@@ -8,20 +8,23 @@
  * @class Waiting
  * @brief Represents the "Waiting" state in the order processing system.
  */
-class Waiting : public OrderProcessState {
+class Waiting : public OrderProcessState
+{
 public:
     /**
      * @brief Constructor for creating a Waiting state.
      */
-    Waiting() {
+    Waiting()
+    {
         stateName = "Waiting";
     }
 
     /**
      * @brief Execute the Waiting state.
      */
-    void execute();
+    void execute(std::shared_ptr<Customer> context);
 
+    std::string getName();
     /**
      * @brief Handle a change in the state by moving to the next state.
      * @param context A shared pointer to the customer context.

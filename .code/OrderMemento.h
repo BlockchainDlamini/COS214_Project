@@ -9,11 +9,12 @@
  * @class OrderMemento
  * @brief Represents a memento for storing the state of an order.
  */
-class OrderMemento : public enable_shared_from_this<OrderMemento> {
+class OrderMemento : public enable_shared_from_this<OrderMemento>
+{
 private:
     std::vector<std::shared_ptr<MenuItemOrderCommand>> formula; /**< The list of menu item order commands in the order memento. */
-    int price; /**< The total price of the order memento. */
-    int orderID; /**< The unique order ID associated with the order memento. */
+    float price;                                                /**< The total price of the order memento. */
+    int orderID;                                                /**< The unique order ID associated with the order memento. */
 
 public:
     /**
@@ -23,6 +24,7 @@ public:
      * @param formula The list of menu item order commands in the order memento.
      */
     OrderMemento(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> formula);
+    OrderMemento(int price, std::vector<std::shared_ptr<MenuItemOrderCommand>> formula);
 
     /**
      * @brief Constructor for creating an OrderMemento from an existing OrderMemento object.
@@ -34,13 +36,13 @@ public:
      * @brief Get the total price of the order memento.
      * @return The total price of the order memento.
      */
-    int getPrice();
+    float getPrice();
 
     /**
      * @brief Set the total price of the order memento.
      * @param price The total price to set.
      */
-    void setPrice(int price);
+    void setPrice(float price);
 
     /**
      * @brief Get the unique order ID associated with the order memento.

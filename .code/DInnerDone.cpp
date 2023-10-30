@@ -1,8 +1,15 @@
 #include "DinnerDone.h"
-void DinnerDone::execute(){
+void DinnerDone::execute(std::shared_ptr<Customer> context)
+{
+    context->changeMood();
+    handleChange(context);
+}
+void DinnerDone::handleChange(std::shared_ptr<Customer> context)
+{
     context->requestBill();
 }
-void DinnerDone::handleChange(std::shared_ptr<Customer> context){
 
+std::string DinnerDone::getName()
+{
+    return stateName;
 }
-

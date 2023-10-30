@@ -19,6 +19,7 @@ protected:
 
 public:
     std::string stateName;
+   virtual std::string getName() = 0;
 
     /**
      * @brief Default constructor for OrderProcessState.
@@ -28,7 +29,7 @@ public:
     /**
      * @brief Execute the state-specific behavior.
      */
-    virtual void execute() = 0;
+    virtual void execute(std::shared_ptr<Customer> context) = 0;
 
     /**
      * @brief Handle a change in the state by moving to the next state.
