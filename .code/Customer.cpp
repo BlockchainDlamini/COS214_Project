@@ -14,11 +14,11 @@ Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : 
 }
 void Customer ::changeMood()
 {
-    mood->handleChange(enable_shared_from_this<Customer>::shared_from_this());
+    mood->handleChange(this);
 }
 void Customer::changedOrderProcessState()
 {
-    orderProcess->execute(enable_shared_from_this<Customer>::shared_from_this());
+    orderProcess->execute(this);
 }
 
 void Customer::requestBill() // sets the hasBill to true.
@@ -28,7 +28,7 @@ void Customer::requestBill() // sets the hasBill to true.
 }
 bool Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
 {
-    changedOrderProcessState();
+    changedOrderProcessState(); // take the state to dinnerdone from orderreceived
     setTotal(t);
     if (hasBill == true)
     {
@@ -134,11 +134,11 @@ void Customer::createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>>
     std::cout << "Order: " + to_string(orderID) + " has been added" << endl;
 }
 
-void Customer::beSeated(int tableNum)
+void Customer::beSeated(int table)
 {
 
-    this->tableNum = tableNum; // set the table number for the customer when he is seated
-    changedOrderProcessState();
+    tableNum = table;           // set the table number for the customer when he is seated
+    changedOrderProcessState(); // change the state to waiting
 }
 
 int Customer::getTableNum()
@@ -179,9 +179,10 @@ bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
     if (pizza != nullptr)
     {
         this->pizza = pizza;
+        hasFood = true;
+        changedOrderProcessState(); // change state to orderReceived from waiting
         return true;
     }
-    changedOrderProcessState(); // should change the state to order received
     return false;
 }
 
@@ -190,36 +191,27 @@ std::string Customer::printCustomer()
     std::string output = "CustomerID: [" + to_string(1) + "] Mood: [" + mood->getEmotion() + "] Table Number: [" + to_string(tableNum) + "] Bank Account Amount: [" + to_string(bankAccountAmount) + "]" + " Order Status: [" + orderProcess->stateName + "]";
     return output;
 }
-// int Customer::getID()
-// {
-//     return ID;
-// }
-bool Customer::hasPizza()
+int Customer::getID()
+{
+    return ID;
+}
+void Customer::hasPizza()
 {
     if (pizza != nullptr)
     {
-        return true;
+        hasFood = true;
     }
-    changedOrderProcessState();
-    return false;
 }
 
-bool Customer::hasFood()
-{
-    if (pizza != nullptr)
-    {
-        return true;
-    }
-    return false;
-}
-
-bool Customer::leave(int tableNum)
+void Customer::leave(int tableNum)
 {
     if (orderProcess->getName() == "DinnerDone" && this->tableNum == tableNum)
     {
-        return true;
+        tableNum = -1;
+        setOperation("leave");
+        changed();
     }
-    return false;
+    cout << "Customer has not completed their meal";
 }
 
 float Customer::getTotal()
@@ -235,4 +227,12 @@ void Customer::setTotal(float t)
 std::shared_ptr<Tab> Customer::getTab()
 {
     return tab;
+}
+
+void Customer::talkToWaiter()
+{
+    // setOperation("giveorder");
+    hasOrdered = true;
+    changedOrderProcessState(); // change state to waiting from preorder
+                                // changed();
 }

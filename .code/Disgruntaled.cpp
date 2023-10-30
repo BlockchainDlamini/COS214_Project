@@ -8,7 +8,7 @@ float Disgruntaled::getTip()
     tip = 0;
     return tip;
 }
-void Disgruntaled::handleChange(std::shared_ptr<Customer> context)
+void Disgruntaled::handleChange(Customer* context)
 {
     std::shared_ptr<EmotionState> ptr;
     int num = getRandomNumber();

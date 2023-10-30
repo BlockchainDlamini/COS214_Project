@@ -29,13 +29,13 @@ public:
     /**
      * @brief Execute the state-specific behavior.
      */
-    virtual void execute(std::shared_ptr<Customer> context) = 0;
+    virtual void execute(Customer* context) = 0;
 
     /**
      * @brief Handle a change in the state by moving to the next state.
      * @param customer A shared pointer to the customer context.
      */
-    virtual void handleChange(std::shared_ptr<Customer> customer) = 0;
+    virtual void handleChange(Customer* customer) = 0;
 
     /**
      * @brief Print information about the state change.

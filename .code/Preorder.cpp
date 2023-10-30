@@ -1,12 +1,12 @@
 #include "Preorder.h"
-void Preorder::execute(std::shared_ptr<Customer> context)
+void Preorder::execute(Customer* context)
 {
     context->changeMood();
     handleChange(context);
 }
-void Preorder::handleChange(std::shared_ptr<Customer> context)
+void Preorder::handleChange(Customer* context)
 {
-    if (context->hasFood() == false && context->hasBill == false)
+    if (context->hasOrdered == true && context->hasBill == false && context->hasFood == false)
     {
         context->setOrderProcessState(make_shared<Waiting>());
     }

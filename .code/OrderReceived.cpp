@@ -1,13 +1,14 @@
 #include "OrderReceived.h"
-void OrderReceived::execute(std::shared_ptr<Customer> context)
+void OrderReceived::execute(Customer *context)
 {
     context->changeMood();
     handleChange(context);
 }
 
-void OrderReceived::handleChange(std::shared_ptr<Customer> context)
+void OrderReceived::handleChange(Customer *context)
 {
-    if (context->hasBill == true && context->hasFood() == true)
+    context->requestBill();
+    if (context->hasOrdered == true && context->hasBill == true && context->hasFood == true)
     {
         context->setOrderProcessState(make_shared<DinnerDone>());
     }

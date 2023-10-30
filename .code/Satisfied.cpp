@@ -8,7 +8,7 @@ float Satisfied::getTip()
     tip = 0.10;
     return tip;
 }
-void Satisfied ::handleChange(std::shared_ptr<Customer> context)
+void Satisfied ::handleChange(Customer* context)
 {
     std::shared_ptr<EmotionState> ptr;
     int num = getRandomNumber();

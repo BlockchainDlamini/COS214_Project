@@ -20,7 +20,7 @@ public:
     /**
      * @brief Execute the Preorder state.
      */
-    void execute(std::shared_ptr<Customer> context);
+    void execute(Customer* context);
 
     std::string getName();
 
@@ -28,7 +28,7 @@ public:
      * @brief Handle a change in the state by moving to the next state.
      * @param context A shared pointer to the customer context.
      */
-    void handleChange(std::shared_ptr<Customer> context);
+    void handleChange(Customer* context);
 
     // You may want to add the missing documentation for the getState() function.
     // std::shared_ptr<Customer> getState();

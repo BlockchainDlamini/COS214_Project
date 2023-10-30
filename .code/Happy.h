@@ -18,7 +18,7 @@ public:
      * @brief Handle a change in the customer's emotional state.
      * @param customer A shared pointer to the customer whose state is changing.
      */
-    void handleChange(std::shared_ptr<Customer> customer);
+    void handleChange(Customer* context);
 
     /**
      * @brief Get the emotional state of the customer.
