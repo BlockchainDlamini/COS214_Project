@@ -1,7 +1,6 @@
 //
 // Created by User on 24/10/2023.
 //
-
 #ifndef CODE_GAMEELEMENT_H
 #define CODE_GAMEELEMENT_H
 
@@ -34,8 +33,4 @@ protected:
     static int sharedID;
     string operation;
 };
-
-
-
-
 #endif //CODE_GAMEELEMENT_H

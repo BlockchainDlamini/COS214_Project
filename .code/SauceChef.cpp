@@ -1,6 +1,6 @@
 #include "SauceChef.h"
 
-SauceChef::SauceChef(shared_ptr<Kitchen> ptr) :Kitchen(ptr)
+SauceChef::SauceChef(shared_ptr<Kitchen> ptr) :Kitchen(ptr) 
 {
     nextChef = make_shared<HeadChef>();
 }
@@ -8,7 +8,7 @@ void SauceChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, 
 {
     for (vector<shared_ptr<MenuItemCommand>> it = orders.begin(); it != orders.end(); it++)
     {
-        if ((*it)->getReciever() == this)
+        if (typeid(*(*it)) == typeid(MakeSauce))
         {
             foods.push_back((*it)->execute(*it));
         }
@@ -18,16 +18,13 @@ void SauceChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, 
 
 shared_ptr<FoodItem> SauceChef::execute(shared_ptr<MenuItemCommand> val)
 {
-    if (typeid(val) == typeid(Pepperoni))
-        return make_shared<Mozzarella>();
-    else if (typeid(val) == typeid(Olives))
-        return make_shared<Olives>();
-    else if (typeid(val) == typeid(Mushrooms))
-        return make_shared<Mushrooms>();
-    else if (typeid(val) == typeid(Chicken))
-        return make_shared<Chicken>();
-    else if (typeid(val) == typeid(Beef))
-        return make_shared<Beef>();
-    else if (typeid(val) == typeid(Peppers))
-        return make_shared<Peppers>();
+    if (typeid(val) == typeid(MakeSweetChilli))
+        return make_shared<SweetChilli>();
+    else if (typeid(val) == typeid(MakeRanch))
+        return make_shared<Ranch>();
+    else if (typeid(val) == typeid(MakeTomatoPaste))
+        return make_shared<TomatoPaste>();
+    else if (typeid(val) == typeid(MakeChutney))
+        return make_shared<Chutney>();
+  
 }
