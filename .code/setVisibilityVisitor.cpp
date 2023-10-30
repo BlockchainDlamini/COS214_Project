@@ -1,5 +1,6 @@
 #include "setVisibilityVisitor.h"
 #include "table.h"
+#include <iostream>
 
 setVisibilityVisitor::setVisibilityVisitor(int newVis):visitor()
 {
@@ -12,6 +13,7 @@ int setVisibilityVisitor::visitTable(std::shared_ptr<table> tble)
         tble->setIsVisible(true);
     else
         tble->setIsVisible(false);
+ 
     return 1;
 }
 int setVisibilityVisitor::visitTile(std::shared_ptr<floorComposite>)

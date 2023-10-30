@@ -92,9 +92,9 @@ int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 std::string table::toString()
 {
     if(isVisible)
-        return "This is table number: " + id;
+        return "This is a table. ID: " + std::to_string(id) + ". Space: " + std::to_string(space) ;
     else
-        return "";
+        return "" ;
 }
 
 table::~table()

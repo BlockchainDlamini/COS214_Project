@@ -1,17 +1,16 @@
 #include "depthFirstIterator.h"
+#include <iostream>
 
-depthFirstIterator::depthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
+depthFirstIterator::depthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head) //Works correctly 
 {
-    flattenTree(head);
+    treeFlatten(head);
 }
 
-void depthFirstIterator::flattenTree(std::shared_ptr<floorComponent> currNode)
+void depthFirstIterator::treeFlatten(std::shared_ptr<floorComponent> currNode) //Works correctly
 {
     flattenedTree.push(currNode);
     for (int i = 0; i < currNode->getNumChildren(); i++)
-    {
-        flattenTree(currNode->getChild(i));
-    }    
+        treeFlatten(currNode->getChild(i));
 }
 
 depthFirstIterator::~depthFirstIterator()

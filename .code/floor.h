@@ -5,15 +5,16 @@
 #include "floorComponent.h"
 #include <iostream>
 
-class myFloor: public gameElement
+class Floor: public gameElement
 {
     private:
         std::shared_ptr<floorComponent> theFloor;
         int sideLenght, tableSpace;
         bool merdgeTile(int);
         void unmerdgeTiles();
+        
     public:
-        myFloor(int);
+        Floor(int, int);
         bool hasSpace(int);
         //bool seatCustomer(std::vector<std::shared_ptr<customer>>);
         void printBreadth();
@@ -22,7 +23,7 @@ class myFloor: public gameElement
         void changed(){};
         void set(){};
         void get(){};
-        virtual ~myFloor();
+        virtual ~Floor();
 };
 
 

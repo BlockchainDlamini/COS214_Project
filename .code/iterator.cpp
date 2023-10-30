@@ -1,56 +1,34 @@
 #include "iterator.h"
+#include <iostream>
 
-myIterator::myIterator(std::shared_ptr<floorComponent> newHead)
+myIterator::myIterator(std::shared_ptr<floorComponent> newHead) //Works correctly
 {
     head = newHead;
     current = newHead;
 }
 
-std::shared_ptr<floorComponent> myIterator::first()
+std::shared_ptr<floorComponent> myIterator::first() //Works correctly
 {
     return head;
 }
 
-void myIterator::next()
+void myIterator::next()//Works correctly
 {
-    return flattenedTree.pop();
-    /*bool found = false;
-
-    while(!flattenedTree.empty())
-    {
-        std::shared_ptr<floorComponent> front = flattenedTree.front();
-        flattenedTree.pop();
-        if(front == current)
-        {
-            found = true;
-            current = flattenedTree.front();
-        }
-    }
-    if(!found)
-        current = nullptr;*/
+    flattenedTree.pop();
+    current = flattenedTree.front();
 }
 
-std::shared_ptr<floorComponent> myIterator::currentItem()
+std::shared_ptr<floorComponent> myIterator::currentItem() //Works correctly
 {
     return current;
 }
 
-bool myIterator::hasNext()
-{
-    if(flattenedTree.front()!=nullptr)
+bool myIterator::hasNext() //Works correctly
+{    
+    if(!flattenedTree.empty())
         return true;
-    
-    return false;
-    /*bool found = false;
 
-    while(!flattenedTree.empty())
-    {
-        std::shared_ptr<floorComponent> front = flattenedTree.front();
-        flattenedTree.pop();
-        if(front == current)
-            return true;
-    }
-    return false;*/
+    return false;
 }
 
 myIterator::~myIterator()

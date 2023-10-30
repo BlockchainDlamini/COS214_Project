@@ -1,11 +1,12 @@
 #include "breadthFirstIterator.h"
+#include <iostream>
 
 breadthFirstIterator::breadthFirstIterator(std::shared_ptr<floorComponent> head) : myIterator(head)
 {
-    flattenTree(head);
+    treeFlatten(head);
 }
 
-void breadthFirstIterator::flattenTree(std::shared_ptr<floorComponent> currNode)
+void breadthFirstIterator::treeFlatten(std::shared_ptr<floorComponent> currNode)
 {
     int numLevels = height(head);
     for (int i = 0; i < numLevels; i++)
@@ -27,20 +28,21 @@ void breadthFirstIterator::pushCurrentLevel(std::shared_ptr<floorComponent> hd, 
     }
 }
 
-int breadthFirstIterator::height(std::shared_ptr<floorComponent> curr)
+int breadthFirstIterator::height(std::shared_ptr<floorComponent> curr) //Test complete
 {
-    if (curr == nullptr)
+    if (curr->getNumChildren()==0)
+    {
         return -1;
+    }
     else {
-        // Compute the height of each subtree
         int max = -1;
         for (int i = 0; i <curr->getNumChildren(); i++)
         {
             int childHeight = height(curr->getChild(i));
             if(childHeight>max)
-                max=childHeight;            
+                max = childHeight;            
         }
-        return max + 1;
+        return max+1;
     }
 }
 

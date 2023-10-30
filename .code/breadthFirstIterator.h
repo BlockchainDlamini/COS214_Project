@@ -6,7 +6,8 @@
 class breadthFirstIterator: public myIterator
 {
     private:
-        void flattenTree(std::shared_ptr<floorComponent>);
+        std::queue<std::shared_ptr<floorComponent>> flattenedTree;
+        void treeFlatten(std::shared_ptr<floorComponent>);
         int height(std::shared_ptr<floorComponent>);
         void pushCurrentLevel(std::shared_ptr<floorComponent>, int);
     public:

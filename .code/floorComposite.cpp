@@ -1,10 +1,13 @@
 #include "floorComposite.h"
 #include "depthFirstIterator.h"
 #include "breadthFirstIterator.h"
+#include <iostream>
 
 
 floorComposite::floorComposite(int newId):floorComponent(newId)
-{}
+{
+    //std::cout<<"In floorComposite constructor"<<std::endl;
+}
 
 void floorComposite::add(std::shared_ptr<floorComponent> newUnit)
 {
@@ -51,7 +54,7 @@ int floorComposite::getNumChildren()
 
 std::string floorComposite::toString()
 {
-    return "This is a tile: ";
+    return "This is a tile. ID: " + std::to_string(id);
 }
 
 int floorComposite::acceptVisitor(std::shared_ptr<visitor> visitor)

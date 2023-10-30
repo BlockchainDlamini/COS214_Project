@@ -27,7 +27,7 @@ class table: public floorComponent
         void removeCustomers();
         int spaceAvailable();
         void setSpace(int);
-        std::string toString();
+        virtual std::string toString();
         int acceptVisitor(std::shared_ptr<visitor>);
         ~table();
 };

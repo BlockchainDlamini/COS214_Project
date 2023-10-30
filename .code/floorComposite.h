@@ -17,7 +17,7 @@ class floorComposite: public floorComponent
         int getNumChildren();
         std::shared_ptr<myIterator> getDepthIterator();
         std::shared_ptr<myIterator> getBreadthIterator();
-        std::string toString();
+        virtual std::string toString();
         int acceptVisitor(std::shared_ptr<visitor>);
         virtual ~floorComposite();    
 };
