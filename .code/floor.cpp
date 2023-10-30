@@ -51,21 +51,25 @@ bool Floor::hasSpace(int amount)  //Works correctly
     return false;
 }
 
-/*bool Floor::seatCustomer(std::vector<std::shared_ptr<customer>> customers)  //not tested yet
+/*int Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //not tested yet
 {
     if(!hasSpace(customers.size()))
     {
         if(!merdgeTile(customers.size()))
-            return false;
+        {
+            unmerdgeTiles();
+            return -1;
+        }            
     }
-    std::shared_ptr<myIterator> curr = myFloor->getDepthIterator();
+    std::shared_ptr<myIterator> curr = theFloor->getDepthIterator();
 
     while(curr->hasNext())
     {
-        temp = curr->currentItem()->acceptVisitor(std::make_shared<visitor>());
-        if(temp==customer.size())
+        int temp = curr->currentItem()->acceptVisitor(std::make_shared<visitor>());
+        if(temp==customers.size())
         {
-            (std::shared_ptr<table>) curr->seatCustomers(customers);
+            std::shared_ptr<table> tb = std::dynamic_pointer_cast<table>(std::make_shared<table>(curr->currentItem()));
+            tb->newCustomers(customers);
         }
         curr->next();
     }

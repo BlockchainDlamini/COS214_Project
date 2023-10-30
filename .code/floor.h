@@ -16,13 +16,10 @@ class Floor: public gameElement
     public:
         Floor(int, int);
         bool hasSpace(int);
-        //bool seatCustomer(std::vector<std::shared_ptr<customer>>);
+        //int seatCustomer(std::vector<std::shared_ptr<customer>>);
         void printBreadth();
         void printDepth();
         std::shared_ptr<floorComponent> getTableAt(int);
-        void changed(){};
-        void set(){};
-        void get(){};
         virtual ~Floor();
 };
 
