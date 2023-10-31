@@ -9,7 +9,6 @@
 #include <vector>
 #include <iostream>
 #include "Customer.h"
-// #include "iterator.h"
 #include "gameElement.h"
 #include "table.h"
 
@@ -19,7 +18,7 @@ using namespace std;
  * @class Waiter
  * @brief Represents a waiter responsible for taking orders, delivering food, and processing payments.
  */
-class Waiter : public gameElement {
+class Waiter : public enable_shared_from_this<Waiter>, public gameElement {
 public:
     /**
      * @brief Get function for Mediator.
