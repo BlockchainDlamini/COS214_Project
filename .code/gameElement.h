@@ -12,48 +12,41 @@
 
 using namespace std;
 class Mediator;
-
-
 /**
  * @class gameElement
- * @brief A class to represent a game element.
+ * @brief A class to represent a game element. This class represents
+ * Colleagues in the Mediator design pattern.
  */
 class gameElement:enable_shared_from_this<gameElement>{
 public:
     /**
-     * @brief Construct a new game element object.
+     * @brief Creates a new game element object.
      */
     gameElement();
 
     /**
-     * @brief Construct a new game element object.
+     * @brief Creates a new game element object in addition to setting the gameEngine attribute.
      * @param myGameEngine The game engine to be used.
      */
     gameElement(const std::shared_ptr<Mediator> &myGameEngine);
 
     /**
-     * @brief Construct a new game element object.
+     * @brief Creates a new game element object which sets the Mediator, as well as the object's ID.
      * @param myGameEngine The game engine to be used.
      * @param id The ID of the game element.
      */
     gameElement(const std::shared_ptr<Mediator> &myGameEngine,int id);
 
     /**
-     * @brief Destroy the game element object.
+     * @brief Base class destructor.
      */
     virtual ~gameElement();
 
     /**
      * @brief Set the game engine.
-     * @param gameEngine The game engine to be set.
-     */
-    void setGameEngine(const std::shared_ptr<Mediator> &gameEngine);
-
-    /**
-     * @brief Set the game engine.
      * @param myGameEngine The game engine to be set.
      */
-    void setMyGameEngine(const shared_ptr<Mediator> &myGameEngine);
+    void setGameEngine(const shared_ptr<Mediator> &myGameEngine);
 
     /**
      * @brief Get the ID of the game element.
@@ -70,12 +63,12 @@ public:
     //Communication functions
 
     /**
-     * @brief Notify that the game element has changed.
+     * @brief Notify the gameEngine that the gameElement has changed in some way.
      */
     virtual void changed();
 
     /**
-     * @brief Get the operation of the game element.
+     * @brief Get the operation of the gameElement, which informs the mediator of what message needs to be sent.
      * @return The operation of the game element.
      */
     virtual string get();
@@ -98,12 +91,13 @@ protected:
     int myID;
 
     /**
-     * @brief A static integer representing a shared ID across all instances of this class.
+     * @brief A static integer representing a shared ID across all instances of this class. It is incremented
+     * by the constructor, thus guaranteeing that all objects have a unique ID.
      */
     static int sharedID;
 
     /**
-     * @brief A string representing the operation of the game element.
+     * @brief A string representing the operation of the game element, used by the Mediator.
      */
     string operation;
 };

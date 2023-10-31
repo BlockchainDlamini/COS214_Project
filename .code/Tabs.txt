@@ -1,0 +1,54 @@
+Jack
+Owes:R2235.75
+{tostring() for orders}
+<>
+
+Mike
+Owes:R1500.34
+{tostring() for purchases}
+<>
+
+Emma
+Owes:R2000.25
+{tostring() for purchases}
+<>
+
+Liam
+Owes:R2599.37
+{tostring() for purchases}
+<>
+
+Olivia
+Owes:R3000
+{tostring() for purchases}
+<>
+
+Noah
+Owes:R3500.31
+{tostring() for purchases}
+<>
+
+Ava
+Owes:R4000.66
+{tostring() for purchases}
+<>
+
+Isabella
+Owes:R4500.77
+{tostring() for purchases}
+<>
+
+Sophia
+Owes:R5000
+{tostring() for purchases}
+<>
+
+Mia
+Owes:R5500
+{tostring() for purchases}
+<>
+
+Charlotte
+Owes:R6000
+{tostring() for purchases}
+<>
