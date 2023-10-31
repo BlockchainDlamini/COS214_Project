@@ -9,7 +9,7 @@
 #include <algorithm>
 using namespace std;
 
-// For testing ----- Remove later!
+/*// For testing ----- Remove later!
     class Kitchen;
     class waiter;
     class Order;
@@ -68,7 +68,7 @@ private:
     std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
 };
 
-//
+//*/
 
 void Mediator::addGameElement(std::shared_ptr<gameElement>element) {
     listOfElements.push_back(element);
