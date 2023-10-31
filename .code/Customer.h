@@ -79,7 +79,7 @@ public:
      * @param t The total bill amount.
      * @return True if the bill is paid, false if added to the tab.
      */
-    bool payBill(char c, float t);
+    void payBill(char c, float t);
 
     /**
      * @brief Check if the customer is loyal.
@@ -200,7 +200,7 @@ public:
         return randomString;
     }
     std::shared_ptr<Tab> getTab();
-    void leave(int table);
+    void leave();
 };
 
 #endif

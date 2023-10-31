@@ -25,9 +25,11 @@ void Customer::changedOrderProcessState()
 void Customer::requestBill() // sets the hasBill to true.
 {
     // needs to tell the waiter that they want the bill
+    setOperation("requestbill");
+    changed();
     hasBill = true;
 }
-bool Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
+void Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
 {
     changedOrderProcessState(); // take the state to dinnerdone from orderreceived
     setTotal(t);
@@ -38,13 +40,13 @@ bool Customer::payBill(char c, float t) // returns true if the customer has eith
             if (bankAccountAmount < total)
             {
                 cout << "Customer cannot pay the bill, insufficient funds" << endl;
-                return false;
+                //      return false;
             }
             else
             {
                 float tip = total + (total * mood->getTip());
                 bankAccountAmount = bankAccountAmount - (total + tip);
-                return true;
+                //      return true;
             }
         }
         else if (c == 'T' && isLoyal() == true) // has a tab and wants to add to tab
@@ -57,7 +59,7 @@ bool Customer::payBill(char c, float t) // returns true if the customer has eith
                     tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
-            return true;
+            // return true;
         }
         else if (c == 'T' && isLoyal() == false) // doesn't have a tab but wants to add
         {
@@ -69,20 +71,21 @@ bool Customer::payBill(char c, float t) // returns true if the customer has eith
                     tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
-            return true;
+            //  return true;
         }
         else
         {
             cout << "Incorrect input" << endl;
-            return false;
+            // return false;
         }
     }
     else
     {
         cout << "Customer has not received the bill from the waiter" << endl;
-        return false;
+        // return false;
     }
-    leave(tableNum);
+    leave();
+    // return tableNum;
 }
 bool Customer::isLoyal()
 {
@@ -399,14 +402,10 @@ void Customer::hasPizza()
     }
 }
 
-void Customer::leave(int tableNum)
+void Customer::leave()
 {
-    if (orderProcess->getName() == "DinnerDone" && this->tableNum == tableNum)
-    {
-        tableNum = -1;
-        setOperation("leave");
-        changed();
-    }
+    setOperation("leave");
+    changed();
     cout << "Customer has not completed their meal";
 }
 
