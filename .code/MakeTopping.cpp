@@ -10,7 +10,10 @@
 #include "ToppingsChef.h"
 using namespace std;
 
-MakeTopping::MakeTopping(shared_ptr<Kitchen> state) : MenuItemCommand(state) {}
+MakeTopping::MakeTopping(shared_ptr<Kitchen> state) : MenuItemCommand(state) {
+    while (typeid(state) != typeid(ToppingsChef))
+        state = state->getNextChef();
+}
 
 shared_ptr<FoodItem> MakeTopping::execute() {
     return state->execute();

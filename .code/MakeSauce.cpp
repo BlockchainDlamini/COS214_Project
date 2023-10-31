@@ -9,7 +9,10 @@
 #include "SauceChef.h"
 using namespace std;
 
-MakeSauce::MakeSauce(shared_ptr<Kitchen> state) : MenuItemCommand(state) {}
+MakeSauce::MakeSauce(shared_ptr<Kitchen> state) : MenuItemCommand(state) {
+    while (typeid(state) != typeid(SauceChef))
+        state = state->getNextChef();
+}
 
 shared_ptr<FoodItem> MakeSauce::execute() {
     return state->execute();

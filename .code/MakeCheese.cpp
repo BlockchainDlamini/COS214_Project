@@ -10,7 +10,10 @@
 #include "CheeseChef.h"
 using namespace std;
 
-MakeCheese::MakeCheese(shared_ptr<Kitchen> state) : MenuItemCommand(state) {}
+MakeCheese::MakeCheese(shared_ptr<Kitchen> state) : MenuItemCommand(state) {
+    while (typeid(state) != typeid(CheeseChef))
+      state = state->getNextChef();
+}
 
 shared_ptr<FoodItem> MakeCheese::execute() {
     return state->execute();
