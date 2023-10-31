@@ -20,7 +20,7 @@ class MenuItemCommand : gameElement {
          *@param std::shared_ptr<Kitchen> state
          *@return none
         */
-        MenuItemCommand(std::shared_ptr<Kitchen>);
+        MenuItemCommand();
         /*@brief destructor for MenuItemCommand
          *@param none
          *@return none

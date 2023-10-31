@@ -10,9 +10,10 @@
 #include "BaseChef.h"
 using namespace std;
 
-MakeBase::MakeBase(shared_ptr<Kitchen> state) : MenuItemCommand(state) {
+MakeBase::MakeBase(shared_ptr<Kitchen> state) : MenuItemCommand() {
+    this->state = state;
     while (typeid(state) != typeid(BaseChef))
-        state = state->getNextChef();
+        this->state = this->state->getNextChef();
 }
 
 shared_ptr<FoodItem> MakeBase::execute() {
