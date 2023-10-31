@@ -43,7 +43,7 @@ public:
      * @brief Destructor for the Waiter class.
      * @details This virtual destructor is provided for proper cleanup when derived classes are destroyed.
      */
-    virtual ~Waiter() {};
+    virtual ~Waiter() {}
 };
 
 #endif // WAITER_H
