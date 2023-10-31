@@ -45,5 +45,16 @@ private:
     * @brief A vector to hold the list of game elements.
     */
     std::vector<std::shared_ptr<gameElement>> listOfElements;
+
+    const string noKitchenFound = "Error: No kitchen found";
+    const string noWaiterFound = "Error: No Waiter found";
+    const string specificWaiterNotFound = "Error: Specific waiter not found";
+
+    /**
+    * @brief Outputs error messages to the user.
+    * @param message The specific message to be output
+    */
+    static void errorMessage(const string& message);
+
 };
 #endif //CODE_MEDIATOR_H
