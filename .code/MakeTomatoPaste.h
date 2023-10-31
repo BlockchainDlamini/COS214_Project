@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the tomato paste sauce is created.
      */
     MakeTomatoPaste(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeTomatoPaste command, creating and returning a shared pointer to the FoodItem representing the tomato paste sauce.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

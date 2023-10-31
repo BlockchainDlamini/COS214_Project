@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the cheddar cheese topping is created.
      */
     MakeCheddar(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeCheddar command, creating and returning a shared pointer to the FoodItem representing the cheddar cheese topping.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

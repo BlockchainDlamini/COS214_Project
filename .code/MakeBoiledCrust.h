@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the boiled crust is created.
      */
     MakeBoiledCrust(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeBoiledCrust command, creating and returning a shared pointer to the FoodItem representing the boiled crust.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

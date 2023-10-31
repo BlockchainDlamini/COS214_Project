@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the ranch sauce is created.
      */
     MakeRanch(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeRanch command, creating and returning a shared pointer to the FoodItem representing the ranch sauce.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

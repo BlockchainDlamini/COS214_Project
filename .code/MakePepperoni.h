@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the pepperoni topping is created.
      */
     MakePepperoni(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakePepperoni command, creating and returning a shared pointer to the FoodItem representing the pepperoni topping.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

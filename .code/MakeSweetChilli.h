@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the sweet chili sauce is created.
      */
     MakeSweetChilli(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeSweetChilli command, creating and returning a shared pointer to the FoodItem representing the sweet chili sauce.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

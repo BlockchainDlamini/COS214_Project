@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the chutney sauce is created.
      */
     MakeChutneySauce(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeChutneySauce command, creating and returning a shared pointer to the FoodItem representing the chutney sauce.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

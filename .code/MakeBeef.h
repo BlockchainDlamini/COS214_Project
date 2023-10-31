@@ -20,12 +20,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the beef topping is created.
      */
     MakeBeef(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeBeef command, creating and returning a shared pointer to the FoodItem representing the beef topping.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

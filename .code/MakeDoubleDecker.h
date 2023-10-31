@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the double-decker crust is created.
      */
     MakeDoubleDecker(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeDoubleDecker command, creating and returning a shared pointer to the FoodItem representing the double-decker crust.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif
