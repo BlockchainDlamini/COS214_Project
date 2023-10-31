@@ -29,18 +29,19 @@ int main()
      {
           commands.push_back(make_shared<MenuItemOrderCommand>());
      }
-     for (int i = 1; i <= 10; i++)
+     for (int i = 1; i <= 3; i++)
      {
-          test->createOrder(i, commands);
+          test->createOrder();
      }
-     cout << test->printCustomer() << endl;
-     test->talkToWaiter();
-     cout << test->printCustomer() << endl;
-     test->receiveOrder(pizza);
-     cout << test->printCustomer() << endl;
-     test->payBill('P', 100);
-     cout << test->printCustomer() << endl;
-     cout << test->printBill() << endl;
+     // cout << test->printCustomer() << endl;
+     // test->talkToWaiter();
+     // cout << test->printCustomer() << endl;
+     // test->receiveOrder(pizza);
+     // cout << test->printCustomer() << endl;
+     // test->payBill('P', 100);
+     // cout << test->printCustomer() << endl;
+     // cout << test->printBill() << endl;
+     // test->addMenuItems();
      // // the Emotion changes, starting from happy
      // cout << "Starting From Happy" << endl;
      // test->setEmotionState(std::make_shared<Happy>());

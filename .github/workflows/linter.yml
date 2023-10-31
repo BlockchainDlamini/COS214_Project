@@ -11,4 +11,4 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
     - run: pip install cpplint
-    - run: cpplint --linelength=200 --filter=-whitespace,-whitespace/braces,-legal/copyright,-build/include_what_you_use,-build/header_guard,-build/namespaces,-runtime/explicit --quiet --extensions=h,cpp,hpp $( find . -name \*.h -or -name \*.cc | grep -vE "^\.\/build\/" )
+    - run: cpplint --linelength=200 --filter=-whitespace,-whitespace/braces,-legal/copyright,-build/include_what_you_use,-build/header_guard --quiet --extensions=h,cpp,hpp $( find . -name \*.h -or -name \*.cc | grep -vE "^\.\/build\/" )

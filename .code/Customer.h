@@ -62,6 +62,7 @@ public:
      */
     void changedOrderProcessState();
 
+
     /**
      * @brief Set the unique identifier of the customer.
      * @param id The unique identifier of the customer.
@@ -107,7 +108,7 @@ public:
      * @param orderID The identifier for the new order.
      * @param command A vector of shared pointers to menu item order commands.
      */
-    void createOrder(int orderID, vector<shared_ptr<MenuItemOrderCommand>> command);
+    void createOrder();
 
     /**
      * @brief Seat the customer at a table.
@@ -176,9 +177,10 @@ public:
      * @brief Check if the customer has received food.
      * @return True if the customer has received food, false otherwise.
      */
-    
+
     void hasPizza();
 
+    vector<shared_ptr<MenuItemOrderCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
     void talkToWaiter();
 
     shared_ptr<Customer> getMe();
