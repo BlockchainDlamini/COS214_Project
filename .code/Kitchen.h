@@ -15,7 +15,7 @@ public:
 	virtual void handleOrder(pair<int, vector<shared_ptr<Order>>>);
 	virtual bool ordersComplete();
 	virtual void handleOrder(int);
-	virtual shared_ptr<FoodItem> execute();
+	virtual shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand>);
 	shared_ptr<Kitchen> getNextChef();
 	void setNextChef(shared_ptr<Kitchen>);
 };

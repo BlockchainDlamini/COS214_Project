@@ -23,7 +23,7 @@ void Kitchen::handleOrder(pair<int, vector<shared_ptr<Order>>> pr)
 	cout << "Nothing was handled";
 }
 
-shared_ptr<FoodItem> Kitchen::execute()
+shared_ptr<FoodItem> Kitchen::execute(shared_ptr<MenuItemCommand> v)
 {
 	cout << "Nothing was executed";
 	return 0;
