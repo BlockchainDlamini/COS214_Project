@@ -19,7 +19,7 @@ void Kitchen::handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<share
 }
 
 void Kitchen::handleOrder(pair<int, vector<shared_ptr<Order>>> pr)
-{	
+{
 	cout << "Nothing was handled";
 }
 
@@ -29,15 +29,12 @@ shared_ptr<FoodItem> Kitchen::execute()
 	return 0;
 }
 
-void Kitchen::handleOrder(int, vector<shared_ptr<FoodItem>>)
+bool Kitchen::ordersComplete()
 {
-
-}
-
-
-shared_ptr<FoodItem> Kitchen::createFoodItem()
-{
-	cout << "Nothing was created";
 	return 0;
 }
-void Kitchen::handleOrder(int, vector<shared_ptr<FoodItem>>){}
+
+void Kitchen::handleOrder(int)
+{}
+
+void Kitchen::handleOrder(int, vector<shared_ptr<FoodItem>>) {}
