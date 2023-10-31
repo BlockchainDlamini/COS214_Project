@@ -15,9 +15,10 @@ void HeadChef::handleOrder(int waiterID, vector<shared_ptr<FoodItem>> order) {
     bakePizza(order);
     pizzas.first = waiterID;
     pizzas.second.push_back(bakePizza(order));
-    setOperation("COLLECTORDER");
-    if (!nextChef->ordersComplete()) 
+    while (!nextChef->ordersComplete()) 
         nextChef->handleOrder(waiterID);
+    setOperation("COLLECTORDER");
+    changed();
     //send the pizza out be sent to waiter ask Hamza again
 }
 
@@ -66,4 +67,10 @@ void HeadChef::addCheese(shared_ptr<Pizza> pizza, shared_ptr<FoodItem> item) {
     pizza->cheeseList.push_back(item);
 }
 
+int HeadChef::getWaiterID() {
+    return pizzas.first;
+}
 
+vector<shared_ptr<Pizza>> HeadChef::getPizzas() {
+    return pizzas.second;
+}

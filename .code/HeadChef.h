@@ -23,7 +23,7 @@ using namespace std;
  * @class HeadChef
  * @brief Represents the HeadChef class, responsible for creating pizzas.
  */
-class HeadChef : public Kitchen {
+class HeadChef : public Kitchen, public enable_shared_from_this<HeadChef> {
 public:
     /**
      * @brief Constructor for the HeadChef class.
@@ -70,6 +70,10 @@ public:
      * @brief Send the prepared pizza to the next stage or chef.
      */
     void sendPizza();
+
+    int getWaiterID();
+
+    vector<shared_ptr<Pizza>> getPizzas();
 
 private:
     pair<int, vector<shared_ptr<Pizza>>> pizzas; // A data member to store pizzas.
