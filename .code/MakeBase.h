@@ -14,7 +14,7 @@
  * @class MakeBase
  * @brief Represents the MakeBase class, responsible for creating a base for a food item in the kitchen.
  */
-class MakeBase : public MenuItemCommand {
+class MakeBase : public MenuItemCommand, public enable_shared_from_this<MakeBase> {
 public:
     /**
      * @brief Constructor for the MakeBase class.

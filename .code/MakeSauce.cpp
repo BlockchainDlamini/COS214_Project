@@ -16,5 +16,5 @@ MakeSauce::MakeSauce(shared_ptr<Kitchen> state) : MenuItemCommand() {
 }
 
 shared_ptr<FoodItem> MakeSauce::execute() {
-    return state->execute();
+    return state->execute(enable_shared_from_this<MakeSauce>::shared_from_this());
 }

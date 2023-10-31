@@ -17,5 +17,5 @@ MakeCheese::MakeCheese(shared_ptr<Kitchen> state) : MenuItemCommand() {
 }
 
 shared_ptr<FoodItem> MakeCheese::execute() {
-    return state->execute();
+    return state->execute(enable_shared_from_this<MakeCheese>::shared_from_this());
 }

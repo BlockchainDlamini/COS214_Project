@@ -17,5 +17,5 @@ MakeBase::MakeBase(shared_ptr<Kitchen> state) : MenuItemCommand() {
 }
 
 shared_ptr<FoodItem> MakeBase::execute() {
-    return state->execute();
+    return state->execute(enable_shared_from_this<MakeBase>::shared_from_this());
 } 

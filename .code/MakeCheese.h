@@ -13,7 +13,7 @@
  * @class MakeCheese
  * @brief Represents the MakeCheese class, responsible for creating a cheese topping for a food item in the kitchen.
  */
-class MakeCheese : public MenuItemCommand {
+class MakeCheese : public MenuItemCommand, public enable_shared_from_this<MakeCheese> {
 public:
     /**
      * @brief Constructor for the MakeCheese class.

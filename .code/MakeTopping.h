@@ -13,7 +13,7 @@
  * @class MakeTopping
  * @brief Represents the MakeTopping class, responsible for creating various toppings for food items in the kitchen.
  */
-class MakeTopping : public MenuItemCommand {
+class MakeTopping : public MenuItemCommand, public enable_shared_from_this<MakeTopping> {
 public:
     /**
      * @brief Constructor for the MakeTopping class.

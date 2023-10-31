@@ -13,7 +13,7 @@
  * @class MakeSauce
  * @brief Represents the MakeSauce class, responsible for creating sauce toppings for food items in the kitchen.
  */
-class MakeSauce : public MenuItemCommand {
+class MakeSauce : public MenuItemCommand, public enable_shared_from_this<MakeSauce> {
 public:
     /**
      * @brief Constructor for the MakeSauce class.

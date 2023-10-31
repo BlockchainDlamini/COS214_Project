@@ -17,5 +17,5 @@ MakeTopping::MakeTopping(shared_ptr<Kitchen> state) : MenuItemCommand() {
 }
 
 shared_ptr<FoodItem> MakeTopping::execute() {
-    return state->execute();
+    return state->execute(enable_shared_from_this<MakeTopping>::shared_from_this());
 }
