@@ -19,12 +19,6 @@ public:
      * @param kitchen A shared pointer to the Kitchen where the Gouda cheese topping is created.
      */
     MakeGouda(std::shared_ptr<Kitchen> kitchen);
-
-    /**
-     * @brief Execute the MakeGouda command, creating and returning a shared pointer to the FoodItem representing the Gouda cheese topping.
-     * @return A shared pointer to the created FoodItem object.
-     */
-    std::shared_ptr<FoodItem> execute();
 };
 
 #endif

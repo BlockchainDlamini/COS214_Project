@@ -73,6 +73,8 @@ public:
 
     int getWaiterID();
 
+    void handleOrder(int, vector<shared_ptr<FoodItem>>); 
+    
     vector<shared_ptr<Pizza>> getPizzas();
 
 private:
