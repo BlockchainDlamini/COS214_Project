@@ -164,7 +164,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
         errorMessage("Order was not collected");
         return;
     }*/
-    if (temp == "CALLWAITER") {
+    if (temp == "GIVEORDER") {
         shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
         if (theCustomer == nullptr) {
             errorMessage("The wrong class attempted to call sendToKitchen");
@@ -184,7 +184,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
         return;
     }
 
-    if (temp == "READYTOPAY") {
+    if (temp == "REQUESTBILL") {
         shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
         if (theCustomer == nullptr) {
             errorMessage("The wrong class attempted to call sendToKitchen");
@@ -200,7 +200,27 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
                 return;
             }
         }
-        errorMessage("The wrong class attempted to call sendToKitchen/waiter not found");
+        errorMessage("Waiter not found");
+        return;
+    }
+
+    if (temp == "LEAVE") {
+        shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
+        if (theCustomer == nullptr) {
+            errorMessage("The wrong class attempted to call Leave the floor");
+            return;
+        }
+        int tableNum= theCustomer->getTableNum();
+
+        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
+            shared_ptr<MaitreD> theMaitreD = dynamic_pointer_cast<MaitreD>(listOfElements[i]);
+            if (theMaitreD != nullptr) {
+                //auto theWaiter  = theMaitreD->getResponsible(tableNum);
+                theMaitreD->customersLeft(tableNum);
+                return;
+            }
+        }
+        errorMessage("MaitreD not found");
         return;
     }
     //GIVEORDER: Called by customer to assign waiter to this
@@ -218,7 +238,6 @@ void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Stil
             ++it;
         }
     }
-
 }
 
 void Mediator::errorMessage(const string& message) {
