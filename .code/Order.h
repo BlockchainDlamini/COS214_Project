@@ -35,7 +35,7 @@ public:
      * @param orderID The unique identifier for the order.
      * @param order A vector of shared pointers to menu item order commands.
      */
-    Order(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
+    Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
 
     /**
      * @brief Place the order.
@@ -46,7 +46,7 @@ public:
      * @brief Get the total price of the order.
      * @return The total price of the order.
      */
-    int getPrice();
+    float getPrice();
 
     /**
      * @brief Get the unique identifier for the order.

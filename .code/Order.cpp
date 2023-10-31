@@ -3,7 +3,7 @@ Order::Order(int id) // default price is 20
 {
     orderID = id;
 }
-Order::Order(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order)
+Order::Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order)
 {
     this->price = price;
     this->orderID = orderID;
@@ -15,7 +15,7 @@ Order::Order(int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> ord
     this->formula = order;
 }
 
-int Order::getPrice()
+float Order::getPrice()
 {
     return price;
 }
