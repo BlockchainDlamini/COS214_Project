@@ -4,7 +4,6 @@
 
 #include "gameElement.h"
 
-#include <utility>
 #include "Mediator.h"
 using namespace std;
 
@@ -18,9 +17,6 @@ gameElement::gameElement() {myID=sharedID++;}
 
 gameElement::~gameElement() {}
 
-void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
-    this->gameEngine = mediator;
-}
 
 void gameElement::changed() {
     if (gameEngine) {
@@ -31,7 +27,7 @@ void gameElement::changed() {
     cout << "Object has no mediator" << endl;
 }
 
-void gameElement::setMyGameEngine(const shared_ptr<Mediator> &mediator) {
+void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
     gameEngine = mediator;
 }
 
