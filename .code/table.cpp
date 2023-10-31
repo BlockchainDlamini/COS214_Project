@@ -1,6 +1,7 @@
 #include "table.h"
 #include "visitor.h"
 
+
 table::table(int id, int spce):floorComponent(id)
 {
     space=spce;
@@ -14,7 +15,7 @@ void table::add(std::shared_ptr<floorComponent>) //Comply with interface
 void table::remove(std::shared_ptr<floorComponent>)//Comply with interface
 {}
 
-void table::newCustomers(std::vector<std::shared_ptr<floorComponent>> newCustomers)
+void table::newCustomers(std::vector<std::shared_ptr<Customer>> newCustomers)
 {
     customers = newCustomers;
     isVisible=false;
@@ -34,6 +35,15 @@ bool table::getIsVisible()
 void table::setIsVisible(bool vis)
 {
     isVisible = vis;
+}
+
+bool table::getIsSpaceAvailable()
+{
+    return hasCustomers;
+}
+void table::setIsSpaceAvailable(bool spaceAvailable)
+{
+    hasCustomers = spaceAvailable;
 }
 
 int table::spaceAvailable()
@@ -81,12 +91,17 @@ std::shared_ptr<myIterator> table::getBreadthIterator()
 
 int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 {
-    if(isSpaceAvailable)
+    if(hasCustomers)
     {
         std::shared_ptr<table> temp = std::dynamic_pointer_cast<table>(shared_from_this());
         return visitor->visitTable(temp);
     }
     return 0;
+}
+
+std::vector<std::shared_ptr<Customer>> table::getCustomers()
+{
+    return customers;
 }
 
 std::string table::toString()

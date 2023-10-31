@@ -211,7 +211,40 @@ void testFloor()
     std::cout<<"Testing the unmerge function"<<std::endl;
     theFloor->unmerdgeTiles();
     theFloor->printDepth();  */  
-    
+}
+
+void testSeating(int size)
+{
+    std::cout<<"Creating the floor"<<std::endl;
+    std::shared_ptr<Floor> theFloor = std::make_shared<Floor>(Floor(4, 4));
+
+    for (size_t i = 0; i <9; i++)
+    {
+        std::cout<<"Creating the customer vector"<<std::endl;
+        std::vector<std::shared_ptr<Customer>> customers;
+
+        for (int i = 0; i < size; i++)
+        {
+            customers.push_back(std::make_shared<Customer>(Customer(i+1, (i+1)*3)));
+        }
+        std::cout<<"Seating the customer"<<std::endl;
+        theFloor->printDepth();
+        if(theFloor->seatCustomer(customers))
+            std::cout<<"The customer was seated"<<std::endl;
+        else
+        {
+            std::cout<<"The customer was not seated"<<std::endl;
+        }
+        theFloor->printDepth();    
+        std::cout<<std::endl;
+    }   
+    std::cout<<"Customers a table 1 has left"<<std::endl;
+    theFloor->customersLeft(1);
+    theFloor->printDepth(); 
+    theFloor->customersLeft(3);
+    theFloor->printDepth(); 
+    theFloor->customersLeft(5);
+    theFloor->printDepth(); 
 }
 
 int main()
@@ -220,7 +253,8 @@ int main()
     //fullFloorCreationTest(); //complete
     //variableSizeTreeTest(5); //complete
     //testDepthFirstIterator(4); //complete
-    testFloor();
+    //testFloor(); //Complete
+    testSeating(8); //Conplete
 
     return 0;
 }
