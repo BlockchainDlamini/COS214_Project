@@ -36,7 +36,7 @@ class setSpaceVisitor: public visitor
         /**
          * @brief Destructs the setSpaceVisitor object.
          */
-        ~setSpaceVisitor(){};
+        ~setSpaceVisitor(){}
 };
 
 #endif

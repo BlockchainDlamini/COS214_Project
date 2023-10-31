@@ -36,7 +36,7 @@ class setMergeVisitor: public visitor
         /**
          * @brief Destructs the setMergeVisitor object.
          */
-        ~setMergeVisitor(){};
+        ~setMergeVisitor(){}
 };
 
 #endif

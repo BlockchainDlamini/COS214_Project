@@ -6,7 +6,6 @@
 #include "getMergeVisitor.h"
 #include "getVisibilityVisitor.h"
 #include "depthFirstIterator.h"
-#include "breadthFirstIterator.h"
 #include "getIsAvailableVisitor.h"
 #include "floorComposite.h"
 #include "setAvailableVisitor.h"
@@ -188,16 +187,6 @@ std::shared_ptr<table> Floor::getTableAt(int id) //Works correctly
     }
     return nullptr;
 }
-
-/*void Floor::printBreadth() //Not needed
-{
-    std::shared_ptr<myIterator> it = theFloor->getBreadthIterator();
-    while(it->hasNext())
-    {
-        std::cout<<it->currentItem()->toString()<<std::endl;
-        it->next();
-    }
-}*/
 
 void Floor::printDepth() //Works correctly
 {

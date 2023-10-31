@@ -17,7 +17,7 @@ class setIsAvailableVisitor: public visitor
          * @brief Constructs a setIsAvailableVisitor object.
          * @param vis The new availability value to be set.
          */
-        setIsAvailableVisitor(bool vis):visitor(){newVis=vis;};
+        setIsAvailableVisitor(bool vis):visitor(){newVis=vis;}
 
         /**
          * @brief Visits a table in the floor plan to set availability.
@@ -36,7 +36,7 @@ class setIsAvailableVisitor: public visitor
         /**
          * @brief Destructs the setIsAvailableVisitor object.
          */
-        ~setIsAvailableVisitor(){};
+        ~setIsAvailableVisitor(){}
 };
 
 #endif

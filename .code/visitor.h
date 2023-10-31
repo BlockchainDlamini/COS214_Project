@@ -15,7 +15,7 @@ class visitor
         /**
          * @brief Constructs a visitor object.
          */
-        visitor(){};
+        visitor(){}
 
         /**
          * @brief Visits a table in the floor plan.
@@ -34,7 +34,7 @@ class visitor
         /**
          * @brief Destructs the visitor object.
          */
-        virtual ~visitor(){};
+        virtual ~visitor(){}
 };
 
 #endif

@@ -1,17 +1,6 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-/*#include "EmotionState.h"
-#include "Disgruntaled.h"
-#include "Happy.h"
-#include "Satisfied.h"
-#include "Frustrated.h"
-#include "OrderProcessState.h"
-#include "Preorder.h"
-#include "Order.h"
-#include "gameElement.h"
-#include "Pizza.h"
-#include "Tab.h"*/
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -30,7 +19,7 @@ class Customer : public enable_shared_from_this<Customer>
 
     public:
         Customer(int id, int bankAccountAmount);
-        ~Customer(){};
+        ~Customer(){}
 };
 
 #endif

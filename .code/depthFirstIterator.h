@@ -26,24 +26,24 @@ class depthFirstIterator: public myIterator
          * @brief Returns the first item in the iteration.
          * @return The first item.
          */
-        std::shared_ptr<floorComponent> first() {return myIterator::first();};
+        std::shared_ptr<floorComponent> first() {return myIterator::first();}
 
         /**
          * @brief Moves to the next item in the iteration.
          */
-        void next() {return myIterator::next();};
+        void next() {return myIterator::next();}
 
         /**
          * @brief Returns the current item in the iteration.
          * @return The current item.
          */
-        std::shared_ptr<floorComponent> currentItem() {return myIterator::currentItem();};
+        std::shared_ptr<floorComponent> currentItem() {return myIterator::currentItem();}
 
         /**
          * @brief Checks if there are more items in the iteration.
          * @return True if there are more items, false otherwise.
          */
-        bool hasNext() {return myIterator::hasNext();};
+        bool hasNext() {return myIterator::hasNext();}
 
         /**
          * @brief Destructs the depthFirstIterator.

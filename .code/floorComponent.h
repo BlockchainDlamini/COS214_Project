@@ -84,7 +84,7 @@ class floorComponent: public std::enable_shared_from_this<floorComponent>
         /**
          * @brief Destructs the floorComponent object.
          */
-        virtual ~floorComponent(){};
+        virtual ~floorComponent(){}
 };
 
 #endif

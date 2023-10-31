@@ -13,7 +13,7 @@ class getMergeVisitor: public visitor
         /**
          * @brief Constructs a getMergeVisitor object.
          */
-        getMergeVisitor():visitor(){};
+        getMergeVisitor():visitor(){}
 
         /**
          * @brief Visits a table in the floor plan for merging.
@@ -32,7 +32,7 @@ class getMergeVisitor: public visitor
         /**
          * @brief Destructs the getMergeVisitor object.
          */
-        ~getMergeVisitor(){};
+        ~getMergeVisitor(){}
 };
 
 #endif

@@ -13,7 +13,7 @@ class getVisibilityVisitor: public visitor
         /**
          * @brief Constructs a getVisibilityVisitor object.
          */
-        getVisibilityVisitor():visitor(){};
+        getVisibilityVisitor():visitor(){}
 
         /**
          * @brief Visits a table in the floor plan to determine visibility.
@@ -32,7 +32,7 @@ class getVisibilityVisitor: public visitor
         /**
          * @brief Destructs the getVisibilityVisitor object.
          */
-        ~getVisibilityVisitor(){};
+        ~getVisibilityVisitor(){}
 };
 
 #endif

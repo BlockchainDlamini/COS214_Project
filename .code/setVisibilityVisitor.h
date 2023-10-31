@@ -35,7 +35,7 @@ class setVisibilityVisitor: public visitor
         /**
          * @brief Destructs the setVisibilityVisitor object.
          */
-        ~setVisibilityVisitor(){};
+        ~setVisibilityVisitor(){}
 };
 
 #endif

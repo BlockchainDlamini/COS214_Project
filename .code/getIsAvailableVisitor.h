@@ -13,7 +13,7 @@ class getIsAvailableVisitor: public visitor
         /**
          * @brief Constructs a getIsAvailableVisitor object.
          */
-        getIsAvailableVisitor():visitor(){};
+        getIsAvailableVisitor():visitor(){}
 
         /**
          * @brief Visits a table in the floor plan to check availability.
@@ -32,7 +32,7 @@ class getIsAvailableVisitor: public visitor
         /**
          * @brief Destructs the getIsAvailableVisitor object.
          */
-        ~getIsAvailableVisitor(){};
+        ~getIsAvailableVisitor(){}
 };
 
 #endif

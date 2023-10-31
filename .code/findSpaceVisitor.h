@@ -13,7 +13,7 @@ class findSpaceVisitor: public visitor
         /**
          * @brief Constructs a findSpaceVisitor object.
          */
-        findSpaceVisitor():visitor(){};
+        findSpaceVisitor():visitor(){}
 
         /**
          * @brief Visits a table and returns numbet of seats of the table if the table is visible.
@@ -32,7 +32,7 @@ class findSpaceVisitor: public visitor
         /**
          * @brief Destructs the findSpaceVisitor object.
          */
-        ~findSpaceVisitor(){};
+        ~findSpaceVisitor(){}
 };
 
 #endif
