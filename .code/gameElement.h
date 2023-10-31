@@ -17,7 +17,7 @@ class Mediator;
  * @brief A class to represent a game element. This class represents
  * Colleagues in the Mediator design pattern.
  */
-class gameElement:enable_shared_from_this<gameElement>{
+class gameElement:public enable_shared_from_this<gameElement>{
 public:
     /**
      * @brief Creates a new game element object.
@@ -79,6 +79,7 @@ public:
      */
     virtual void setOperation(string op);
 
+    virtual void doSomethingCool()=0;
 protected:
     /**
      * @brief A shared pointer to the mediator representing the game engine.
@@ -101,10 +102,4 @@ protected:
      */
     string operation;
 };
-
-
-
-
-
-
 #endif //CODE_GAMEELEMENT_H
