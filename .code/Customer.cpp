@@ -231,7 +231,7 @@ std::shared_ptr<Tab> Customer::getTab()
 
 void Customer::talkToWaiter()
 {
-    // setOperation("giveorder");
+    setOperation("giveorder");
     hasOrdered = true;
     changedOrderProcessState(); // change state to waiting from preorder
                                 // changed();
