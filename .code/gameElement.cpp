@@ -48,3 +48,4 @@ void gameElement::setOperation(string op) {
     operation = op;
 }
 
+void gameElement::doSomethingCool() {}
