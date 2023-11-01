@@ -1,3 +1,8 @@
+/*@file MaitreD.cpp
+@brief contains the MaitreD class
+    *which inherits from the Waiter class
+    *and creates a MaitreD
+*/
 #include "MaitreD.h"
 
 MaitreD::MaitreD(string name, shared_ptr<Floor> floor) {
