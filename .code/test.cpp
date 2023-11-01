@@ -9,7 +9,7 @@
 #include "gameElement.cpp"
 #include "OrderReceived.cpp"
 #include "OrderMemento.cpp"
-#include "MenuItemOrderCommand.cpp"
+#include "MenuItemCommand.cpp"
 #include "Tab.cpp"
 #include "EmotionState.cpp"
 #include "Disgruntaled.cpp"
@@ -18,7 +18,7 @@
 
 int main()
 {
-     vector<shared_ptr<MenuItemOrderCommand>> commands;
+     vector<shared_ptr<MenuItemCommand>> commands;
 
      shared_ptr<Customer> test = make_shared<Customer>(1000, 1);
      shared_ptr<Pizza> pizza = make_shared<Pizza>();
@@ -27,7 +27,7 @@ int main()
      test->startTab();
      for (int i = 0; i < 5; i++)
      {
-          commands.push_back(make_shared<MenuItemOrderCommand>());
+          commands.push_back(make_shared<MenuItemCommand>());
      }
      for (int i = 1; i <= 3; i++)
      {

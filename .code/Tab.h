@@ -14,6 +14,7 @@ class Tab
 private:
     std::vector<std::shared_ptr<OrderMemento>> tab;
     string ID; // unique id for customer
+    string description;
 
 public:
     /**
@@ -54,6 +55,8 @@ public:
      * @return The total price of outstanding orders.
      */
     int getTotal();
+
+    void setDescription(string d);
 
     bool checkID(string ID);
     /**

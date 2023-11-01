@@ -2,8 +2,30 @@
 #define Order_H
 
 #include "Customer.h"
-#include "MenuItemOrderCommand.h"
+#include "MenuItemCommand.h"
+//#include "MakeStuffCrusted.h"
+//#include "MakeThinCrust.h"
+//#include "MakeDoubleDecker.h"
+//#include "MakeBoiled.h"
+//#include "MakeDeepDish.h"
+//#include "MakeSweetChilli.h"
+//#include "MakeRanch.h"
+//#include "MakeTomatoPaste.h"
+//#include "MakeChutneySauce.h"
+//#include "MakePepperoni.h"
+//#include "MakeOlives.h"
+//#include "MakeMushrooms.h"
+//#include "MakeBlue.h"
+//#include "MakeChicken.h"
+//#include "MakeBeef.h"
+//#include "MakePeppers.h"
+//#include "MakeMozzarella.h"
+//#include "MakeGouda.h"
+//#include "MakeParmesan.h"
+// #include "Predefined.h"
 #include "OrderMemento.h"
+#include "Kitchen.h"
+#include "ManagerChef.h"
 
 /**
  * @class Order
@@ -12,9 +34,11 @@
 class Order : public enable_shared_from_this<Order>
 {
 private:
-    std::vector<std::shared_ptr<MenuItemOrderCommand>> formula; /**< The list of menu items in the order. */
-    float price;                                                /**< The total price of the order. */
-    int orderID;                                                /**< The unique identifier for the order.*/
+    std::vector<std::shared_ptr<MenuItemCommand>> formula; /**< The list of menu items in the order. */
+    float price;                                           /**< The total price of the order. */
+    int orderID;                                           /**< The unique identifier for the order.*/
+                                                           // shared_ptr<Kitchen> kitchen = make_shared<ManagerChef>();
+
 public:
     /**
      * @brief Constructor for an order with a given order ID.
@@ -27,7 +51,7 @@ public:
      * @param orderID The unique identifier for the order.
      * @param order A vector of shared pointers to menu item order commands.
      */
-    Order(int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
+    Order(int orderID, std::vector<std::shared_ptr<MenuItemCommand>> order);
 
     /**
      * @brief Constructor for an order with a given price, order ID, and a list of menu item commands.
@@ -35,7 +59,7 @@ public:
      * @param orderID The unique identifier for the order.
      * @param order A vector of shared pointers to menu item order commands.
      */
-    Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order);
+    Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> order);
 
     /**
      * @brief Place the order.
@@ -70,7 +94,8 @@ public:
      * @brief Add a menu item order command to the order.
      * @param command A shared pointer to the menu item order command.
      */
-    void addMenuItemOrderCommand(std::shared_ptr<MenuItemOrderCommand> command);
+    void addMenuItemCommand(std::shared_ptr<MenuItemCommand> command);
+    void addMenuItems(vector < shared_ptr<MenuItemCommand>> commands);
 
     /**
      * @brief Show the formula of the order as a string.
@@ -81,7 +106,7 @@ public:
 
     void setPrice(float price);
 
-    std::vector<std::shared_ptr<MenuItemOrderCommand>> getFormula();
+    std::vector<std::shared_ptr<MenuItemCommand>> getFormula();
 };
 
 #endif

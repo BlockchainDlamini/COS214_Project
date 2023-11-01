@@ -3,13 +3,13 @@ Order::Order(int id) // default price is 20
 {
     orderID = id;
 }
-Order::Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order)
+Order::Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> order)
 {
     this->price = price;
     this->orderID = orderID;
     this->formula = order;
 }
-Order::Order(int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order)
+Order::Order(int orderID, std::vector<std::shared_ptr<MenuItemCommand>> order)
 {
     this->orderID = orderID;
     this->formula = order;
@@ -40,9 +40,14 @@ void Order::setOrderMemento(std::shared_ptr<OrderMemento> order)
     formula = order->getToBePaid(); // this is a shallow copy will be adjusted into a deep copy
 }
 
-void Order::addMenuItemOrderCommand(shared_ptr<MenuItemOrderCommand> command)
+void Order::addMenuItemCommand(shared_ptr<MenuItemCommand> command)
 {
     formula.push_back(command);
+}
+
+void Order::addMenuItems(vector<shared_ptr<MenuItemCommand>> commands)
+{
+    formula = commands;
 }
 
 void Order::setPrice(float price)
@@ -50,14 +55,14 @@ void Order::setPrice(float price)
     this->price = price;
 }
 
-std::vector<std::shared_ptr<MenuItemOrderCommand>> Order::getFormula()
+std::vector<std::shared_ptr<MenuItemCommand>> Order::getFormula()
 {
     return formula;
 }
 // string Order::showFormula()
 // {
 //     string output = "";
-//     for (shared_ptr<MenuItemOrderCommand> menu : formula)
+//     for (shared_ptr<MenuItemCommand> menu : formula)
 //     {output+="MenuItem+ ["+to_string
 //     }
 // }

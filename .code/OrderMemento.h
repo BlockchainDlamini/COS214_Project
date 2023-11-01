@@ -12,7 +12,7 @@
 class OrderMemento : public enable_shared_from_this<OrderMemento>
 {
 private:
-    std::vector<std::shared_ptr<MenuItemOrderCommand>> formula; /**< The list of menu item order commands in the order memento. */
+    std::vector<std::shared_ptr<MenuItemCommand>> formula; /**< The list of menu item order commands in the order memento. */
     float price;                                                /**< The total price of the order memento. */
     int orderID;                                                /**< The unique order ID associated with the order memento. */
 
@@ -23,8 +23,8 @@ public:
      * @param orderID The unique order ID associated with the order memento.
      * @param formula The list of menu item order commands in the order memento.
      */
-    OrderMemento(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> formula);
-    OrderMemento(int price, std::vector<std::shared_ptr<MenuItemOrderCommand>> formula);
+    OrderMemento(int price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> formula);
+    OrderMemento(int price, std::vector<std::shared_ptr<MenuItemCommand>> formula);
 
     /**
      * @brief Constructor for creating an OrderMemento from an existing OrderMemento object.
@@ -60,13 +60,13 @@ public:
      * @brief Get the list of menu item order commands in the order memento.
      * @return The list of menu item order commands.
      */
-    std::vector<std::shared_ptr<MenuItemOrderCommand>> getToBePaid();
+    std::vector<std::shared_ptr<MenuItemCommand>> getToBePaid();
 
     /**
      * @brief Set the list of menu item order commands in the order memento.
      * @param formula The list of menu item order commands to set.
      */
-    void setToBePaid(std::vector<std::shared_ptr<MenuItemOrderCommand>> formula);
+    void setToBePaid(std::vector<std::shared_ptr<MenuItemCommand>> formula);
 };
 
 #endif

@@ -6,14 +6,14 @@ OrderMemento::OrderMemento(std::shared_ptr<OrderMemento> order)
     this->orderID = order->orderID;
 }
 
-OrderMemento::OrderMemento(int price, int orderID, std::vector<std::shared_ptr<MenuItemOrderCommand>> order)
+OrderMemento::OrderMemento(int price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> order)
 {
     this->price = price;
     this->orderID = orderID;
     this->formula = order;
 }
 
-OrderMemento::OrderMemento(int price, std::vector<std::shared_ptr<MenuItemOrderCommand>> formula)
+OrderMemento::OrderMemento(int price, std::vector<std::shared_ptr<MenuItemCommand>> formula)
 {
     this->price = price;
     this->formula = formula;
@@ -38,14 +38,14 @@ void OrderMemento::setID(int id)
     orderID = id;
 }
 
-std::vector<std::shared_ptr<MenuItemOrderCommand>> OrderMemento::getToBePaid()
+std::vector<std::shared_ptr<MenuItemCommand>> OrderMemento::getToBePaid()
 {
     return formula;
 }
 
-void OrderMemento::setToBePaid(std::vector<std::shared_ptr<MenuItemOrderCommand>> commands)
+void OrderMemento::setToBePaid(std::vector<std::shared_ptr<MenuItemCommand>> commands)
 {
-    for (shared_ptr<MenuItemOrderCommand> item : formula)
+    for (shared_ptr<MenuItemCommand> item : formula)
     {
         if (!commands.empty())
         {

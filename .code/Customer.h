@@ -35,6 +35,7 @@ private:
     float total;                                /**< The table number where the customer is seated. */
     std::shared_ptr<Pizza> pizza = nullptr;     /**< The pizza ordered by the customer. */
     std::vector<std::shared_ptr<Order>> orders; /**< A vector of customer's orders. */
+    shared_ptr<Kitchen> kitchen = make_shared<ManagerChef>();
 
 public:
     /**
@@ -61,7 +62,6 @@ public:
      * @brief Trigger a change in the customer's order process state.
      */
     void changedOrderProcessState();
-
 
     /**
      * @brief Set the unique identifier of the customer.
@@ -180,7 +180,7 @@ public:
 
     void hasPizza();
 
-    vector<shared_ptr<MenuItemOrderCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
+    vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
     void talkToWaiter();
 
     shared_ptr<Customer> getMe();
