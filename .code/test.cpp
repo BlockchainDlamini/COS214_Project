@@ -18,88 +18,75 @@
 
 int main()
 {
-     vector<shared_ptr<MenuItemCommand>> commands;
-
      shared_ptr<Customer> test = make_shared<Customer>(1000, 1);
      shared_ptr<Pizza> pizza = make_shared<Pizza>();
-     // cout << test->printCustomer() << endl;
+
+     // Customer getting seated and starting his tab
      test->beSeated(1);
      test->startTab();
-     for (int i = 0; i < 5; i++)
-     {
-          commands.push_back(make_shared<MenuItemCommand>());
-     }
-     for (int i = 1; i <= 3; i++)
-     {
-          test->createOrder();
-     }
-     // cout << test->printCustomer() << endl;
-     // test->talkToWaiter();
-     // cout << test->printCustomer() << endl;
-     // test->receiveOrder(pizza);
-     // cout << test->printCustomer() << endl;
-     // test->payBill('P', 100);
-     // cout << test->printCustomer() << endl;
-     // cout << test->printBill() << endl;
-     // test->addMenuItems();
-     // // the Emotion changes, starting from happy
-     // cout << "Starting From Happy" << endl;
-     // test->setEmotionState(std::make_shared<Happy>());
-     // test->changeMood();
-     // cout << test->printCustomer() << endl;
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl
-     //      << endl;
+
+     // Testing the Customer and Waiter interaction
+     cout << test->printCustomer() << endl;
+     test->talkToWaiter();
+     test->createOrder();
+     cout << test->printCustomer() << endl;
+     test->receiveOrder(pizza);
+     cout << test->printCustomer() << endl;
+     test->payBill('P', 100);
+     cout << test->printCustomer() << endl;
+     cout << test->printBill() << endl;
+
+     // the Emotion changes, starting from happy
+     cout << "Starting From Happy" << endl;
+     test->setEmotionState(std::make_shared<Happy>());
+     test->changeMood();
+     cout << test->printCustomer() << endl;
+     test->changeMood();
+     cout << test->printCustomer() << endl
+          << endl;
 
      // the Emotion changes, starting from Frustrated
-     // cout << "Starting From Frustrated" << endl;
-     // test->setEmotionState(std::make_shared<Frustrated>());
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl;
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl
-     //      << endl;
+     cout << "Starting From Frustrated" << endl;
+     test->setEmotionState(std::make_shared<Frustrated>());
+     test->changeMood();
+     cout << test->printCustomer() << endl;
+     test->changeMood();
+     cout << test->printCustomer() << endl
+          << endl;
 
      // the Emotion changes, starting from Satisfied
-     // cout << "Starting From Satisfied" << endl;
-     // test->setEmotionState(std::make_shared<Satisfied>());
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl;
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl
-     //      << endl;
-     // test->changedOrderProcessState();
+     cout << "Starting From Satisfied" << endl;
+     test->setEmotionState(std::make_shared<Satisfied>());
+     test->changeMood();
+     cout << test->printCustomer() << endl;
+     test->changeMood();
+     cout << test->printCustomer() << endl
+          << endl;
+     test->changedOrderProcessState();
 
      // the Emotion changes, starting from Disgruntaled
-     // cout << "Starting From Disgruntaled" << endl;
-     // test->setEmotionState(std::make_shared<Disgruntaled>());
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl;
-     // // test->changeMood();
-     // cout << test->printCustomer() << endl
-     //      << endl;
+     cout << "Starting From Disgruntaled" << endl;
+     test->setEmotionState(std::make_shared<Disgruntaled>());
+     test->changeMood();
+     cout << test->printCustomer() << endl;
+     test->changeMood();
+     cout << test->printCustomer() << endl
+          << endl;
 
-     // cout << "Starting the Order Process" << endl;
-     // test->setOrderProcessState(std::make_shared<Preorder>());
-     // test->changedOrderProcessState();
-     // Paying the bill
-     // test->requestBill();
-     // test->payBill('g', 0);
-     // test->payBill('P', 100);  // within the budget
-     //     test->payBill('P', 2000); // outside the budget, overpaid
-     //     test->payBill('T', 100);
-     //     test->payBill('T', 2000);
-     // cout << test->printBill() << endl;
+     cout << "Starting the Order Process" << endl;
+     test->setOrderProcessState(std::make_shared<Preorder>());
+     test->changedOrderProcessState();
 
      // Paying the bill
-     // test->hasBill = false;
-     //     test->payBill('g', 0);
-     //     test->payBill('P', 100);  // within the budget
-     //     test->payBill('P', 2000); // outside the budget, overpaid
-     // test->payBill('T', 100);
-     // // test->payBill('T', 2000);
-     // cout << test->printBill() << endl;
+     test->requestBill();
+     test->payBill('P', 100); // within the budget
+     cout << test->printBill() << endl;
 
-     // cout << test->getTab()->listOutstandingOrders() << endl;
+     // Paying the bill
+     test->requestBill();
+     test->payBill('T', 100);
+     cout << test->printBill() << endl;
+
+     cout << test->getTab()->listOutstandingOrders() << endl;
      return 0;
 }

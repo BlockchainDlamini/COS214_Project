@@ -109,6 +109,7 @@ public:
      * @param command A vector of shared pointers to menu item order commands.
      */
     void createOrder();
+    void predefinedOrder();
 
     /**
      * @brief Seat the customer at a table.

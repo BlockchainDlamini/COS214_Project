@@ -6,7 +6,6 @@ Customer::Customer(int bankAmount, int id) : gameElement()
     bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
     ID = id;
     tabID = "No Tab";
-    // this->tableNum = tableNum;
 }
 Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : gameElement()
 {
@@ -14,7 +13,7 @@ Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : 
     this->bankAccountAmount = bankAccountAmount;
 }
 
-Customer::Customer(int bankAccount)
+Customer::Customer(int bankAccount) : gameElement()
 {
     bankAccountAmount = bankAccount;
 }
@@ -25,6 +24,7 @@ void Customer ::changeMood()
 void Customer::changedOrderProcessState()
 {
     orderProcess->execute(this);
+    orderProcess->printStateChange();
 }
 
 void Customer::requestBill() // sets the hasBill to true.
@@ -45,13 +45,11 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
             if (bankAccountAmount < total)
             {
                 cout << "Customer cannot pay the bill, insufficient funds" << endl;
-                //      return false;
             }
             else
             {
                 float tip = total + (total * mood->getTip());
                 bankAccountAmount = bankAccountAmount - (total + tip);
-                //      return true;
             }
         }
         else if (c == 'T' && isLoyal() == true) // has a tab and wants to add to tab
@@ -64,7 +62,6 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
                     tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
-            // return true;
         }
         else if (c == 'T' && isLoyal() == false) // doesn't have a tab but wants to add
         {
@@ -76,21 +73,17 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
                     tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
-            //  return true;
         }
         else
         {
             cout << "Incorrect input" << endl;
-            // return false;
         }
     }
     else
     {
         cout << "Customer has not received the bill from the waiter" << endl;
-        // return false;
     }
     leave();
-    // return tableNum;
 }
 bool Customer::isLoyal()
 {
@@ -173,19 +166,19 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             break;
         case 2:
             total += 45;
-            // result.push_back(make_shared<MakeThinCrust>(kitchen))
+            // result.push_back(make_shared<MakeThinCrust>(kitchen,size))
             break;
         case 3:
             total += 68;
-            // result.push_back(make_shared<MakeDoubleDecker>(kitchen))
+            // result.push_back(make_shared<MakeDoubleDecker>(kitchen,size))
             break;
         case 4:
             total += 52;
-            // result.push_back(make_shared<MakeBoiled>(kitchen))
+            // result.push_back(make_shared<MakeBoiled>(kitchen,size))
             break;
         case 5:
             total += 89;
-            // result.push_back(make_shared<MakeDeepDish>(kitchen))
+            // result.push_back(make_shared<MakeDeepDish>(kitchen,size))
             break;
         }
 
@@ -337,13 +330,51 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
     setTotal(total);
     return result;
 }
-
+void Customer::predefinedOrder() // i have no idea how we going to do this
+{
+    int pizza;
+    bool start = true;
+    string done;
+    cout << "Please choose a pizza from the predefined menu" << endl;
+    while (start)
+    {
+        cout << "1.Mozzarella Pizza R120" << endl;
+        cout << "2.Pepperoni Pizza R122" << endl;
+        cout << "3.Cheesy Pizza R69" << endl;
+        cout << "4.Chicken Double Decker Pizza R42069" << endl;
+        cin >> pizza;
+        switch (pizza)
+        {
+        case 1:
+            total += 120;
+            break;
+        case 2:
+            total += 122;
+            break;
+        case 3:
+            total += 69;
+            break;
+        case 4:
+            total += 42069;
+            break;
+        }
+        if (done == "yes" || done == "Yes")
+        {
+            start = true;
+        }
+        else
+        {
+            start = false;
+        }
+    }
+}
 void Customer::createOrder()
 {
     bool start = true;
     int orderCount;
     string choice;
     string build;
+    int pizza;
     while (start)
     {
         cout << "Would you like to build your pizza?" << endl;
@@ -368,6 +399,7 @@ void Customer::createOrder()
         }
         else
         {
+            predefinedOrder();
             std::shared_ptr<Order> order = make_shared<Order>(ID);
             std::cout << "Order: " + to_string(orderCount) + " has been added" << endl;
             cout << "Would you like to make another order?" << endl;
@@ -382,13 +414,13 @@ void Customer::createOrder()
             }
         }
     }
+    hasOrdered = true;
+    changedOrderProcessState();
 }
 
 void Customer::beSeated(int table)
 {
-
-    tableNum = table;           // set the table number for the customer when he is seated
-    changedOrderProcessState(); // change the state to waiting
+    tableNum = table; // set the table number for the customer when he is seated
 }
 
 int Customer::getTableNum()
@@ -458,7 +490,7 @@ void Customer::leave()
 {
     setOperation("leave");
     changed();
-    cout << "Customer has not completed their meal";
+    cout << "Customer has left " << endl;
 }
 
 float Customer::getTotal()
