@@ -15,35 +15,36 @@ void HeadChef::handleOrder(int waiterID, vector<shared_ptr<FoodItem>> order) {
     bakePizza(order);
     pizzas.first = waiterID;
     pizzas.second.push_back(bakePizza(order));
-    while (!nextChef->ordersComplete()) 
+    if (!nextChef->ordersComplete()) {
         nextChef->handleOrder(waiterID);
-    setOperation("COLLECTORDER");
-    changed();
-    //send the pizza out be sent to waiter ask Hamza again
+    } else {
+        setOperation("COLLECTORDER");
+        changed();
+    }
 }
 
 shared_ptr<Pizza> HeadChef::bakePizza(vector<shared_ptr<FoodItem>> order) {
     shared_ptr<Pizza> pizza = make_shared<Pizza>();
     for (shared_ptr<FoodItem> item : order) {
-        if (typeid(item) == typeid(Base)) {
+        if (dynamic_pointer_cast<Base>(item)) {
             addBase(pizza, item);
             pizza->price += item->getPrice();
         }
     } 
     for (shared_ptr<FoodItem> item : order) {
-        if (typeid(item) == typeid(Toppings)) {
+        if (dynamic_pointer_cast<Toppings>(item)) {
             addTopping(pizza, item);
             pizza->price += item->getPrice();
         }
     } 
     for (shared_ptr<FoodItem> item : order) {
-        if (typeid(item) == typeid(Sauce)) {
+        if (dynamic_pointer_cast<Sauce>(item)) {
             addSauce(pizza, item);
             pizza->price += item->getPrice();
         }
     }
     for (shared_ptr<FoodItem> item : order) {
-        if (typeid(item) == typeid(Cheese)) {
+        if (dynamic_pointer_cast<Cheese>(item)) {
             addCheese(pizza, item);
             pizza->price += item->getPrice();
         }
