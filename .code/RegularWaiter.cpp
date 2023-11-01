@@ -22,19 +22,13 @@ int RegularWaiter::getWaiterID()
     return Id;
 }
 
-void RegularWaiter::assignTable(shared_ptr<table> table)
-{
-    // tables.push_back(table);
-    // std::cout << Id << " has been assigned table number " << table->getNum() << std::endl;
-    //ADD getNum() to table class
-}
 
 shared_ptr<RegularWaiter> RegularWaiter::waiterResponsible(int tableId)
 {
     
     for (auto& waiter : waiters) {
         vector<int> tablesOfWaiter = waiter->getAssignedTables();
-        for (int r = 0; r < tablesOfWaiter.size(); r++) {
+        for (unsigned int r = 0; r < tablesOfWaiter.size(); r++) {
             if (tableId == tablesOfWaiter[r]) {
                 cout << "Waiter: " << waiter->getWaiterID() << " is being called to table : " << tableId << endl;
                 return waiter;
@@ -62,7 +56,7 @@ void RegularWaiter::takeOrder(int tableId) {
     vector<shared_ptr<Customer>> customers = table->getCustomers();
     for (const auto& customer : customers) {
          if(customer != NULL){
-            cout<<"inside the takeOrder() func for a customer: ";
+            // cout<<"inside the takeOrder() func for a customer: ";
             cout<< customer->getID() << endl;
 
                 // cout<<"here";
@@ -92,7 +86,7 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
     this->pizzasForTable = pizzasForTable;
     // iterate through this waiters tables' customers
 
-    cout<<"takeOrderToTable()"<<endl;
+    cout<<"the waiter is in takeOrderToTable()"<<endl;
 
     shared_ptr<table> table = floorObject->getTable(tableID);
 
@@ -100,12 +94,12 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
 
     vector<shared_ptr<Customer>> customers = table->getCustomers();
         
-    cout << "Customer size: " << customers.size() << endl;
-    cout << "pizzasForTable: " << pizzasForTable.size() << endl;
+    // cout << "Customer size: " << customers.size() << endl;
+    // cout << "pizzasForTable: " << pizzasForTable.size() << endl;
 
-    for (int r = 0; r < customers.size(); r++) {
+    for (unsigned int r = 0; r < customers.size(); r++) {
 
-        cout<<"in for: " << r <<endl;
+        // cout<<"in for: " << r <<endl;
 
         // if(customers[r] != NULL && pizzasForTable[r] != NULL){
         cout << "Customer: " << customers[r]->getID() << " received order: ";
@@ -115,7 +109,7 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
         // payBill();
 
         // SEG
-        cout<<"exiting ------";
+        // cout<<"exiting ------";
 
     }
 
@@ -124,7 +118,14 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
 
 } 
 
-void::RegularWaiter::payBill(){
+// CHANGE
+void RegularWaiter::payBill(int tableId){
+
+    shared_ptr<RegularWaiter> waiter = waiterResponsible(tableId);
+
+    if (waiter) {
+        cout << "Waiter: " << waiter->getWaiterID() << " is preparing the bill for table: " << tableId << endl;
+    }
     // use mediator to
     // pizza obj will have the price - not the order
 
@@ -132,10 +133,7 @@ void::RegularWaiter::payBill(){
     int orderAmount;
     shared_ptr<table> table = floorObject->getTable(tableID);
     vector<shared_ptr<Customer>> customers = table->getCustomers();
-            // iterate through
-            // for (const auto& customer : customers) {
-            //     orderAmount += customer->getOrders()->orderAmount();
-            // }
+
     for (const auto& pizza : pizzasForTable) {
         orderAmount += pizza->getTotal();
     }  
@@ -180,6 +178,7 @@ void::RegularWaiter::payBill(){
                     cout << "Paying the bill of amount: " << orderAmount << endl;
                     customer->payBill(floatValue, 'P');
                 }
+                // SEG
 
                 count++;
             }

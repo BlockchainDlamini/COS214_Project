@@ -6,8 +6,8 @@ MaitreD::MaitreD(string name, shared_ptr<Floor> floor) {
 
 
     // employ waiters
-    shared_ptr<RegularWaiter> newWaiter1 = RegularWaiter::createRegularWaiter(1, vector<int>{1, 2, 3}, floor);
-    shared_ptr<RegularWaiter> newWaiter2 = RegularWaiter::createRegularWaiter(2, vector<int>{4, 5, 6}, floor);
+    // shared_ptr<RegularWaiter> newWaiter1 = RegularWaiter::createRegularWaiter(1, vector<int>{1, 2, 3}, floor);
+    // shared_ptr<RegularWaiter> newWaiter2 = RegularWaiter::createRegularWaiter(2, vector<int>{4, 5, 6}, floor);
 }
 
 string MaitreD::get() {
@@ -23,5 +23,6 @@ void MaitreD::setOperation(string op) {
 
 void MaitreD::seatCustomers(std::vector<std::shared_ptr<Customer>> customers)
 {
+    cout<<"The MaitreD is calling floorobj->seatCustomer."<<endl;
     floorobj->seatCustomer(customers);
 }
