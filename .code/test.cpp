@@ -11,24 +11,53 @@
 #include "OrderMemento.cpp"
 #include "MenuItemCommand.cpp"
 #include "Tab.cpp"
+#include "Kitchen.cpp"
+#include "ManagerChef.cpp"
+
 #include "EmotionState.cpp"
 #include "Disgruntaled.cpp"
 #include "OrderProcessState.cpp"
+#include "MakeBeef.cpp"
+#include "MakeCheese.cpp"
+#include "MakeBase.cpp"
+#include "MakeBlueCheese.cpp"
+#include "MakeBoiledCrust.cpp"
+#include "MakeCheddar.cpp"
+#include "MakeChicken.cpp"
+#include "MakeChutneySauce.cpp"
+#include "MakeDeepDish.cpp"
+#include "MakeDoubleDecker.cpp"
+#include "MakeGouda.cpp"
+#include "MakeMozzarella.cpp"
+#include "MakeMushrooms.cpp"
+#include "MakeOlives.cpp"
+#include "MakeParmesan.cpp"
+#include "MakePepperoni.cpp"
+#include "MakePeppers.cpp"
+#include "MakeRanch.cpp"
+#include "MakeSauce.cpp"
+#include "MakeStuffedCrust.cpp"
+#include "MakeSweetChilli.cpp"
+#include "MakeThinCrust.cpp"
+#include "MakeTomatoPaste.cpp"
+#include "MakeTopping.cpp"
 #include "Waiting.cpp"
-
+#include "FoodItem.cpp"
 int main()
 {
      shared_ptr<Customer> test = make_shared<Customer>(1000, 1);
      shared_ptr<Pizza> pizza = make_shared<Pizza>();
-
+     shared_ptr<ManagerChef> ManaerChef = make_shared<ManagerChef>();
+     ManaerChef->cycle();
      // Customer getting seated and starting his tab
+     test->setManager(ManaerChef);
      test->beSeated(1);
      test->startTab();
 
      // Testing the Customer and Waiter interaction
      cout << test->printCustomer() << endl;
-     test->talkToWaiter();
      test->createOrder();
+     test->talkToWaiter();
      cout << test->printCustomer() << endl;
      test->receiveOrder(pizza);
      cout << test->printCustomer() << endl;
