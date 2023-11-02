@@ -3,11 +3,6 @@
 MaitreD::MaitreD(string name, shared_ptr<Floor> floor) {
     this->name=name;
     this->floorobj = floor;
-
-
-    // employ waiters
-    shared_ptr<RegularWaiter> newWaiter1 = RegularWaiter::createRegularWaiter(1, vector<int>{1, 2, 3}, floor);
-    shared_ptr<RegularWaiter> newWaiter2 = RegularWaiter::createRegularWaiter(2, vector<int>{4, 5, 6}, floor);
 }
 
 string MaitreD::get() {
