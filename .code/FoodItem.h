@@ -10,12 +10,12 @@ using namespace std;
 class FoodItem: public gameElement
 {
 protected:
-	double price;
+	float price;
 	string name;
 public:
-	FoodItem(string, double);
+	FoodItem(string, float);
 	string getName();
-	double getPrice();
+	float getPrice();
 	string toString();
 };
 #endif

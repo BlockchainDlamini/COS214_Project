@@ -5,6 +5,9 @@ class Base :
     public FoodItem
 {
     public:
-    Base(string, double);
+    Base(string, float, string);
+
+private:
+    string size;
 };
 #endif

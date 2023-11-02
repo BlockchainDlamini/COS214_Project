@@ -13,5 +13,7 @@ public:
 	void handleOrder(int);
 	void handleOrder(pair<int, vector<shared_ptr<Order>>>);
 	bool ordersComplete();
+	vector<shared_ptr<Kitchen>> getChefs();
+	void cycle();
 };
 #endif

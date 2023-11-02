@@ -1,16 +1,18 @@
 #include "SauceChef.h"
 
-SauceChef::SauceChef(shared_ptr<Kitchen> ptr) :Kitchen(ptr) 
+SauceChef::SauceChef()
 {
-    nextChef = make_shared<HeadChef>();
+    nextChef = make_shared<ToppingsChef>();
 }
 void SauceChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>> foods)
 {
-    for (vector<shared_ptr<MenuItemCommand>> it = orders.begin(); it != orders.end(); it++)
+    for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
-        if (typeid(*(*it)) == typeid(MakeSauce))
+        if (dynamic_pointer_cast<MakeSauce>((*it)))
         {
-            foods.push_back((*it)->execute(*it));
+            cout << "****IN THE ---SAUCECHEFF--- CHEFF COOKING!!!!!!!!" << endl;
+
+            foods.push_back((*it)->execute());
         }
     }
     nextChef->handleOrder(id, orders, foods);
@@ -18,13 +20,26 @@ void SauceChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, 
 
 shared_ptr<FoodItem> SauceChef::execute(shared_ptr<MenuItemCommand> val)
 {
-    if (typeid(val) == typeid(MakeSweetChilli))
+    if (dynamic_pointer_cast<MakeSweetChilli>(val))
+    {
+        cout << "COOKED UP A SWEETCHILLI SAUCE" << endl;
         return make_shared<SweetChilli>();
-    else if (typeid(val) == typeid(MakeRanch))
+    }
+    else if (dynamic_pointer_cast<MakeSweetChilli>(val))
+    {
+        cout << "COOKED UP A RANCH SAUCE" << endl;
         return make_shared<Ranch>();
-    else if (typeid(val) == typeid(MakeTomatoPaste))
+    }
+    else if (dynamic_pointer_cast<MakeSweetChilli>(val))
+    {
+        cout << "COOKED UP A TOMATOPASTE SAUCE" << endl;
         return make_shared<TomatoPaste>();
-    else if (typeid(val) == typeid(MakeChutney))
+    }
+    else if (dynamic_pointer_cast<MakeChutneySauce>(val))
+    {
+        cout << "COOKED UP A CHUTNEY SAUCE" << endl;
         return make_shared<Chutney>();
+    }
   
+    return 0;
 }

@@ -1,2 +1,2 @@
 #include "Boiled.h"
-Boiled::Boiled() :Base("Boiled", 52) {}
+Boiled::Boiled(string sz) :Base("Boiled", 52,sz) {}

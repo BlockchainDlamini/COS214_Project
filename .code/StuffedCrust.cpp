@@ -1,2 +1,2 @@
 #include "StuffedCrust.h"
-StuffedCrust::StuffedCrust() :Base("Stuffed Crust", 34) {}
+StuffedCrust::StuffedCrust(string sz) :Base("Stuffed Crust", 34, sz) {}

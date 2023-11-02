@@ -6,26 +6,44 @@ BaseChef::BaseChef()
 }
 void BaseChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>> foods)
 {
-    for (vector<shared_ptr<MenuItemCommand>> it = orders.begin(); it != orders.end(); it++)
+    for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
-        if ((*it)->getReciever() == this)
+        if (dynamic_pointer_cast<MakeBase>((*it)))
         {
-            foods.push_back((*it)->execute(*it));
+            cout << "****IN THE ---BASE--- CHEFF COOKING!!!!!!!!" << endl;
+            foods.push_back((*it)->execute());
         }
     }
     nextChef->handleOrder(id, orders, foods);
 }
 
-shared_ptr<FoodItem> BaseChef::execute(shared_ptr<MenuItemCommand> val)
+shared_ptr<FoodItem> BaseChef::execute(shared_ptr<MenuItemCommand> val, string t)
 {
-    if (typeid(val) == typeid(MakeStuffedCrust))
-        return make_shared<StuffedCrust>();
-    else if (typeid(val) == typeid(MakeThinCrust))
-        return make_shared<ThinCrust>();
-    else if (typeid(val) == typeid(MakeDoubleDecker))
-        return make_shared<DoubleDecker>();
-    else if (typeid(val) == typeid(MakeBoiled))
-        return make_shared<Boiled>();
-    else if (typeid(val) == typeid(MakeDeepDish))
-        return make_shared<DeepDish>();
+    if (dynamic_pointer_cast<MakeStuffedCrust>(val))
+    {
+        cout << "COOKED UP A STUFFED CRUST" << endl;
+        return make_shared<StuffedCrust>(t);
+    }
+    else if (dynamic_pointer_cast<MakeThinCrust>(val))
+    {
+        cout << "COOKED UP A THIN CRUST" << endl;
+        return make_shared<ThinCrust>(t);
+    }
+    else if (dynamic_pointer_cast<MakeDoubleDecker>(val))
+    {
+        cout << "COOKED UP A DOUBLE-DECKER CRUST" << endl;
+        return make_shared<DoubleDecker>(t);
+    }
+    else if (dynamic_pointer_cast<MakeBoiledCrust>(val))
+    {
+        cout << "COOKED UP A BOILED CRUST" << endl;
+        return make_shared<Boiled>(t);
+    }
+    else if (dynamic_pointer_cast<MakeDeepDish>(val))
+    {
+        cout << "COOKED UP A DEEPDISH CRUST" << endl;
+        return make_shared<DeepDish>(t);
+    }
+
+    return 0;
 }

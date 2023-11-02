@@ -5,6 +5,6 @@ class DoubleDecker :
     public Base
 {
 public:
-    DoubleDecker();
+    DoubleDecker(string);
 };
 #endif

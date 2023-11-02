@@ -5,6 +5,6 @@ class Boiled :
     public Base
 {
 public:
-    Boiled();
+    Boiled(string);
 };
 #endif

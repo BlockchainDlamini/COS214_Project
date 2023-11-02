@@ -1,2 +1,2 @@
 #include "DoubleDecker.h"
-DoubleDecker::DoubleDecker() :Base("Double-Decker", 68) {}
+DoubleDecker::DoubleDecker(string sz) :Base("Double-Decker", 68,sz) {}

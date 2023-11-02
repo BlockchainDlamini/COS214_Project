@@ -5,6 +5,6 @@ class ThinCrust :
     public Base
 {
 public:
-    ThinCrust();
+    ThinCrust(string);
 };
 #endif

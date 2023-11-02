@@ -5,7 +5,7 @@ class Toppings :
     public FoodItem
 {
 public:
-    Toppings(string, double);
+    Toppings(string, float);
 };
 #endif
 

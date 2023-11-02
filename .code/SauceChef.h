@@ -5,9 +5,8 @@ class SauceChef :
     public Kitchen
 {
 public:
-    SauceChef(shared_ptr<Kitchen> ptr);
+    SauceChef();
     void handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
-    shared_ptr<FoodItem> createFoodItem();
     shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand>);
 };
 #endif

@@ -5,6 +5,6 @@ class Cheese :
     public FoodItem
 {
 public:
-    Cheese(string, double);
+    Cheese(string, float);
 };
 #endif

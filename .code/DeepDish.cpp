@@ -1,2 +1,2 @@
 #include "DeepDish.h"
-DeepDish::DeepDish() :Base("Deep Dish", 89) {}
+DeepDish::DeepDish(string sz) :Base("Deep Dish", 89,sz) {}

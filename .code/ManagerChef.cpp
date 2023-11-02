@@ -3,22 +3,40 @@
 ManagerChef::ManagerChef()
 {
 	nextChef = make_shared<BaseChef>();
-	shared_ptr<Kitchen> tempy = enable_shared_from_this<ManagerChef>::shared_from_this();
+}
+
+void ManagerChef::cycle()
+{
+	shared_ptr<Kitchen> tempy = nextChef;
 	while (tempy->getNextChef() != 0)
 	{
 		tempy = tempy->getNextChef();
 	}
-	
-	tempy->setNextChef(shared_from_this());
+
+	tempy->setNextChef(enable_shared_from_this<ManagerChef>::shared_from_this());
 }
 
+vector<shared_ptr<Kitchen>> ManagerChef::getChefs()
+{
+	vector<shared_ptr<Kitchen>> chefs;
+	//chefs.push_back(nextChef);
+	shared_ptr<Kitchen> ptr = nextChef;
+	while (ptr != enable_shared_from_this<ManagerChef>::shared_from_this())
+	{
+		chefs.push_back(ptr);
+		ptr = ptr->getNextChef();
+	}
+	return chefs;
+}
 void ManagerChef::handleOrder(pair<int, vector<shared_ptr<Order>>> pr)
 {
 	while (!pr.second.empty())
 	{
 		vector<shared_ptr<FoodItem>> foods;
-		nextChef->handleOrder(pr.first, pr.second.back()->getFormula(), foods);
+		shared_ptr<Order> t = pr.second.back();
 		pr.second.pop_back();
+		nextChef->handleOrder(pr.first, t->getFormula(), foods);
+		
 	}
 }
 

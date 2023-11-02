@@ -1,2 +1,2 @@
 #include "Cheese.h"
-Cheese::Cheese(string nm, double p) :FoodItem(nm, p) {}
+Cheese::Cheese(string nm, float p) :FoodItem(nm, p) {}

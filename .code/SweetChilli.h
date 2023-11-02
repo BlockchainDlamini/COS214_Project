@@ -8,4 +8,3 @@ public:
     SweetChilli();
 };
 #endif
-SweetChilli::SweetChilli():Sauce("SweetChilli",76) {}

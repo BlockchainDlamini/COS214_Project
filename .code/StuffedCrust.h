@@ -5,7 +5,6 @@ class StuffedCrust :
     public Base
 {
 public:
-    StuffedCrust();
+    StuffedCrust(string);
 };
 #endif
-StuffedCrust::StuffedCrust():Base("Stuffed Crust", 34) {}
