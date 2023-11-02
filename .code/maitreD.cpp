@@ -31,3 +31,8 @@ void MaitreD::seatCustomers(std::vector<std::shared_ptr<Customer>> customers)
     cout<<"The MaitreD is calling floorobj->seatCustomer."<<endl;
     floorobj->seatCustomer(customers);
 }
+
+void MaitreD::customersLeft(int tableNum){
+    cout<<"The MaitreD is calling floorobj->seatCustomer."<<endl;
+    floorobj->customersLeft(tableNum);
+}

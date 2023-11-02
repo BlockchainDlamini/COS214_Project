@@ -48,11 +48,17 @@ public:
 
     /**
      * @brief Set function for Mediator.
-     * @param op The operation to be performed by the Mediator.
      * @details This function is used to send a request to the Mediator with a specified operation.
      * @param op The operation to be performed by the Mediator.
      */
     void setOperation(string op);
+
+    /**
+     * @brief Notifies the floor that the customers are leaving.
+     * @details Will call the floorObj leave function.
+     * @param tableNum The tableNum that the customers are leaving.
+     */
+    void customersLeft(int tableNum);
 
 private:
     shared_ptr<Floor> floorobj;
