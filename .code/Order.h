@@ -3,26 +3,25 @@
 
 #include "Customer.h"
 #include "MenuItemCommand.h"
-//#include "MakeStuffCrusted.h"
-//#include "MakeThinCrust.h"
-//#include "MakeDoubleDecker.h"
-//#include "MakeBoiled.h"
-//#include "MakeDeepDish.h"
-//#include "MakeSweetChilli.h"
-//#include "MakeRanch.h"
-//#include "MakeTomatoPaste.h"
-//#include "MakeChutneySauce.h"
-//#include "MakePepperoni.h"
-//#include "MakeOlives.h"
-//#include "MakeMushrooms.h"
-//#include "MakeBlue.h"
-//#include "MakeChicken.h"
-//#include "MakeBeef.h"
-//#include "MakePeppers.h"
-//#include "MakeMozzarella.h"
-//#include "MakeGouda.h"
-//#include "MakeParmesan.h"
-// #include "Predefined.h"
+#include "MakeStuffedCrust.h"
+#include "MakeThinCrust.h"
+#include "MakeDoubleDecker.h"
+#include "MakeBoiledCrust.h"
+#include "MakeDeepDish.h"
+#include "MakeSweetChilli.h"
+#include "MakeRanch.h"
+#include "MakeTomatoPaste.h"
+#include "MakeChutneySauce.h"
+#include "MakePepperoni.h"
+#include "MakeOlives.h"
+#include "MakeMushrooms.h"
+#include "MakeBlueCheese.h"
+#include "MakeChicken.h"
+#include "MakeBeef.h"
+#include "MakePeppers.h"
+#include "MakeMozzarella.h"
+#include "MakeGouda.h"
+#include "MakeParmesan.h"
 #include "OrderMemento.h"
 #include "Kitchen.h"
 #include "ManagerChef.h"
@@ -44,7 +43,7 @@ public:
      * @brief Constructor for an order with a given order ID.
      * @param orderID The unique identifier for the order.
      */
-    Order(int orderID);
+    Order(int orderID,float price);
 
     /**
      * @brief Constructor for an order with a given order ID and a list of menu item commands.

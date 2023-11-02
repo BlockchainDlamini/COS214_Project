@@ -56,6 +56,8 @@ public:
     /**
      * @brief Change the emotional state of the customer.
      */
+
+    void setManager(shared_ptr<Kitchen>);
     void changeMood();
 
     /**
@@ -103,13 +105,15 @@ public:
      */
     string printBill();
 
+    void setKitchenReference(shared_ptr<Kitchen>);
+
     /**
      * @brief Create a new order.
      * @param orderID The identifier for the new order.
      * @param command A vector of shared pointers to menu item order commands.
      */
     void createOrder();
-    void predefinedOrder();
+    vector<shared_ptr<MenuItemCommand>> predefinedOrder();
 
     /**
      * @brief Seat the customer at a table.
@@ -181,7 +185,7 @@ public:
 
     void hasPizza();
 
-    vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
+    vector<shared_ptr<MenuItemCommand>> buildPizza(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
     void talkToWaiter();
 
     shared_ptr<Customer> getMe();
@@ -202,6 +206,7 @@ public:
     }
     std::shared_ptr<Tab> getTab();
     void leave();
+    void getKitchenReference();
 };
 
 #endif
