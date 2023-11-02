@@ -11,7 +11,7 @@ std::string Tab::listOutstandingOrders()
         output += "Order ID: " + to_string(order->getID()) + "\n";
         output += "Description: " + description;
     }
-    output += "Total: " + getTotal();
+    output += "Total: " + to_string(getTotal());
     return output;
 }
 
@@ -44,7 +44,7 @@ std::vector<std::shared_ptr<OrderMemento>> Tab::getTab()
     return tab;
 }
 
-int Tab::getTotal()
+float Tab::getTotal()
 {
     float total = 0;
     for (shared_ptr<OrderMemento> order : tab)

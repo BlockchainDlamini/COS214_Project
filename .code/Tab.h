@@ -54,7 +54,7 @@ public:
      * @brief Get the total price of outstanding orders in the tab.
      * @return The total price of outstanding orders.
      */
-    int getTotal();
+    float getTotal();
 
     void setDescription(string d);
 
