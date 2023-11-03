@@ -1,9 +1,7 @@
 #ifndef GETMERGEVISITOR_H
 #define GETMERGEVISITOR_H
 
-#include "visitor.h"
-#include <memory>
-
+#include "getVisibilityVisitor.h"//BOBS ADDITION
 /**
  * @brief The getMergeVisitor class provides a visitor for merging elements.
  */

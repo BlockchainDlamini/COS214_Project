@@ -1,13 +1,24 @@
 #ifndef FLOOR_H 
 #define FLOOR_H
 
-#include "floorComponent.h"
-#include "Customer.h"
-#include <iostream>
+//BOBS ADDITION
+#include "floorComposite.h"
+class table;
+class visitor;
+class setVisibilityVisitor;
+class setSpaceVisitor;
+class setMergeVisitor;
+class setAvailabilityVector;
+class getVisibilityVector;
+class getMergeVector;
+class getIsAvailableVector;
+class findSpaceVector;
+//BOBS ADDITION
 
 /**
  * @brief The Floor class represents the floor the restaurant.
  */
+
 class Floor
 {
     private:

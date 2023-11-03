@@ -1,5 +1,5 @@
 #include "getVisibilityVisitor.h"
-#include "table.h"
+
 
 int getVisibilityVisitor::visitTable(std::shared_ptr<table> tble)
 {

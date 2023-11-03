@@ -5,15 +5,14 @@
 #ifndef REGULARWAITER_H
 #define REGULARWAITER_H
 
-#include <vector>
-#include <memory>
-#include <string>
-#include "table.h"
-#include "Waiter.h"
-#include "Order.h"
-#include "Pizza.h"
-#include "Floor.h"
 
+#include "Waiter.h"
+//#include "Order.h"
+//#include "Floor.h"
+
+class Pizza;
+class Floor;
+class Order;
 /**
  * @class RegularWaiter
  * @brief Represents a Regular Waiter responsible for serving tables and managing orders.

@@ -1,9 +1,7 @@
 #ifndef SETSPACEVISITOR_H
 #define SETSPACEVISITOR_H
 
-#include "visitor.h"
-#include <memory>
-
+#include "setVisibilityVisitor.h"//BOBS ADDITION
 /**
  * @brief The setSpaceVisitor class provides a visitor for setting space value.
  */

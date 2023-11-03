@@ -1,12 +1,12 @@
 #ifndef MYITERATOR_H
 #define MYITERATOR_H
 
-#include <queue>
-#include "floorComponent.h"
+#include "PredefinedOrders.h"//BOBS ADDITION
 
 /**
  * @brief The myIterator class provides an abstract iterator interface for traversing a tree.
  */
+class floorComponent;
 class myIterator
 {
     protected:

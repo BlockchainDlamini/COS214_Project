@@ -1,8 +1,8 @@
 #ifndef DEPTHFIRSTITERATOR_H
 #define DEPTHFIRSTITERATOR_H
 
-#include "iterator.h"
-
+#include "iterator.h"//BOBS ADDITION
+class floorComponent;//BOBS ADDITION
 /**
  * @brief The depthFirstIterator class provides an iterator for traversing a tree in depth-first order.
  */

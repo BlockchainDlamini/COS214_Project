@@ -1,10 +1,6 @@
 #ifndef FLOORCOMPOSITE_H
 #define FLOORCOMPOSITE_H
-
-#include <vector>
-#include <memory>
-#include "floorComponent.h"
-
+#include "floorComponent.h"//BOBS ADDITION
 /**
  * @brief The floorComposite class represents a composite floor component.
  */
@@ -55,7 +51,7 @@ class floorComposite: public floorComponent
          * @brief Gets a breadth-first iterator for the composite hierarchy.
          * @return The shared pointer to the breadth-first iterator.
          */
-        std::shared_ptr<myIterator> getBreadthIterator();
+        //std::shared_ptr<myIterator> getBreadthIterator();
 
         /**
          * @brief Gets a string representation of the composite.

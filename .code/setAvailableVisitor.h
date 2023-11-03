@@ -1,9 +1,7 @@
 #ifndef GETAVAILABLEVISITOR_H
 #define GETAVAILABLEVISITOR_H
 
-#include "visitor.h"
-#include <memory>
-
+#include "setMergeVisitor.h"//BOBS ADDITION
 /**
  * @brief The setIsAvailableVisitor class provides a visitor for setting availability.
  */
