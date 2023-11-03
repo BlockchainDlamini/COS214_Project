@@ -1,10 +1,7 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include "floorComponent.h"
-#include "Customer.h"
-#include <vector>
-#include <memory>
+#include "floor.h"//BOBS ADDITION
 
 /**
  * @brief The table class represents a table in the restaurant floor.
@@ -115,7 +112,7 @@ class table: public floorComponent
          * @return The vector of shared pointers to customers.
          */
         std::vector<std::shared_ptr<Customer>> getCustomers();
-
+      
         /**
          * @brief Calculates the available space at the table.
          * @return The available space.

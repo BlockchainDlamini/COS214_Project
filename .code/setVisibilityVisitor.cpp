@@ -1,6 +1,4 @@
 #include "setVisibilityVisitor.h"
-#include "table.h"
-#include <iostream>
 
 setVisibilityVisitor::setVisibilityVisitor(int newVis):visitor()
 {

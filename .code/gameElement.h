@@ -1,14 +1,18 @@
 //
 // Created by User on 24/10/2023.
 //
-
 #ifndef CODE_GAMEELEMENT_H
 #define CODE_GAMEELEMENT_H
 
 #include <memory>
 #include <utility>
 #include <string>
+#include <vector>
+#include <list>
 #include <iostream>
+#include <vector>
+#include <list>
+#include <queue>
 
 using namespace std;
 class Mediator;

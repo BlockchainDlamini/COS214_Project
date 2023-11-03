@@ -1,7 +1,7 @@
 #ifndef SETVISIBILITYVISITOR_H
 #define SETVISIBILITYVISITOR_H
 
-#include "visitor.h"
+#include "visitor.h"//BOBS ADDITION
 
 /**
  * @brief The setVisibilityVisitor class provides a visitor for setting visibility.

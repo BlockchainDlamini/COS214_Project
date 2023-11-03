@@ -1,5 +1,5 @@
 #include "setSpcaeVisitor.h"
-#include "table.h"
+
 
 setSpaceVisitor::setSpaceVisitor(int newSpace):visitor()
 {

@@ -1,9 +1,7 @@
 #ifndef FINDSPACEVISITOR_H
 #define FINDSPACEVISITOR_H
 
-#include "visitor.h"
-#include <memory>
-
+#include "getIsAvailableVisitor.h"//BOBS ADDITION
 /**
  * @brief The findSpaceVisitor class provides a visitor for finding the available space in of each floorComponent.
  */

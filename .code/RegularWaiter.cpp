@@ -57,7 +57,7 @@ void RegularWaiter::takeOrder(int tableId) {
     // iterate through this waiters tables' customers
 
     //get the correct table from the floor
-    shared_ptr<table> table = floorObject->getTable(tableId);
+    shared_ptr<table> table = floorObject->getTableAt(tableId);
 
     vector<shared_ptr<Customer>> customers = table->getCustomers();
     for (const auto& customer : customers) {
@@ -94,7 +94,7 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
 
     cout<<"takeOrderToTable()"<<endl;
 
-    shared_ptr<table> table = floorObject->getTable(tableID);
+    shared_ptr<table> table = floorObject->getTableAt(tableID);
 
     // shared_ptr<table> table = floorObject.getTable(tableID);
 
@@ -110,7 +110,7 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable) {
         // if(customers[r] != NULL && pizzasForTable[r] != NULL){
         cout << "Customer: " << customers[r]->getID() << " received order: ";
         // cout << 
-        pizzasForTable[r]->toString();
+        pizzasForTable[r]->getDescription();
 
         // payBill();
 
@@ -129,15 +129,15 @@ void::RegularWaiter::payBill(){
     // pizza obj will have the price - not the order
 
     // get full total of the bill
-    int orderAmount;
-    shared_ptr<table> table = floorObject->getTable(tableID);
+    float orderAmount = 0;
+    shared_ptr<table> table = floorObject->getTableAt(tableID);
     vector<shared_ptr<Customer>> customers = table->getCustomers();
             // iterate through
             // for (const auto& customer : customers) {
             //     orderAmount += customer->getOrders()->orderAmount();
             // }
     for (const auto& pizza : pizzasForTable) {
-        orderAmount += pizza->getTotal();
+        orderAmount += pizza->getPrice();
     }  
 
     // terminal get if split
@@ -153,11 +153,11 @@ void::RegularWaiter::payBill(){
             int count = 0;
             for (const auto& customer : customers) {
 
-                orderAmount = pizzasForTable[count]->getTotal();
+                orderAmount = pizzasForTable[count]->getPrice();
                 std::string orderAmountStr = std::to_string(orderAmount);
 
                 float floatValue = std::stof(orderAmountStr);
-                cout << "Amount payable for customer " << customer->getID() << " is: " << pizzasForTable[count]->getTotal() << " ZAR";
+                cout << "Amount payable for customer " << customer->getID() << " is: " << pizzasForTable[count]->getPrice() << " ZAR";
 
                 string tabChoice;
 
@@ -167,18 +167,18 @@ void::RegularWaiter::payBill(){
                 if(tabChoice == "yes"){
                     if(customer->isLoyal()){
                         cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
-                        customer->payBill(floatValue, 'T');
+                        customer->payBill('T', floatValue);
                     }
                     else{
                         customer->startTab();
                         cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
-                        customer->payBill(floatValue, 'T');
+                        customer->payBill('T',floatValue);
                     }
                         
                 }
                 else{
                     cout << "Paying the bill of amount: " << orderAmount << endl;
-                    customer->payBill(floatValue, 'P');
+                    customer->payBill('P', floatValue);
                 }
 
                 count++;
@@ -194,7 +194,7 @@ void::RegularWaiter::payBill(){
         float floatValue = std::stof(orderAmountStr);
 
         cout<< "Customer " << customers[0]->getID() << " amount due: " << orderAmount << endl;
-        customers[0]->payBill(floatValue, 'P');// orderAmount
+        customers[0]->payBill('P', floatValue);// orderAmount
 
     }
     

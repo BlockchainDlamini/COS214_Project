@@ -5,12 +5,7 @@
 #ifndef WAITER_H
 #define WAITER_H
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include "Customer.h"
-#include "gameElement.h"
-#include "table.h"
+#include "findSpaceVisitor.h"//BOBS ADDITION
 
 using namespace std;
 

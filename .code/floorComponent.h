@@ -1,14 +1,9 @@
 #ifndef FLOORCOMPONENT_H
 #define FLOORCOMPONENT_H
 
-#include <vector>
-#include <memory>
-#include <string>
-#include "visitor.h"
+#include "depthFirstIterator.h"//BOBS ADDITION
+class visitor;//BOBS ADDITION
 
-class myIterator;
-class depthFirstIterator;
-class breadthFirstIterator;
 
 /**
  * @brief The floorComponent class represents a component in the floor hierarchy.
@@ -60,7 +55,7 @@ class floorComponent: public std::enable_shared_from_this<floorComponent>
          * @brief Gets a breadth-first iterator for the component hierarchy.
          * @return The shared pointer to the breadth-first iterator.
          */
-        virtual std::shared_ptr<myIterator> getBreadthIterator() = 0;
+        //virtual std::shared_ptr<myIterator> getBreadthIterator() = 0;
 
         /**
          * @brief Gets a string representation of the component.
