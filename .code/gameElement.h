@@ -81,7 +81,7 @@ public:
      */
     virtual void setOperation(string op);
 
-    virtual void doSomethingCool()=0;
+    virtual void doSomethingCool();
 protected:
     /**
      * @brief A shared pointer to the mediator representing the game engine.
