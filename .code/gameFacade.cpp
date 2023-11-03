@@ -5,7 +5,6 @@
 #include "Floor.h"
 #include "RegularWaiter.h"
 #include "KitchenInterface.h"
-#include <iostream>
 
 GameFacade::GameFacade()
 {
@@ -77,8 +76,7 @@ std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements(int inp
         }
         gmElements.push_back(std::make_shared<RegularWaiter>(i, intstables, floorObj));
     }
-
-    gmElements.push_back(std::make_shared<KitchenInterface>());
+    gmElements.push_back(std::dynamic_pointer_cast<gameElement>(std::make_shared<KitchenInterface>()));
 }
 
 void GameFacade::runGame()
@@ -111,10 +109,10 @@ void GameFacade::singleRound()
     std::cin.ignore(1000000000, '\n');
 
     for (int i = 0; i < customers.size(); i++)
-        std::cout<<customers.at(i)->createOrder()<<std::endl;
+        customers.at(i)->createOrder();
     
     for (int i = 0; i < customers.size(); i++)
-        std::cout<<customers.at(i)->talkToWaiter()<<std::endl;
+        customers.at(i)->talkToWaiter();
     std::cout<<"The customer group has placed their orders"<<std::endl;
     for (int i = 0; i < customers.size(); i++)
         std::cout<<customers.at(i)->printCustomer()<<std::endl;
@@ -123,7 +121,7 @@ void GameFacade::singleRound()
     std::cin.ignore(1000000000, '\n');
 
     for (int i = 0; i < customers.size(); i++)
-        std::cout<<customers.at(i)->requestBill()<<std::endl;
+        customers.at(i)->requestBill();
 
     for (int i = 0; i < customers.size(); i++)
         mediator->removeGameElement(std::dynamic_pointer_cast<gameElement>(customers.at(i)));
