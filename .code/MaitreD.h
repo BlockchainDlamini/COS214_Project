@@ -5,7 +5,12 @@
 #ifndef MAITRED_H
 #define MAITRED_H
 
-#include "RegularWaiter.h"//BOBS ADDITION
+#include "Waiter.h"
+#include "Floor.h"
+#include "RegularWaiter.h"
+#include <iostream>
+#include <memory>
+#include <vector>
 
 using namespace std;
 
