@@ -12,7 +12,8 @@ using namespace std;
 
 MakeBase::MakeBase(shared_ptr<Kitchen> state, string size) : MenuItemCommand() {
     this->state = state;
-    while (typeid(state) != typeid(BaseChef))
+    this->size = size;
+    while (dynamic_pointer_cast<BaseChef>(state)==0)
         this->state = this->state->getNextChef();
 }
 

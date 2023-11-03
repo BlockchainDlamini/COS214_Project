@@ -12,7 +12,7 @@ using namespace std;
 
 MakeCheese::MakeCheese(shared_ptr<Kitchen> state) : MenuItemCommand() {
     this->state = state;
-    while (typeid(state) != typeid(CheeseChef))
+    while (dynamic_pointer_cast<CheeseChef>(state) == 0)
       this->state = this->state->getNextChef();
 }
 

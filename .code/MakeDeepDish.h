@@ -6,7 +6,7 @@
 #ifndef __MAKE_DEEP_DISH_H__
 #define __MAKE_DEEP_DISH_H__
 
-#include "MakeBase.h"
+#include "MakeChutneySauce.h"//BOBS ADDITION
 
 /**
  * @class MakeDeepDish
@@ -18,7 +18,7 @@ public:
      * @brief Constructor for the MakeDeepDish class.
      * @param kitchen A shared pointer to the Kitchen where the deep-dish crust is created.
      */
-    MakeDeepDish(std::shared_ptr<Kitchen> kitchen);
+    MakeDeepDish(std::shared_ptr<Kitchen> kitchen, string);
 };
 
 #endif

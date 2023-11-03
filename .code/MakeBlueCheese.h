@@ -6,7 +6,7 @@
 #ifndef __MAKE_BLUECHEESE_H__
 #define __MAKE_BLUECHEESE_H__
 
-#include "MakeCheese.h"
+#include "MakeBeef.h"//BOBS ADDITION
 
 /**
  * @class MakeBlueCheese

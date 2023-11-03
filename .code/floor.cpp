@@ -1,15 +1,5 @@
 #include "floor.h"
 #include "findSpaceVisitor.h"
-#include "setSpcaeVisitor.h"
-#include "setVisibilityVisitor.h"
-#include "setMergeVisitor.h"
-#include "getMergeVisitor.h"
-#include "getVisibilityVisitor.h"
-#include "depthFirstIterator.h"
-#include "getIsAvailableVisitor.h"
-#include "floorComposite.h"
-#include "setAvailableVisitor.h"
-#include "table.h"
 #include <iostream>
 
 Floor::Floor(int size, int seatingSpace) //Works correctly

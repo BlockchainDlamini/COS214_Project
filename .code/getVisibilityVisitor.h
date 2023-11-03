@@ -1,8 +1,7 @@
 #ifndef GETVISIBILITYVISITOR_h
 #define GETVISIBILITYVISITOR_h
 
-#include "visitor.h"
-#include <memory>
+#include "setAvailableVisitor.h"//BOBS 
 
 /**
  * @brief The getVisibilityVisitor class provides a visitor for determining visibility.

@@ -6,7 +6,7 @@
 #ifndef __MAKE_CHICKEN_H__
 #define __MAKE_CHICKEN_H__
 
-#include "MakeTopping.h"
+#include "MakeCheddar.h"//BOBS ADDITION
 
 /**
  * @class MakeChicken

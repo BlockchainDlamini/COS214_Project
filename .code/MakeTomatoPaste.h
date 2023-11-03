@@ -6,7 +6,7 @@
 #ifndef __MAKE_TOMATO_PASTE_H__
 #define __MAKE_TOMATO_PASTE_H__
 
-#include "MakeSauce.h"
+#include "MakeThinCrust.h"//BOBS ADDITION
 
 /**
  * @class MakeTomatoPaste

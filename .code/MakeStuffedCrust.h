@@ -6,7 +6,7 @@
 #ifndef __MAKE_STUFFED_CRUST_H__
 #define __MAKE_STUFFED_CRUST_H__
 
-#include "MakeBase.h"
+#include "MakeRanch.h"//BOBS ADDITION
 
 /**
  * @class MakeStuffedCrust
@@ -18,7 +18,7 @@ public:
      * @brief Constructor for the MakeStuffedCrust class.
      * @param kitchen A shared pointer to the Kitchen where the stuffed crust is created.
      */
-    MakeStuffedCrust(std::shared_ptr<Kitchen> kitchen);
+    MakeStuffedCrust(std::shared_ptr<Kitchen> kitchen, string);
 };
 
 #endif

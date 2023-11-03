@@ -1,8 +1,7 @@
 #ifndef ISAVAILABLEVISITOR_H
 #define ISAVAILABLEVISITOR_H
 
-#include "visitor.h"
-#include <memory>
+#include "getMergeVisitor.h"//BOBS ADDITION
 
 /**
  * @brief The getIsAvailableVisitor class provides a visitor for checking availability of elements.

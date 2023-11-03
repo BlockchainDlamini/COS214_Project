@@ -1,10 +1,7 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
-#include <memory>
-
-class floorComposite;
-class table;
+#include "table.h"//BOBS ADDITION
 
 /**
  * @brief The visitor class provides an interface for visiting elements in a floor plan.
@@ -16,7 +13,6 @@ class visitor
          * @brief Constructs a visitor object.
          */
         visitor(){}
-
         /**
          * @brief Visits a table in the floor plan.
          * @param tablePtr The shared pointer to the table being visited.

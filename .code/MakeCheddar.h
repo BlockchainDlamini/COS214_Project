@@ -6,7 +6,7 @@
 #ifndef __MAKE_CHEDDAR_H__
 #define __MAKE_CHEDDAR_H__
 
-#include "MakeCheese.h"
+#include "MakeBoiledCrust.h"//BOBS ADDITION
 
 /**
  * @class MakeCheddar

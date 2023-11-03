@@ -1,8 +1,7 @@
 #ifndef SETMERGEVISITOR_H
 #define SETMERGEVISITOR_H
 
-#include "visitor.h"
-#include <memory>
+#include "setSpcaeVisitor.h"//BOBS ADDITION
 
 /**
  * @brief The setMergeVisitor class provides a visitor for setting merging status.

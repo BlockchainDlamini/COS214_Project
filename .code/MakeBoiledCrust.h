@@ -6,7 +6,7 @@
 #ifndef __MAKE_BOILED_CRUST_H__
 #define __MAKE_BOILED_CRUST_H__
 
-#include "MakeBase.h"
+#include "MakeBlueCheese.h"//BOBS ADDITION
 
 /**
  * @class MakeBoiledCrust
@@ -18,7 +18,7 @@ public:
      * @brief Constructor for the MakeBoiledCrust class.
      * @param kitchen A shared pointer to the Kitchen where the boiled crust is created.
      */
-    MakeBoiledCrust(std::shared_ptr<Kitchen> kitchen);
+    MakeBoiledCrust(std::shared_ptr<Kitchen> kitchen, string);
 };
 
 #endif

@@ -6,7 +6,7 @@
 #ifndef __MAKE_THIN_CRUST_H__
 #define __MAKE_THIN_CRUST_H__
 
-#include "MakeBase.h"
+#include "MakeSweetChilli.h"//BOBS ADDITION
 
 /**
  * @class MakeThinCrust
@@ -18,7 +18,7 @@ public:
      * @brief Constructor for the MakeThinCrust class.
      * @param kitchen A shared pointer to the Kitchen where the thin crust is created.
      */
-    MakeThinCrust(std::shared_ptr<Kitchen> kitchen);
+    MakeThinCrust(std::shared_ptr<Kitchen> kitchen, string);
 };
 
 #endif

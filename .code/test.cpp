@@ -1,260 +1,154 @@
-#include <iostream>
-#include "floor.h"
-#include "floorComposite.h"
-#include "table.h"
-#include "iterator"
-#include "breadthFirstIterator.h"
-#include "depthFirstIterator.h"
+// #include "Customer.cpp"
+// #include "Happy.cpp"
+// #include "Pizza.cpp"
+// #include "Order.cpp"
+// #include "Beef.cpp"
+// #include "Peppers.cpp"
+// #include "Pepperoni.cpp"
+// #include "Parmesan.cpp"
+// #include "Cheddar.cpp"
+// #include "Cheese.cpp"
+// #include "Ranch.cpp"
+// #include "Olives.cpp"
+// #include "Mushrooms.cpp"
+// #include "Mozzarella.cpp"
+// #include "Gouda.cpp"
+// #include "DeepDish.cpp"
+// #include "Chutney.cpp"
+// #include "Chicken.cpp"
+// #include "Boiled.cpp"
+// #include "BlueCheese.cpp"
+// #include "DoubleDecker.cpp"
+// #include "SweetChilli.cpp"
+// #include "StuffedCrust.cpp"
+// #include "ThinCrust.cpp"
+// #include "DinnerDone.cpp"
+// #include "Preorder.cpp"
+// #include "Satisfied.cpp"
+// #include "Frustrated.cpp"
+// #include "gameElement.cpp"
+// #include "OrderReceived.cpp"
+// #include "OrderMemento.cpp"
+// #include "MenuItemCommand.cpp"
+// #include "Tab.cpp"
+// #include "Kitchen.cpp"
+// #include "ManagerChef.cpp"
+// #include "Base.cpp"
+// #include "SauceChef.cpp"
+// #include "Toppings.cpp"
+// #include "ToppingsChef.cpp"
+// #include "HeadChef.cpp"
+// #include "EmotionState.cpp"
+// #include "Disgruntaled.cpp"
+// #include "OrderProcessState.cpp"
+// #include "MakeBeef.cpp"
+// #include "MakeCheese.cpp"
+// #include "CheeseChef.cpp"
+// #include "MakeBase.cpp"
+// #include "MakeBlueCheese.cpp"
+// #include "MakeBoiledCrust.cpp"
+// #include "FireChef.cpp"
+// #include "MakeCheddar.cpp"
+// #include "MakeChicken.cpp"
+// #include "MakeChutneySauce.cpp"
+// #include "MakeDeepDish.cpp"
+// #include "MakeDoubleDecker.cpp"
+// #include "MakeGouda.cpp"
+// #include "MakeMozzarella.cpp"
+// #include "MakeMushrooms.cpp"
+// #include "MakeOlives.cpp"
+// #include "MakeParmesan.cpp"
+// #include "MakePepperoni.cpp"
+// #include "MakePeppers.cpp"
+// #include "MakeRanch.cpp"
+// #include "MakeSauce.cpp"
+// #include "MakeStuffedCrust.cpp"
+// #include "MakeSweetChilli.cpp"
+// #include "Sauce.cpp"
+// #include "MakeThinCrust.cpp"
+// #include "MakeTomatoPaste.cpp"
+// #include "MakeTopping.cpp"
+// #include "Waiting.cpp"
+// #include "TomatoPaste.cpp"
+// #include "FoodItem.cpp"
+// #include "BaseChef.cpp"
 
-void basicComposteTest()
-{
-    std::cout<<"Test basic creation and linking. Only making 1 tile and table and linking"<<std::endl;
-    std::shared_ptr<floorComponent> theFloor = std::make_shared<floorComposite>(floorComposite(0));
-    std::shared_ptr<floorComponent> tile = std::make_shared<floorComposite>(floorComposite(1));
-    std::shared_ptr<floorComponent> tb = std::make_shared<table>(table(1, 4));
-
-    tile->add(tb);
-    theFloor->add(tile);
-
-    std::cout<<"First node (Not a actual floor tile): "<< theFloor->toString() <<std::endl;
-    std::cout<<"Number of children: "<<theFloor->getNumChildren()<<std::endl;
-    std::cout<<"The children are: "<<std::endl;
-    for (int i = 0; i < theFloor->getNumChildren(); i++)
-    {
-        std::cout<<theFloor->getChild(i)->toString()<<std::endl;
-        std::cout<<"This child had this number of children: "<<theFloor->getChild(i)->getNumChildren()<<std::endl;
-        std::cout<<"The children are: "<<std::endl;
-        for (int x = 0; x < theFloor->getChild(i)->getNumChildren(); x++)
-        {
-            std::cout<<theFloor->getChild(i)->getChild(x)->toString()<<std::endl;
-        }
-    }
-}
-
-void printFloor(std::shared_ptr<floorComponent> curr)
-{
-    std::cout<<curr->toString()<<std::endl;
-    for (int i = 0; i < curr->getNumChildren(); i++)
-    {
-        printFloor(curr->getChild(i));
-    }
-}
-
-int height(std::shared_ptr<floorComponent> curr)
-{
-    if (curr->getNumChildren()==0)
-    {
-        return -1;
-    }
-    else {
-        int max = -1;
-        for (int i = 0; i <curr->getNumChildren(); i++)
-        {
-            int childHeight = height(curr->getChild(i));
-            if(childHeight>max)
-                max = childHeight;            
-        }
-        return max+1;
-    }
-}
-
-void fullFloorCreationTest()
-{
-    std::cout<<"Creating a 4 by 4 floor. 16 tables total"<<std::endl;
-    std::shared_ptr<floorComponent> theFloor = std::make_shared<floorComposite>(floorComposite(0));
-
-    for (int i = 0; i < 4; i++)
-    {
-        std::shared_ptr<floorComponent> tile = std::make_shared<floorComposite>(floorComposite(1+i*4));
-        std::shared_ptr<floorComponent> tb = std::make_shared<table>(table(1+i*4, 4));
-        tile->add(tb);
-        std::shared_ptr<floorComponent> prev = nullptr;
-        for (int x = 0; x < 3; x++)
-        {
-            std::shared_ptr<floorComponent> subTile = std::make_shared<floorComposite>(floorComposite(2+i*4+x));
-            std::shared_ptr<floorComponent> subTb = std::make_shared<table>(table(2+i*4+x, 4));
-            if(x==0)
-                prev = tile;
-            subTile->add(subTb);
-            prev->add(subTile);
-            prev = subTile;  
-        }
-        theFloor->add(tile);
-    }
-
-    std::cout<<"The table has been created"<<std::endl;
-    std::cout<<"The table is as follows"<<std::endl;
-
-    printFloor(theFloor);
-
-    std::cout<<"The tree has height of: "<<std::endl;
-    std::cout<<height(theFloor)<<std::endl;
-}
-
-void variableSizeTreeTest(int size)
-{
-    std::cout<<"Creating a "<<size<<" by "<<size<<" floor. "<<size*size<<" tables total"<<std::endl;
-    std::shared_ptr<floorComponent> theFloor = std::make_shared<floorComposite>(floorComposite(0));
-
-    for (int i = 0; i < size; i++)
-    {
-        std::shared_ptr<floorComponent> tile = std::make_shared<floorComposite>(floorComposite(1+i*size));
-        std::shared_ptr<floorComponent> tb = std::make_shared<table>(table(1+i*size, size));
-        tile->add(tb);
-        std::shared_ptr<floorComponent> prev = nullptr;
-        for (int x = 0; x < size-1; x++)
-        {
-            std::shared_ptr<floorComponent> subTile = std::make_shared<floorComposite>(floorComposite(2+i*size+x));
-            std::shared_ptr<floorComponent> subTb = std::make_shared<table>(table(2+i*size+x, 4));
-            if(x==0)
-                prev = tile;
-            subTile->add(subTb);
-            prev->add(subTile);
-            prev = subTile;  
-        }
-        theFloor->add(tile);
-    }
-
-    std::cout<<"The table has been created"<<std::endl;
-    std::cout<<"The table is as follows"<<std::endl;
-
-    printFloor(theFloor);
-
-    std::cout<<"The tree has height of: "<<std::endl;
-    std::cout<<height(theFloor)<<std::endl;
-}
-
-void testDepthFirstIterator(int size)
-{
-    std::cout<<"Creating a "<<size<<" by "<<size<<" floor. "<<size*size<<" tables total"<<std::endl;
-    std::shared_ptr<floorComponent> theFloor = std::make_shared<floorComposite>(floorComposite(0));
-
-    for (int i = 0; i < size; i++)
-    {
-        std::shared_ptr<floorComponent> tile = std::make_shared<floorComposite>(floorComposite(1+i*size));
-        std::shared_ptr<floorComponent> tb = std::make_shared<table>(table(1+i*size, size));
-        tile->add(tb);
-        std::shared_ptr<floorComponent> prev = nullptr;
-        for (int x = 0; x < size-1; x++)
-        {
-            std::shared_ptr<floorComponent> subTile = std::make_shared<floorComposite>(floorComposite(2+i*size+x));
-            std::shared_ptr<floorComponent> subTb = std::make_shared<table>(table(2+i*size+x, 4));
-            if(x==0)
-                prev = tile;
-            subTile->add(subTb);
-            prev->add(subTile);
-            prev = subTile;  
-        }
-        theFloor->add(tile);
-    }
-
-    std::cout<<"Getting the iterator"<<std::endl;
-
-    std::shared_ptr<myIterator> it = theFloor->getDepthIterator();
-
-    std::cout<<"The tree is as follows: "<<std::endl;
-
-    while(it->hasNext())
-    {
-        std::cout<<it->currentItem()->toString()<<std::endl;
-        it->next();
-    }
-
-    std::cout<<"The head is: "<<it->first()->toString()<<std::endl;
-}
-
-void testFloor()
-{
-    std::cout<<"Making a neew floor"<<std::endl;
-    std::shared_ptr<Floor> theFloor = std::make_shared<Floor>(Floor(4, 4));
-
-    std::cout<<std::endl;
-    std::cout<<"Depth first iteration:"<<std::endl;
-    theFloor->printDepth();
-
-    std::cout<<std::endl;
-    std::cout<<"Checking the space function with group that should fit:"<<std::endl;
-    if(theFloor->hasSpace(3))
-        std::cout<<"The floor has space"<<std::endl;
-    else    
-        std::cout<<"The floor doesn't have space"<<std::endl;
-
-    std::cout<<"Checking the space function with group that shouldn't fit:"<<std::endl;
-    if(theFloor->hasSpace(5))
-        std::cout<<"The floor has space"<<std::endl;
-    else    
-        std::cout<<"The floor doesn't have space"<<std::endl;
-
-    std::cout<<std::endl;
-    std::cout<<"Testing tableAt() function"<<std::endl;
-    for (int i = 0; i < 18; i++)
-    {
-        std::shared_ptr<floorComponent> tb = theFloor->getTableAt(i); 
-        if(tb!=nullptr)   
-            std::cout<<"The table is: "<<tb->toString()<<std::endl;
-        else
-            std::cout<<"The table doesn't exit"<<std::endl;
-    }
-
-    /*std::cout<<std::endl;
-    std::cout<<"Testing the merge function"<<std::endl;
-    std::cout<<"Testing a merge with a single table"<<std::endl;
-    theFloor->merdgeTile(7);
-    theFloor->printDepth();
-
-    std::cout<<"Testing a merge with 5 table"<<std::endl;
-    theFloor->merdgeTile(20);
-    theFloor->printDepth();
-
-
-    std::cout<<std::endl;
-    std::cout<<"Testing the unmerge function"<<std::endl;
-    theFloor->unmerdgeTiles();
-    theFloor->printDepth();  */  
-}
-
-void testSeating(int size)
-{
-    std::cout<<"Creating the floor"<<std::endl;
-    std::shared_ptr<Floor> theFloor = std::make_shared<Floor>(Floor(4, 4));
-
-    for (size_t i = 0; i <9; i++)
-    {
-        std::cout<<"Creating the customer vector"<<std::endl;
-        std::vector<std::shared_ptr<Customer>> customers;
-
-        for (int i = 0; i < size; i++)
-        {
-            customers.push_back(std::make_shared<Customer>(Customer(i+1, (i+1)*3)));
-        }
-        std::cout<<"Seating the customer"<<std::endl;
-        theFloor->printDepth();
-        if(theFloor->seatCustomer(customers))
-            std::cout<<"The customer was seated"<<std::endl;
-        else
-        {
-            std::cout<<"The customer was not seated"<<std::endl;
-        }
-        theFloor->printDepth();    
-        std::cout<<std::endl;
-    }   
-    std::cout<<"Customers a table 1 has left"<<std::endl;
-    theFloor->customersLeft(1);
-    theFloor->printDepth(); 
-    theFloor->customersLeft(3);
-    theFloor->printDepth(); 
-    theFloor->customersLeft(5);
-    theFloor->printDepth(); 
-}
-
+#include "Mediator.h"
 int main()
 {
-    //basicComposteTest(); //complete
-    //fullFloorCreationTest(); //complete
-    //variableSizeTreeTest(5); //complete
-    //testDepthFirstIterator(4); //complete
-    //testFloor(); //Complete
-    testSeating(8); //Conplete
+    //shared_ptr<Customer> test = make_shared<Customer>(1000, 1);
+    //shared_ptr<Pizza> pizza = make_shared<Pizza>();
+    //shared_ptr<ManagerChef> ManaerChef = make_shared<ManagerChef>();
+    //ManaerChef->cycle();
+    //// Customer getting seated and starting his tab
+    //test->setManager(ManaerChef);
+    //test->beSeated(1);
+    //test->startTab();
 
+    //// Testing the Customer and Waiter interaction
+    //cout << test->printCustomer() << endl;
+    //test->createOrder();
+    //test->talkToWaiter();
+    //cout << test->printCustomer() << endl;
+    //test->receiveOrder(pizza);
+    //cout << test->printCustomer() << endl;
+    //test->payBill('P', 100);
+    //cout << test->printCustomer() << endl;
+    //cout << test->printBill() << endl;
+
+    //// the Emotion changes, starting from happy
+    //cout << "Starting From Happy" << endl;
+    //test->setEmotionState(std::make_shared<Happy>());
+    //test->changeMood();
+    //cout << test->printCustomer() << endl;
+    //test->changeMood();
+    //cout << test->printCustomer() << endl
+    //    << endl;
+
+    //// the Emotion changes, starting from Frustrated
+    //cout << "Starting From Frustrated" << endl;
+    //test->setEmotionState(std::make_shared<Frustrated>());
+    //test->changeMood();
+    //cout << test->printCustomer() << endl;
+    //test->changeMood();
+    //cout << test->printCustomer() << endl
+    //    << endl;
+
+    //// the Emotion changes, starting from Satisfied
+    //cout << "Starting From Satisfied" << endl;
+    //test->setEmotionState(std::make_shared<Satisfied>());
+    //test->changeMood();
+    //cout << test->printCustomer() << endl;
+    //test->changeMood();
+    //cout << test->printCustomer() << endl
+    //    << endl;
+    //test->changedOrderProcessState();
+
+    //// the Emotion changes, starting from Disgruntaled
+    //cout << "Starting From Disgruntaled" << endl;
+    //test->setEmotionState(std::make_shared<Disgruntaled>());
+    //test->changeMood();
+    //cout << test->printCustomer() << endl;
+    //test->changeMood();
+    //cout << test->printCustomer() << endl
+    //    << endl;
+
+    //cout << "Starting the Order Process" << endl;
+    //test->setOrderProcessState(std::make_shared<Preorder>());
+    //test->changedOrderProcessState();
+
+    //// Paying the bill
+    //test->requestBill();
+    //test->payBill('P', 100); // within the budget
+    //cout << test->printBill() << endl;
+
+    //// Paying the bill
+    //test->requestBill();
+    //test->payBill('T', 100);
+    //cout << test->printBill() << endl;
+
+    //cout << test->getTab()->listOutstandingOrders() << endl;
+    cout << "HAVE FUN TESTING!!!!! " << endl;
+    cout << ";-D... HAPPY CODING" << endl;
     return 0;
 }

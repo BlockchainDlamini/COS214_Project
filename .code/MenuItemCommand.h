@@ -9,11 +9,9 @@
 #ifndef __MENU_ITEM_COMMAND_H__
 #define __MENU_ITEM_COMMAND_H__
 
-#include "Kitchen.h"
-#include "FoodItem.h"
-#include "gameElement.h"
-#include <memory>
+#include "DeepDish.h"//BOBS ADDITION
 
+class Kitchen;
 class MenuItemCommand : gameElement {
     public:
         /*@brief constructor for MenuItemCommand

@@ -6,7 +6,7 @@
 #ifndef __MAKE_GOUDA_H__
 #define __MAKE_GOUDA_H__
 
-#include "MakeCheese.h"
+#include "MakeDoubleDecker.h"//BOBS ADDITION
 
 /**
  * @class MakeGouda

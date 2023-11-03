@@ -12,7 +12,7 @@ using namespace std;
 
 MakeTopping::MakeTopping(shared_ptr<Kitchen> state) : MenuItemCommand() {
     this->state = state;
-    while (typeid(state) != typeid(ToppingsChef))
+    while (dynamic_pointer_cast<ToppingsChef>(state) == 0)
         this->state = this->state->getNextChef();
 }
 

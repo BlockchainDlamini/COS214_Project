@@ -1,6 +1,6 @@
 #include "floorComposite.h"
-#include "depthFirstIterator.h"
-#include "breadthFirstIterator.h"
+#include "visitor.h"
+//#include "breadthFirstIterator.h"
 #include <iostream>
 
 
@@ -41,11 +41,11 @@ std::shared_ptr<myIterator> floorComposite::getDepthIterator()
     return temp; //Needs to pass floorComponent object in breathFirstIterator
 }
 
-std::shared_ptr<myIterator> floorComposite::getBreadthIterator()
-{
-    std::shared_ptr<myIterator> temp = std::dynamic_pointer_cast<myIterator>(std::make_shared<breadthFirstIterator>(breadthFirstIterator(shared_from_this())));
-    return temp; //Needs to pass floorComponent object in breathFirstIterator
-}
+//std::shared_ptr<myIterator> floorComposite::getBreadthIterator()
+//{
+//    std::shared_ptr<myIterator> temp = std::dynamic_pointer_cast<myIterator>(std::make_shared<breadthFirstIterator>(breadthFirstIterator(shared_from_this())));
+//    return temp; //Needs to pass floorComponent object in breathFirstIterator
+//}
 
 int floorComposite::getNumChildren()
 {

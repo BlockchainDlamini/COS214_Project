@@ -7,7 +7,7 @@
 #ifndef __MAKE_TOPPING_H__
 #define __MAKE_TOPPING_H__
 
-#include "MenuItemCommand.h"
+#include "MakeBase.h"
 
 /**
  * @class MakeTopping

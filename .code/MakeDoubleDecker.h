@@ -6,7 +6,7 @@
 #ifndef __MAKE_DOUBLE_DECKER_H__
 #define __MAKE_DOUBLE_DECKER_H__
 
-#include "MakeBase.h"
+#include "MakeDeepDish.h"//BOBS ADDITION
 
 /**
  * @class MakeDoubleDecker
@@ -18,7 +18,7 @@ public:
      * @brief Constructor for the MakeDoubleDecker class.
      * @param kitchen A shared pointer to the Kitchen where the double-decker crust is created.
      */
-    MakeDoubleDecker(std::shared_ptr<Kitchen> kitchen);
+    MakeDoubleDecker(std::shared_ptr<Kitchen> kitchen, string);
 };
 
 #endif

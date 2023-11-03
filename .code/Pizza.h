@@ -5,18 +5,7 @@
 
 #ifndef __PIZZA_H_
 #define __PIZZA_H_
-
-#include "gameElement.h"
-#include "FoodItem.h"
-#include "Cheese.h"
-#include "Toppings.h"
-#include "Sauce.h"
-#include "Base.h"
-#include "HeadChef.h"
-#include <vector>
-#include <list>
-#include <string>
-using namespace std;
+#include "MakeTomatoPaste.h"//BOBS ADDITION
 
 class HeadChef;
 

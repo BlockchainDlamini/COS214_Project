@@ -11,7 +11,7 @@ using namespace std;
 
 MakeSauce::MakeSauce(shared_ptr<Kitchen> state) : MenuItemCommand() {
     this->state = state;
-    while (typeid(state) != typeid(SauceChef))
+    while (dynamic_pointer_cast<SauceChef>(state) == 0)
         this->state = this->state->getNextChef();
 }
 

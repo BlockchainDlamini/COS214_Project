@@ -7,8 +7,7 @@
 #ifndef __MAKE_BASE_H__
 #define __MAKE_BASE_H__
 
-#include "MenuItemCommand.h"
-#include <memory>
+#include "MenuItemCommand.h"//BOBS ADDITION
 
 /**
  * @class MakeBase

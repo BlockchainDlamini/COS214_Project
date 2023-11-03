@@ -6,7 +6,7 @@
 #ifndef __MAKE_SWEET_CHILLI_H__
 #define __MAKE_SWEET_CHILLI_H__
 
-#include "MakeSauce.h"
+#include "MakeStuffedCrust.h"//BOBS ADDITION
 
 /**
  * @class MakeSweetChilli

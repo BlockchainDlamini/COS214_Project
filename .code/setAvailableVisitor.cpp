@@ -1,5 +1,5 @@
 #include "setAvailableVisitor.h"
-#include "table.h"
+
 
 int setIsAvailableVisitor::visitTable(std::shared_ptr<table> tble)
 {
