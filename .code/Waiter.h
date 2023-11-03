@@ -15,7 +15,7 @@
 using namespace std;
 
 /**
- * @class Waiter class
+ * @class Waiter
  * @brief Represents a waiter responsible for taking orders, delivering food, and processing payments.
  */
 class Waiter : public enable_shared_from_this<Waiter>, public gameElement {

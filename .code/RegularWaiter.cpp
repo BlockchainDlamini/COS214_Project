@@ -1,8 +1,3 @@
-/*@file RegularWaiter.cpp
-@brief contains the RegularWaiter class
-    *which inherits from the Waiter class
-    *and creates a RegularWaiter
-*/
 #include "RegularWaiter.h"
 
 std::vector<shared_ptr<RegularWaiter>> RegularWaiter::waiters;
@@ -121,7 +116,7 @@ void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable)
     for (unsigned int r = 0; r < customers.size(); r++)
     {
 
-        // cout<<"in for: " << r <<endl;
+        cout<<"in for: " << r <<endl;
 
         // if(customers[r] != NULL && pizzasForTable[r] != NULL){
         // customers[r]->receiveOrder(pizzasForTable[r]);
