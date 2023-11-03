@@ -55,16 +55,30 @@ public:
      */
     void addCheese(std::shared_ptr<Pizza> pizza, std::shared_ptr<FoodItem> cheese);
 
+    /**
+     * @brief Get the ID of the waiter.
+     * @return The ID of the waiter.
+     */
     int getWaiterID();
 
-    void handleOrder(int, int, std::vector<std::shared_ptr<FoodItem>>); 
+    /**
+     * @brief Handle the order from the waiter.
+     * @param orderID The ID of the order.
+     * @param waiterID The ID of the waiter.
+     * @param foodItems A vector of shared pointers to the FoodItem objects in the order.
+     */
+    void handleOrder(int orderID, int waiterID, std::vector<std::shared_ptr<FoodItem>> foodItems); 
     
+    /**
+     * @brief Collect the completed orders.
+     * @return A pair containing the order ID and a vector of shared pointers to the prepared pizzas.
+     */
     pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> collectOrder();
 
 private:
-    pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> completeOrders;
-    std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> pizzaPairs;
-    std::shared_ptr<Kitchen> nextChef; // A pointer to the next chef in the process.
+    pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> completeOrders; 
+    std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> pizzaPairs; 
+    std::shared_ptr<Kitchen> nextChef; 
 };
 
 #endif
