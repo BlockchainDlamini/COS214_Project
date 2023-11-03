@@ -108,7 +108,8 @@ private:
     std::vector<int> assignedTables;
     int tableID;
     std::vector<shared_ptr<Order>> ordersForATable;
-    std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
+    // std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
+    std:pair<int, std:vector<shared_ptr<std:pair<int, std:shared_ptr<pizza>>>> forKitchen;
 
 
     static std::vector<shared_ptr<RegularWaiter>> waiters;
