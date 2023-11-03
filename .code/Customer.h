@@ -1,26 +1,26 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-//#include "EmotionState.h"
-//#include "Disgruntaled.h"
-//#include "Happy.h"
-//#include "Satisfied.h"
-//#include "Frustrated.h"
-//#include "OrderProcessState.h"
-//#include "Preorder.h"
-//#include "Order.h"
-//#include "gameElement.h"
-//#include "Pizza.h"
-//#include <iostream>
-//#include <memory>
-//#include <vector>
-#include "Preorder.h"//BOBS ADDITION
+// #include "EmotionState.h"
+// #include "Disgruntaled.h"
+// #include "Happy.h"
+// #include "Satisfied.h"
+// #include "Frustrated.h"
+// #include "OrderProcessState.h"
+// #include "Preorder.h"
+// #include "Order.h"
+// #include "gameElement.h"
+// #include "Pizza.h"
+// #include <iostream>
+// #include <memory>
+// #include <vector>
+#include "Preorder.h" //BOBS ADDITION
 
 /**
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
-//forgoy yo link states and stuff
+// forgoy yo link states and stuff
 class Customer : public gameElement, public enable_shared_from_this<Customer>
 {
 private:
@@ -43,7 +43,7 @@ public:
      * @param tableNum The table number where the customer is seated.
      */
 
-    //switched datatypes passed in
+    // switched datatypes passed in
     Customer(int id, float bankAccountAmount);
 
     /**
@@ -52,8 +52,7 @@ public:
      * @param tableNum The table number where the customer is seated.
      */
 
-
-     //changed the paramter of bankAccountAmount from int to float
+    // changed the paramter of bankAccountAmount from int to float
     Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount);
     Customer(float bankAccount);
 
@@ -61,7 +60,7 @@ public:
      * @brief Change the emotional state of the customer.
      */
     void changeMood();
-
+    void setManager(shared_ptr<Kitchen>);
     /**
      * @brief Trigger a change in the customer's order process state.
      */
@@ -166,6 +165,7 @@ public:
      * @return True if the customer receives the order, false otherwise.
      */
     bool receiveOrder(std::shared_ptr<Pizza> pizza);
+    void setKitchenReference(shared_ptr<Kitchen>);
 
     /**
      * @brief Print information about the customer.
@@ -185,6 +185,7 @@ public:
     void hasPizza();
 
     vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
+    vector<shared_ptr<MenuItemCommand>> predefinedOrder();
     void talkToWaiter();
 
     shared_ptr<Customer> getMe();
@@ -205,6 +206,7 @@ public:
     }
     std::shared_ptr<Tab> getTab();
     void leave();
+    void getKitchenReference();
 };
 
 #endif
