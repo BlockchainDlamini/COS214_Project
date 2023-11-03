@@ -1,4 +1,5 @@
 #include "Waiting.h"
+#include "Customer.h"
 void Waiting::execute(Customer *context)
 {
     context->changeMood();

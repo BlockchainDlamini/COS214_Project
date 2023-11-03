@@ -1,4 +1,5 @@
 #include "DinnerDone.h"
+#include "Customer.h"
 void DinnerDone::execute(Customer* context)
 {
     context->changeMood();

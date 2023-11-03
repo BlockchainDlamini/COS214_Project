@@ -1,9 +1,7 @@
 #ifndef OrderMemento_H
 #define OrderMemento_H
 
-#include "Order.h"
-#include <memory>
-#include <vector>
+#include "Kitchen.h"//BOBS ADDITION
 
 /**
  * @class OrderMemento
@@ -23,8 +21,8 @@ public:
      * @param orderID The unique order ID associated with the order memento.
      * @param formula The list of menu item order commands in the order memento.
      */
-    OrderMemento(int price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> formula);
-    OrderMemento(int price, std::vector<std::shared_ptr<MenuItemCommand>> formula);
+    OrderMemento(float price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> formula);
+    OrderMemento(float price, std::vector<std::shared_ptr<MenuItemCommand>> formula);
 
     /**
      * @brief Constructor for creating an OrderMemento from an existing OrderMemento object.

@@ -1,27 +1,26 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-#include "EmotionState.h"
-#include "Disgruntaled.h"
-#include "Happy.h"
-#include "Satisfied.h"
-#include "Frustrated.h"
-#include "OrderProcessState.h"
-#include "Preorder.h"
-#include "Order.h"
-#include "gameElement.h"
-#include "Pizza.h"
-#include "Tab.h"
-#include <iostream>
-#include <memory>
-#include <vector>
-
-using namespace std;
+//#include "EmotionState.h"
+//#include "Disgruntaled.h"
+//#include "Happy.h"
+//#include "Satisfied.h"
+//#include "Frustrated.h"
+//#include "OrderProcessState.h"
+//#include "Preorder.h"
+//#include "Order.h"
+//#include "gameElement.h"
+//#include "Pizza.h"
+//#include <iostream>
+//#include <memory>
+//#include <vector>
+#include "Preorder.h"//BOBS ADDITION
 
 /**
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
+//forgoy yo link states and stuff
 class Customer : public gameElement, public enable_shared_from_this<Customer>
 {
 private:
@@ -43,21 +42,24 @@ public:
      * @param id The unique identifier of the customer.
      * @param tableNum The table number where the customer is seated.
      */
-    Customer(int id, int bankAccountAmount);
+
+    //switched datatypes passed in
+    Customer(int id, float bankAccountAmount);
 
     /**
      * @brief Constructor for a Customer with an initial emotional state.
      * @param mood The initial emotional state of the customer.
      * @param tableNum The table number where the customer is seated.
      */
-    Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount);
-    Customer(int bankAccount);
+
+
+     //changed the paramter of bankAccountAmount from int to float
+    Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount);
+    Customer(float bankAccount);
 
     /**
      * @brief Change the emotional state of the customer.
      */
-
-    void setManager(shared_ptr<Kitchen>);
     void changeMood();
 
     /**
@@ -105,15 +107,12 @@ public:
      */
     string printBill();
 
-    void setKitchenReference(shared_ptr<Kitchen>);
-
     /**
      * @brief Create a new order.
      * @param orderID The identifier for the new order.
      * @param command A vector of shared pointers to menu item order commands.
      */
     void createOrder();
-    vector<shared_ptr<MenuItemCommand>> predefinedOrder();
 
     /**
      * @brief Seat the customer at a table.
@@ -144,23 +143,9 @@ public:
      * @return A shared pointer to the emotional state.
      */
     std::shared_ptr<EmotionState> getMood();
-    /**
-     * @brief Set the Total object
-     *
-     * @param total
-     */
+
     void setTotal(float total);
-    /**
-     * @brief  Get the Id of the customer's order
-     *
-     * @return An int that stores the ID of the order for the customer
-     */
     int getID();
-    /**
-     * @brief
-     *
-     * @return a float that stores the customer's total bill
-     */
     float getTotal();
 
     /**
@@ -190,7 +175,7 @@ public:
 
     bool hasOrdered = false; /**< A flag indicating whether the customer has placed an order. */
     bool hasBill = false;    /**< A flag indicating whether the customer has a bill. */
-    bool hasFood = false;    /**< A flab indicating whether the customer has their food or not*/
+    bool hasFood = false;
 
     /**
      * @brief Check if the customer has received food.
@@ -198,16 +183,8 @@ public:
      */
 
     void hasPizza();
-    /**
-     * @brief Function that will call the menu, for the customer so that they can build the pizza from scratch
-     *
-     * @return returns a vector of shared pointers that point at MenuItemCommands
-     */
-    vector<shared_ptr<MenuItemCommand>> buildPizza(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
-    /**
-     * @brief Function will have the customer talk to the waiter through the mediator
-     *
-     */
+
+    vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
     void talkToWaiter();
 
     shared_ptr<Customer> getMe();
@@ -226,36 +203,8 @@ public:
 
         return randomString;
     }
-
-    int getRandomNumber() {
-        // Seed the random number generator with a value based on the current time
-        std::random_device rd;
-        std::mt19937 gen(rd());
-
-        // Define the range (0 to 100)
-        std::uniform_int_distribution<int> dist(0, 100);
-
-        // Generate a random number
-        int randomNum = dist(gen);
-
-        return randomNum;
-    }
-    /**
-     * @brief Get the Tab object
-     *
-     * @return a shared pointer that points to the Tab for the customer
-     */
     std::shared_ptr<Tab> getTab();
-    /**
-     * @brief leave function will tell the mediator that the customer want to leave the restaurant
-     *
-     */
     void leave();
-    /**
-     * @brief  getKitchenReference function will tell the mediator that the customer wants the reference of the manager that owns the restaurant
-     *
-     */
-    void getKitchenReference();
 };
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef Disgruntaled_H
 #define Disgruntaled_H
 
-#include "EmotionState.h"
+#include "Satisfied.h"//BOBS ADDITION
 
 /**
  * @class Disgruntled

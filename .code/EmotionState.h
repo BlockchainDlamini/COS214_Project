@@ -1,13 +1,13 @@
 #ifndef EmotionState_H
 #define EmotionState_H
 
-#include "Customer.h"
+#include "Tab.h"
 #include <random>
 #include <memory>
 #include <string>
 
 class Customer;
-
+//forward declaration
 /**
  * @class EmotionState
  * @brief Abstract base class representing the emotional state of a customer.

@@ -1,7 +1,7 @@
 #ifndef Ordering_H
 #define Ordering_H
 
-#include "OrderProcessState.h"
+#include "Preorder.h"//BOBS ADDITION
 
 /**
  * @class Ordering
@@ -24,7 +24,7 @@ public:
      * @brief Get the current state of the customer.
      * @return A shared pointer to the customer.
      */
-    std::shared_ptr<Customer> getState();
+    //std::shared_ptr<Customer> getState();
 };
 
 #endif

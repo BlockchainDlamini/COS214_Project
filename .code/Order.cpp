@@ -1,8 +1,7 @@
 #include "Order.h"
-Order::Order(int id,float price)
+Order::Order(int id) // default price is 20
 {
     orderID = id;
-    this->price = price;
 }
 Order::Order(float price, int orderID, std::vector<std::shared_ptr<MenuItemCommand>> order)
 {

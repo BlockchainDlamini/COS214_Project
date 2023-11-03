@@ -1,7 +1,7 @@
 #ifndef Happy_H
 #define Happy_H
 
-#include "EmotionState.h"
+#include "Disgruntaled.h"//BOBS ADDITION
 
 /**
  * @class Happy

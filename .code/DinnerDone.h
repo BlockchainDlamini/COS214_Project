@@ -1,7 +1,7 @@
 #ifndef DinnerDone_H
 #define DinnerDone_H
 
-#include "OrderProcessState.h"
+#include "OrderProcessState.h"//BOBS ADDITION
 
 /**
  * @class DinnerDone
@@ -33,7 +33,7 @@ public:
      * @brief Get the current state as a shared pointer to a Customer.
      * @return A shared pointer to the current state.
      */
-    std::shared_ptr<Customer> getState();
+    //std::shared_ptr<Customer> getState();
 };
 
 #endif

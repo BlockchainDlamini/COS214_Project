@@ -1,8 +1,6 @@
 #ifndef Frustrated_H
 #define Frustrated_H
-
-#include "EmotionState.h"
-
+#include "EmotionState.h"//BOBS ADDITION
 /**
  * @class Frustrated
  * @brief A concrete class representing a frustrated emotional state of a customer.

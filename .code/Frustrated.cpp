@@ -1,4 +1,8 @@
-#include "Frustrated.h"
+//#include "Frustrated.h"
+//#include "Satisfied.h"
+//#include "Disgruntaled.h"
+//#include "Happy.h"
+#include "Customer.h"
 Frustrated::Frustrated()
 {
     emotion = "Frustrated";

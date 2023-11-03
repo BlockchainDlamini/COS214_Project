@@ -1,13 +1,9 @@
 #ifndef OrderProcessState_H
 #define OrderProcessState_H
 
-#include "Customer.h"
-#include <iostream>
-#include <memory>
-#include <string>
-using namespace std;
+#include "Happy.h"//BOBS ADDITION
 
-class Customer;
+class Customer;//BOBS ADDITION
 
 /**
  * @class OrderProcessState

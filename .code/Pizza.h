@@ -5,11 +5,7 @@
 
 #ifndef __PIZZA_H_
 #define __PIZZA_H_
-#include "MakeTomatoPaste.h"
-#include <vector>
-#include <list>
-#include <string>
-using namespace std;
+#include "MakeTomatoPaste.h"//BOBS ADDITION
 
 class HeadChef;
 

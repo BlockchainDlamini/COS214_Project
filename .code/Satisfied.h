@@ -1,7 +1,7 @@
 #ifndef Satisfied_H
 #define Satisfied_H
 
-#include "EmotionState.h"
+#include "Frustrated.h"//BOBS ADDITION
 
 /**
  * @class Satisfied

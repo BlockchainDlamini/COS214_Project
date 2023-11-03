@@ -1,11 +1,13 @@
-#include "Satisfied.h"
+//#include "Satisfied.h"
+//#include "Happy.h"
+#include "Customer.h"
 Satisfied::Satisfied()
 {
     emotion = "Satisfied";
 }
 float Satisfied::getTip()
 {
-    tip = 0.10;
+    tip = (float)0.10;
     return tip;
 }
 void Satisfied ::handleChange(Customer* context)

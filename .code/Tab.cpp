@@ -1,4 +1,5 @@
 #include "Tab.h"
+#include <string>
 Tab::Tab()
 {
 }

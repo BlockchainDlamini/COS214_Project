@@ -1,30 +1,7 @@
 #ifndef Order_H
 #define Order_H
 
-#include "Customer.h"
-#include "MenuItemCommand.h"
-#include "MakeStuffedCrust.h"
-#include "MakeThinCrust.h"
-#include "MakeDoubleDecker.h"
-#include "MakeBoiledCrust.h"
-#include "MakeDeepDish.h"
-#include "MakeSweetChilli.h"
-#include "MakeRanch.h"
-#include "MakeTomatoPaste.h"
-#include "MakeChutneySauce.h"
-#include "MakePepperoni.h"
-#include "MakeOlives.h"
-#include "MakeMushrooms.h"
-#include "MakeBlueCheese.h"
-#include "MakeChicken.h"
-#include "MakeBeef.h"
-#include "MakePeppers.h"
-#include "MakeMozzarella.h"
-#include "MakeGouda.h"
-#include "MakeParmesan.h"
-#include "OrderMemento.h"
-#include "Kitchen.h"
-#include "ManagerChef.h"
+#include "OrderMemento.h"//BOBS ADDITION
 
 /**
  * @class Order
@@ -34,16 +11,14 @@ class Order : public enable_shared_from_this<Order>
 {
 private:
     std::vector<std::shared_ptr<MenuItemCommand>> formula; /**< The list of menu items in the order. */
-    float price;                                           /**< The total price of the order. */
-    int orderID;                                           /**< The unique identifier for the order.*/
-                                                           // shared_ptr<Kitchen> kitchen = make_shared<ManagerChef>();
-
+    float price;                                                /**< The total price of the order. */
+    int orderID;                                                /**< The unique identifier for the order.*/
 public:
     /**
      * @brief Constructor for an order with a given order ID.
      * @param orderID The unique identifier for the order.
      */
-    Order(int orderID,float price);
+    Order(int orderID);
 
     /**
      * @brief Constructor for an order with a given order ID and a list of menu item commands.
@@ -63,7 +38,7 @@ public:
     /**
      * @brief Place the order.
      */
-    // void placeOrder();
+     //void placeOrder();
 
     /**
      * @brief Get the total price of the order.
@@ -95,12 +70,11 @@ public:
      */
     void addMenuItemCommand(std::shared_ptr<MenuItemCommand> command);
     void addMenuItems(vector < shared_ptr<MenuItemCommand>> commands);
-
     /**
      * @brief Show the formula of the order as a string.
      * @return A string representation of the order's formula.
      */
-    // string showFormula();
+     //string showFormula();
     string showOrder();
 
     void setPrice(float price);

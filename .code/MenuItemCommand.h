@@ -9,9 +9,7 @@
 #ifndef __MENU_ITEM_COMMAND_H__
 #define __MENU_ITEM_COMMAND_H__
 
-#include "DeepDish.h"
-#include <memory>
-
+#include "DeepDish.h"//BOBS ADDITION
 
 class Kitchen;
 class MenuItemCommand : gameElement {
