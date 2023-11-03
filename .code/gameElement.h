@@ -7,9 +7,12 @@
 #include <memory>
 #include <utility>
 #include <string>
+#include <vector>
+#include <list>
 #include <iostream>
 #include <vector>
 #include <list>
+#include <queue>
 
 using namespace std;
 class Mediator;
@@ -80,7 +83,7 @@ public:
      */
     virtual void setOperation(string op);
 
-    virtual void doSomethingCool()=0;
+    virtual void doSomethingCool();
 protected:
     /**
      * @brief A shared pointer to the mediator representing the game engine.

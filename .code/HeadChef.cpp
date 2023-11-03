@@ -11,13 +11,13 @@ HeadChef::HeadChef() : Kitchen() {
     nextChef = nullptr;
 }
 
-void HeadChef::handleOrder(int waiterID, vector<shared_ptr<FoodItem>> order) {
-    bakePizza(order);
-    pizzas.first = waiterID;
-    pizzas.second.push_back(bakePizza(order));
+void HeadChef::handleOrder(int waiterID, int customerID, vector<shared_ptr<FoodItem>> order) {
+    pizzaPairs.push_back(make_shared<pair<int, shared_ptr<Pizza>>>(customerID, bakePizza(order)));
     if (!nextChef->ordersComplete()) {
         nextChef->handleOrder(waiterID);
     } else {
+        completeOrders.first = waiterID;
+        completeOrders.second = pizzaPairs;
         setOperation("COLLECTORDER");
         changed();
     }
@@ -69,9 +69,9 @@ void HeadChef::addCheese(shared_ptr<Pizza> pizza, shared_ptr<FoodItem> item) {
 }
 
 int HeadChef::getWaiterID() {
-    return pizzas.first;
+    return completeOrders.first;
 }
 
-vector<shared_ptr<Pizza>> HeadChef::getPizzas() {
-    return pizzas.second;
+pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> HeadChef::collectOrder() {
+    return completeOrders;
 }
