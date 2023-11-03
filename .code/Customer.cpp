@@ -3,10 +3,9 @@ using namespace std;
 
 Customer::Customer(int bankAmount, int id) : gameElement()
 {
-    bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
+    bankAccountAmount = bankAmount;
     ID = id;
     tabID = "No Tab";
-    // kitchen
 }
 Customer::Customer(std::shared_ptr<EmotionState> mood, int bankAccountAmount) : gameElement()
 {
@@ -33,16 +32,15 @@ void Customer::changedOrderProcessState()
     orderProcess->printStateChange();
 }
 
-void Customer::requestBill() // sets the hasBill to true.
+void Customer::requestBill()
 {
-    // needs to tell the waiter that they want the bill
-    setOperation("requestbill");
+    setOperation("REQUESTBILL");
     changed();
     hasBill = true;
 }
-void Customer::payBill(char c, float t) // returns true if the customer has either paid or added the bill to a tab
+void Customer::payBill(char c, float t)
 {
-    changedOrderProcessState(); // take the state to dinnerdone from orderreceived
+    changedOrderProcessState();
     setTotal(t);
     if (hasBill == true)
     {
@@ -56,9 +54,10 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
             {
                 float tip = total + (total * mood->getTip());
                 bankAccountAmount = bankAccountAmount - (total + tip);
+                cout << "Customer paid" << endl;
             }
         }
-        else if (c == 'T' && isLoyal() == true) // has a tab and wants to add to tab
+        else if (c == 'T' && isLoyal() == true)
         {
             for (std::shared_ptr<Order> order : orders)
             {
@@ -68,10 +67,11 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
                     tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
+            cout << "Customer has added his order(s) to his tab" << endl;
         }
-        else if (c == 'T' && isLoyal() == false) // doesn't have a tab but wants to add
+        else if (c == 'T' && isLoyal() == false)
         {
-            startTab(); // create a new tab for customer
+            startTab();
             for (std::shared_ptr<Order> order : orders)
             {
                 if (order != nullptr)
@@ -79,6 +79,7 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
                     tab->addOrder(order->createOrderMemento(), tabID);
                 }
             }
+            cout << "Customer has added his order(s) to his tab" << endl;
         }
         else
         {
@@ -93,7 +94,8 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
 }
 bool Customer::isLoyal()
 {
-    if (tab == nullptr)
+    int random = getRandomNumber();
+    if (random <= 50)
     {
         return false;
     }
@@ -104,9 +106,12 @@ bool Customer::isLoyal()
 }
 void Customer::startTab()
 {
-    tabID = generateRandomString(6);
-    tab = std::make_shared<Tab>();
-    cout << "CustomerID: [" + tabID + "] has created a new tab" << endl;
+    if (isLoyal())
+    {
+        tabID = generateRandomString(6);
+        tab = std::make_shared<Tab>();
+        cout << "CustomerID: [" + tabID + "] has created a new tab" << endl;
+    }
 }
 void Customer::payTab()
 {
@@ -135,7 +140,7 @@ string Customer::printBill()
     return output;
 }
 
-vector<shared_ptr<MenuItemCommand>> Customer::buildPizza() // for building own pizza
+vector<shared_ptr<MenuItemCommand>> Customer::buildPizza()
 {
     vector<shared_ptr<MenuItemCommand>> result;
     int base;
@@ -434,7 +439,7 @@ void Customer::createOrder()
 
 void Customer::beSeated(int table)
 {
-    tableNum = table; // set the table number for the customer when he is seated
+    tableNum = table;
 }
 
 int Customer::getTableNum()
@@ -526,8 +531,8 @@ void Customer::talkToWaiter()
 {
     setOperation("giveorder");
     hasOrdered = true;
-    changedOrderProcessState(); // change state to waiting from preorder
-    changed();                  // changed();
+    changedOrderProcessState();
+    changed();
 }
 
 void Customer::setKitchenReference(shared_ptr<Kitchen> ptr)
