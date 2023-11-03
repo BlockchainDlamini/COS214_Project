@@ -61,7 +61,7 @@ std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements(int inp
 
     shared_ptr<Floor> floorObj;
 
-    gmElements.push_back(std::make_shared<MaitreD>()); //only 1 maitreD in the game
+    gmElements.push_back(std::make_shared<MaitreD>("Steve", std::make_shared<Floor>(floorsize,tableSize))); //only 1 maitreD in the game
     gmElements.push_back(std::make_shared<RegularWaiter>(RegularWaiter(0, {0}, floorObj)));
 
     
