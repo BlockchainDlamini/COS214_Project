@@ -14,20 +14,17 @@ gameElement::gameElement() {myID=sharedID++;}
 
 gameElement::~gameElement() {}
 
-void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
-    this->gameEngine = mediator;
-}
 
 void gameElement::changed() {
     if (gameEngine) {
-        gameEngine->notify(this);
+        gameEngine->notify(shared_from_this());
         return;
     }
 
     cout << "Object has no mediator" << endl;
 }
 
-void gameElement::setMyGameEngine(const shared_ptr<Mediator> &mediator) {
+void gameElement::setGameEngine(const shared_ptr<Mediator> &mediator) {
     gameEngine = mediator;
 }
 
@@ -47,4 +44,7 @@ string gameElement::get() {
 void gameElement::setOperation(string op) {
     operation = op;
 }
+
+void gameElement::doSomethingCool() {}
+
 
