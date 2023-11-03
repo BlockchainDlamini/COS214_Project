@@ -21,3 +21,7 @@ void KitchenInterface::delegateOrderProcess(pair<int, vector<pair<int, shared_pt
 pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> KitchenInterface::collectOrder() {
     return headChef->collectOrder();
 }
+
+int KitchenInterface::getWaiterID() {
+    return headChef->getWaiterID();
+}
