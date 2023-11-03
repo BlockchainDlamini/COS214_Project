@@ -14,7 +14,7 @@ class KitchenInterface : gameElement {
 public: 
     KitchenInterface();
     std::shared_ptr<Kitchen> getKitchenReference();
-    pair<int, pair<int, std::vector<FoodItem>>> collectOrder();
+    pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> collectOrder();
     void delegateOrderProcess(pair<int, std::vector<pair<int, std::shared_ptr<Order>>>>);
 private: 
     std::shared_ptr<ManagerChef> managerChef;
