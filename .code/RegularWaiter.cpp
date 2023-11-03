@@ -61,40 +61,22 @@ void RegularWaiter::takeOrder(int tableId)
     shared_ptr<table> table = floorObject->getTable(tableId);
 
     vector<shared_ptr<Customer>> customers = table->getCustomers();
-    // for (const auto &customer : customers)
-    // {
-    //     if (customer != NULL)
-    //     {
-    //         // cout<<"inside the takeOrder() func for a customer: ";
-    //         cout << customer->getID() << endl;
 
-    //         // cout<<"here";
-    //         vector<std::shared_ptr<Order>> customerOrders = customer->getOrders();
+    std::vector<std::pair<int, std::shared_ptr<Order>>> vectorForKitchen;
+    std::pair<int, std::vector<std::shared_ptr<std::pair<int, std::shared_ptr<Pizza>>>>> ordersForATable;
 
-    //         ordersForATable.insert(ordersForATable.end(), customerOrders.begin(), customerOrders.end());
-    //     }
-    // }
-
-    // then send the vector of orders (with waiter id) to the kitchen - to the mediator
-    // Mediator
-
-    vector<pair<int, shared_ptr<order>>> vectorForKitchen;
-
-    std::make_pair(Id, ordersForATable);
-
-    for(auto customer : customers){
-        if(customer != NULL){
-            vectorForKitchen.push(std::make_shared(std::make_pair(customer->getID(), std::make_shared(customer->getOrders()))));
+    for (auto customer : customers) {
+        // null check
+        if (customer != NULL) {
+            vectorForKitchen.push_back(std::make_pair(customer->getID(), customer->getOrders()));
         }
     }
-
-    // forKitchen = std::make_pair(Id, ordersForATable);
-    // pair <int, vector<shared_ptr<pair<int customerId, shared_ptr<order>>>>
 
     forKitchen = std::make_pair(Id, vectorForKitchen);
 
     setOperation("sendToKitchen");
     changed();
+
 }
 
 pair<int, vector<shared_ptr<Order>>> RegularWaiter::getForKitchen()
