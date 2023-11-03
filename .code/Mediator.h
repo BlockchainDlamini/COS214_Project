@@ -5,9 +5,11 @@
 #ifndef CODE_MEDIATOR_H
 #define CODE_MEDIATOR_H
 
+#include "MaitreD.h"
 #include <string>
 #include <memory>
 #include <vector>
+
 class gameElement;
 
 /**
