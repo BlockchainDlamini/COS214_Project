@@ -8,6 +8,8 @@
 #include <utility>
 #include <string>
 #include <iostream>
+#include <vector>
+#include <list>
 
 using namespace std;
 class Mediator;
