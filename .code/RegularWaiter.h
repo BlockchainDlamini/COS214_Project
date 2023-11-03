@@ -5,14 +5,15 @@
 #ifndef REGULARWAITER_H
 #define REGULARWAITER_H
 
-
+#include <vector>
+#include <memory>
+#include <string>
+#include "table.h"
 #include "Waiter.h"
-//#include "Order.h"
-//#include "Floor.h"
+#include "Order.h"
+#include "Pizza.h"
+#include "Floor.h"
 
-class Pizza;
-class Floor;
-class Order;
 /**
  * @class RegularWaiter
  * @brief Represents a Regular Waiter responsible for serving tables and managing orders.
@@ -26,6 +27,12 @@ public:
     * @param floorObj A shared pointer to the floor object.
     */
     RegularWaiter(int Id, std::vector<int> assignedTables, shared_ptr<Floor> floorObj);
+    
+    /**
+    * @brief Assign a table to the waiter.
+    * @param table A shared pointer to the table to be assigned.
+    */
+    void assignTable(std::shared_ptr<table> table);
     
     /**
     * @brief Take an order from a table.
@@ -48,7 +55,7 @@ public:
     /**
     * @brief Deals with the customers and paying the bill.
     */
-    void payBill(int tableId);
+    void payBill();
 
     /**
     * @brief Function for the mediator.
@@ -107,7 +114,8 @@ private:
     std::vector<int> assignedTables;
     int tableID;
     std::vector<shared_ptr<Order>> ordersForATable;
-    std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
+    // std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
+    std:pair<int, std:vector<shared_ptr<std:pair<int, std:shared_ptr<pizza>>>> forKitchen;
 
 
     static std::vector<shared_ptr<RegularWaiter>> waiters;
