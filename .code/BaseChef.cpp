@@ -4,7 +4,7 @@ BaseChef::BaseChef()
 {
     nextChef = make_shared<CheeseChef>();
 }
-void BaseChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>> foods)
+void BaseChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>>foods)
 {
     for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
@@ -14,7 +14,7 @@ void BaseChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, v
             foods.push_back((*it)->execute());
         }
     }
-    nextChef->handleOrder(id, orders, foods);
+    nextChef->handleOrder(waiter_id,customer_id,orders, foods);
 }
 
 shared_ptr<FoodItem> BaseChef::execute(shared_ptr<MenuItemCommand> val, string t)

@@ -18,12 +18,12 @@ shared_ptr<Kitchen> Kitchen::getNextChef()
 	return nextChef;
 }
 
-void Kitchen::handleOrder(int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>)
+void Kitchen::handleOrder(int,int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>)
 {
 	cout << "Nothing was handled";
 }
 
-void Kitchen::handleOrder(pair<int, vector<shared_ptr<Order>>> pr)
+void Kitchen::handleOrder(pair<int, vector<pair<int, shared_ptr<Order>>>> val)
 {	
 	cout << "Nothing was handled";
 }
@@ -42,4 +42,7 @@ bool Kitchen::ordersComplete()
 void Kitchen::handleOrder(int)
 {}
 
-void Kitchen::handleOrder(int, vector<shared_ptr<FoodItem>>){}
+void Kitchen::handleOrder(int,int,vector<shared_ptr<FoodItem>>){}
+
+void Kitchen::cycle()
+{}

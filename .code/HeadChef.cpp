@@ -5,7 +5,6 @@
     *@bug No known bugs.
 */
 #include "HeadChef.h"
-using namespace std;
 
 HeadChef::HeadChef() : Kitchen() {
     nextChef = nullptr;

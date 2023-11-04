@@ -3,7 +3,7 @@ ToppingsChef::ToppingsChef()
 {
     nextChef = make_shared<HeadChef>();
 }
-void ToppingsChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>> foods)
+void ToppingsChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>>foods)
 {
     for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
@@ -13,7 +13,7 @@ void ToppingsChef::handleOrder(int id, vector<shared_ptr<MenuItemCommand>> order
             foods.push_back((*it)->execute());
         }
     }
-    nextChef->handleOrder(id, foods);
+    nextChef->handleOrder(waiter_id,customer_id, foods);
 }
 
 shared_ptr<FoodItem> ToppingsChef::execute(shared_ptr<MenuItemCommand> val)

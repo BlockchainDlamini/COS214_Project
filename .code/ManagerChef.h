@@ -12,7 +12,7 @@
 class ManagerChef : public Kitchen, public enable_shared_from_this<ManagerChef>
 {
 private:
-    vector<shared_ptr<Order>> orders; /**< A vector of shared pointers to Order objects representing pending orders. */
+    vector<pair<int, shared_ptr<Order>>> orders; /**< A vector of shared pointers to Order objects representing pending orders. */
 
 public:
     /**
@@ -30,8 +30,7 @@ public:
      * @brief Handle a batch of orders with an order number and a vector of orders.
      * @param orderInfo A pair containing the order number and a vector of shared pointers to Order objects.
      */
-    void handleOrder(pair<int, vector<shared_ptr<Order>>> orderInfo);
-
+    void handleOrder(pair<int, vector<pair<int, shared_ptr<Order>>>>);
     /**
      * @brief Check if all orders are complete.
      * @return true if all orders are complete, false otherwise.

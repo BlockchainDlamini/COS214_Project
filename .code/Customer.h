@@ -1,26 +1,26 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-// #include "EmotionState.h"
-// #include "Disgruntaled.h"
-// #include "Happy.h"
-// #include "Satisfied.h"
-// #include "Frustrated.h"
-// #include "OrderProcessState.h"
-// #include "Preorder.h"
-// #include "Order.h"
-// #include "gameElement.h"
-// #include "Pizza.h"
-// #include <iostream>
-// #include <memory>
-// #include <vector>
-#include "Preorder.h" //BOBS ADDITION
+//#include "EmotionState.h"
+//#include "Disgruntaled.h"
+//#include "Happy.h"
+//#include "Satisfied.h"
+//#include "Frustrated.h"
+//#include "OrderProcessState.h"
+//#include "Preorder.h"
+//#include "Order.h"
+//#include "gameElement.h"
+//#include "Pizza.h"
+//#include <iostream>
+//#include <memory>
+//#include <vector>
+#include "Preorder.h"//BOBS ADDITION
 
 /**
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
-// forgoy yo link states and stuff
+//forgoy yo link states and stuff
 class Customer : public gameElement, public enable_shared_from_this<Customer>
 {
 private:
@@ -32,9 +32,9 @@ private:
     std::shared_ptr<Tab> tab = nullptr;                                        /**< The customer's tab for keeping track of orders. */
     int tableNum;
     float total;                                /**< The table number where the customer is seated. */
-    std::shared_ptr<Pizza> pizza = nullptr;     /**< The pizza ordered by the customer. */
-    std::vector<std::shared_ptr<Order>> orders; /**< A vector of customer's orders. */
-    shared_ptr<Kitchen> kitchen = make_shared<ManagerChef>();
+    vector<shared_ptr<Pizza>> pizza;     /**< The pizza ordered by the customer. */
+    vector<shared_ptr<Order>> orders; /**< A vector of customer's orders. */
+    shared_ptr<Kitchen> kitchen;
 
 public:
     /**
@@ -43,7 +43,8 @@ public:
      * @param tableNum The table number where the customer is seated.
      */
 
-    // switched datatypes passed in
+    //switched datatypes passed in
+    void setManager(shared_ptr<Kitchen>);
     Customer(int id, float bankAccountAmount);
 
     /**
@@ -52,7 +53,8 @@ public:
      * @param tableNum The table number where the customer is seated.
      */
 
-    // changed the paramter of bankAccountAmount from int to float
+
+     //changed the paramter of bankAccountAmount from int to float
     Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount);
     Customer(float bankAccount);
 
@@ -60,7 +62,7 @@ public:
      * @brief Change the emotional state of the customer.
      */
     void changeMood();
-    void setManager(shared_ptr<Kitchen>);
+
     /**
      * @brief Trigger a change in the customer's order process state.
      */
@@ -157,15 +159,14 @@ public:
      * @brief Get a vector of customer's orders.
      * @return A vector of shared pointers to orders.
      */
-    std::vector<std::shared_ptr<Order>> getOrders();
+    vector<pair<int, shared_ptr<Order>>> getOrders();
 
     /**
      * @brief Receive a pizza order.
      * @param pizza A shared pointer to the pizza order.
      * @return True if the customer receives the order, false otherwise.
      */
-    bool receiveOrder(std::shared_ptr<Pizza> pizza);
-    void setKitchenReference(shared_ptr<Kitchen>);
+    bool receiveOrder(vector<shared_ptr<Pizza>>);
 
     /**
      * @brief Print information about the customer.
@@ -185,7 +186,6 @@ public:
     void hasPizza();
 
     vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
-    vector<shared_ptr<MenuItemCommand>> predefinedOrder();
     void talkToWaiter();
 
     shared_ptr<Customer> getMe();
@@ -204,9 +204,25 @@ public:
 
         return randomString;
     }
+
+    int getRandomNumber() {
+        // Seed the random number generator with a value based on the current time 
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        // Define the range (0 to 100) 
+        std::uniform_int_distribution<int> dist(0, 100);
+
+        // Generate a random number 
+        int randomNum = dist(gen);
+
+        return randomNum;
+    }
     std::shared_ptr<Tab> getTab();
     void leave();
     void getKitchenReference();
+    void setKitchenReference(shared_ptr<Kitchen>);
+
 };
 
 #endif

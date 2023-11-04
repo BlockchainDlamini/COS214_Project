@@ -2,7 +2,7 @@
 // Created by User on 24/10/2023.
 //
 
-#include "gameElement.h"
+#include "KitchenInterface.h"
 #include "Mediator.h"
 #include <string>
 #include <iostream>
@@ -14,7 +14,7 @@ void Mediator::addGameElement(std::shared_ptr<gameElement>element) {
 }
 
 void Mediator::addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
-    for (const auto& element:elements) {
+    for (const auto& element : elements) {
         listOfElements.push_back(element);
     }
 }
@@ -60,13 +60,15 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
             return;
         }
 
-        int wantedID = theKitchen->getWaiterID();
+        auto temp = theKitchen->collectOrder();
+        int wantedID = temp.first;
+
 
         for (int i = 0; i < listOfElements.size(); ++i) {
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(element);
             if (aWaiter != nullptr) {
                 if (aWaiter->getWaiterID() == wantedID) {
-                    auto theOrder = theKitchen->getPizzas();
+                    auto theOrder = temp.second;
                     aWaiter->takeOrderToTable(theOrder);
                     return;
                 }
@@ -83,12 +85,12 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
             errorMessage("The wrong class attempted to call sendToKitchen");
             return;
         }
-        int tableNum= theCustomer->getTableNum();
+        int tableNum = theCustomer->getTableNum();
 
         for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);
             if (aWaiter != nullptr) {
-                auto theWaiter  = aWaiter->waiterResponsible(tableNum);
+                auto theWaiter = aWaiter->waiterResponsible(tableNum);
                 theWaiter->takeOrder(tableNum);
                 return;
             }
@@ -103,12 +105,12 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
             errorMessage("The wrong class attempted to call sendToKitchen");
             return;
         }
-        int tableNum= theCustomer->getTableNum();
+        int tableNum = theCustomer->getTableNum();
 
         for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);
             if (aWaiter != nullptr) {
-                auto theWaiter  = aWaiter->waiterResponsible(tableNum);
+                auto theWaiter = aWaiter->waiterResponsible(tableNum);
                 theWaiter->payBill(tableNum);
                 return;
             }
@@ -123,7 +125,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
             errorMessage("You shall not leave:), The wrong class attempted to call Leave the floor");
             return;
         }
-        int tableNum= theCustomer->getTableNum();
+        int tableNum = theCustomer->getTableNum();
 
         for (int i = 0; i < listOfElements.size(); ++i) {
             shared_ptr<MaitreD> theMaitreD = dynamic_pointer_cast<MaitreD>(listOfElements[i]);
@@ -147,7 +149,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
         for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<KitchenInterface> theInterface = dynamic_pointer_cast<KitchenInterface>(listOfElements[i]);
             if (theInterface != nullptr) {
-                auto reference  = theInterface->getKitchenReference();
+                auto reference = theInterface->getKitchenReference();
                 theCustomer->setKitchenReference(reference);
                 return;
             }
@@ -162,7 +164,7 @@ void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Stil
     while (it != listOfElements.end())
     {
         // remove odd numbers
-        if (*it == element){
+        if (*it == element) {
             it = listOfElements.erase(it);
         }
         else {

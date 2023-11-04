@@ -23,7 +23,7 @@ public:
      * @param commands A vector of shared pointers to MenuItemCommand objects representing the order.
      * @param foodItems A vector of shared pointers to FoodItem objects to work with.
      */
-    void handleOrder(int tableNumber, vector<shared_ptr<MenuItemCommand>> commands, vector<shared_ptr<FoodItem>> foodItems);
+    void handleOrder(int, int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
 
     /**
      * @brief Execute a MenuItemCommand related to cheese-based dishes.

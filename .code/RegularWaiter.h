@@ -5,20 +5,14 @@
 #ifndef REGULARWAITER_H
 #define REGULARWAITER_H
 
-#include <vector>
-#include <memory>
-#include <string>
-#include "table.h"
 #include "Waiter.h"
-#include "Order.h"
-#include "Pizza.h"
-#include "Floor.h"
 
-/**
- * @class RegularWaiter
- * @brief Represents a Regular Waiter responsible for serving tables and managing orders.
- */
-class RegularWaiter :  public enable_shared_from_this<RegularWaiter>, public Waiter {
+
+ /**
+  * @class RegularWaiter
+  * @brief Represents a Regular Waiter responsible for serving tables and managing orders.
+  */
+class RegularWaiter : public enable_shared_from_this<RegularWaiter>, public Waiter {
 public:
     /**
     * @brief Constructor for the RegularWaiter class.
@@ -27,26 +21,31 @@ public:
     * @param floorObj A shared pointer to the floor object.
     */
     RegularWaiter(int Id, std::vector<int> assignedTables, shared_ptr<Floor> floorObj);
-    
+
+    /**
+    * @brief Assign a table to the waiter.
+    * @param table A shared pointer to the table to be assigned.
+    */
+    void assignTable(std::shared_ptr<table> table);
+
     /**
     * @brief Take an order from a table.
     * @param tableId The identifier of the table for which the order is being taken.
     */
     void takeOrder(int tableId);
-    
+
     /**
     * @brief returns the orders to send to the mediator.
     * @return A pair with the waiters id and the vector of orders.
     */
-    std::pair<int, std::vector<std::shared_ptr<Order>>> getForKitchen();
-    
+    pair<int, vector<pair<int, shared_ptr<Order>>>> getForKitchen();
+
     /**
     * @brief Take an order to the table of customers.
     * @param pizzasForTable the vector of pizzas returned from the kitchen.
     */
-    // void takeOrderToTable(std::vector<std::shared_ptr<Pizza>> pizzasForTable);
     void takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>);
-    
+
     /**
     * @brief Deals with the customers and paying the bill.
     */
@@ -56,12 +55,12 @@ public:
     * @brief Function for the mediator.
     */
     virtual string get();
-    
+
     /**
     * @brief Function for the mediator.
     */
     void changed();
-    
+
     /**
     * @brief Function for the mediator.
     * @param op To replace the "operation" string from the mediator.
@@ -87,7 +86,7 @@ public:
     * @return A shared pointer to the created RegularWaiter.
     */
     static shared_ptr<RegularWaiter> createRegularWaiter(int Id, std::vector<int> assignedTables, shared_ptr<Floor> floorObj);
-    
+
     /**
     * @brief Gets the waiter responsible for the table.
     * @param tableId The identifier of the table for which the waiter is responsible.
@@ -110,7 +109,7 @@ private:
     int tableID;
     std::vector<shared_ptr<Order>> ordersForATable;
     // std::pair<int, std::vector<std::shared_ptr<Order>>> forKitchen;
-    std:pair<int, std:vector<shared_ptr<std:pair<int, std:shared_ptr<pizza>>>> forKitchen;
+    pair<int, vector<pair<int, shared_ptr<Order>>>> forKitchen;
 
 
     static std::vector<shared_ptr<RegularWaiter>> waiters;

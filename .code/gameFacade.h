@@ -1,10 +1,7 @@
 #ifndef GAMEFACADE_H
 #define GAMEFACADE_H
 
-#include <vector>
-#include <memory>
-#include <iostream>
-
+#include "KitchenInterface.h"
 class Customer;
 class Mediator;
 class MaitreD;
@@ -25,6 +22,4 @@ class GameFacade
         void runGame();
         ~GameFacade();
 };
-
-
 #endif
