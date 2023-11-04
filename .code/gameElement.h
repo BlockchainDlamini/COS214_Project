@@ -19,7 +19,7 @@ class Mediator;
  * @brief A class to represent a game element. This class represents
  * Colleagues in the Mediator design pattern.
  */
-class gameElement:public enable_shared_from_this<gameElement>{
+class gameElement :public enable_shared_from_this<gameElement> {
 public:
     /**
      * @brief Creates a new game element object.
@@ -30,14 +30,14 @@ public:
      * @brief Creates a new game element object in addition to setting the gameEngine attribute.
      * @param myGameEngine The game engine to be used.
      */
-    gameElement(const std::shared_ptr<Mediator> &myGameEngine);
+    gameElement(const std::shared_ptr<Mediator>& myGameEngine);
 
     /**
      * @brief Creates a new game element object which sets the Mediator, as well as the object's ID.
      * @param myGameEngine The game engine to be used.
      * @param id The ID of the game element.
      */
-    gameElement(const std::shared_ptr<Mediator> &myGameEngine,int id);
+    gameElement(const std::shared_ptr<Mediator>& myGameEngine, int id);
 
     /**
      * @brief Base class destructor.
@@ -48,7 +48,7 @@ public:
      * @brief Set the game engine.
      * @param myGameEngine The game engine to be set.
      */
-    void setGameEngine(const shared_ptr<Mediator> &myGameEngine);
+    void setGameEngine(const shared_ptr<Mediator>& myGameEngine);
 
     /**
      * @brief Get the ID of the game element.

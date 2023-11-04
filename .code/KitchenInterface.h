@@ -3,19 +3,10 @@
  * @brief A class that represents the interface for the kitchen in the game.
  * @details This class is responsible for managing the kitchen operations in the game. It delegates orders to the chefs and collects the prepared orders.
  */
-
 #ifndef __KITCHEN_INTERFACE_H__
 #define __KITCHEN_INTERFACE_H__
-
-#include "gameElement.h"
-#include "Kitchen.h"
-#include "ManagerChef.h"
-#include "Pizza.h"
-#include <utility>
-#include <vector>
-#include "Order.h"
-
-class KitchenInterface : gameElement {
+#include "Mediator.h"
+class KitchenInterface : public gameElement {
 public: 
     /**
      * @brief Default constructor for KitchenInterface.

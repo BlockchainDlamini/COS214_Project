@@ -28,7 +28,7 @@ public:
      * @param tableNumber The table number for the order.
      * @param foodItems A vector of shared pointers to FoodItem objects representing the order.
      */
-    virtual void handleOrder(int tableNumber, vector<shared_ptr<FoodItem>> foodItems);
+    virtual void handleOrder(int, int, vector<shared_ptr<FoodItem>>);
 
     /**
      * @brief Handle an order with a vector of MenuItemCommand objects and a vector of food items.
@@ -36,13 +36,13 @@ public:
      * @param commands A vector of shared pointers to MenuItemCommand objects representing the order.
      * @param foodItems A vector of shared pointers to FoodItem objects to work with.
      */
-    virtual void handleOrder(int tableNumber, vector<shared_ptr<MenuItemCommand>> commands, vector<shared_ptr<FoodItem>> foodItems);
+    virtual void handleOrder(int, int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
 
     /**
      * @brief Handle an order with a pair containing an order number and a vector of orders.
      * @param orderInfo A pair containing the order number and a vector of shared pointers to Order objects.
      */
-    virtual void handleOrder(pair<int, vector<shared_ptr<Order>>> orderInfo);
+    virtual void handleOrder(pair<int, vector<pair<int, shared_ptr<Order>>>>);
 
     /**
      * @brief Check if all orders are complete.
@@ -82,6 +82,8 @@ public:
      * @param chef A shared pointer to the next chef to set.
      */
     void setNextChef(shared_ptr<Kitchen> chef);
+
+    virtual shared_ptr<Kitchen> cycle();
 };
 
 #endif

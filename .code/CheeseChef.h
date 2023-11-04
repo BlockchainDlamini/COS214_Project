@@ -2,7 +2,10 @@
 #define CHEESECHEFF_H
 
 #include "SauceChef.h"//BOBS ADDITION
-
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <iomanip>
 /**
  * @class CheeseChef
  * @brief A class representing a chef specialized in cheese-based dishes, derived from Kitchen.
@@ -23,7 +26,7 @@ public:
      * @param commands A vector of shared pointers to MenuItemCommand objects representing the order.
      * @param foodItems A vector of shared pointers to FoodItem objects to work with.
      */
-    void handleOrder(int tableNumber, vector<shared_ptr<MenuItemCommand>> commands, vector<shared_ptr<FoodItem>> foodItems);
+    void handleOrder(int, int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
 
     /**
      * @brief Execute a MenuItemCommand related to cheese-based dishes.
@@ -31,6 +34,8 @@ public:
      * @return A shared pointer to the resulting FoodItem after executing the command.
      */
     shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand> command);
+
+    void displayCheeseArt();
 };
 
 #endif

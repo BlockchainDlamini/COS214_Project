@@ -11,7 +11,7 @@
 #include <vector>
 
 class gameElement;
-
+class KitchenInterface;
 /**
  * @class Mediator
  * @brief A class to represent the mediator in the Mediator Design Pattern.
