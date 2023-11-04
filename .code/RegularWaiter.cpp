@@ -87,8 +87,16 @@ pair<int, vector<shared_ptr<Order>>> RegularWaiter::getForKitchen()
 // void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable)
 void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order)
 {
-    // extracted pizzas
-    std::vector<std::shared_ptr<Pizza>> pizzas = order.second;
+    // Extracted pizzas
+    std::vector<std::shared_ptr<Pizza>> pizzas;
+    for (const auto& orderItem : order) {
+        if (orderItem) {
+            std::shared_ptr<Pizza> pizza = orderItem->second;
+            if (pizza) {
+                pizzas.push_back(pizza);
+            }
+        }
+    }
     this->pizzasForTable = pizzas;
 
     // extracted ints
