@@ -44,5 +44,7 @@ void Kitchen::handleOrder(int)
 
 void Kitchen::handleOrder(int,int,vector<shared_ptr<FoodItem>>){}
 
-void Kitchen::cycle()
-{}
+shared_ptr<Kitchen> Kitchen::cycle()
+{
+	return 0;
+}

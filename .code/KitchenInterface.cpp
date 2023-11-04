@@ -3,10 +3,8 @@ using namespace std;
 
 KitchenInterface::KitchenInterface() {
     managerChef = make_shared<ManagerChef>();
-    shared_ptr<Kitchen> kitchen = managerChef;
-    while (!dynamic_pointer_cast<HeadChef>(kitchen))
-        kitchen = kitchen->getNextChef();
-    headChef = dynamic_pointer_cast<HeadChef>(kitchen);
+    headChef = dynamic_pointer_cast<HeadChef>(managerChef->cycle());
+    headChef->setNextChef(managerChef);
 }
 
 shared_ptr<Kitchen> KitchenInterface::getKitchenReference() {
@@ -19,4 +17,8 @@ void KitchenInterface::delegateOrderProcess(pair<int, vector<pair<int, shared_pt
 
 pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> KitchenInterface::collectOrder() {
     return headChef->collectOrder();
+}
+
+int KitchenInterface::getWaiterID() {
+    return headChef->getWaiterID();
 }

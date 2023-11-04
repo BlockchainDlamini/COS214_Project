@@ -30,7 +30,12 @@ public:
      * @param order A pair containing the order ID and a vector of pairs with pizza ID and shared pointer to the Order object.
      */
     void delegateOrderProcess(pair<int, std::vector<pair<int, std::shared_ptr<Order>>>>);
-
+    
+    /**
+     * @brief Get the ID of the waiter.
+     * @return The ID of the waiter.
+     */
+    int getWaiterID();
 private: 
     std::shared_ptr<ManagerChef> managerChef; 
     std::shared_ptr<HeadChef> headChef;
