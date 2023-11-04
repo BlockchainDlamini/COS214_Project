@@ -55,7 +55,7 @@ public:
     /**
     * @brief Deals with the customers and paying the bill.
     */
-    void payBill();
+    void payBill(int tableId);
 
     /**
     * @brief Function for the mediator.

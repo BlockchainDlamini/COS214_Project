@@ -145,7 +145,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
         }
 
         for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
-            shared_ptr<KitchenInterface> theInterface = dynamic_pointer_cast<KitchenInterface>(listOfEements[i]);
+            shared_ptr<KitchenInterface> theInterface = dynamic_pointer_cast<KitchenInterface>(listOfElements[i]);
             if (theInterface != nullptr) {
                 auto reference  = theInterface->getKitchenReference();
                 theCustomer->setKitchenReference(reference);
