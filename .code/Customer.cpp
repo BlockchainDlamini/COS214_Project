@@ -1,15 +1,17 @@
 #include "Customer.h"
 using namespace std;
 
-//switched datatypes passed in
-Customer::Customer( int id,float bankAmount) : gameElement()
+// switched datatypes passed in
+Customer::Customer(int id, float bankAmount) : gameElement()
 {
     bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
     ID = id;
     tabID = "No Tab";
+    kitchen = make_shared<ManagerChef>();
+   // setKitchenReference(kitchen);
     // this->tableNum = tableNum;
 }
-//changed the paramter of bankAccountAmount from int to float
+// changed the paramter of bankAccountAmount from int to float
 Customer::Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount) : gameElement()
 {
     this->mood = mood;
@@ -135,7 +137,6 @@ string Customer::printBill()
     output = "CustomerID [" + to_string(myID) + "]  has not received the bill yet\n";
     return output;
 }
-
 
 vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own pizza
 {
@@ -472,7 +473,7 @@ bool Customer::receiveOrder(vector<shared_ptr<Pizza>> pizza)
     if (!pizza.empty())
     {
         this->pizza = pizza;
-        for(auto it = pizza.begin(); it != pizza.end(); it++)
+        for (auto it = pizza.begin(); it != pizza.end(); it++)
             tab->setDescription((*it)->getDescription());
         hasFood = true;
         changedOrderProcessState(); // change state to orderReceived from waiting
@@ -526,7 +527,6 @@ void Customer::setKitchenReference(shared_ptr<Kitchen> ptr)
     kitchen = ptr;
 }
 
-
 void Customer::talkToWaiter()
 {
     setOperation("giveorder");
@@ -537,6 +537,6 @@ void Customer::talkToWaiter()
 
 void Customer::getKitchenReference()
 {
-    setOperation("GETKITCHENREFENCE");
+    setOperation("GETKITCHENREFERENCE");
     changed();
 }
