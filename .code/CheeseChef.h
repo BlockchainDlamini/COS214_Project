@@ -2,7 +2,10 @@
 #define CHEESECHEFF_H
 
 #include "SauceChef.h"//BOBS ADDITION
-
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <iomanip>
 /**
  * @class CheeseChef
  * @brief A class representing a chef specialized in cheese-based dishes, derived from Kitchen.
@@ -31,6 +34,8 @@ public:
      * @return A shared pointer to the resulting FoodItem after executing the command.
      */
     shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand> command);
+
+    void displayCheeseArt();
 };
 
 #endif

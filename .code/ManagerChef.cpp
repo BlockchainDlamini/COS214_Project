@@ -5,7 +5,7 @@ ManagerChef::ManagerChef()
 	nextChef = make_shared<BaseChef>();
 }
 
-void ManagerChef::cycle()
+shared_ptr<Kitchen> ManagerChef::cycle()
 {
 	shared_ptr<Kitchen> tempy = nextChef;
 	while (tempy->getNextChef() != 0)
@@ -13,7 +13,7 @@ void ManagerChef::cycle()
 		tempy = tempy->getNextChef();
 	}
 
-	tempy->setNextChef(enable_shared_from_this<ManagerChef>::shared_from_this());
+	return tempy;
 }
 
 vector<shared_ptr<Kitchen>> ManagerChef::getChefs()

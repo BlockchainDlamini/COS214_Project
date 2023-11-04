@@ -46,7 +46,7 @@ public:
     /**
      * @brief Perform a cycle of processing orders and coordinating chefs.
      */
-    void cycle();
+    shared_ptr<Kitchen> cycle();
 };
 
 #endif

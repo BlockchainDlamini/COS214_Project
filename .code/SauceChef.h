@@ -31,6 +31,8 @@ public:
      * @return A shared pointer to the resulting FoodItem after executing the command.
      */
     shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand> command);
+
+    void displaySauceArt();
 };
 
 #endif

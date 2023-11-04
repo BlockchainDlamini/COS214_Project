@@ -2,6 +2,10 @@
 #define TOPPINGSCHEF_H
 
 #include "HeadChef.h"//BOBS ADDITION
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <iomanip>
 
 /**
  * @class ToppingsChef
@@ -33,6 +37,9 @@ public:
      * @return A shared pointer to the resulting FoodItem after executing the command.
      */
     shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand> val);
+
+    void displayToppingsArt();
+
 };
 
 #endif
