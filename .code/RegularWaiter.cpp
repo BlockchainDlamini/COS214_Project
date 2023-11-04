@@ -111,8 +111,8 @@ void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::
         pizzas[r]->getDescription();
     }
 
-    setOperation("Food taken to table");
-    changed();
+    // setOperation("Food taken to table");
+    // changed();
 }
 
 // CHANGE
