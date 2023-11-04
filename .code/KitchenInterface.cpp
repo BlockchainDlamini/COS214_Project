@@ -3,11 +3,8 @@ using namespace std;
 
 KitchenInterface::KitchenInterface() {
     managerChef = make_shared<ManagerChef>();
-    managerChef->cycle();
-    shared_ptr<Kitchen> kitchen = managerChef;
-    while (!dynamic_pointer_cast<HeadChef>(kitchen))
-        kitchen = kitchen->getNextChef();
-    headChef = dynamic_pointer_cast<HeadChef>(kitchen);
+    headChef = dynamic_pointer_cast<HeadChef>(managerChef->cycle());
+    headChef->setNextChef(managerChef);
 }
 
 shared_ptr<Kitchen> KitchenInterface::getKitchenReference() {
