@@ -83,7 +83,7 @@ public:
      */
     void setNextChef(shared_ptr<Kitchen> chef);
 
-    virtual void cycle();
+    virtual shared_ptr<Kitchen> cycle();
 };
 
 #endif
