@@ -12,7 +12,6 @@
 #include <iostream>
 using namespace std;
 
-//TODO:This class has not been tested
 /**
  * @class Menu
  * @brief A class to represent the menu.
