@@ -29,12 +29,6 @@ public:
     RegularWaiter(int Id, std::vector<int> assignedTables, shared_ptr<Floor> floorObj);
     
     /**
-    * @brief Assign a table to the waiter.
-    * @param table A shared pointer to the table to be assigned.
-    */
-    void assignTable(std::shared_ptr<table> table);
-    
-    /**
     * @brief Take an order from a table.
     * @param tableId The identifier of the table for which the order is being taken.
     */
@@ -50,7 +44,8 @@ public:
     * @brief Take an order to the table of customers.
     * @param pizzasForTable the vector of pizzas returned from the kitchen.
     */
-    void takeOrderToTable(std::vector<std::shared_ptr<Pizza>> pizzasForTable);
+    // void takeOrderToTable(std::vector<std::shared_ptr<Pizza>> pizzasForTable);
+    void takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>);
     
     /**
     * @brief Deals with the customers and paying the bill.

@@ -63,7 +63,6 @@ void RegularWaiter::takeOrder(int tableId)
     vector<shared_ptr<Customer>> customers = table->getCustomers();
 
     std::vector<std::pair<int, std::shared_ptr<Order>>> vectorForKitchen;
-    std::pair<int, std::vector<std::shared_ptr<std::pair<int, std::shared_ptr<Pizza>>>>> ordersForATable;
 
     for (auto customer : customers) {
         // null check
@@ -84,37 +83,32 @@ pair<int, vector<shared_ptr<Order>>> RegularWaiter::getForKitchen()
     return forKitchen;
 }
 
-void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable)
+// pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>>
+// void RegularWaiter::takeOrderToTable(vector<shared_ptr<Pizza>> pizzasForTable)
+void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order)
 {
-    this->pizzasForTable = pizzasForTable;
-    // iterate through this waiters tables' customers
+    // extracted pizzas
+    std::vector<std::shared_ptr<Pizza>> pizzas = order.second;
+    this->pizzasForTable = pizzas;
+
+    // extracted ints
+    std::vector<int> ints;
+    for (const auto& pairPtr : order) {
+        int intValue = pairPtr->first;
+        ints.push_back(intValue);
+    }
+
 
     cout << "the waiter is in takeOrderToTable()" << endl;
-
+    // get table with the customers sitting there
     shared_ptr<table> table = floorObject->getTable(tableID);
-
-    // shared_ptr<table> table = floorObject.getTable(tableID);
-
     vector<shared_ptr<Customer>> customers = table->getCustomers();
 
-    // cout << "Customer size: " << customers.size() << endl;
-    // cout << "pizzasForTable: " << pizzasForTable.size() << endl;
 
-    for (unsigned int r = 0; r < customers.size(); r++)
+    for (unsigned int r = 0; r < pizzas.size(); r++)
     {
-
-        // cout<<"in for: " << r <<endl;
-
-        // if(customers[r] != NULL && pizzasForTable[r] != NULL){
-        // customers[r]->receiveOrder(pizzasForTable[r]);
-        cout << "Customer: " << customers[r]->getID() << " received order: ";
-        // cout <<
-        pizzasForTable[r]->getDescription();
-
-        // payBill();
-
-        // SEG
-        // cout<<"exiting ------";
+        cout << "Customer: " << ints[r] << " received order: ";
+        pizzas[r]->getDescription();
     }
 
     setOperation("Food taken to table");
