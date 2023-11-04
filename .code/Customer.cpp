@@ -1,15 +1,15 @@
 #include "Customer.h"
 using namespace std;
 
-// switched datatypes passed in
-Customer::Customer(int id, float bankAmount) : gameElement()
+//switched datatypes passed in
+Customer::Customer( int id,float bankAmount) : gameElement()
 {
     bankAccountAmount = bankAmount; // each customer brings R1000 when they come to restaurant
     ID = id;
     tabID = "No Tab";
     // this->tableNum = tableNum;
 }
-// changed the paramter of bankAccountAmount from int to float
+//changed the paramter of bankAccountAmount from int to float
 Customer::Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount) : gameElement()
 {
     this->mood = mood;
@@ -19,10 +19,6 @@ Customer::Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount) 
 Customer::Customer(float bankAccount)
 {
     bankAccountAmount = bankAccount;
-}
-void Customer::setManager(shared_ptr<Kitchen> ptr)
-{
-    kitchen = ptr;
 }
 void Customer ::changeMood()
 {
@@ -100,14 +96,12 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
 }
 bool Customer::isLoyal()
 {
-    if (tab == nullptr)
+    int random = getRandomNumber();
+    if (random <= 50)
     {
         return false;
     }
-    else
-    {
-        return true;
-    }
+    return true;
 }
 void Customer::startTab()
 {
@@ -121,7 +115,7 @@ void Customer::payTab()
     {
         bankAccountAmount = tab->getTotal();
         tab->clearTab();
-        cout << "CustomerID: [" + to_string(myID) + " has cleared his tab" << endl;
+        cout << "CustomerID: [" + to_string(1) + " has cleared his tab" << endl;
     }
 }
 string Customer::printBill()
@@ -142,62 +136,11 @@ string Customer::printBill()
     return output;
 }
 
-vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
-{
-    vector<shared_ptr<MenuItemCommand>> result;
-    int pizza;
-    bool start = true;
-    string size;
-    string done;
-    cout << "Please choose a pizza from the predefined menu" << endl;
-    while (start)
-    {
-        cout << "Pick a size for your pizza \n1.Large\n2.Medium\n3.Small" << endl;
-        cin >> size;
-        cout << "1.Mozzarella Pizza R120" << endl;
-        cout << "2.Pepperoni Pizza R122" << endl;
-        cout << "3.Cheesy Pizza R69" << endl;
-        switch (pizza)
-        {
-        case 1:
-            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-            result.push_back(make_shared<MakeMozzarella>(kitchen));
-            total += 120;
-            break;
-        case 2:
-            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-            result.push_back(make_shared<MakePepperoni>(kitchen));
-            total += 122;
-            break;
-        case 3:
-            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-            result.push_back(make_shared<MakeMozzarella>(kitchen));
-            result.push_back(make_shared<MakeParmesan>(kitchen));
-            result.push_back(make_shared<MakeCheddar>(kitchen));
-            total += 69;
-            break;
-        case 4:
-            result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
-            result.push_back(make_shared<MakeChicken>(kitchen));
-            total += 42069;
-            break;
-        }
-        if (done == "yes" || done == "Yes")
-        {
-            start = true;
-        }
-        else
-        {
-            start = false;
-        }
-    }
-    return result;
-}
 
 vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own pizza
 {
     vector<shared_ptr<MenuItemCommand>> result;
-    bool done;
+    bool done = 0;
     int base = 0;
     int topping = 0;
     int sauce = 0;
@@ -447,11 +390,11 @@ void Customer::createOrder()
         cin >> build;
         if (build == "Yes" || build == "yes")
         {
-            std::shared_ptr<Order> order = make_shared<Order>(ID, total);
+            std::shared_ptr<Order> order = make_shared<Order>(ID);
             order->addMenuItems(addMenuItems());
             orders.push_back(order);
             orderCount++;
-            std::cout << "Order No." + to_string(orderCount) + " has been added to your cart of orders for Customer [" + to_string(myID) + "]" << endl;
+            std::cout << "Order: " + to_string(orderCount) + " has been added" << endl;
             cout << "Would you like to make another order?" << endl;
             cin >> choice;
             if (choice == "yes" || choice == "Yes")
@@ -465,8 +408,8 @@ void Customer::createOrder()
         }
         else
         {
-            std::shared_ptr<Order> order = make_shared<Order>(ID, total);
-            std::cout << "Order No. " + to_string(orderCount) + " has been added to your cart of orders for Customer [" + to_string(myID) + "]" << endl;
+            std::shared_ptr<Order> order = make_shared<Order>(ID);
+            std::cout << "Order: " + to_string(orderCount) + " has been added" << endl;
             cout << "Would you like to make another order?" << endl;
             cin >> choice;
             if (choice == "yes" || choice == "Yes")
@@ -479,8 +422,6 @@ void Customer::createOrder()
             }
         }
     }
-    changedOrderProcessState();
-    changed();
 }
 
 void Customer::beSeated(int table)
@@ -518,17 +459,21 @@ std::shared_ptr<OrderProcessState> Customer::getOrderProcessState()
 {
     return orderProcess;
 }
-std::vector<std::shared_ptr<Order>> Customer::getOrders()
+vector<pair<int, shared_ptr<Order>>> Customer::getOrders()
 {
-    return this->orders;
+    vector<pair<int, shared_ptr<Order>>> vec;
+    for (auto val = orders.begin(); val != orders.end(); val++)
+        vec.push_back(make_pair(ID, *val));
+    return vec;
 }
 
-bool Customer::receiveOrder(shared_ptr<Pizza> pizza)
+bool Customer::receiveOrder(vector<shared_ptr<Pizza>> pizza)
 {
-    if (pizza != nullptr)
+    if (!pizza.empty())
     {
         this->pizza = pizza;
-        tab->setDescription(pizza->getDescription());
+        for(auto it = pizza.begin(); it != pizza.end(); it++)
+            tab->setDescription((*it)->getDescription());
         hasFood = true;
         changedOrderProcessState(); // change state to orderReceived from waiting
         return true;
@@ -545,9 +490,10 @@ int Customer::getID()
 {
     return ID;
 }
+////
 void Customer::hasPizza()
 {
-    if (pizza != nullptr)
+    if (!pizza.empty())
     {
         hasFood = true;
     }
@@ -575,17 +521,18 @@ std::shared_ptr<Tab> Customer::getTab()
     return tab;
 }
 
-void Customer::talkToWaiter()
-{
-    setOperation("GIVEORDER");
-    hasOrdered = true;
-    changedOrderProcessState(); // change state to waiting from preorder
-    changed();                  // changed();
-}
-
 void Customer::setKitchenReference(shared_ptr<Kitchen> ptr)
 {
     kitchen = ptr;
+}
+
+
+void Customer::talkToWaiter()
+{
+    setOperation("giveorder");
+    hasOrdered = true;
+    changedOrderProcessState(); // change state to waiting from preorder
+    changed();                  // changed();
 }
 
 void Customer::getKitchenReference()

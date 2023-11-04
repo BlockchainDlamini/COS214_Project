@@ -5,17 +5,12 @@
 #ifndef WAITER_H
 #define WAITER_H
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include "Customer.h"
-#include "gameElement.h"
-#include "table.h"
+#include "findSpaceVisitor.h"//BOBS ADDITION
 
 using namespace std;
 
 /**
- * @class Waiter
+ * @class Waiter class
  * @brief Represents a waiter responsible for taking orders, delivering food, and processing payments.
  */
 class Waiter : public enable_shared_from_this<Waiter>, public gameElement {

@@ -1,154 +1,60 @@
-// // #include "Customer.cpp"
-// // #include "Happy.cpp"
-// // #include "Pizza.cpp"
-// // #include "Order.cpp"
-// // #include "Beef.cpp"
-// // #include "Peppers.cpp"
-// // #include "Pepperoni.cpp"
-// // #include "Parmesan.cpp"
-// // #include "Cheddar.cpp"
-// // #include "Cheese.cpp"
-// // #include "Ranch.cpp"
-// // #include "Olives.cpp"
-// // #include "Mushrooms.cpp"
-// // #include "Mozzarella.cpp"
-// // #include "Gouda.cpp"
-// // #include "DeepDish.cpp"
-// // #include "Chutney.cpp"
-// // #include "Chicken.cpp"
-// // #include "Boiled.cpp"
-// // #include "BlueCheese.cpp"
-// // #include "DoubleDecker.cpp"
-// // #include "SweetChilli.cpp"
-// // #include "StuffedCrust.cpp"
-// // #include "ThinCrust.cpp"
-// // #include "DinnerDone.cpp"
-// // #include "Preorder.cpp"
-// // #include "Satisfied.cpp"
-// // #include "Frustrated.cpp"
-// // #include "gameElement.cpp"
-// // #include "OrderReceived.cpp"
-// // #include "OrderMemento.cpp"
-// // #include "MenuItemCommand.cpp"
-// // #include "Tab.cpp"
-// // #include "Kitchen.cpp"
-// // #include "ManagerChef.cpp"
-// // #include "Base.cpp"
-// // #include "SauceChef.cpp"
-// // #include "Toppings.cpp"
-// // #include "ToppingsChef.cpp"
-// // #include "HeadChef.cpp"
-// // #include "EmotionState.cpp"
-// // #include "Disgruntaled.cpp"
-// // #include "OrderProcessState.cpp"
-// // #include "MakeBeef.cpp"
-// // #include "MakeCheese.cpp"
-// // #include "CheeseChef.cpp"
-// // #include "MakeBase.cpp"
-// // #include "MakeBlueCheese.cpp"
-// // #include "MakeBoiledCrust.cpp"
-// // #include "FireChef.cpp"
-// // #include "MakeCheddar.cpp"
-// // #include "MakeChicken.cpp"
-// // #include "MakeChutneySauce.cpp"
-// // #include "MakeDeepDish.cpp"
-// // #include "MakeDoubleDecker.cpp"
-// // #include "MakeGouda.cpp"
-// // #include "MakeMozzarella.cpp"
-// // #include "MakeMushrooms.cpp"
-// // #include "MakeOlives.cpp"
-// // #include "MakeParmesan.cpp"
-// // #include "MakePepperoni.cpp"
-// // #include "MakePeppers.cpp"
-// // #include "MakeRanch.cpp"
-// // #include "MakeSauce.cpp"
-// // #include "MakeStuffedCrust.cpp"
-// // #include "MakeSweetChilli.cpp"
-// // #include "Sauce.cpp"
-// // #include "MakeThinCrust.cpp"
-// // #include "MakeTomatoPaste.cpp"
-// // #include "MakeTopping.cpp"
-// // #include "Waiting.cpp"
-// // #include "TomatoPaste.cpp"
-// // #include "FoodItem.cpp"
-// // #include "BaseChef.cpp"
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include "gameElement.h"
 
-// #include "Mediator.h"
-// int main()
-// {
-//     shared_ptr<Customer> test = make_shared<Customer>(1000, 1);
-//     shared_ptr<Pizza> pizza = make_shared<Pizza>();
-//     shared_ptr<ManagerChef> ManaerChef = make_shared<ManagerChef>();
-//     ManaerChef->cycle();
-//     // Customer getting seated and starting his tab
-//     test->setManager(ManaerChef);
-//     test->beSeated(1);
-//     test->startTab();
 
-//     // Testing the Customer and Waiter interaction
-//     cout << test->printCustomer() << endl;
-//     test->createOrder();
-//     test->talkToWaiter();
-//     cout << test->printCustomer() << endl;
-//     test->receiveOrder(pizza);
-//     cout << test->printCustomer() << endl;
-//     test->payBill('P', 100);
-//     cout << test->printCustomer() << endl;
-//     cout << test->printBill() << endl;
+int k;
+double sin(), cos();
+void delay(int number_of_seconds)
+{
+    int milli_seconds 
+        = 1000 * number_of_seconds;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds)
+        ;
+}
+void hitch() {
+    float A = 0, B = 0, i, j, z[1760];
+    char b[1760];
+    printf("[2J");
+    for (; ; ) {
+        delay(30);//delay can be changed as per requirement to speed up the trasitions
+        memset(b, 32, 1760);
+        memset(z, 0, 7040);
+        for (j = 0; 6.28 > j; j += 0.07) {
+            for (i = 0; 6.28 > i; i += 0.02) {
+                float sini = sin(i),
+                    cosj = cos(j),
+                    sinA = sin(A),
+                    sinj = sin(j),
+                    cosA = cos(A),
+                    cosj2 = cosj + 2,
+                    mess = 1 / (sini * cosj2 * sinA + sinj * cosA + 5),
+                    cosi = cos(i),
+                    cosB = cos(B),
+                    sinB = sin(B),
+                    t = sini * cosj2 * cosA - sinj * sinA;
+                int x = 40 + 30 * mess * (cosi * cosj2 * cosB - t * sinB),
+                    y = 12 + 15 * mess * (cosi * cosj2 * sinB + t * cosB),
+                    o = x + 80 * y,
+                    N = 8 * ((sinj * sinA - sini * cosj * cosA) * cosB - sini * cosj * sinA - sinj * cosA - cosi * cosj * sinB);
+                if (22 > y && y > 0 && x > 0 && 80 > x && mess > z[o]) {
+                    z[o] = mess;
+                    b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+                }
+            }
+        }
+        printf("[d");
+        for (k = 0; 1761 > k; k++)
+            putchar(k % 80 ? b[k] : 10);
+        A += 0.04;
+        B += 0.02;
+    }
+}
 
-//     // the Emotion changes, starting from happy
-//     cout << "Starting From Happy" << endl;
-//     test->setEmotionState(std::make_shared<Happy>());
-//     test->changeMood();
-//     cout << test->printCustomer() << endl;
-//     test->changeMood();
-//     cout << test->printCustomer() << endl
-//        << endl;
-
-//     // the Emotion changes, starting from Frustrated
-//     cout << "Starting From Frustrated" << endl;
-//     test->setEmotionState(std::make_shared<Frustrated>());
-//     test->changeMood();
-//     cout << test->printCustomer() << endl;
-//     test->changeMood();
-//     cout << test->printCustomer() << endl
-//        << endl;
-
-//     // the Emotion changes, starting from Satisfied
-//     cout << "Starting From Satisfied" << endl;
-//     test->setEmotionState(std::make_shared<Satisfied>());
-//     test->changeMood();
-//     cout << test->printCustomer() << endl;
-//     test->changeMood();
-//     cout << test->printCustomer() << endl
-//        << endl;
-//     test->changedOrderProcessState();
-
-//     // the Emotion changes, starting from Disgruntaled
-//     cout << "Starting From Disgruntaled" << endl;
-//     test->setEmotionState(std::make_shared<Disgruntaled>());
-//     test->changeMood();
-//     cout << test->printCustomer() << endl;
-//     test->changeMood();
-//     cout << test->printCustomer() << endl
-//        << endl;
-
-//     cout << "Starting the Order Process" << endl;
-//     test->setOrderProcessState(std::make_shared<Preorder>());
-//     test->changedOrderProcessState();
-
-//     // Paying the bill
-//     test->requestBill();
-//     test->payBill('P', 100); // within the budget
-//     cout << test->printBill() << endl;
-
-//     // Paying the bill
-//     test->requestBill();
-//     test->payBill('T', 100);
-//     cout << test->printBill() << endl;
-
-//     cout << test->getTab()->listOutstandingOrders() << endl;
-//     cout << "HAVE FUN TESTING!!!!! " << endl;
-//     cout << ";-D... HAPPY CODING" << endl;
-//     return 0;
-// }
+int main()
+{
+    hitch();
+    return 0;
+}

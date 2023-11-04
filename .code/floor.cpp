@@ -127,7 +127,7 @@ void Floor::unmerdgeTiles() //works without customers
     std::shared_ptr<myIterator> curr = theFloor->getDepthIterator();
     std::vector<std::shared_ptr<floorComponent>> mergedTables;
     std::vector<std::shared_ptr<floorComponent>> hidenTables;
-    int temp;
+    int temp =0;
     
     //Finding the tables to merdge
     while(curr->hasNext())
