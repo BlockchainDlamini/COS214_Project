@@ -61,11 +61,11 @@ void Customer::logComplaint()
 {
     if (mood->getEmotion() == "Disgruntaled" || mood->getEmotion() == "Frustrated")
     {
-        cout << complaints[randomNumberForMessages()] << endl;
+        cout << "Customer: " + name + " has left the following complaint:" << complaints[randomNumberForMessages()] << endl;
     }
     else if (mood->getEmotion() == "Happy" || mood->getEmotion() == "Satisfied")
     {
-        cout << happyMessages[randomNumberForMessages()] << endl;
+        cout << "Customer: " + name + "has left the following message: " << happyMessages[randomNumberForMessages()] << endl;
     }
 }
 void Customer::changedOrderProcessState()
@@ -88,13 +88,13 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
         {
             if (bankAccountAmount < total)
             {
-                cout << "Customer cannot pay the bill, insufficient funds" << endl;
+                cout << "Customer [" + name + "] cannot pay the bill, insufficient funds" << endl;
             }
             else
             {
                 float tip = total + (total * mood->getTip());
                 bankAccountAmount = bankAccountAmount - (total + tip);
-                cout << "Customer has paid the bill, as the payment was accepted" << endl;
+                cout << "Customer [" + name + "] has paid the bill, as the payment was accepted" << endl;
             }
         }
         else if (c == 'T' || c == 't' && isLoyal() == true) // has a tab and wants to add to tab
@@ -111,7 +111,7 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
         }
         else if (c == 'T' || c == 't' && isLoyal() == false) // doesn't have a tab but wants to add
         {
-            cout << "The Customer [" + to_string(myID) + "] is not a loyal customer" << endl;
+            cout << "The Customer [" + name + "] is not a loyal customer" << endl;
         }
         else
         {
@@ -120,9 +120,10 @@ void Customer::payBill(char c, float t) // returns true if the customer has eith
     }
     else
     {
-        cout << "Customer has not received the bill from the waiter" << endl;
+        cout << "Customer: [" + name + "] has not received the bill from the waiter" << endl;
     }
     leave();
+    logComplaint();
 }
 bool Customer::isLoyal()
 {
@@ -154,6 +155,10 @@ void Customer::payTab()
     {
         bankAccountAmount = tab->getTotal();
         tab->clearTab();
+        cout << "Customer Name: [" + name + "] has cleared his tab" << endl;
+    }
+    else
+    {
         cout << "Customer Name: [" + name + "] has cleared his tab" << endl;
     }
 }
@@ -211,33 +216,33 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
         }
         switch (base)
         {
-            case 1:
-                cout << "You have chosen Stuffed-crust" << endl;
-                total += 34;
-                result.push_back(make_shared<MakeStuffedCrust>(kitchen, size));
-                break;
-            case 2:
-                cout << "You have chosen Thin crust" << endl;
-                total += 45;
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                break;
-            case 3:
-                cout << "You have chosen Double-Decker" << endl;
-                total += 68;
-                result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
-                break;
-            case 4:
-                cout << "You have chosen Boiled Crust" << endl;
-                total += 52;
-                result.push_back(make_shared<MakeBoiledCrust>(kitchen, size));
-                break;
-            case 5:
-                cout << "You have chosen Deep-dish" << endl;
-                total += 89;
-                result.push_back(make_shared<MakeDeepDish>(kitchen, size));
-                break;
-            default:
-                start = false;
+        case 1:
+            cout << "You have chosen Stuffed-crust" << endl;
+            total += 34;
+            result.push_back(make_shared<MakeStuffedCrust>(kitchen, size));
+            break;
+        case 2:
+            cout << "You have chosen Thin crust" << endl;
+            total += 45;
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            break;
+        case 3:
+            cout << "You have chosen Double-Decker" << endl;
+            total += 68;
+            result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
+            break;
+        case 4:
+            cout << "You have chosen Boiled Crust" << endl;
+            total += 52;
+            result.push_back(make_shared<MakeBoiledCrust>(kitchen, size));
+            break;
+        case 5:
+            cout << "You have chosen Deep-dish" << endl;
+            total += 89;
+            result.push_back(make_shared<MakeDeepDish>(kitchen, size));
+            break;
+        default:
+            start = false;
         }
 
         while (startSauce && sauceCount <= 4)
@@ -250,31 +255,31 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cin >> sauce;
             if (sauce > 4)
             {
-                cout << "Please enter a valid number. 1-5" << endl;
+                cout << "Please enter a valid number. 1-4" << endl;
                 cin >> sauce;
             }
             switch (sauce)
             {
-                case 1:
-                    cout << "You have chosen Sweet-chilli" << endl;
-                    total += 76;
-                    result.push_back(make_shared<MakeSweetChilli>(kitchen));
-                    break;
-                case 2:
-                    cout << "You have chosen Ranch" << endl;
-                    total += 63;
-                    result.push_back(make_shared<MakeRanch>(kitchen));
-                    break;
-                case 3:
-                    cout << "You have chosen Tomato Paste" << endl;
-                    total += 47;
-                    result.push_back(make_shared<MakeTomatoPaste>(kitchen));
-                    break;
-                case 4:
-                    cout << "You have chosen Chutney sauce" << endl;
-                    total += 85;
-                    result.push_back(make_shared<MakeChutneySauce>(kitchen));
-                    break;
+            case 1:
+                cout << "You have chosen Sweet-chilli" << endl;
+                total += 76;
+                result.push_back(make_shared<MakeSweetChilli>(kitchen));
+                break;
+            case 2:
+                cout << "You have chosen Ranch" << endl;
+                total += 63;
+                result.push_back(make_shared<MakeRanch>(kitchen));
+                break;
+            case 3:
+                cout << "You have chosen Tomato Paste" << endl;
+                total += 47;
+                result.push_back(make_shared<MakeTomatoPaste>(kitchen));
+                break;
+            case 4:
+                cout << "You have chosen Chutney sauce" << endl;
+                total += 85;
+                result.push_back(make_shared<MakeChutneySauce>(kitchen));
+                break;
             }
             if (sauceCount < 5)
             {
@@ -283,6 +288,10 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
                 if (choice == "yes" || choice == "Yes" || choice == "y")
                 {
                     startSauce = true;
+                }
+                else if (choice == "no" || choice == "NO" || choice == "n")
+                {
+                    startSauce = false;
                 }
                 else
                 {
@@ -300,43 +309,43 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cout << "5.Beef: R69" << std::endl;
             std::cout << "6.Peppers: R94" << std::endl;
             std::cin >> topping;
-            if (topping > 4)
+            if (topping > 6)
             {
-                cout << "Please enter a valid number. 1-5" << endl;
+                cout << "Please enter a valid number. 1-6" << endl;
                 cin >> topping;
             }
             switch (topping)
             {
-                case 1:
-                    cout << "You have chosen Pepperoni" << endl;
-                    total += 91;
-                    result.push_back(make_shared<MakePepperoni>(kitchen));
-                    break;
-                case 2:
-                    cout << "You have chosen Olives" << endl;
-                    total += 73;
-                    result.push_back(make_shared<MakeOlives>(kitchen));
-                    break;
-                case 3:
-                    cout << "You have chosen Mushrooms" << endl;
-                    total += 58;
-                    result.push_back(make_shared<MakeMushrooms>(kitchen));
-                    break;
-                case 4:
-                    cout << "You have chosen Chicken" << endl;
-                    total += 82;
-                    result.push_back(make_shared<MakeChicken>(kitchen));
-                    break;
-                case 5:
-                    cout << "You have chosen Beef" << endl;
-                    total += 69;
-                    result.push_back(make_shared<MakeBeef>(kitchen));
-                    break;
-                case 6:
-                    cout << "You have chosen Peppers" << endl;
-                    total += 94;
-                    result.push_back(make_shared<MakePeppers>(kitchen));
-                    break;
+            case 1:
+                cout << "You have chosen Pepperoni" << endl;
+                total += 91;
+                result.push_back(make_shared<MakePepperoni>(kitchen));
+                break;
+            case 2:
+                cout << "You have chosen Olives" << endl;
+                total += 73;
+                result.push_back(make_shared<MakeOlives>(kitchen));
+                break;
+            case 3:
+                cout << "You have chosen Mushrooms" << endl;
+                total += 58;
+                result.push_back(make_shared<MakeMushrooms>(kitchen));
+                break;
+            case 4:
+                cout << "You have chosen Chicken" << endl;
+                total += 82;
+                result.push_back(make_shared<MakeChicken>(kitchen));
+                break;
+            case 5:
+                cout << "You have chosen Beef" << endl;
+                total += 69;
+                result.push_back(make_shared<MakeBeef>(kitchen));
+                break;
+            case 6:
+                cout << "You have chosen Peppers" << endl;
+                total += 94;
+                result.push_back(make_shared<MakePeppers>(kitchen));
+                break;
             }
             if (sauceTopping < 7)
             {
@@ -346,9 +355,12 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
                 {
                     startTopping = true;
                 }
+                else if (choice == "no" || choice == "NO" || choice == "n")
+                {
+                    startTopping = false;
+                }
                 else
                 {
-
                     startTopping = false;
                 }
             }
@@ -369,31 +381,31 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             }
             switch (cheese)
             {
-                case 1:
-                    cout << "You have chosen Mozzarella" << endl;
-                    total += 87;
-                    result.push_back(make_shared<MakeMozzarella>(kitchen));
-                    break;
-                case 2:
-                    cout << "You have chosen Cheddar" << endl;
-                    total += 72;
-                    result.push_back(make_shared<MakeMozzarella>(kitchen));
-                    break;
-                case 3:
-                    cout << "You have chosen Gouda" << endl;
-                    total += 56;
-                    result.push_back(make_shared<MakeGouda>(kitchen));
-                    break;
-                case 4:
-                    cout << "You have chosen Parmesan" << endl;
-                    total += 81;
-                    result.push_back(make_shared<MakeParmesan>(kitchen));
-                    break;
-                case 5:
-                    cout << "You have chosen Blue Cheese" << endl;
-                    total += 96;
-                    result.push_back(make_shared<MakeBlueCheese>(kitchen));
-                    break;
+            case 1:
+                cout << "You have chosen Mozzarella" << endl;
+                total += 87;
+                result.push_back(make_shared<MakeMozzarella>(kitchen));
+                break;
+            case 2:
+                cout << "You have chosen Cheddar" << endl;
+                total += 72;
+                result.push_back(make_shared<MakeMozzarella>(kitchen));
+                break;
+            case 3:
+                cout << "You have chosen Gouda" << endl;
+                total += 56;
+                result.push_back(make_shared<MakeGouda>(kitchen));
+                break;
+            case 4:
+                cout << "You have chosen Parmesan" << endl;
+                total += 81;
+                result.push_back(make_shared<MakeParmesan>(kitchen));
+                break;
+            case 5:
+                cout << "You have chosen Blue Cheese" << endl;
+                total += 96;
+                result.push_back(make_shared<MakeBlueCheese>(kitchen));
+                break;
             }
             if (sauceCheese < 6)
             {
@@ -434,28 +446,28 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
         cin >> pizza;
         switch (pizza)
         {
-            case 1:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakeMozzarella>(kitchen));
-                total += 120;
-                break;
-            case 2:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakePepperoni>(kitchen));
-                total += 122;
-                break;
-            case 3:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakeMozzarella>(kitchen));
-                result.push_back(make_shared<MakeParmesan>(kitchen));
-                result.push_back(make_shared<MakeCheddar>(kitchen));
-                total += 69;
-                break;
-            case 4:
-                result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
-                result.push_back(make_shared<MakeChicken>(kitchen));
-                total += 42069;
-                break;
+        case 1:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakeMozzarella>(kitchen));
+            total += 120;
+            break;
+        case 2:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakePepperoni>(kitchen));
+            total += 122;
+            break;
+        case 3:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakeMozzarella>(kitchen));
+            result.push_back(make_shared<MakeParmesan>(kitchen));
+            result.push_back(make_shared<MakeCheddar>(kitchen));
+            total += 69;
+            break;
+        case 4:
+            result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
+            result.push_back(make_shared<MakeChicken>(kitchen));
+            total += 42069;
+            break;
         }
         if (done == "yes" || done == "Yes")
         {
