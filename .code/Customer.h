@@ -40,6 +40,7 @@ private:
     vector<shared_ptr<Pizza>> pizza;                /**< The pizza ordered by the customer. */
     vector<shared_ptr<Order>> orders;               /**< A vector of customer's orders. */
     shared_ptr<Kitchen> kitchen;
+    string name; /**<The name of the customer*/
 
 public:
     /**
@@ -49,7 +50,8 @@ public:
      */
 
     // switched datatypes passed in
-    void setManager(shared_ptr<Kitchen>);
+    void setName(string name);
+    string getName();
     Customer(int id, float bankAccountAmount);
 
     /**

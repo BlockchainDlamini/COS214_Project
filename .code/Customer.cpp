@@ -1,5 +1,13 @@
 #include "Customer.h"
 using namespace std;
+string Customer::getName()
+{
+    return name;
+}
+void Customer::setName(string name)
+{
+    this->name = name;
+}
 Customer::Customer(int id, float bankAmount) : gameElement()
 {
     bankAccountAmount = bankAmount;
@@ -409,7 +417,7 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
 vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
 {
     vector<shared_ptr<MenuItemCommand>> result;
-    int pizza;
+    int pizza = 0;
     bool start = true;
     string size;
     string done;
@@ -421,6 +429,7 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
         cout << "1.Mozzarella Pizza R120" << endl;
         cout << "2.Pepperoni Pizza R122" << endl;
         cout << "3.Cheesy Pizza R69" << endl;
+        cin >> pizza;
         switch (pizza)
         {
         case 1:
