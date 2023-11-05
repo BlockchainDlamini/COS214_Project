@@ -7,4 +7,5 @@ file(GLOB SOURCES
         *.h
         *.cpp
         )
+
 add_executable(COS214_Project ${SOURCE_FILES} ${SOURCES})

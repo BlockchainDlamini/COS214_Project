@@ -1,4 +1,6 @@
 #include "ToppingsChef.h"
+#include <thread>
+
 ToppingsChef::ToppingsChef()
 {
     nextChef = make_shared<HeadChef>();
@@ -72,6 +74,7 @@ void ToppingsChef::displayToppingsArt() {
         std::string line = "";
         // Read and display each line of the file with color
         while (std::getline(file, line)) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));
             std::cout << BROWN_COLOR << line << RESET_COLOR << std::endl;
         }
         file.close(); // Close the file when done

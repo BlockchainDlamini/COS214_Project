@@ -14,7 +14,7 @@ void Pager::addGameElement(std::shared_ptr<gameElement>element) {
 }
 
 void Pager::addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
-    cout << "GameElements added" << endl;
+    //cout << "GameElements added" << endl;
     for (const auto& element : elements) {
         listOfElements.push_back(element);
     }

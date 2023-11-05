@@ -1,4 +1,5 @@
 #include "CheeseChef.h"
+#include <thread>
 
 CheeseChef::CheeseChef()
 {
@@ -21,6 +22,7 @@ void CheeseChef::displayCheeseArt() {
         std::string line = "";
         // Read and display each line of the file with color
         while (std::getline(file, line)) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));
             std::cout << YELLOW_COLOR << line << RESET_COLOR << std::endl;
         }
         file.close(); // Close the file when done

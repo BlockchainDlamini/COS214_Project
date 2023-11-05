@@ -91,7 +91,7 @@ public:
      * @param t The total bill amount.
      * @return True if the bill is paid, false if added to the tab.
      */
-    void payBill(char c, float t);
+    void payBill(char c, float t, bool check);
 
     /**
      * @brief Check if the customer is loyal.

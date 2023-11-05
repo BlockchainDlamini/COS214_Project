@@ -18,15 +18,18 @@ float Pizza::getPrice() {
 string Pizza::getDescription() {
     string description ="";
     description += "ITEMS:\n";
-    description += base->toString();
+    description += base->toString() + "\n";
     for (shared_ptr<FoodItem> item : cheeseList) {
         description += item->toString();
+        description += "\n";
     }
     for (shared_ptr<FoodItem> item : sauceList) {
         description += item->toString();
+        description += "\n";
     }
     for (shared_ptr<FoodItem> item : toppingsList) {
         description += item->toString();
+        description += "\n";
     }
     return description;
 }

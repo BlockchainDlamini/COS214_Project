@@ -102,11 +102,11 @@ int table::acceptVisitor(std::shared_ptr<visitor> visitor)
 std::vector<std::shared_ptr<Customer>> table::getCustomers()
 {
   
-    cout<<"\n\n" << id << endl;
+    /*cout<<"\n\n" << id << endl;
     if (customers.empty())
     {
         cout << "***********************WAFFLE***********************" << endl;
-    }
+    }*/
     return customers;
 }
 

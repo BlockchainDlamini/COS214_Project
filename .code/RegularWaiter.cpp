@@ -46,8 +46,8 @@ shared_ptr<RegularWaiter> RegularWaiter::waiterResponsible(int tableId)
 
 void RegularWaiter::takeOrder(int tableId)
 {
-    cout << "in the waiter::takeOrder class" << endl;
-    cout << "table: " << tableId << endl;
+    //cout << "in the waiter::takeOrder class" << endl;
+    //cout << "table: " << tableId << endl;
 
     shared_ptr<RegularWaiter> waiter = waiterResponsible(tableId);
 
@@ -63,13 +63,13 @@ void RegularWaiter::takeOrder(int tableId)
     // iterate through this waiters tables' customers
 
     // get the correct table from the floor
-    cout << "calling getTableAt()" << endl;
+    //cout << "calling getTableAt()" << endl;
     shared_ptr<table> table = floorObject->getTableAt(tableId);
-    cout << "call success" << endl;
+    //cout << "call success" << endl;
 
-    cout << "call getCustomers()" << endl;
+    //cout << "call getCustomers()" << endl;
     vector<std::shared_ptr<Customer>> customers = table->getCustomers();
-    cout << "call success" << endl;
+    //cout << "call success" << endl;
 
     vector<pair<int, shared_ptr<Order>>> vectorForKitchen;
     //pair<int, vector<pair<int, shared_ptr<Order>>>> ordersForATable;
@@ -219,19 +219,19 @@ void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::s
                 if (customer->isLoyal())
                 {
                     cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
-                    customer->payBill( 'T',floatValue);
+                    customer->payBill( 'T',floatValue, false);
                 }
                 else
                 {
                     customer->startTab();
                     cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
-                    customer->payBill('T',floatValue);
+                    customer->payBill('T',floatValue, false);
                 }
             }
             else
             {
                 cout << "Paying the bill of amount: " << orderAmount << endl;
-                customer->payBill('P', floatValue);
+                customer->payBill('P', floatValue, false);
             }
             // SEG
 
@@ -248,9 +248,25 @@ void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::s
         float floatValue = std::stof(orderAmountStr);
 
         cout << "Customer " << customers[0]->getID() << " amount due: " << orderAmount << endl;
-        customers[0]->payBill('P',floatValue); // orderAmount
+        customers[0]->payBill('P',floatValue, false); // orderAmount
     }
+
+    customers[0]->payBill('P', 0.0, true);
+
+
+    //leave();
 }
+
+
+
+void RegularWaiter::leave()
+{
+    setOperation("LEAVE");
+    changed();
+    cout << "Customer has left" << endl;
+}
+
+
 
 string RegularWaiter::get()
 {

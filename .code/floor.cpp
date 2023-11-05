@@ -1,6 +1,7 @@
 #include "floor.h"
 #include "findSpaceVisitor.h"
 #include <iostream>
+#include <thread>
 
 Floor::Floor(int size, int seatingSpace) //Works correctly
 {
@@ -53,7 +54,20 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
             return false;
         }            
     }
-    std::cout<<"...Searching for a space"<<std::endl;
+
+    std::cout << "Please wait while we find a table for the customers";
+    std::this_thread::sleep_for(std::chrono::milliseconds(700));
+    std::cout << ".";
+    std::this_thread::sleep_for(std::chrono::milliseconds(700));
+    std::cout << ".";
+    std::this_thread::sleep_for(std::chrono::milliseconds(700));
+    std::cout << ".";
+    std::this_thread::sleep_for(std::chrono::milliseconds(700));
+    std::cout << ".";
+    
+    cout << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+
     std::shared_ptr<myIterator> curr = theFloor->getDepthIterator();
     int id=-1;
 
@@ -62,13 +76,15 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
         int temp = curr->currentItem()->acceptVisitor(std::make_shared<findSpaceVisitor>());
         if(temp>=customers.size())
         {
-            std::cout<<"Customer is being seated at: "<<curr->currentItem()->toString()<<std::endl;
+            //std::cout<<"Customer is being seated at: "<<curr->currentItem()->toString()<<std::endl;
             std::shared_ptr<table> tb = std::dynamic_pointer_cast<table>(curr->currentItem());
             tb->newCustomers(customers);
             tb->setIsSpaceAvailable(false);
             for (size_t i = 0; i < customers.size(); i++)
                 customers.at(i)->beSeated(tb->getID());
-            std::cout<<"The customers have been seated at table "<<tb->getID()<<std::endl;
+            //std::cout<<"The customers have been seated at table "<<tb->getID()<<std::endl;
+            std::cout << " ~ The customers have been seated at table " << tb->getID() << " ~ " << std::endl;
+
             return true;
         }
         curr->next();

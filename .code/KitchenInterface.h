@@ -21,13 +21,13 @@ public:
 
     /**
      * @brief Collect the prepared order from the kitchen.
-     * @return A pair containing the waiter ID and a vector of shared pointers to the prepared pizzas.
+     * @return A pair containing the order ID and a vector of shared pointers to the prepared pizzas.
      */
     pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> collectOrder();
 
     /**
      * @brief Delegate the order processing to the chefs.
-     * @param order A pair containing the waiter ID and a vector of pairs with customer ID and shared pointer to the Order object.
+     * @param order A pair containing the order ID and a vector of pairs with pizza ID and shared pointer to the Order object.
      */
     void delegateOrderProcess(pair<int, std::vector<pair<int, std::shared_ptr<Order>>>>);
     
@@ -37,10 +37,8 @@ public:
      */
     int getWaiterID();
 
-    /**
-    * @brief sets the GameEngine mediator in the class
-    * @ return none
-    */
+
+    //void printKitchenloop();
     void setGameEngine(shared_ptr<Pager>);
 
 private: 
