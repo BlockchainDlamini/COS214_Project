@@ -250,7 +250,7 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cin >> sauce;
             if (sauce > 4)
             {
-                cout << "Please enter a valid number. 1-5" << endl;
+                cout << "Please enter a valid number. 1-4" << endl;
                 cin >> sauce;
             }
             switch (sauce)
@@ -300,7 +300,7 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cout << "5.Beef: R69" << std::endl;
             std::cout << "6.Peppers: R94" << std::endl;
             std::cin >> topping;
-            if (topping > 4)
+            if (topping > 6)
             {
                 cout << "Please enter a valid number. 1-5" << endl;
                 cin >> topping;
