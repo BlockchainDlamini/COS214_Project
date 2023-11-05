@@ -20,7 +20,7 @@
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
-// forgoy yo link states and stuff
+
 class Customer : public gameElement, public enable_shared_from_this<Customer>
 {
 private:
@@ -150,8 +150,31 @@ public:
      */
     std::shared_ptr<EmotionState> getMood();
 
+    /**
+     * @brief Set the total cost of an item or order.
+     *
+     * This function allows you to specify the total cost, typically as a floating-point value, for an item or an order. The total cost represents the financial amount associated with the item or order.
+     *
+     * @param total The total cost to be set.
+     */
     void setTotal(float total);
+
+    /**
+     * @brief Get the unique identifier of an item or order.
+     *
+     * This function retrieves the unique identifier associated with the item or order and returns it as an integer value. The identifier is used to distinguish the item or order from others.
+     *
+     * @return The unique identifier of the item or order.
+     */
     int getID();
+
+    /**
+     * @brief Retrieve the total cost of an item or order.
+     *
+     * Use this function to obtain the total cost, typically as a floating-point value, associated with an item or order. The total cost represents the financial amount for the item or order.
+     *
+     * @return The total cost of the item or order.
+     */
     float getTotal();
 
     /**
@@ -181,7 +204,7 @@ public:
 
     bool hasOrdered = false; /**< A flag indicating whether the customer has placed an order. */
     bool hasBill = false;    /**< A flag indicating whether the customer has a bill. */
-    bool hasFood = false;
+    bool hasFood = false;    /**< A flag indicating whether the customer has their food. */
 
     /**
      * @brief Check if the customer has received food.
@@ -201,9 +224,12 @@ public:
      * @return it will return a vector of shared_ptr that point at MenuItemCommands
      */
     vector<shared_ptr<MenuItemCommand>> predefinedOrder();
+    /**
+     * @brief Initiate communication with the waiter.
+     *
+     * Use this function to signal the start of communication with the waiter. Depending on the context, it may involve requesting service, placing an order, or discussing specific requirements with the restaurant's staff.
+     */
     void talkToWaiter();
-
-    // shared_ptr<Customer> getMe();
 
     std::string generateRandomString(int length)
     {
