@@ -547,10 +547,6 @@ bool Customer::receiveOrder(vector<shared_ptr<Pizza>> pizza)
     if (!pizza.empty())
     {
         this->pizza = pizza;
-        for (auto it = pizza.begin(); it != pizza.end(); it++)
-        {
-            tab->setDescription((*it)->getDescription());
-        }
         hasFood = true;
         changedOrderProcessState(); // change state to orderReceived from waiting
         return true;
