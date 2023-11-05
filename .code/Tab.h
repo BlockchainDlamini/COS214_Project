@@ -1,7 +1,7 @@
 #ifndef Tab_H
 #define Tab_H
 
-#include "ManagerChef.h"//BOBS ADDITION
+#include "ManagerChef.h" //BOBS ADDITION
 
 /**
  * @class Tab
@@ -32,9 +32,23 @@ public:
      */
     bool payOrder();
 
-    void setID(string id);
+    /**
+     * @brief Set the identifier for an object.
+     *
+     * Use this function to set a unique identifier for an object, such as an entity or a record. The identifier should be a string that uniquely identifies the object.
+     *
+     * @param id The unique identifier to be associated with the object.
+     */
+    void setID(std::string id);
 
-    string getID();
+    /**
+     * @brief Get the identifier of the object.
+     *
+     * This function retrieves the unique identifier associated with the object and returns it as a string. The identifier helps in distinguishing the object from others.
+     *
+     * @return The unique identifier of the object as a string.
+     */
+    std::string getID();
 
     /**
      * @brief Add an OrderMemento to the tab.

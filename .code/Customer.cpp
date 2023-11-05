@@ -520,11 +520,11 @@ void Customer::setEmotionState(std::shared_ptr<EmotionState> mood)
 {
     this->mood = mood;
 }
-shared_ptr<Customer> Customer::getMe()
-{
+// shared_ptr<Customer> Customer::getMe()
+// {
 
-    return enable_shared_from_this<Customer>::shared_from_this();
-}
+//     return enable_shared_from_this<Customer>::shared_from_this();
+// }
 void Customer::setOrderProcessState(std::shared_ptr<OrderProcessState> orderProcess)
 {
     this->orderProcess = orderProcess;

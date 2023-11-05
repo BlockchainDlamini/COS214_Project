@@ -32,13 +32,13 @@ private:
     std::shared_ptr<Tab> tab = nullptr;                                        /**< The customer's tab for keeping track of orders. */
     int tableNum;
     // Create an array of shared_ptr to strings for complaints
-    std::shared_ptr<std::string> complaints[10];
+    std::shared_ptr<std::string> complaints[10]; /**an array of shared_ptr to strings for complaints for the Customer*/
 
     // Create an array of shared_ptr to strings for happyMessages
-    std::shared_ptr<std::string> happyMessages[10];
-    float total;                      /**< The table number where the customer is seated. */
-    vector<shared_ptr<Pizza>> pizza;  /**< The pizza ordered by the customer. */
-    vector<shared_ptr<Order>> orders; /**< A vector of customer's orders. */
+    std::shared_ptr<std::string> happyMessages[10]; /**an array of shared_ptr to strings for happyMessages for the Customer*/
+    float total;                                    /**< The table number where the customer is seated. */
+    vector<shared_ptr<Pizza>> pizza;                /**< The pizza ordered by the customer. */
+    vector<shared_ptr<Order>> orders;               /**< A vector of customer's orders. */
     shared_ptr<Kitchen> kitchen;
 
 public:
@@ -189,12 +189,21 @@ public:
      */
 
     void hasPizza();
-
+    /**
+     * @brief This function will show the menu for building the pizza. It will allow the customer to chose a variety of different base,toppings,sauce and cheese.
+     *
+     * @return it will return a vector of shared_ptr that point at MenuItemCommands
+     */
     vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
+    /**
+     * @brief This Function will allow the customer to pick a predefined pizza/ a basic pizza that does not require them to build a new pizza
+     *
+     * @return it will return a vector of shared_ptr that point at MenuItemCommands
+     */
     vector<shared_ptr<MenuItemCommand>> predefinedOrder();
     void talkToWaiter();
 
-    shared_ptr<Customer> getMe();
+    // shared_ptr<Customer> getMe();
 
     std::string generateRandomString(int length)
     {
@@ -239,10 +248,37 @@ public:
 
         return randomNum;
     }
+    /**
+     * @brief Get a shared pointer to a Tab object.
+     *
+     * This function returns a shared pointer to a Tab object, allowing you to interact with and manipulate the Tab's properties.
+     *
+     * @return A shared pointer to a Tab object.
+     */
     std::shared_ptr<Tab> getTab();
+
+    /**
+     * @brief Leave the restaurant or dining area.
+     *
+     * Use this function to signal that a customer is leaving the restaurant or dining area. It may involve clearing the table and making it available for the next customer.
+     */
     void leave();
+
+    /**
+     * @brief Get a reference to the Kitchen.
+     *
+     * This function provides access to the Kitchen associated with the restaurant. It allows you to interact with and obtain information from the Kitchen.
+     */
     void getKitchenReference();
-    void setKitchenReference(shared_ptr<Kitchen>);
+
+    /**
+     * @brief Set a reference to the Kitchen using a shared pointer.
+     *
+     * This function allows you to set a reference to the Kitchen by passing a shared pointer to a Kitchen object. This reference can be used to communicate with and access the Kitchen's functionality.
+     *
+     * @param kitchenPtr A shared pointer to a Kitchen object.
+     */
+    void setKitchenReference(std::shared_ptr<Kitchen> kitchenPtr);
 };
 
 #endif
