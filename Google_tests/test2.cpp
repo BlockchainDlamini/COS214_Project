@@ -4,10 +4,8 @@
 #include <limits.h>
 #include <memory>
 
-#include "gameElement.h"
-
 #include "lib/googletest/include/gtest/gtest.h"
-
+#include "gameElement.h"
 
 //
 class Mediator {
