@@ -1,0 +1,43 @@
+name: C/C++ CI
+
+on: 
+  push:
+    branches: [ "GTest" ]
+  pull_request:
+    branches: [ "GTest" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: sudo apt-get install libgtest-dev cmake
+
+    - name: Build
+      run: |
+        cd /usr/src/gtest
+        sudo cmake CMakeLists.txt
+        sudo make
+
+        # List files in the directory
+        ls -la
+
+        #copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
+        sudo cp lib/*.a /usr/lib
+
+        cd ${GITHUB_WORKSPACE}
+        mkdir build
+        cd build
+        cmake ..
+        make
+
+    - name: Test
+      run: |
+        # cd ${GITHUB_WORKSPACE}/build
+        cd ${GITHUB_WORKSPACE}/build/Google_tests
+        ls -la
+        ./Google_Tests_run
