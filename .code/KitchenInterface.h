@@ -37,8 +37,10 @@ public:
      */
     int getWaiterID();
 
-
-    //void printKitchenloop();
+    /**
+    * @brief sets the GameEngine mediator in the class
+    * @ return none
+    */
     void setGameEngine(shared_ptr<Pager>);
 
 private: 
