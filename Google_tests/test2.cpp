@@ -12,32 +12,55 @@
 //
 class Mediator {
 public:
-    /**
-    * @brief Notifies the mediator of a gameElement attempting to communicate with another gameElement.
-    * @param element The game element that would like to notify communicate with gameElement.
-    */
-    virtual void notify(gameElement* element);
+    void addGameElement(std::shared_ptr<gameElement>element) {
+        listOfElements.push_back(element);
+    }
+//
 
-    bool notified(gameElement* element);
+    void addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
+        cout << "GameElements added" << endl;
+        for (const auto& element : elements) {
+            listOfElements.push_back(element);
+        }
+    }
+    void notify(gameElement* element){
+        string temp = element->get();
+        transform(temp.begin(), temp.end(), temp.begin(), ::toupper);
 
-    /**
-    * @brief Add a game element to the list of elements.
-    * @param element The game element to be added.
-    */
-    void addGameElement(std::shared_ptr<gameElement> element);
-    bool contains(std::shared_ptr<gameElement> element);
+    }
 
-    /**
-    * @brief Add multiple game elements to the list of elements.
-    * @param elements The game elements to be added.
-    */
-    void addGameElements(std::vector<std::shared_ptr<gameElement>> elements);
+    void removeGameElement(std::shared_ptr<gameElement> element) {  //Still to be tested
+        auto it = listOfElements.begin();
+        while (it != listOfElements.end())
+        {
+            // remove odd numbers
+            if (*it == element) {
+                it = listOfElements.erase(it);
+            }
+            else {
+                ++it;
+            }
+        }
+    }
 
-    /**
-    * @brief Remove a game element from the list of elements.
-    * @param element The game element to be removed.
-    */
-    void removeGameElement(std::shared_ptr<gameElement> element);
+    void errorMessage(const string& message) {
+        cerr << "Error: " << message << "!";
+    }
+
+    bool notified(gameElement *element) {
+        string temp = element->get();
+        return (temp == "TestString");
+    }
+    bool contains(std::shared_ptr<gameElement> element){
+        for (auto i = listOfElements.begin(); i < listOfElements.end(); ++i) {
+            if (element == *(i)) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+//
 
 private:
     /**
@@ -49,64 +72,11 @@ private:
     const string noWaiterFound = "No Waiter found";
     const string specificWaiterNotFound = "Specific waiter not found";
 
-    /**
-    * @brief Outputs error messages to the user.
-    * @param message The specific message to be output
-    */
-    static void errorMessage(const string& message);
 
 };
 //
 
-void Mediator::addGameElement(std::shared_ptr<gameElement>element) {
-    listOfElements.push_back(element);
-}
-//
 
-void Mediator::addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
-    cout << "GameElements added" << endl;
-    for (const auto& element : elements) {
-        listOfElements.push_back(element);
-    }
-}
-void Mediator::notify(gameElement* element){
-    string temp = element->get();
-    transform(temp.begin(), temp.end(), temp.begin(), ::toupper);
-
-}
-
-void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Still to be tested
-    auto it = listOfElements.begin();
-    while (it != listOfElements.end())
-    {
-        // remove odd numbers
-        if (*it == element) {
-            it = listOfElements.erase(it);
-        }
-        else {
-            ++it;
-        }
-    }
-}
-
-void Mediator::errorMessage(const string& message) {
-    cerr << "Error: " << message << "!";
-}
-
-bool Mediator::notified(gameElement *element) {
-    string temp = element->get();
-    return (temp == "TestString");
-}
-bool Mediator::contains(std::shared_ptr<gameElement> element){
-    for (auto i = listOfElements.begin(); i < listOfElements.end(); ++i) {
-        if (element == *(i)) {
-            return true;
-        }
-    }
-    return false;
-
-}
-//
 
 
 shared_ptr<gameElement> gm = make_shared<gameElement>();
