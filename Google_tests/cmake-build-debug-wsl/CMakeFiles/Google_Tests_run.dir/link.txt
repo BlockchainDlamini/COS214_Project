@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/Google_Tests_run.dir/test1.o CMakeFiles/Google_Tests_run.dir/test2.o -o Google_Tests_run   -L"/mnt/g/Other computers/My computer/UP/COS 214 (Software Modelling)/Practicals/FinalTest/Google_tests/cmake-build-debug-wsl/lib"  lib/libgtest.a lib/libgtest_main.a lib/libgtest.a -lpthread 
