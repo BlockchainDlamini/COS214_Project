@@ -4,14 +4,14 @@
 
 #include "gameElement.h"
 
-#include "Mediator.h"
+#include "Pager.h"
 using namespace std;
 
 int gameElement::sharedID = 0;
 
-gameElement::gameElement(const shared_ptr<Mediator>& myGameEngine, int id) : gameEngine(myGameEngine), myID(id) {}
+gameElement::gameElement(const shared_ptr<Pager>& myGameEngine, int id) : gameEngine(myGameEngine), myID(id) {}
 
-gameElement::gameElement(const shared_ptr<Mediator>& myGameEngine) : gameEngine(myGameEngine) { myID = sharedID++; }
+gameElement::gameElement(const shared_ptr<Pager>& myGameEngine) : gameEngine(myGameEngine) { myID = sharedID++; }
 
 gameElement::gameElement() { myID = sharedID++; }
 
@@ -27,7 +27,7 @@ void gameElement::changed() {
     cout << "Object has no mediator" << endl;
 }
 
-void gameElement::setGameEngine(const shared_ptr<Mediator>& mediator) {
+void gameElement::setGameEngine(const shared_ptr<Pager>& mediator) {
     gameEngine = mediator;
 }
 

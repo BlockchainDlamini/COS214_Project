@@ -3,24 +3,24 @@
 //
 
 #include "KitchenInterface.h"
-#include "Mediator.h"
+#include "Pager.h"
 #include <string>
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
-void Mediator::addGameElement(std::shared_ptr<gameElement>element) {
+void Pager::addGameElement(std::shared_ptr<gameElement>element) {
     listOfElements.push_back(element);
 }
 
-void Mediator::addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
+void Pager::addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
     cout << "GameElements added" << endl;
     for (const auto& element : elements) {
         listOfElements.push_back(element);
     }
 }
 
-void Mediator::notify(gameElement* element) {
+void Pager::notify(gameElement* element) {
   
 
     string temp = element->get();
@@ -169,7 +169,7 @@ void Mediator::notify(gameElement* element) {
     }
 }
 
-void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Still to be tested
+void Pager::removeGameElement(std::shared_ptr<gameElement> element) {  //Still to be tested
     auto it = listOfElements.begin();
     while (it != listOfElements.end())
     {
@@ -183,6 +183,6 @@ void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Stil
     }
 }
 
-void Mediator::errorMessage(const string& message) {
+void Pager::errorMessage(const string& message) {
     cerr << "Error: " << message << "!";
 }

@@ -29,22 +29,22 @@ public:
     void seatCustomers(std::vector<std::shared_ptr<Customer>> customers);
 
     /**
-     * @brief Get function for Mediator.
-     * @details This function is used to get information from the Mediator.
-     * @return A string containing information from the Mediator.
+     * @brief Get function for Pager.
+     * @details This function is used to get information from the Pager.
+     * @return A string containing information from the Pager.
      */
     virtual string get();
 
     /**
-     * @brief Changed function for Mediator.
-     * @details This function is called when the Mediator needs to notify the MaitreD of a change.
+     * @brief Changed function for Pager.
+     * @details This function is called when the Pager needs to notify the MaitreD of a change.
      */
     //void changed();
 
     /**
-     * @brief Set function for Mediator.
-     * @details This function is used to send a request to the Mediator with a specified operation.
-     * @param op The operation to be performed by the Mediator.
+     * @brief Set function for Pager.
+     * @details This function is used to send a request to the Pager with a specified operation.
+     * @param op The operation to be performed by the Pager.
      */
     void setOperation(string op);
 

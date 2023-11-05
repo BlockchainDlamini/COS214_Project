@@ -45,7 +45,7 @@ void GameFacade::gameSetUp()
         cin >> tableSize;
     }
 
-    mediator = std::make_shared<Mediator>();
+    mediator = std::make_shared<Pager>();
 
     ;    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements(input);
     mediator->addGameElements(gmElements);
@@ -152,7 +152,7 @@ GameFacade::~GameFacade()
 }
 
 void GameFacade::runGame2() {
-    shared_ptr<Mediator> mediator1 = make_shared<Mediator>();
+    shared_ptr<Pager> mediator1 = make_shared<Pager>();
     shared_ptr<KitchenInterface> kitchenInterface = make_shared<KitchenInterface>();
    mediator1->addGameElement(kitchenInterface);
     shared_ptr<Customer> c =make_shared<Customer>(234);

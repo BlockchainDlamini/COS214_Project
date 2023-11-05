@@ -13,10 +13,10 @@
 class gameElement;
 class KitchenInterface;
 /**
- * @class Mediator
- * @brief A class to represent the mediator in the Mediator Design Pattern.
+ * @class Pager
+ * @brief A class to represent the mediator in the Pager Design Pattern.
  */
-class Mediator {
+class Pager {
 public:
     /**
     * @brief Notifies the mediator of a gameElement attempting to communicate with another gameElement.
