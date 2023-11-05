@@ -25,7 +25,7 @@ public:
      * @brief Changed function for Mediator.
      * @details This function is called when the Mediator needs to notify the Waiter of a change.
      */
-    virtual void changed() = 0;
+    //virtual void changed() = 0;
 
     /**
      * @brief Set function for Mediator.

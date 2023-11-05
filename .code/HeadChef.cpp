@@ -12,6 +12,8 @@ HeadChef::HeadChef() : Kitchen() {
 
 void HeadChef::handleOrder(int waiterID, int customerID, vector<shared_ptr<FoodItem>> order) {
     pizzaPairs.push_back(make_shared<pair<int, shared_ptr<Pizza>>>(customerID, bakePizza(order)));
+    //cout << "CHEF_ADDRESS::::::: " << this << endl;
+    //cout << getNextChef() << endl;
     if (!nextChef->ordersComplete()) {
         nextChef->handleOrder(waiterID);
     } else {

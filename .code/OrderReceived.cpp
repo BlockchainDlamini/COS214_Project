@@ -8,7 +8,7 @@ void OrderReceived::execute(Customer *context)
 
 void OrderReceived::handleChange(Customer *context)
 {
-    context->requestBill();
+    //context->requestBill();
     if (context->hasOrdered == true && context->hasBill == true && context->hasFood == true)
     {
         context->setOrderProcessState(make_shared<DinnerDone>());

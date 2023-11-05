@@ -30,12 +30,14 @@ vector<shared_ptr<Kitchen>> ManagerChef::getChefs()
 }
 void ManagerChef::handleOrder(pair<int, vector<pair<int, shared_ptr<Order>>>> pr)
 {
+	/*cout << "Manager" << endl;
+	cout << "CHEF_ADDRESS::::::: " << this << endl;*/
 	orders = pr.second;
-	while (!pr.second.empty())
+	if (!orders.empty())
 	{
 		vector<shared_ptr<FoodItem>> foods;
 		pair<int, shared_ptr<Order>> t = pr.second.back();
-		pr.second.pop_back();
+		orders.pop_back();
 		nextChef->handleOrder(pr.first,t.first, t.second->getFormula(), foods);
 	}
 }

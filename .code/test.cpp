@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "gameElement.h"
+#include "gameFacade.h"
 
-
-int k;
+/*int k;
 double sin(), cos();
 void delay(int number_of_seconds)
 {
@@ -17,7 +16,7 @@ void delay(int number_of_seconds)
 void hitch() {
     float A = 0, B = 0, i, j, z[1760];
     char b[1760];
-    printf("[2J");
+    printf("[2J");
     for (; ; ) {
         delay(30);//delay can be changed as per requirement to speed up the trasitions
         memset(b, 32, 1760);
@@ -45,16 +44,19 @@ void hitch() {
                 }
             }
         }
-        printf("[d");
+        printf("[d");
         for (k = 0; 1761 > k; k++)
             putchar(k % 80 ? b[k] : 10);
         A += 0.04;
         B += 0.02;
     }
-}
+}*/
 
 int main()
 {
-    hitch();
-    return 0;
+  GameFacade* gameFacade= new GameFacade();
+  gameFacade->runGame();
+//    hitch();
+//    return 0;
+
 }

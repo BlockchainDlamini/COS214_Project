@@ -44,12 +44,12 @@ public:
     * @brief Take an order to the table of customers.
     * @param pizzasForTable the vector of pizzas returned from the kitchen.
     */
-    void takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>);
+    void takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>, int tableId);
 
     /**
     * @brief Deals with the customers and paying the bill.
     */
-    void payBill(int tableId);
+    void payBill(int tableId, vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order);
 
     /**
     * @brief Function for the mediator.
@@ -59,7 +59,7 @@ public:
     /**
     * @brief Function for the mediator.
     */
-    void changed();
+    //void changed();
 
     /**
     * @brief Function for the mediator.

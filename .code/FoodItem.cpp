@@ -1,5 +1,7 @@
 #include "FoodItem.h"
 #include <cmath>
+#include <sstream>
+#include <iomanip>
 
 FoodItem::FoodItem(string nm, float p)
 {

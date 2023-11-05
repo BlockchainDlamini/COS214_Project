@@ -6,6 +6,7 @@ SauceChef::SauceChef()
 }
 void SauceChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>>foods)
 {
+    cout << "CHEF_ADDRESS::::::: " << this << endl;
     for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
         if (dynamic_pointer_cast<MakeSauce>((*it)))
@@ -19,24 +20,24 @@ void SauceChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<Me
     nextChef->handleOrder(waiter_id, customer_id, orders, foods);
 }
 
-shared_ptr<FoodItem> SauceChef::execute(shared_ptr<MenuItemCommand> val)
+shared_ptr<FoodItem> SauceChef::execute(MenuItemCommand* val)
 {
-    if (dynamic_pointer_cast<MakeSweetChilli>(val))
+    if (dynamic_cast<MakeSweetChilli*>(val))
     {
         cout << "COOKED UP A SWEETCHILLI SAUCE" << endl;
         return make_shared<SweetChilli>();
     }
-    else if (dynamic_pointer_cast<MakeSweetChilli>(val))
+    else if (dynamic_cast<MakeSweetChilli*>(val))
     {
         cout << "COOKED UP A RANCH SAUCE" << endl;
         return make_shared<Ranch>();
     }
-    else if (dynamic_pointer_cast<MakeSweetChilli>(val))
+    else if (dynamic_cast<MakeSweetChilli*>(val))
     {
         cout << "COOKED UP A TOMATOPASTE SAUCE" << endl;
         return make_shared<TomatoPaste>();
     }
-    else if (dynamic_pointer_cast<MakeChutneySauce>(val))
+    else if (dynamic_cast<MakeChutneySauce*>(val))
     {
         cout << "COOKED UP A CHUTNEY SAUCE" << endl;
         return make_shared<Chutney>();

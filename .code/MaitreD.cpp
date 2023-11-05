@@ -19,8 +19,8 @@ string MaitreD::get() {
     return operation;
 }
 
-void MaitreD::changed() {
-}
+//void MaitreD::changed() {
+//}
 
 void MaitreD::setOperation(string op) {
     operation = op;
@@ -28,11 +28,10 @@ void MaitreD::setOperation(string op) {
 
 void MaitreD::seatCustomers(std::vector<std::shared_ptr<Customer>> customers)
 {
-    cout<<"The MaitreD is calling floorobj->seatCustomer."<<endl;
     floorobj->seatCustomer(customers);
 }
 
 void MaitreD::customersLeft(int tableNum){
-    cout<<"The MaitreD is calling floorobj->seatCustomer."<<endl;
+    //cout<<"The MaitreD is calling floorobj->seatCustomer."<<endl;
     floorobj->customersLeft(tableNum);
 }

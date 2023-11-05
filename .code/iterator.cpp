@@ -14,9 +14,19 @@ std::shared_ptr<floorComponent> myIterator::first() //Works correctly
 
 void myIterator::next()//Works correctly
 {
-    flattenedTree.pop();
-    current = flattenedTree.front();
+    if (!flattenedTree.empty())
+    {
+        flattenedTree.pop();
+        if(!flattenedTree.empty())
+            current = flattenedTree.front();
+    }
+
 }
+//void myIterator::next()//Works correctly
+//{
+//    flattenedTree.pop();
+//    current = flattenedTree.front();
+//}
 
 std::shared_ptr<floorComponent> myIterator::currentItem() //Works correctly
 {

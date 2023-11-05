@@ -22,7 +22,7 @@ public:
     * @brief Notifies the mediator of a gameElement attempting to communicate with another gameElement.
     * @param element The game element that would like to notify communicate with gameElement.
     */
-    virtual void notify(std::shared_ptr<gameElement> element);
+    virtual void notify(gameElement* element);
 
     /**
     * @brief Add a game element to the list of elements.
@@ -48,15 +48,19 @@ private:
     */
     std::vector<std::shared_ptr<gameElement>> listOfElements;
 
-    const string noKitchenFound = "Error: No kitchen found";
-    const string noWaiterFound = "Error: No Waiter found";
-    const string specificWaiterNotFound = "Error: Specific waiter not found";
+    const string noKitchenFound = "No kitchen found";
+    const string noWaiterFound = "No Waiter found";
+    const string specificWaiterNotFound = "Specific waiter not found";
 
     /**
     * @brief Outputs error messages to the user.
     * @param message The specific message to be output
     */
     static void errorMessage(const string& message);
+
+    int globalTN;
+
+    vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> globalTO;
 
 };
 #endif //CODE_MEDIATOR_H

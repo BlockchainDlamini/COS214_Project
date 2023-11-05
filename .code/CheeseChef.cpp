@@ -18,7 +18,7 @@ void CheeseChef::displayCheeseArt() {
 
     std::ifstream file("cheese.txt"); // Open the file for reading
     if (file.is_open()) { // Check if the file was opened successfully
-        std::string line = 0;
+        std::string line = "";
         // Read and display each line of the file with color
         while (std::getline(file, line)) {
             std::cout << YELLOW_COLOR << line << RESET_COLOR << std::endl;
@@ -33,6 +33,7 @@ void CheeseChef::displayCheeseArt() {
 
 void CheeseChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>>foods)
 {
+    //cout << "CHEF_ADDRESS::::::: " << this << endl;
     for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
         if (dynamic_pointer_cast<MakeCheese>((*it)))
@@ -45,29 +46,29 @@ void CheeseChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<M
     nextChef->handleOrder(waiter_id, customer_id, orders, foods);
 }
 
-shared_ptr<FoodItem> CheeseChef::execute(shared_ptr<MenuItemCommand> val)
+shared_ptr<FoodItem> CheeseChef::execute(MenuItemCommand* val)
 {
-    if (dynamic_pointer_cast<MakeMozzarella>(val))
+    if (dynamic_cast<MakeMozzarella*>(val))
     {
         cout << "COOKED UP A MOZZARELLA CHEESE" << endl;
         return make_shared<Mozzarella>();
     }
-    else if (dynamic_pointer_cast<MakeCheddar>(val))
+    else if (dynamic_cast<MakeCheddar*>(val))
     {
         cout << "COOKED UP A CHEDDAR CHEESE" << endl;
         return make_shared<Cheddar>();
     }
-    else if (dynamic_pointer_cast<MakeGouda>(val))
+    else if (dynamic_cast<MakeGouda*>(val))
     {
         cout << "COOKED UP A GOUDA CHEESE" << endl;
         return make_shared<Gouda>();
     }
-    else if (dynamic_pointer_cast<MakeParmesan>(val))
+    else if (dynamic_cast<MakeParmesan*>(val))
     {
         cout << "COOKED UP A PARMESAN CHEESE" << endl;
         return make_shared<Parmesan>();
     }
-    else if (dynamic_pointer_cast<MakeBlueCheese>(val))
+    else if (dynamic_cast<MakeBlueCheese*>(val))
     {
         cout << "COOKED UP A BLUCHEESE" << endl;
         return make_shared<BlueCheese>();

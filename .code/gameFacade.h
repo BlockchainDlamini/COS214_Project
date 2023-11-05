@@ -18,6 +18,7 @@ class GameFacade
         int generateRandom(int, int);
         void singleRound();
     public:
+        void runGame2();
         GameFacade();
         void runGame();
         ~GameFacade();

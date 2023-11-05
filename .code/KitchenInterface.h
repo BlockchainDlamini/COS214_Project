@@ -36,9 +36,14 @@ public:
      * @return The ID of the waiter.
      */
     int getWaiterID();
+
+
+    //void printKitchenloop();
+    void setGameEngine(shared_ptr<Mediator>);
+
 private: 
-    std::shared_ptr<ManagerChef> managerChef; 
-    std::shared_ptr<HeadChef> headChef;
+    std::shared_ptr<Kitchen> managerChef; 
+    std::shared_ptr<Kitchen> headChef;
 };
 
 #endif

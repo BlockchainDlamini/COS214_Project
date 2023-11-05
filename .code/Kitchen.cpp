@@ -5,6 +5,11 @@ Kitchen::Kitchen()
 
 void Kitchen::setNextChef(shared_ptr<Kitchen> val)
 {
+
+/*		cout << "===================================================" << endl;
+		cout << "HEADCHEF:-> " << val << endl;
+		cout << "NEXT:-> " << val->getNextChef() << endl;
+		cout << "===================================================" << endl;*/
 	nextChef = val;
 }
 
@@ -18,6 +23,15 @@ shared_ptr<Kitchen> Kitchen::getNextChef()
 	return nextChef;
 }
 
+std::shared_ptr<FoodItem>  Kitchen::execute(MenuItemCommand* g,string v)
+{
+	return 0;
+}
+
+std::shared_ptr<FoodItem> Kitchen::execute(MenuItemCommand* t)
+{
+	return 0;
+}
 void Kitchen::handleOrder(int,int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>)
 {
 	cout << "Nothing was handled";

@@ -78,7 +78,7 @@ public:
 private:
     pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> completeOrders; 
     std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> pizzaPairs; 
-    std::shared_ptr<Kitchen> nextChef; 
+    //std::shared_ptr<Kitchen> nextChef; 
 };
 
 #endif
