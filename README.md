@@ -1,4 +1,4 @@
-# Pizzaria 🍕
+# Home Slice🍕
 #### COS214 - Group Project
 
 ## Table of Contents
