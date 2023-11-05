@@ -44,7 +44,7 @@ bool Floor::hasSpace(int amount)  //Works correctly
 
 bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //not tested yet
 {
-    std::cout<<"In seating function"<<std::endl;
+    //std::cout<<"In seating function"<<std::endl;
     if(!hasSpace(customers.size()))
     {
         std::cout<<"There is not enought space yet, needs to merge"<<std::endl;
@@ -53,7 +53,7 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
             return false;
         }            
     }
-    std::cout<<"Searching for a space"<<std::endl;
+    std::cout<<"...Searching for a space"<<std::endl;
     std::shared_ptr<myIterator> curr = theFloor->getDepthIterator();
     int id=-1;
 
@@ -62,12 +62,12 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
         int temp = curr->currentItem()->acceptVisitor(std::make_shared<findSpaceVisitor>());
         if(temp>=customers.size())
         {
-            std::cout<<"Custmer is being seated at: "<<curr->currentItem()->toString()<<std::endl;
+            std::cout<<"Customer is being seated at: "<<curr->currentItem()->toString()<<std::endl;
             std::shared_ptr<table> tb = std::dynamic_pointer_cast<table>(curr->currentItem());
             tb->newCustomers(customers);
             tb->setIsSpaceAvailable(false);
-            /*for (size_t i = 0; i < customers.size(); i++)
-                customers->beSeated(tb->getID());*/
+            for (size_t i = 0; i < customers.size(); i++)
+                customers.at(i)->beSeated(tb->getID());
             std::cout<<"The customers have been seated at table "<<tb->getID()<<std::endl;
             return true;
         }

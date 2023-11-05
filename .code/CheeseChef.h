@@ -33,7 +33,7 @@ public:
      * @param command A shared pointer to the MenuItemCommand to execute.
      * @return A shared pointer to the resulting FoodItem after executing the command.
      */
-    shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand> command);
+    shared_ptr<FoodItem> execute(MenuItemCommand*);
 
     void displayCheeseArt();
 };

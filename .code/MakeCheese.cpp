@@ -12,10 +12,10 @@ using namespace std;
 
 MakeCheese::MakeCheese(shared_ptr<Kitchen> state) : MenuItemCommand() {
     this->state = state;
-    while (dynamic_pointer_cast<CheeseChef>(state) == 0)
+    while (!dynamic_pointer_cast<CheeseChef>(this->state))
       this->state = this->state->getNextChef();
 }
 
 shared_ptr<FoodItem> MakeCheese::execute() {
-    return state->execute(enable_shared_from_this<MakeCheese>::shared_from_this());
+    return state->execute(this);
 }

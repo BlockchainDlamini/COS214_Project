@@ -14,12 +14,15 @@ void Mediator::addGameElement(std::shared_ptr<gameElement>element) {
 }
 
 void Mediator::addGameElements(std::vector<std::shared_ptr<gameElement>> elements) {
+    cout << "GameElements added" << endl;
     for (const auto& element : elements) {
         listOfElements.push_back(element);
     }
 }
 
-void Mediator::notify(std::shared_ptr<gameElement> element) {
+void Mediator::notify(gameElement* element) {
+  
+
     string temp = element->get();
     transform(temp.begin(), temp.end(), temp.begin(), ::toupper);
 
@@ -31,13 +34,14 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
         }
     }
 
+    //theKitchen->printKitchenloop();
     if (theKitchen == nullptr) {
         errorMessage(noKitchenFound);
         return;
     }
-
+  
     if (temp == "SENDTOKITCHEN") {  //Invoked by Regular waiter
-        shared_ptr<RegularWaiter> theWaiter = dynamic_pointer_cast<RegularWaiter>(element);
+        RegularWaiter* theWaiter = dynamic_cast<RegularWaiter*>(element);
         if (theWaiter == nullptr) {
             errorMessage("The wrong class attempted to call sendToKitchen");
             return;
@@ -54,7 +58,8 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
     }
 
     if (temp == "COLLECTORDER") {
-        auto headChef = dynamic_pointer_cast<HeadChef>(element);
+        HeadChef* headChef = dynamic_cast<HeadChef*>(element);
+        //auto headChef = dynamic_pointer_cast<HeadChef>(element);
         if (headChef == nullptr) {
             errorMessage("Invalid call to Collect an Order");
             return;
@@ -65,11 +70,12 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
 
 
         for (int i = 0; i < listOfElements.size(); ++i) {
-            shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(element);
+            shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);            //shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(element);
             if (aWaiter != nullptr) {
                 if (aWaiter->getWaiterID() == wantedID) {
                     auto theOrder = temp.second;
-                    aWaiter->takeOrderToTable(theOrder);
+                    globalTO = theOrder;
+                    aWaiter->takeOrderToTable(theOrder, globalTN);
                     return;
                 }
             }
@@ -80,18 +86,21 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
     }
 
     if (temp == "GIVEORDER") {
-        shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
+        auto* theCustomer = dynamic_cast<Customer*>(element);
+        //shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
         if (theCustomer == nullptr) {
             errorMessage("The wrong class attempted to call sendToKitchen");
             return;
         }
         int tableNum = theCustomer->getTableNum();
+        globalTN = tableNum;
 
         for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);
             if (aWaiter != nullptr) {
                 auto theWaiter = aWaiter->waiterResponsible(tableNum);
                 theWaiter->takeOrder(tableNum);
+
                 return;
             }
         }
@@ -100,7 +109,8 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
     }
 
     if (temp == "REQUESTBILL") {
-        shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
+        auto* theCustomer = dynamic_cast<Customer*>(element);
+        //shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
         if (theCustomer == nullptr) {
             errorMessage("The wrong class attempted to call sendToKitchen");
             return;
@@ -111,7 +121,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);
             if (aWaiter != nullptr) {
                 auto theWaiter = aWaiter->waiterResponsible(tableNum);
-                theWaiter->payBill(tableNum);
+                theWaiter->payBill(tableNum, globalTO);
                 return;
             }
         }
@@ -120,7 +130,8 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
     }
 
     if (temp == "LEAVE") {
-        shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
+        auto* theCustomer = dynamic_cast<Customer*>(element);
+        //shared_ptr<Customer> theCustomer = dynamic_pointer_cast<Customer>(element);
         if (theCustomer == nullptr) {
             errorMessage("You shall not leave:), The wrong class attempted to call Leave the floor");
             return;
@@ -139,8 +150,7 @@ void Mediator::notify(std::shared_ptr<gameElement> element) {
     }
 
     if (temp == "GETKITCHENREFERENCE") {  //Only a Customer can call this.
-        auto theCustomer = dynamic_pointer_cast<Customer>(element);
-
+        auto* theCustomer = dynamic_cast<Customer*>(element);
         if (theCustomer == nullptr) {
             errorMessage("Invalid call to getKitchen Reference");
             return;

@@ -84,6 +84,12 @@ public:
     void setNextChef(shared_ptr<Kitchen> chef);
 
     virtual shared_ptr<Kitchen> cycle();
+    virtual std::shared_ptr<FoodItem> execute(MenuItemCommand*, string);
+    virtual std::shared_ptr<FoodItem> execute(MenuItemCommand*);
+    virtual int getWaiterID() { return 0; }
+    virtual pair<int, std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>>> collectOrder() { vector < std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> va;  return make_pair(0,va); }
+
+
 };
 
 #endif

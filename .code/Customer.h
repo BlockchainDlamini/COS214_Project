@@ -1,26 +1,26 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-//#include "EmotionState.h"
-//#include "Disgruntaled.h"
-//#include "Happy.h"
-//#include "Satisfied.h"
-//#include "Frustrated.h"
-//#include "OrderProcessState.h"
-//#include "Preorder.h"
-//#include "Order.h"
-//#include "gameElement.h"
-//#include "Pizza.h"
-//#include <iostream>
-//#include <memory>
-//#include <vector>
-#include "Preorder.h"//BOBS ADDITION
+// #include "EmotionState.h"
+// #include "Disgruntaled.h"
+// #include "Happy.h"
+// #include "Satisfied.h"
+// #include "Frustrated.h"
+// #include "OrderProcessState.h"
+// #include "Preorder.h"
+// #include "Order.h"
+// #include "gameElement.h"
+// #include "Pizza.h"
+// #include <iostream>
+// #include <memory>
+// #include <vector>
+#include "Preorder.h" //BOBS ADDITION
 
 /**
  * @class Customer
  * @brief Represents a customer in a restaurant with various states and actions.
  */
-//forgoy yo link states and stuff
+
 class Customer : public gameElement, public enable_shared_from_this<Customer>
 {
 private:
@@ -31,10 +31,16 @@ private:
     float bankAccountAmount;                                                   /**< The amount of money in the customer's bank account. */
     std::shared_ptr<Tab> tab = nullptr;                                        /**< The customer's tab for keeping track of orders. */
     int tableNum;
-    float total;                                /**< The table number where the customer is seated. */
-    vector<shared_ptr<Pizza>> pizza;     /**< The pizza ordered by the customer. */
-    vector<shared_ptr<Order>> orders; /**< A vector of customer's orders. */
+    // Create an array of shared_ptr to strings for complaints
+    std::shared_ptr<std::string> complaints[10]; /**an array of shared_ptr to strings for complaints for the Customer*/
+
+    // Create an array of shared_ptr to strings for happyMessages
+    std::shared_ptr<std::string> happyMessages[10]; /**an array of shared_ptr to strings for happyMessages for the Customer*/
+    float total;                                    /**< The table number where the customer is seated. */
+    vector<shared_ptr<Pizza>> pizza;                /**< The pizza ordered by the customer. */
+    vector<shared_ptr<Order>> orders;               /**< A vector of customer's orders. */
     shared_ptr<Kitchen> kitchen;
+    string name; /**<The name of the customer*/
 
 public:
     /**
@@ -43,8 +49,9 @@ public:
      * @param tableNum The table number where the customer is seated.
      */
 
-    //switched datatypes passed in
-    void setManager(shared_ptr<Kitchen>);
+    // switched datatypes passed in
+    void setName(string name);
+    string getName();
     Customer(int id, float bankAccountAmount);
 
     /**
@@ -53,8 +60,7 @@ public:
      * @param tableNum The table number where the customer is seated.
      */
 
-
-     //changed the paramter of bankAccountAmount from int to float
+    // changed the paramter of bankAccountAmount from int to float
     Customer(std::shared_ptr<EmotionState> mood, float bankAccountAmount);
     Customer(float bankAccount);
 
@@ -62,6 +68,7 @@ public:
      * @brief Change the emotional state of the customer.
      */
     void changeMood();
+    void logComplaint();
 
     /**
      * @brief Trigger a change in the customer's order process state.
@@ -145,8 +152,31 @@ public:
      */
     std::shared_ptr<EmotionState> getMood();
 
+    /**
+     * @brief Set the total cost of an item or order.
+     *
+     * This function allows you to specify the total cost, typically as a floating-point value, for an item or an order. The total cost represents the financial amount associated with the item or order.
+     *
+     * @param total The total cost to be set.
+     */
     void setTotal(float total);
+
+    /**
+     * @brief Get the unique identifier of an item or order.
+     *
+     * This function retrieves the unique identifier associated with the item or order and returns it as an integer value. The identifier is used to distinguish the item or order from others.
+     *
+     * @return The unique identifier of the item or order.
+     */
     int getID();
+
+    /**
+     * @brief Retrieve the total cost of an item or order.
+     *
+     * Use this function to obtain the total cost, typically as a floating-point value, associated with an item or order. The total cost represents the financial amount for the item or order.
+     *
+     * @return The total cost of the item or order.
+     */
     float getTotal();
 
     /**
@@ -176,7 +206,7 @@ public:
 
     bool hasOrdered = false; /**< A flag indicating whether the customer has placed an order. */
     bool hasBill = false;    /**< A flag indicating whether the customer has a bill. */
-    bool hasFood = false;
+    bool hasFood = false;    /**< A flag indicating whether the customer has their food. */
 
     /**
      * @brief Check if the customer has received food.
@@ -184,11 +214,24 @@ public:
      */
 
     void hasPizza();
-
+    /**
+     * @brief This function will show the menu for building the pizza. It will allow the customer to chose a variety of different base,toppings,sauce and cheese.
+     *
+     * @return it will return a vector of shared_ptr that point at MenuItemCommands
+     */
     vector<shared_ptr<MenuItemCommand>> addMenuItems(); // interact with the menu, what is chosen on the menu will have a corresponding menu command which is added to the vector;
+    /**
+     * @brief This Function will allow the customer to pick a predefined pizza/ a basic pizza that does not require them to build a new pizza
+     *
+     * @return it will return a vector of shared_ptr that point at MenuItemCommands
+     */
+    vector<shared_ptr<MenuItemCommand>> predefinedOrder();
+    /**
+     * @brief Initiate communication with the waiter.
+     *
+     * Use this function to signal the start of communication with the waiter. Depending on the context, it may involve requesting service, placing an order, or discussing specific requirements with the restaurant's staff.
+     */
     void talkToWaiter();
-
-    shared_ptr<Customer> getMe();
 
     std::string generateRandomString(int length)
     {
@@ -205,24 +248,65 @@ public:
         return randomString;
     }
 
-    int getRandomNumber() {
-        // Seed the random number generator with a value based on the current time 
+    int getRandomNumber()
+    {
+        // Seed the random number generator with a value based on the current time
         std::random_device rd;
         std::mt19937 gen(rd());
 
-        // Define the range (0 to 100) 
+        // Define the range (0 to 100)
         std::uniform_int_distribution<int> dist(0, 100);
 
-        // Generate a random number 
+        // Generate a random number
         int randomNum = dist(gen);
 
         return randomNum;
     }
-    std::shared_ptr<Tab> getTab();
-    void leave();
-    void getKitchenReference();
-    void setKitchenReference(shared_ptr<Kitchen>);
+    int randomNumberForMessages()
+    {
+        // Seed the random number generator with a value based on the current time
+        std::random_device rd;
+        std::mt19937 gen(rd());
 
+        // Define the range (0 to 100)
+        std::uniform_int_distribution<int> dist(0, 9);
+
+        // Generate a random number
+        int randomNum = dist(gen);
+
+        return randomNum;
+    }
+    /**
+     * @brief Get a shared pointer to a Tab object.
+     *
+     * This function returns a shared pointer to a Tab object, allowing you to interact with and manipulate the Tab's properties.
+     *
+     * @return A shared pointer to a Tab object.
+     */
+    std::shared_ptr<Tab> getTab();
+
+    /**
+     * @brief Leave the restaurant or dining area.
+     *
+     * Use this function to signal that a customer is leaving the restaurant or dining area. It may involve clearing the table and making it available for the next customer.
+     */
+    void leave();
+
+    /**
+     * @brief Get a reference to the Kitchen.
+     *
+     * This function provides access to the Kitchen associated with the restaurant. It allows you to interact with and obtain information from the Kitchen.
+     */
+    void getKitchenReference();
+
+    /**
+     * @brief Set a reference to the Kitchen using a shared pointer.
+     *
+     * This function allows you to set a reference to the Kitchen by passing a shared pointer to a Kitchen object. This reference can be used to communicate with and access the Kitchen's functionality.
+     *
+     * @param kitchenPtr A shared pointer to a Kitchen object.
+     */
+    void setKitchenReference(std::shared_ptr<Kitchen> kitchenPtr);
 };
 
 #endif

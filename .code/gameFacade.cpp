@@ -1,3 +1,4 @@
+
 #include "gameFacade.h"
 
 GameFacade::GameFacade()
@@ -13,6 +14,7 @@ std::vector<std::shared_ptr<Customer>> GameFacade::generateCustomerGroup(int siz
     for (size_t i = 0; i < size; i++)
     {
         temp = std::make_shared<Customer>(id, (float)generateRandom(100, 100000));
+        temp->setGameEngine(mediator);
         customers.push_back(temp);
         customerElements.push_back(std::dynamic_pointer_cast<gameElement>(temp));
         id++;
@@ -24,7 +26,7 @@ std::vector<std::shared_ptr<Customer>> GameFacade::generateCustomerGroup(int siz
 void GameFacade::gameSetUp()
 {
     std::cout << "Welcome to The Pizzaria game!!" << std::endl;
-    std::cout << "Would you like to configure the game before starting? 1=YES and 2=NO" << std::endl;
+    std::cout << "Would you like to configure the game before starting?\n1=='YES' and 2=='NO': ";
     int input;
     cin >> input;
     if (input == 2)
@@ -39,13 +41,13 @@ void GameFacade::gameSetUp()
         cin >> numCustomerGroups;
         std::cout << "The returant floor is a square. How many tile should 1 of the side have?" << std::endl;
         cin >> floorsize;
-        std::cout << "How many seats should each table have?" << std::endl;
+        std::cout << "How many seats should each ;=table have?" << std::endl;
         cin >> tableSize;
     }
 
     mediator = std::make_shared<Mediator>();
 
-    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements(input);
+    ;    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements(input);
     mediator->addGameElements(gmElements);
 }
 
@@ -53,10 +55,22 @@ std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements(int inp
 {
     std::vector<std::shared_ptr<gameElement>> gmElements;
 
-    shared_ptr<Floor> floorObj;
 
-    gmElements.push_back(std::make_shared<MaitreD>("Steve", std::make_shared<Floor>(floorsize, tableSize))); //only 1 maitreD in the game
-    gmElements.push_back(std::make_shared<RegularWaiter>(RegularWaiter(0, { 0 }, floorObj)));
+    shared_ptr<Floor> floorObj = make_shared<Floor>(3,3);
+
+    //Floor* floor1 = new Floor(3,3);
+    maitreD= std::make_shared<MaitreD>("Steve", floorObj);
+    maitreD->setGameEngine(mediator);
+    gmElements.push_back(maitreD);
+    //gmElements.push_back();
+    shared_ptr<RegularWaiter> VAL = std::make_shared<RegularWaiter>(RegularWaiter(0, { 0 }, floorObj));
+    VAL->setGameEngine(mediator);
+    gmElements.push_back(VAL);
+    // added
+    shared_ptr<RegularWaiter> newWaiter1 = RegularWaiter::createRegularWaiter(1, vector<int>{0, 1, 2, 3}, floorObj);
+    shared_ptr<RegularWaiter> newWaiter2 = RegularWaiter::createRegularWaiter(2, vector<int>{4, 5, 6}, floorObj);
+    newWaiter1->setGameEngine(mediator);
+    newWaiter2->setGameEngine(mediator);
 
 
     for (int i = 1; i < floorsize + 1; i++)
@@ -70,7 +84,9 @@ std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements(int inp
         }
         gmElements.push_back(std::make_shared<RegularWaiter>(i, intstables, floorObj));
     }
-    gmElements.push_back(std::make_shared<KitchenInterface>());
+    shared_ptr<KitchenInterface> t = std::make_shared<KitchenInterface>();
+    t->setGameEngine(mediator);
+    gmElements.push_back(t);
     return gmElements;
 }
 
@@ -115,8 +131,11 @@ void GameFacade::singleRound()
     std::cout << "Press Enter to continue" << std::endl;
     std::cin.ignore(1000000000, '\n');
 
-    for (int i = 0; i < customers.size(); i++)
-        customers.at(i)->requestBill();
+    //for (int i = 0; i < customers.size(); i++)
+    //    customers.at(i)->requestBill();
+
+    // to request the bill
+    customers.at(0)->requestBill();
 
     for (int i = 0; i < customers.size(); i++)
         mediator->removeGameElement(std::dynamic_pointer_cast<gameElement>(customers.at(i)));
@@ -130,4 +149,15 @@ int GameFacade::generateRandom(int min, int max)
 
 GameFacade::~GameFacade()
 {
+}
+
+void GameFacade::runGame2() {
+    shared_ptr<Mediator> mediator1 = make_shared<Mediator>();
+    shared_ptr<KitchenInterface> kitchenInterface = make_shared<KitchenInterface>();
+   mediator1->addGameElement(kitchenInterface);
+    shared_ptr<Customer> c =make_shared<Customer>(234);
+    mediator1->addGameElement(c);
+    c->setGameEngine(mediator1);
+    c->setOperation("getKitchenReference");
+    c->changed();
 }

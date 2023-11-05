@@ -46,6 +46,8 @@ shared_ptr<RegularWaiter> RegularWaiter::waiterResponsible(int tableId)
 
 void RegularWaiter::takeOrder(int tableId)
 {
+    cout << "in the waiter::takeOrder class" << endl;
+    cout << "table: " << tableId << endl;
 
     shared_ptr<RegularWaiter> waiter = waiterResponsible(tableId);
 
@@ -54,13 +56,20 @@ void RegularWaiter::takeOrder(int tableId)
         cout << "Waiter: " << waiter->getWaiterID() << " is taking the order for table number: " << tableId << endl;
     }
 
-    this->tableID = tableId;
+    //ERROR
+     this->tableID = tableId;
+
+
     // iterate through this waiters tables' customers
 
     // get the correct table from the floor
+    cout << "calling getTableAt()" << endl;
     shared_ptr<table> table = floorObject->getTableAt(tableId);
+    cout << "call success" << endl;
 
-    vector<shared_ptr<Customer>> customers = table->getCustomers();
+    cout << "call getCustomers()" << endl;
+    vector<std::shared_ptr<Customer>> customers = table->getCustomers();
+    cout << "call success" << endl;
 
     vector<pair<int, shared_ptr<Order>>> vectorForKitchen;
     //pair<int, vector<pair<int, shared_ptr<Order>>>> ordersForATable;
@@ -80,14 +89,14 @@ void RegularWaiter::takeOrder(int tableId)
 
     setOperation("sendToKitchen");
     changed();
-
 }
 
 pair<int, vector<pair<int, shared_ptr<Order>>>> RegularWaiter::getForKitchen()
 {
     return forKitchen;
 }
-void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order)
+
+void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order, int tableId)
 {
     std::vector<std::shared_ptr<Pizza>> pizzas;
     for (const auto& orderItem : order) {
@@ -99,6 +108,7 @@ void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::
         }
     }
     this->pizzasForTable = pizzas;
+    this->tableID = tableId;
 
     // extracted ints
     std::vector<int> ints;
@@ -107,23 +117,44 @@ void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::
         ints.push_back(intValue);
     }
 
-
-    cout << "the waiter is in takeOrderToTable()" << endl;
+    //cout << "the waiter is in takeOrderToTable()" << endl;
     // get table with the customers sitting there
     shared_ptr<table> table = floorObject->getTableAt(tableID);
     vector<shared_ptr<Customer>> customers = table->getCustomers();
 
+ /*   for (auto customer:customers) {
+        customer->receiveOrder(pizzas);
+    }*/
 
     for (unsigned int r = 0; r < pizzas.size(); r++)
     {
         cout << "Customer: " << ints[r] << " received order: ";
-        pizzas[r]->getDescription();
+        cout << pizzas[r]->getDescription();
+        cout << endl;
+        //receiveOrder
     }
+
+    for (auto customer:customers) {
+
+        vector<std::shared_ptr<Pizza>> pizzaForSpecificCustomer;
+        for (unsigned int r = 0; r < pizzas.size(); r++)
+        {
+            if (customer->getID() == ints[r]) {
+                pizzaForSpecificCustomer.push_back(pizzas[r]);
+            }
+        }
+
+        customer->receiveOrder(pizzaForSpecificCustomer);
+    }
+
+
 }
 
 // CHANGE
-void RegularWaiter::payBill(int tableId)
+void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order)
 {
+
+    cout << "NEW CALL" << endl;
 
     shared_ptr<RegularWaiter> waiter = waiterResponsible(tableId);
 
@@ -136,8 +167,21 @@ void RegularWaiter::payBill(int tableId)
 
     // get full total of the bill
     float orderAmount = 0.0;
-    shared_ptr<table> table = floorObject->getTableAt(tableID);
+    shared_ptr<table> table = floorObject->getTableAt(tableId);
     vector<shared_ptr<Customer>> customers = table->getCustomers();
+
+
+    std::vector<std::shared_ptr<Pizza>> pizzas;
+    for (const auto& orderItem : order) {
+        if (orderItem) {
+            std::shared_ptr<Pizza> pizza = orderItem->second;
+            if (pizza) {
+                pizzas.push_back(pizza);
+            }
+        }
+    }
+    this->pizzasForTable = pizzas;
+
 
     for (const auto& pizza : pizzasForTable)
     {
@@ -213,10 +257,10 @@ string RegularWaiter::get()
     return operation;
 }
 
-void RegularWaiter::changed()
-{
-    // this->notify();
-}
+//void RegularWaiter::changed()
+//{
+//     this->notify();
+//}
 
 void RegularWaiter::setOperation(string op)
 {

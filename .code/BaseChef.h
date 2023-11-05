@@ -8,7 +8,7 @@ class BaseChef :
 public:
     BaseChef();
     void handleOrder(int, int, vector<shared_ptr<MenuItemCommand>>, vector<shared_ptr<FoodItem>>);
-    shared_ptr<FoodItem> execute(shared_ptr<MenuItemCommand>, string);
+    shared_ptr<FoodItem> execute(MenuItemCommand*, string);
     void displayBaseArt();
 };
 #endif

@@ -20,7 +20,7 @@ gameElement::~gameElement() {}
 
 void gameElement::changed() {
     if (gameEngine) {
-        gameEngine->notify(shared_from_this());
+        gameEngine->notify(this);
         return;
     }
 
@@ -30,7 +30,6 @@ void gameElement::changed() {
 void gameElement::setGameEngine(const shared_ptr<Mediator>& mediator) {
     gameEngine = mediator;
 }
-
 
 int gameElement::getMyId() const {
     return myID;

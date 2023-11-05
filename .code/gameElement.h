@@ -11,6 +11,8 @@
 #include <list>
 #include <iostream>
 #include <queue>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 class Mediator;
@@ -103,5 +105,6 @@ protected:
      * @brief A string representing the operation of the game element, used by the Mediator.
      */
     string operation;
+
 };
 #endif //CODE_GAMEELEMENT_H

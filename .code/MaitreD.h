@@ -39,7 +39,7 @@ public:
      * @brief Changed function for Mediator.
      * @details This function is called when the Mediator needs to notify the MaitreD of a change.
      */
-    void changed();
+    //void changed();
 
     /**
      * @brief Set function for Mediator.
