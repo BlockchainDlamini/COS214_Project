@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on: 
   push:
-    branches: [ "GTest" ]
+    branches: [ "GTest","main" ]
   pull_request:
-    branches: [ "GTest" ]
+    branches: [ "GTest","main" ]
 
 jobs:
   build:
