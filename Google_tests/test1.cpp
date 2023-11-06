@@ -272,8 +272,8 @@ public:
         }
 
         //changedOrderProcessState(); // take the state to dinnerdone from orderreceived
-        setTotal(t);
-        if (hasBill == true)
+        //setTotal(t);
+        if (true)
         {
             if (c == 'P' || c == 'p')
             {
@@ -356,4 +356,5 @@ public:
         }
     }
     int getID()
-    {
+    {return 0;}
+};
