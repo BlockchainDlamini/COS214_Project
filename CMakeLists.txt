@@ -16,7 +16,7 @@ file(GLOB SOURCES
         *.cpp
         )
 
-#add_executable(ClionProject ${SOURCE_FILES} ${SOURCES})
+add_executable(ClionProject ${SOURCE_FILES} ${SOURCES})
 
 # Link the executable with gtest and gtest_main
 target_link_libraries(Testing gtest gtest_main)
