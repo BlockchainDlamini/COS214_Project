@@ -3,6 +3,7 @@
 #include <string>
 #include <thread>
 #include <functional>
+#include <cstring>
 
 using namespace std;
 
@@ -73,16 +74,16 @@ void GameFacade::gameSetUp()
     }
 
 
-    std::cout << "\033[47;30mWould you like to configure the game before starting? (yes/no)\033[0m" << std::endl;
+    //std::cout << "\033[47;30mWould you like to configure the game before starting? (yes/no)\033[0m" << std::endl;
 
-    string input;
-    cin >> input;
-    if (input == "no")
-    {
-        numCustomerGroups = 1;
+    //string input;
+    //cin >> input;
+    //if (input == "no")
+    //{
+        numCustomerGroups = 2;
         floorsize = 4;
         tableSize = 4;
-    }
+    /*}
     else
     {
         std::cout << "\033[47;30mHow many rounds of customer would you like the game to have?\033[0m" << std::endl;
@@ -93,18 +94,9 @@ void GameFacade::gameSetUp()
 
         std::cout << "\033[47;30mHow many seats would you like each table to have?\033[0m" << std::endl;
         cin >> tableSize;
-    }
+    }*/
 
     mediator = std::make_shared<Pager>();
-
-    int index = 0;
-
-    if (input == "yes") {
-        index = 1;
-    }
-    else {
-        index = 2;
-    }
 
     std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements();
     mediator->addGameElements(gmElements);
@@ -159,13 +151,6 @@ void GameFacade::runGame()
         std::cin.ignore(1000000000, '\n');
     }
 
-
-
-
-
-
-
-
     const std::string CYAN_COLOR = "\033[0;36m";
     const std::string RESET_COLOR = "\033[0m";
 
@@ -189,7 +174,7 @@ void GameFacade::runGame()
 
 void GameFacade::singleRound()
 {
-    std::vector<std::shared_ptr<Customer>> customers = generateCustomerGroup(generateRandom(1, 2));
+    std::vector<std::shared_ptr<Customer>> customers = generateCustomerGroup(generateRandom(3, 6));
 
     std::cout << endl;
     std::cout << " ~ " << std::endl;
@@ -220,13 +205,13 @@ void GameFacade::singleRound()
     std::this_thread::sleep_for(std::chrono::milliseconds(400));
     std::cout << "\033[A\033[K";
 
-    std::cout << "\033[46;30m ~ A new group of customers has just entered the restuarant! ~\033[0m" << std::endl;
+    std::cout << "\033[46;30m ~ A new group of "<< std::to_string(customers.size()) <<" customers has just entered the restuarant! ~\033[0m" << std::endl;
 
 
-    for (int i = 0; i < customers.size(); i++)
+    /*for (int i = 0; i < customers.size(); i++)
         //std::cout << customers.at(i)->printCustomer() << std::endl;
     std::cout << "Press Enter to continue" << std::endl;
-    std::cin.ignore(1000000000, '\n');
+    std::cin.ignore(1000000000, '\n');*/
 
     maitreD->seatCustomers(customers);
     //std::cout << "\033[46;30m ~ The customer group has been seated! ~\033[0m" << std::endl;

@@ -126,6 +126,10 @@ bool Floor::merdgeTile(int amount) //Works correctly without customers being sea
         newSpace += tables.at(i)->acceptVisitor(std::make_shared<findSpaceVisitor>());
     
     //std::cout<<"newSpace: "<<newSpace<<std::endl;
+
+    std::cout<<"The following tables have been merged:"<<std::endl;
+    for (int i = 0; i < tables.size(); i++)   
+        std::cout<<tables.at(i)->toString()<<std::endl;
     
     tables.at(0)->acceptVisitor(std::make_shared<setSpaceVisitor>(setSpaceVisitor(newSpace)));
     tables.at(0)->acceptVisitor(std::make_shared<setMergeVisitor>(setMergeVisitor(1)));
@@ -134,11 +138,6 @@ bool Floor::merdgeTile(int amount) //Works correctly without customers being sea
         tables.at(i)->acceptVisitor(std::make_shared<setVisibilityVisitor>(setVisibilityVisitor(0)));
     }
 
-    /*for (int i = 0; i < tables.size(); i++)
-    {
-       std::cout<<tables.at(i)->toString()<<std::endl;
-    }*/
-    
     return true;
 }
 
