@@ -1,0 +1,11 @@
+<map id="Base" name="Base">
+<area shape="rect" id="node1" title="A class representing a base food item, derived from FoodItem." alt="" coords="232,244,287,271"/>
+<area shape="rect" id="node5" href="$classBoiled.html" title="A class representing a boiled base, derived from Base." alt="" coords="5,319,68,345"/>
+<area shape="rect" id="node6" href="$classDeepDish.html" title="A class representing a deep dish base, derived from Base." alt="" coords="93,319,178,345"/>
+<area shape="rect" id="node7" href="$classDoubleDecker.html" title="A class representing a double&#45;decker base, derived from Base." alt="" coords="203,319,316,345"/>
+<area shape="rect" id="node8" href="$classStuffedCrust.html" title="A class representing a stuffed crust base, derived from Base." alt="" coords="340,319,443,345"/>
+<area shape="rect" id="node9" href="$classThinCrust.html" title="A class representing a thin crust base, derived from Base." alt="" coords="467,319,551,345"/>
+<area shape="rect" id="node2" href="$classFoodItem.html" title="A class representing a food item, derived from gameElement." alt="" coords="218,169,301,196"/>
+<area shape="rect" id="node3" href="$classgameElement.html" title="A class to represent a game element. This class represents Colleagues in the Pager design pattern." alt="" coords="203,95,316,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="153,5,365,47"/>
+</map>

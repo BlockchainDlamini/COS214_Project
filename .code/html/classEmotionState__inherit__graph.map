@@ -1,0 +1,7 @@
+<map id="EmotionState" name="EmotionState">
+<area shape="rect" id="node1" title="Abstract base class representing the emotional state of a customer." alt="" coords="173,5,284,32"/>
+<area shape="rect" id="node2" href="$classDisgruntaled.html" title=" " alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="$classFrustrated.html" title="A concrete class representing a frustrated emotional state of a customer." alt="" coords="135,80,223,107"/>
+<area shape="rect" id="node4" href="$classHappy.html" title="A concrete class representing a happy emotional state of a customer." alt="" coords="247,80,311,107"/>
+<area shape="rect" id="node5" href="$classSatisfied.html" title="A concrete class representing a satisfied emotional state of a customer." alt="" coords="336,80,415,107"/>
+</map>

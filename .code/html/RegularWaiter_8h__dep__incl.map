@@ -1,0 +1,7 @@
+<map id="RegularWaiter.h" name="RegularWaiter.h">
+<area shape="rect" id="node1" title="Defines the RegularWaiter class, responsible for serving tables and managing orders." alt="" coords="13,5,139,32"/>
+<area shape="rect" id="node2" href="$MaitreD_8h.html" title="Defines the MaitreD class, responsible for seating customers and managing Waiters." alt="" coords="33,80,119,107"/>
+<area shape="rect" id="node3" href="$Pager_8h_source.html" title=" " alt="" coords="41,155,111,181"/>
+<area shape="rect" id="node4" href="$KitchenInterface_8h_source.html" title=" " alt="" coords="5,229,147,256"/>
+<area shape="rect" id="node5" href="$gameFacade_8h_source.html" title=" " alt="" coords="18,304,134,331"/>
+</map>

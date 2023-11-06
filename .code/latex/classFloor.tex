@@ -1,0 +1,131 @@
+\hypertarget{classFloor}{}\doxysection{Floor Class Reference}
+\label{classFloor}\index{Floor@{Floor}}
+
+
+The \mbox{\hyperlink{classFloor}{Floor}} class represents the floor the restaurant.  
+
+
+
+
+{\ttfamily \#include $<$floor.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFloor_ade8d4f7050bdfc107f00ba6cea4daae8}{Floor}} (int side\+Length, int table\+Space)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classFloor}{Floor}} object with specified side length and table space. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFloor_accfd0f9b79bba443403acd89ce64d135}{has\+Space}} (int amount)
+\begin{DoxyCompactList}\small\item\em Checks if the floor has enough space for a customer group. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFloor_a66b4da7281443cbfeb9aacfe0f7e7352}{seat\+Customer}} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$$>$ customers)
+\begin{DoxyCompactList}\small\item\em Seats a group of customers in the floor. Also assigns the table id to the customer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFloor_a539044c8293bf2a5a6755a87a2fe7ab4}{customers\+Left}} (int id)
+\begin{DoxyCompactList}\small\item\em Unmerges the floor when customers leave. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFloor_aa7cc712ce9d14d0c5ac7daebf0f252a2}\label{classFloor_aa7cc712ce9d14d0c5ac7daebf0f252a2}} 
+void \mbox{\hyperlink{classFloor_aa7cc712ce9d14d0c5ac7daebf0f252a2}{print\+Depth}} ()
+\begin{DoxyCompactList}\small\item\em Prints the floor in depth-\/first order. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtable}{table}} $>$ \mbox{\hyperlink{classFloor_a25d67040bc5aa75896976aced049a3ab}{get\+Table\+At}} (int id)
+\begin{DoxyCompactList}\small\item\em Gets the table with specified id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFloor_ae1b805579f18a76fe2754a3601202e80}\label{classFloor_ae1b805579f18a76fe2754a3601202e80}} 
+virtual \mbox{\hyperlink{classFloor_ae1b805579f18a76fe2754a3601202e80}{$\sim$\+Floor}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classFloor}{Floor}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classFloor}{Floor}} class represents the floor the restaurant. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFloor_ade8d4f7050bdfc107f00ba6cea4daae8}\label{classFloor_ade8d4f7050bdfc107f00ba6cea4daae8}} 
+\index{Floor@{Floor}!Floor@{Floor}}
+\index{Floor@{Floor}!Floor@{Floor}}
+\doxysubsubsection{\texorpdfstring{Floor()}{Floor()}}
+{\footnotesize\ttfamily Floor\+::\+Floor (\begin{DoxyParamCaption}\item[{int}]{side\+Length,  }\item[{int}]{table\+Space }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classFloor}{Floor}} object with specified side length and table space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em side\+Length} & The length of the sides of the floor. \\
+\hline
+{\em table\+Space} & The number of seats each table will have \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFloor_a539044c8293bf2a5a6755a87a2fe7ab4}\label{classFloor_a539044c8293bf2a5a6755a87a2fe7ab4}} 
+\index{Floor@{Floor}!customersLeft@{customersLeft}}
+\index{customersLeft@{customersLeft}!Floor@{Floor}}
+\doxysubsubsection{\texorpdfstring{customersLeft()}{customersLeft()}}
+{\footnotesize\ttfamily void Floor\+::customers\+Left (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Unmerges the floor when customers leave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The table id of the leaving customer group. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFloor_a25d67040bc5aa75896976aced049a3ab}\label{classFloor_a25d67040bc5aa75896976aced049a3ab}} 
+\index{Floor@{Floor}!getTableAt@{getTableAt}}
+\index{getTableAt@{getTableAt}!Floor@{Floor}}
+\doxysubsubsection{\texorpdfstring{getTableAt()}{getTableAt()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtable}{table}} $>$ Floor\+::get\+Table\+At (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Gets the table with specified id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The id of the table. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shared pointer to the table. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFloor_accfd0f9b79bba443403acd89ce64d135}\label{classFloor_accfd0f9b79bba443403acd89ce64d135}} 
+\index{Floor@{Floor}!hasSpace@{hasSpace}}
+\index{hasSpace@{hasSpace}!Floor@{Floor}}
+\doxysubsubsection{\texorpdfstring{hasSpace()}{hasSpace()}}
+{\footnotesize\ttfamily bool Floor\+::has\+Space (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Checks if the floor has enough space for a customer group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The size of the customer group. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is enough space, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFloor_a66b4da7281443cbfeb9aacfe0f7e7352}\label{classFloor_a66b4da7281443cbfeb9aacfe0f7e7352}} 
+\index{Floor@{Floor}!seatCustomer@{seatCustomer}}
+\index{seatCustomer@{seatCustomer}!Floor@{Floor}}
+\doxysubsubsection{\texorpdfstring{seatCustomer()}{seatCustomer()}}
+{\footnotesize\ttfamily bool Floor\+::seat\+Customer (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$$>$}]{customers }\end{DoxyParamCaption})}
+
+
+
+Seats a group of customers in the floor. Also assigns the table id to the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customers} & The vector of shared pointers to customers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if seating was successful, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+floor.\+h\item 
+floor.\+cpp\end{DoxyCompactItemize}

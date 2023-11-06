@@ -1,0 +1,4 @@
+<map id="getMergeVisitor" name="getMergeVisitor">
+<area shape="rect" id="node1" title="The getMergeVisitor class provides a visitor for merging elements." alt="" coords="5,80,132,107"/>
+<area shape="rect" id="node2" href="$classvisitor.html" title="The visitor class provides an interface for visiting elements in a floor plan." alt="" coords="37,5,100,32"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classvisitor.html" title="The visitor class provides an interface for visiting elements in a floor plan." alt="" coords="5,183,68,209"/>
+<area shape="rect" id="node2" href="$classfindSpaceVisitor.html" title="The findSpaceVisitor class provides a visitor for finding the available space in of each floorCompone..." alt="" coords="131,5,257,32"/>
+<area shape="rect" id="node3" href="$classgetIsAvailableVisitor.html" title="The getIsAvailableVisitor class provides a visitor for checking availability of elements." alt="" coords="116,56,272,83"/>
+<area shape="rect" id="node4" href="$classgetMergeVisitor.html" title="The getMergeVisitor class provides a visitor for merging elements." alt="" coords="131,107,257,133"/>
+<area shape="rect" id="node5" href="$classgetVisibilityVisitor.html" title="The getVisibilityVisitor class provides a visitor for determining visibility." alt="" coords="123,157,265,184"/>
+<area shape="rect" id="node6" href="$classsetIsAvailableVisitor.html" title="The setIsAvailableVisitor class provides a visitor for setting availability." alt="" coords="117,208,271,235"/>
+<area shape="rect" id="node7" href="$classsetMergeVisitor.html" title="The setMergeVisitor class provides a visitor for setting merging status." alt="" coords="131,259,257,285"/>
+<area shape="rect" id="node8" href="$classsetSpaceVisitor.html" title="The setSpaceVisitor class provides a visitor for setting space value." alt="" coords="133,309,255,336"/>
+<area shape="rect" id="node9" href="$classsetVisibilityVisitor.html" title="The setVisibilityVisitor class provides a visitor for setting visibility." alt="" coords="123,360,265,387"/>
+</map>

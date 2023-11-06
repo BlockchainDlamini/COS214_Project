@@ -1,0 +1,77 @@
+\hypertarget{classPreorder}{}\doxysection{Preorder Class Reference}
+\label{classPreorder}\index{Preorder@{Preorder}}
+
+
+Represents the \char`\"{}\+Preorder\char`\"{} state in the order processing system.  
+
+
+
+
+{\ttfamily \#include $<$Preorder.\+h$>$}
+
+
+
+Inheritance diagram for Preorder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classPreorder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Preorder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classPreorder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPreorder_a95709d0b17d3bba9ca7747e5ba75e3dd}\label{classPreorder_a95709d0b17d3bba9ca7747e5ba75e3dd}} 
+\mbox{\hyperlink{classPreorder_a95709d0b17d3bba9ca7747e5ba75e3dd}{Preorder}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for creating a \mbox{\hyperlink{classPreorder}{Preorder}} state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPreorder_a16aefc878b91992a9fcf8ce1293fab20}\label{classPreorder_a16aefc878b91992a9fcf8ce1293fab20}} 
+void \mbox{\hyperlink{classPreorder_a16aefc878b91992a9fcf8ce1293fab20}{execute}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Execute the \mbox{\hyperlink{classPreorder}{Preorder}} state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPreorder_a23b3fd28d57838b032dbe54c38cac884}\label{classPreorder_a23b3fd28d57838b032dbe54c38cac884}} 
+std\+::string {\bfseries get\+Name} ()
+\item 
+void \mbox{\hyperlink{classPreorder_ae62e4d00eceb3a5fa3eae3c784a486e0}{handle\+Change}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Handle a change in the state by moving to the next state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the \char`\"{}\+Preorder\char`\"{} state in the order processing system. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPreorder_ae62e4d00eceb3a5fa3eae3c784a486e0}\label{classPreorder_ae62e4d00eceb3a5fa3eae3c784a486e0}} 
+\index{Preorder@{Preorder}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!Preorder@{Preorder}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily void Preorder\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a change in the state by moving to the next state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A shared pointer to the customer context. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classOrderProcessState_abc9b86cbaeaa3cd738f4a8a6abb8d2c0}{Order\+Process\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Preorder.\+h\item 
+Preorder.\+cpp\end{DoxyCompactItemize}

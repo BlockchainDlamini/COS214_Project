@@ -1,0 +1,125 @@
+\hypertarget{classEmotionState}{}\doxysection{Emotion\+State Class Reference}
+\label{classEmotionState}\index{EmotionState@{EmotionState}}
+
+
+Abstract base class representing the emotional state of a customer.  
+
+
+
+
+{\ttfamily \#include $<$Emotion\+State.\+h$>$}
+
+
+
+Inheritance diagram for Emotion\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEmotionState__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEmotionState_adba86ca743f4be8b4a7ce6fd269684cb}\label{classEmotionState_adba86ca743f4be8b4a7ce6fd269684cb}} 
+\mbox{\hyperlink{classEmotionState_adba86ca743f4be8b4a7ce6fd269684cb}{Emotion\+State}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classEmotionState}{Emotion\+State}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEmotionState_a3fe7819173274aab7e887ec0232bd50e}{handle\+Change}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$\mbox{\hyperlink{classEmotionState_abfe8f125ba634562ec50ade31e07e5c5}{context}})=0
+\begin{DoxyCompactList}\small\item\em Handle a change in the customer\textquotesingle{}s emotional state. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classEmotionState_a217289f3359edc055acebedd99eeb0ee}{get\+Tip}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the tip amount associated with the emotional state. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classEmotionState_a14b8075b1a714fabde85278285e79e4a}{get\+Emotion}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the name of the emotional state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEmotionState_aad60fef356741d47d69d96e0c52c2bcc}{get\+Random\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Generate a random number between 0 and 100. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEmotionState_abfe8f125ba634562ec50ade31e07e5c5}\label{classEmotionState_abfe8f125ba634562ec50ade31e07e5c5}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$ \mbox{\hyperlink{classEmotionState_abfe8f125ba634562ec50ade31e07e5c5}{context}}
+\begin{DoxyCompactList}\small\item\em The customer context associated with this emotion state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEmotionState_aeede3594664d96a34ec5df62f483fb38}\label{classEmotionState_aeede3594664d96a34ec5df62f483fb38}} 
+float \mbox{\hyperlink{classEmotionState_aeede3594664d96a34ec5df62f483fb38}{tip}}
+\begin{DoxyCompactList}\small\item\em The tip amount associated with this emotion state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEmotionState_a35f5db9841c4a5bcd32ec8933ddd0514}\label{classEmotionState_a35f5db9841c4a5bcd32ec8933ddd0514}} 
+std\+::string \mbox{\hyperlink{classEmotionState_a35f5db9841c4a5bcd32ec8933ddd0514}{emotion}}
+\begin{DoxyCompactList}\small\item\em The emotional state\textquotesingle{}s name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class representing the emotional state of a customer. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEmotionState_a14b8075b1a714fabde85278285e79e4a}\label{classEmotionState_a14b8075b1a714fabde85278285e79e4a}} 
+\index{EmotionState@{EmotionState}!getEmotion@{getEmotion}}
+\index{getEmotion@{getEmotion}!EmotionState@{EmotionState}}
+\doxysubsubsection{\texorpdfstring{getEmotion()}{getEmotion()}}
+{\footnotesize\ttfamily virtual std\+::string Emotion\+State\+::get\+Emotion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the name of the emotional state. 
+
+\begin{DoxyReturn}{Returns}
+The name of the emotional state. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSatisfied_a2cb5105b736d90fdbd2ddb0007b0811e}{Satisfied}}, \mbox{\hyperlink{classHappy_aa0cb703b4ed2a1a5a7c71a264c8f80e5}{Happy}}, \mbox{\hyperlink{classFrustrated_ae3b666a72fe9e70765a7f1edf12032f6}{Frustrated}}, and \mbox{\hyperlink{classDisgruntaled_adf8741e74c7ee10deaaba1ba2b08b63d}{Disgruntaled}}.
+
+\mbox{\Hypertarget{classEmotionState_aad60fef356741d47d69d96e0c52c2bcc}\label{classEmotionState_aad60fef356741d47d69d96e0c52c2bcc}} 
+\index{EmotionState@{EmotionState}!getRandomNumber@{getRandomNumber}}
+\index{getRandomNumber@{getRandomNumber}!EmotionState@{EmotionState}}
+\doxysubsubsection{\texorpdfstring{getRandomNumber()}{getRandomNumber()}}
+{\footnotesize\ttfamily int Emotion\+State\+::get\+Random\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a random number between 0 and 100. 
+
+\begin{DoxyReturn}{Returns}
+A random number between 0 and 100. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEmotionState_a217289f3359edc055acebedd99eeb0ee}\label{classEmotionState_a217289f3359edc055acebedd99eeb0ee}} 
+\index{EmotionState@{EmotionState}!getTip@{getTip}}
+\index{getTip@{getTip}!EmotionState@{EmotionState}}
+\doxysubsubsection{\texorpdfstring{getTip()}{getTip()}}
+{\footnotesize\ttfamily virtual float Emotion\+State\+::get\+Tip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the tip amount associated with the emotional state. 
+
+\begin{DoxyReturn}{Returns}
+The tip amount. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSatisfied_aa815554733ac2d37bc83932f1f5cdb71}{Satisfied}}, \mbox{\hyperlink{classHappy_a631455af9a03cfcdc2759ebabacc296d}{Happy}}, \mbox{\hyperlink{classFrustrated_a5fdb9b18026228c3a04714c7a1a5b3f8}{Frustrated}}, and \mbox{\hyperlink{classDisgruntaled_af8daedba0c3ef059f28309bb51850d3f}{Disgruntaled}}.
+
+\mbox{\Hypertarget{classEmotionState_a3fe7819173274aab7e887ec0232bd50e}\label{classEmotionState_a3fe7819173274aab7e887ec0232bd50e}} 
+\index{EmotionState@{EmotionState}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!EmotionState@{EmotionState}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily virtual void Emotion\+State\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle a change in the customer\textquotesingle{}s emotional state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & A shared pointer to the customer whose state is changing. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSatisfied_a660b12b7ccacc3e4a8ca695b84238c87}{Satisfied}}, \mbox{\hyperlink{classHappy_a02375fe219a745fd76d54a4b261de9b2}{Happy}}, \mbox{\hyperlink{classFrustrated_a60fc4a680f4bdc293b261e2f1fb6cb33}{Frustrated}}, and \mbox{\hyperlink{classDisgruntaled_aaf627aee171a91429211b8c8c8995c38}{Disgruntaled}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Emotion\+State.\+h\item 
+Emotion\+State.\+cpp\end{DoxyCompactItemize}

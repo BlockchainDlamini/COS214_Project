@@ -1,0 +1,52 @@
+<map id="MakeBeef.h" name="MakeBeef.h">
+<area shape="rect" id="node1" title="Contains the MakeBeef class, a subclass of MakeTopping, responsible for creating a beef topping for a..." alt="" coords="66,5,165,32"/>
+<area shape="rect" id="node2" href="$MakeBlueCheese_8h.html" title="Contains the class declarations for the MakeBlueCheese class, a subclass of MakeCheese,..." alt="" coords="42,80,189,107"/>
+<area shape="rect" id="node3" href="$MakeBoiledCrust_8h.html" title="Contains the class declarations for the MakeBoiledCrust class, a subclass of MakeBase,..." alt="" coords="43,155,187,181"/>
+<area shape="rect" id="node4" href="$MakeCheddar_8h.html" title="Contains the class declarations for the MakeCheddar class, a subclass of MakeCheese,..." alt="" coords="54,229,177,256"/>
+<area shape="rect" id="node5" href="$MakeChicken_8h.html" title="Contains the class declarations for the MakeChicken class, a subclass of MakeTopping,..." alt="" coords="55,304,175,331"/>
+<area shape="rect" id="node6" href="$MakeChutneySauce_8h.html" title="Contains the class declarations for the MakeChutneySauce class, a subclass of MakeSauce,..." alt="" coords="34,379,197,405"/>
+<area shape="rect" id="node7" href="$MakeDeepDish_8h.html" title="Contains the class declarations for the MakeDeepDish class, a subclass of MakeBase,..." alt="" coords="49,453,181,480"/>
+<area shape="rect" id="node8" href="$MakeDoubleDecker_8h.html" title="Contains the class declarations for the MakeDoubleDecker class, a subclass of MakeBase,..." alt="" coords="36,528,195,555"/>
+<area shape="rect" id="node9" href="$MakeGouda_8h.html" title="Contains the class declarations for the MakeGouda class, a subclass of MakeCheese,..." alt="" coords="60,603,171,629"/>
+<area shape="rect" id="node10" href="$MakeMozzarella_8h.html" title="Contains the class declarations for the MakeMozzarella class, a subclass of MakeCheese,..." alt="" coords="45,677,185,704"/>
+<area shape="rect" id="node11" href="$MakeMushrooms_8h.html" title="Contains the class declarations for the MakeMushrooms class, a subclass of MakeTopping,..." alt="" coords="43,752,188,779"/>
+<area shape="rect" id="node12" href="$MakeOlives_8h.html" title="Contains the class declarations for the MakeOlives class, a subclass of MakeTopping,..." alt="" coords="60,827,171,853"/>
+<area shape="rect" id="node13" href="$MakeParmesan_8h_source.html" title=" " alt="" coords="49,901,182,928"/>
+<area shape="rect" id="node14" href="$MakePepperoni_8h.html" title="Contains the class declarations for the MakePepperoni class, a subclass of MakeTopping,..." alt="" coords="48,976,183,1003"/>
+<area shape="rect" id="node15" href="$MakePeppers_8h.html" title="Contains the class declarations for the MakePeppers class, a subclass of MakeTopping,..." alt="" coords="55,1051,176,1077"/>
+<area shape="rect" id="node16" href="$MakeRanch_8h.html" title="Contains the class declarations for the MakeRanch class, a subclass of MakeSauce, responsible for cre..." alt="" coords="61,1125,170,1152"/>
+<area shape="rect" id="node17" href="$MakeStuffedCrust_8h.html" title="Contains the class declarations for the MakeStuffedCrust class, a subclass of MakeBase,..." alt="" coords="41,1200,190,1227"/>
+<area shape="rect" id="node18" href="$MakeSweetChilli_8h.html" title="Contains the class declarations for the MakeSweetChilli class, a subclass of MakeSauce,..." alt="" coords="44,1275,187,1301"/>
+<area shape="rect" id="node19" href="$MakeThinCrust_8h.html" title="Contains the class declarations for the MakeThinCrust class, a subclass of MakeBase,..." alt="" coords="50,1349,181,1376"/>
+<area shape="rect" id="node20" href="$MakeTomatoPaste_8h.html" title="Contains the class declarations for the MakeTomatoPaste class, a subclass of MakeSauce,..." alt="" coords="39,1424,191,1451"/>
+<area shape="rect" id="node21" href="$Pizza_8h.html" title="Contains the class declaration for the Pizza class, a subclass of gameElement, responsible for creati..." alt="" coords="81,1499,149,1525"/>
+<area shape="rect" id="node22" href="$Kitchen_8h_source.html" title=" " alt="" coords="74,1573,157,1600"/>
+<area shape="rect" id="node23" href="$FireChef_8h_source.html" title=" " alt="" coords="5,1648,92,1675"/>
+<area shape="rect" id="node24" href="$OrderMemento_8h_source.html" title=" " alt="" coords="116,1648,248,1675"/>
+<area shape="rect" id="node25" href="$Order_8h_source.html" title=" " alt="" coords="147,1723,217,1749"/>
+<area shape="rect" id="node26" href="$HeadChef_8h.html" title="Contains the HeadChef class, a subclass of Kitchen, responsible for creating pizza in the kitchen." alt="" coords="133,1797,231,1824"/>
+<area shape="rect" id="node27" href="$ToppingsChef_8h_source.html" title=" " alt="" coords="122,1872,242,1899"/>
+<area shape="rect" id="node28" href="$SauceChef_8h_source.html" title=" " alt="" coords="131,1947,233,1973"/>
+<area shape="rect" id="node29" href="$CheeseChef_8h_source.html" title=" " alt="" coords="127,2021,237,2048"/>
+<area shape="rect" id="node30" href="$BaseChef_8h.html" title="Declaration of the BaseChef class." alt="" coords="135,2096,229,2123"/>
+<area shape="rect" id="node31" href="$ManagerChef_8h_source.html" title=" " alt="" coords="122,2171,242,2197"/>
+<area shape="rect" id="node32" href="$Tab_8h_source.html" title=" " alt="" coords="154,2245,210,2272"/>
+<area shape="rect" id="node33" href="$EmotionState_8h_source.html" title=" " alt="" coords="121,2320,243,2347"/>
+<area shape="rect" id="node34" href="$Frustrated_8h_source.html" title=" " alt="" coords="132,2395,232,2421"/>
+<area shape="rect" id="node35" href="$Satisfied_8h_source.html" title=" " alt="" coords="137,2469,227,2496"/>
+<area shape="rect" id="node36" href="$Disgruntaled_8h_source.html" title=" " alt="" coords="123,2544,241,2571"/>
+<area shape="rect" id="node37" href="$Happy_8h_source.html" title=" " alt="" coords="145,2619,219,2645"/>
+<area shape="rect" id="node38" href="$OrderProcessState_8h_source.html" title=" " alt="" coords="105,2693,259,2720"/>
+<area shape="rect" id="node39" href="$DinnerDone_8h_source.html" title=" " alt="" coords="127,2768,237,2795"/>
+<area shape="rect" id="node40" href="$OrderReceived_8h_source.html" title=" " alt="" coords="117,2843,247,2869"/>
+<area shape="rect" id="node41" href="$Waiting_8h_source.html" title=" " alt="" coords="141,2917,223,2944"/>
+<area shape="rect" id="node42" href="$Preorder_8h_source.html" title=" " alt="" coords="138,2992,226,3019"/>
+<area shape="rect" id="node43" href="$Customer_8h_source.html" title=" " alt="" coords="75,3067,171,3093"/>
+<area shape="rect" id="node50" href="$Ordering_8h_source.html" title=" " alt="" coords="195,3067,286,3093"/>
+<area shape="rect" id="node44" href="$PredefinedOrders_8h.html" title="Contains the class declarations for the PredefinedOrders class, responsible for creating predefined p..." alt="" coords="50,3141,197,3168"/>
+<area shape="rect" id="node45" href="$iterator_8h_source.html" title=" " alt="" coords="83,3216,164,3243"/>
+<area shape="rect" id="node46" href="$depthFirstIterator_8h_source.html" title=" " alt="" coords="50,3291,197,3317"/>
+<area shape="rect" id="node47" href="$floorComponent_8h_source.html" title=" " alt="" coords="54,3365,193,3392"/>
+<area shape="rect" id="node48" href="$floorComposite_8h_source.html" title=" " alt="" coords="57,3440,190,3467"/>
+<area shape="rect" id="node49" href="$floor_8h_source.html" title=" " alt="" coords="92,3515,155,3541"/>
+</map>

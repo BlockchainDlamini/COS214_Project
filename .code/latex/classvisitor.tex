@@ -1,0 +1,89 @@
+\hypertarget{classvisitor}{}\doxysection{visitor Class Reference}
+\label{classvisitor}\index{visitor@{visitor}}
+
+
+The visitor class provides an interface for visiting elements in a floor plan.  
+
+
+
+
+{\ttfamily \#include $<$visitor.\+h$>$}
+
+
+
+Inheritance diagram for visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{classvisitor__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvisitor_ab2f5d47572da17185b11d86935ceff92}\label{classvisitor_ab2f5d47572da17185b11d86935ceff92}} 
+\mbox{\hyperlink{classvisitor_ab2f5d47572da17185b11d86935ceff92}{visitor}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a visitor object. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classvisitor_a2731100a3b384c22bfafdc87fbc7c416}{visit\+Table}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtable}{table}} $>$ table\+Ptr)=0
+\begin{DoxyCompactList}\small\item\em Visits a table in the floor plan. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classvisitor_a2533b6982a4b50d0b0884e65ed67440b}{visit\+Tile}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} $>$ floor\+Composite\+Ptr)=0
+\begin{DoxyCompactList}\small\item\em Visits a floor composite (e.\+g., a tile) in the floor plan. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvisitor_a1823803418e3ae35f8e6c1fc7d4e2905}\label{classvisitor_a1823803418e3ae35f8e6c1fc7d4e2905}} 
+virtual \mbox{\hyperlink{classvisitor_a1823803418e3ae35f8e6c1fc7d4e2905}{$\sim$visitor}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the visitor object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The visitor class provides an interface for visiting elements in a floor plan. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvisitor_a2731100a3b384c22bfafdc87fbc7c416}\label{classvisitor_a2731100a3b384c22bfafdc87fbc7c416}} 
+\index{visitor@{visitor}!visitTable@{visitTable}}
+\index{visitTable@{visitTable}!visitor@{visitor}}
+\doxysubsubsection{\texorpdfstring{visitTable()}{visitTable()}}
+{\footnotesize\ttfamily virtual int visitor\+::visit\+Table (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtable}{table}} $>$}]{table\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Visits a table in the floor plan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Ptr} & The shared pointer to the table being visited. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer result of the visitation. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsetVisibilityVisitor_a50c113e9eee4f7da9533e80e11acad14}{set\+Visibility\+Visitor}}, \mbox{\hyperlink{classsetSpaceVisitor_a9010101308ef44bd79cd1e62ce8a50b1}{set\+Space\+Visitor}}, \mbox{\hyperlink{classsetMergeVisitor_afa6d104b66f57c6cd8362b14f05355bd}{set\+Merge\+Visitor}}, \mbox{\hyperlink{classsetIsAvailableVisitor_af07f1c9a8ecd51521fc37c0db3e105fe}{set\+Is\+Available\+Visitor}}, \mbox{\hyperlink{classgetVisibilityVisitor_a16a85d4dfa3718a35f124aab5ac53a02}{get\+Visibility\+Visitor}}, \mbox{\hyperlink{classgetMergeVisitor_a413b7315c26482a8c34e56eaa29fcdec}{get\+Merge\+Visitor}}, \mbox{\hyperlink{classgetIsAvailableVisitor_a8f7308099dea0c661790ef1b1c88487d}{get\+Is\+Available\+Visitor}}, and \mbox{\hyperlink{classfindSpaceVisitor_ad8e4f69a6da6444dcd4bfd418183895f}{find\+Space\+Visitor}}.
+
+\mbox{\Hypertarget{classvisitor_a2533b6982a4b50d0b0884e65ed67440b}\label{classvisitor_a2533b6982a4b50d0b0884e65ed67440b}} 
+\index{visitor@{visitor}!visitTile@{visitTile}}
+\index{visitTile@{visitTile}!visitor@{visitor}}
+\doxysubsubsection{\texorpdfstring{visitTile()}{visitTile()}}
+{\footnotesize\ttfamily virtual int visitor\+::visit\+Tile (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} $>$}]{floor\+Composite\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Visits a floor composite (e.\+g., a tile) in the floor plan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor\+Composite\+Ptr} & The shared pointer to the floor composite being visited. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer result of the visitation. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsetVisibilityVisitor_ac0fcebfb7f889473bcf3352966c179c3}{set\+Visibility\+Visitor}}, \mbox{\hyperlink{classsetSpaceVisitor_a93659ce7c303ee829041201606e670bd}{set\+Space\+Visitor}}, \mbox{\hyperlink{classsetMergeVisitor_a17715e681c9678f4fd5a264cc8f77045}{set\+Merge\+Visitor}}, \mbox{\hyperlink{classsetIsAvailableVisitor_a49582727a00962eb12e723776ffe9114}{set\+Is\+Available\+Visitor}}, \mbox{\hyperlink{classgetVisibilityVisitor_a0dd74a83123e243e59ba9eab0670699b}{get\+Visibility\+Visitor}}, \mbox{\hyperlink{classgetMergeVisitor_ad3821a4180e5183a998f5136378fe609}{get\+Merge\+Visitor}}, \mbox{\hyperlink{classgetIsAvailableVisitor_abe1f3206eea177dc80a746bf94783d3d}{get\+Is\+Available\+Visitor}}, and \mbox{\hyperlink{classfindSpaceVisitor_a44170c73977af82601cc87cebb88223f}{find\+Space\+Visitor}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+visitor.\+h\end{DoxyCompactItemize}

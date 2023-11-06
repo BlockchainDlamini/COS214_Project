@@ -1,0 +1,4 @@
+<map id="setSpaceVisitor" name="setSpaceVisitor">
+<area shape="rect" id="node1" title="The setSpaceVisitor class provides a visitor for setting space value." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node2" href="$classvisitor.html" title="The visitor class provides an interface for visiting elements in a floor plan." alt="" coords="35,5,98,32"/>
+</map>

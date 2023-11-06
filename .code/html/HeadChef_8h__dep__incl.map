@@ -1,0 +1,43 @@
+<map id="HeadChef.h" name="HeadChef.h">
+<area shape="rect" id="node1" title="Contains the HeadChef class, a subclass of Kitchen, responsible for creating pizza in the kitchen." alt="" coords="99,5,196,32"/>
+<area shape="rect" id="node2" href="$ToppingsChef_8h_source.html" title=" " alt="" coords="87,80,207,107"/>
+<area shape="rect" id="node3" href="$SauceChef_8h_source.html" title=" " alt="" coords="96,155,199,181"/>
+<area shape="rect" id="node4" href="$CheeseChef_8h_source.html" title=" " alt="" coords="92,229,203,256"/>
+<area shape="rect" id="node5" href="$BaseChef_8h.html" title="Declaration of the BaseChef class." alt="" coords="100,304,195,331"/>
+<area shape="rect" id="node6" href="$ManagerChef_8h_source.html" title=" " alt="" coords="87,379,207,405"/>
+<area shape="rect" id="node7" href="$Tab_8h_source.html" title=" " alt="" coords="119,453,175,480"/>
+<area shape="rect" id="node8" href="$EmotionState_8h_source.html" title=" " alt="" coords="86,528,209,555"/>
+<area shape="rect" id="node9" href="$Frustrated_8h_source.html" title=" " alt="" coords="97,603,197,629"/>
+<area shape="rect" id="node10" href="$Satisfied_8h_source.html" title=" " alt="" coords="102,677,193,704"/>
+<area shape="rect" id="node11" href="$Disgruntaled_8h_source.html" title=" " alt="" coords="89,752,206,779"/>
+<area shape="rect" id="node12" href="$Happy_8h_source.html" title=" " alt="" coords="110,827,185,853"/>
+<area shape="rect" id="node13" href="$OrderProcessState_8h_source.html" title=" " alt="" coords="70,901,225,928"/>
+<area shape="rect" id="node14" href="$DinnerDone_8h_source.html" title=" " alt="" coords="92,976,203,1003"/>
+<area shape="rect" id="node15" href="$OrderReceived_8h_source.html" title=" " alt="" coords="82,1051,213,1077"/>
+<area shape="rect" id="node16" href="$Waiting_8h_source.html" title=" " alt="" coords="106,1125,189,1152"/>
+<area shape="rect" id="node17" href="$Preorder_8h_source.html" title=" " alt="" coords="103,1200,191,1227"/>
+<area shape="rect" id="node18" href="$Customer_8h_source.html" title=" " alt="" coords="41,1275,137,1301"/>
+<area shape="rect" id="node41" href="$Ordering_8h_source.html" title=" " alt="" coords="161,1275,251,1301"/>
+<area shape="rect" id="node19" href="$PredefinedOrders_8h.html" title="Contains the class declarations for the PredefinedOrders class, responsible for creating predefined p..." alt="" coords="15,1349,162,1376"/>
+<area shape="rect" id="node20" href="$iterator_8h_source.html" title=" " alt="" coords="48,1424,129,1451"/>
+<area shape="rect" id="node21" href="$depthFirstIterator_8h_source.html" title=" " alt="" coords="15,1499,162,1525"/>
+<area shape="rect" id="node22" href="$floorComponent_8h_source.html" title=" " alt="" coords="19,1573,158,1600"/>
+<area shape="rect" id="node23" href="$floorComposite_8h_source.html" title=" " alt="" coords="22,1648,155,1675"/>
+<area shape="rect" id="node24" href="$floor_8h_source.html" title=" " alt="" coords="57,1723,120,1749"/>
+<area shape="rect" id="node25" href="$table_8h_source.html" title=" " alt="" coords="55,1797,122,1824"/>
+<area shape="rect" id="node26" href="$visitor_8h_source.html" title=" " alt="" coords="51,1872,126,1899"/>
+<area shape="rect" id="node27" href="$setVisibilityVisitor_8h_source.html" title=" " alt="" coords="13,1947,165,1973"/>
+<area shape="rect" id="node28" href="$setSpcaeVisitor_8h_source.html" title=" " alt="" coords="21,2021,156,2048"/>
+<area shape="rect" id="node29" href="$setMergeVisitor_8h_source.html" title=" " alt="" coords="21,2096,157,2123"/>
+<area shape="rect" id="node30" href="$setAvailableVisitor_8h_source.html" title=" " alt="" coords="11,2171,166,2197"/>
+<area shape="rect" id="node31" href="$getVisibilityVisitor_8h_source.html" title=" " alt="" coords="12,2245,165,2272"/>
+<area shape="rect" id="node32" href="$getMergeVisitor_8h_source.html" title=" " alt="" coords="20,2320,157,2347"/>
+<area shape="rect" id="node33" href="$getIsAvailableVisitor_8h_source.html" title=" " alt="" coords="5,2395,172,2421"/>
+<area shape="rect" id="node34" href="$findSpaceVisitor_8h_source.html" title=" " alt="" coords="19,2469,158,2496"/>
+<area shape="rect" id="node35" href="$Waiter_8h.html" title="Defines the Waiter class, responsible for handling orders and interactions with customers and kitchen..." alt="" coords="51,2544,126,2571"/>
+<area shape="rect" id="node36" href="$RegularWaiter_8h.html" title="Defines the RegularWaiter class, responsible for serving tables and managing orders." alt="" coords="26,2619,151,2645"/>
+<area shape="rect" id="node37" href="$MaitreD_8h.html" title="Defines the MaitreD class, responsible for seating customers and managing Waiters." alt="" coords="45,2693,132,2720"/>
+<area shape="rect" id="node38" href="$Pager_8h_source.html" title=" " alt="" coords="54,2768,123,2795"/>
+<area shape="rect" id="node39" href="$KitchenInterface_8h_source.html" title=" " alt="" coords="18,2843,159,2869"/>
+<area shape="rect" id="node40" href="$gameFacade_8h_source.html" title=" " alt="" coords="31,2917,147,2944"/>
+</map>

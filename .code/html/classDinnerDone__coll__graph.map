@@ -1,0 +1,4 @@
+<map id="DinnerDone" name="DinnerDone">
+<area shape="rect" id="node1" title="Represents the &quot;Dinner Done&quot; state in the order processing system." alt="" coords="27,80,126,107"/>
+<area shape="rect" id="node2" href="$classOrderProcessState.html" title="Abstract base class for representing various states in the order processing system." alt="" coords="5,5,148,32"/>
+</map>

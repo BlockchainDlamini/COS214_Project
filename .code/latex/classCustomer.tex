@@ -1,0 +1,558 @@
+\hypertarget{classCustomer}{}\doxysection{Customer Class Reference}
+\label{classCustomer}\index{Customer@{Customer}}
+
+
+Represents a customer in a restaurant with various states and actions.  
+
+
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+
+
+Inheritance diagram for Customer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{classCustomer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Customer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{classCustomer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCustomer_aa20a6b9794e88c3ca92b2fe7b5a7d6b7}{set\+Name}} (string name)
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classCustomer}{Customer}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a1bda0c5a9b2f4bf0c3314832e95f2566}\label{classCustomer_a1bda0c5a9b2f4bf0c3314832e95f2566}} 
+string {\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{classCustomer_ab7110b20c6ec8a3f46bd626a22a2d99c}\label{classCustomer_ab7110b20c6ec8a3f46bd626a22a2d99c}} 
+{\bfseries Customer} (int id, float bank\+Account\+Amount)
+\item 
+\mbox{\hyperlink{classCustomer_a1147fa9d0d9a41801804b20875e425ee}{Customer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEmotionState}{Emotion\+State}} $>$ mood, float bank\+Account\+Amount)
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classCustomer}{Customer}} with an initial emotional state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a5950416485af45339f39ad930828ab7f}\label{classCustomer_a5950416485af45339f39ad930828ab7f}} 
+{\bfseries Customer} (float bank\+Account)
+\item 
+\mbox{\Hypertarget{classCustomer_ad5955b54b2e950425b23cbe765b279d8}\label{classCustomer_ad5955b54b2e950425b23cbe765b279d8}} 
+void \mbox{\hyperlink{classCustomer_ad5955b54b2e950425b23cbe765b279d8}{change\+Mood}} ()
+\begin{DoxyCompactList}\small\item\em Change the emotional state of the customer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a31be472492717698a692c737c0e4744c}\label{classCustomer_a31be472492717698a692c737c0e4744c}} 
+void {\bfseries log\+Complaint} ()
+\item 
+\mbox{\Hypertarget{classCustomer_a0bc35fb81f701c910cfb85ab04fc4d38}\label{classCustomer_a0bc35fb81f701c910cfb85ab04fc4d38}} 
+void \mbox{\hyperlink{classCustomer_a0bc35fb81f701c910cfb85ab04fc4d38}{changed\+Order\+Process\+State}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a change in the customer\textquotesingle{}s order process state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a2d255b453f970208982a10df5f0001a7}{request\+Bill}} ()
+\begin{DoxyCompactList}\small\item\em Set the unique identifier of the customer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a85bd2c29c7b1c6d2b015c52d2daab143}{pay\+Bill}} (char c, float t, bool check)
+\begin{DoxyCompactList}\small\item\em Pay the bill or add it to the tab. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCustomer_aaa41e7e1d9db3525635fca230d46d2db}{is\+Loyal}} ()
+\begin{DoxyCompactList}\small\item\em Check if the customer is loyal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a87ba2c43d07a9a15cc5e5e0319c5f73f}\label{classCustomer_a87ba2c43d07a9a15cc5e5e0319c5f73f}} 
+void \mbox{\hyperlink{classCustomer_a87ba2c43d07a9a15cc5e5e0319c5f73f}{start\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Start a tab for the customer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_ae7d56dc29dc2f4b20e657553db6cfe55}\label{classCustomer_ae7d56dc29dc2f4b20e657553db6cfe55}} 
+void \mbox{\hyperlink{classCustomer_ae7d56dc29dc2f4b20e657553db6cfe55}{pay\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Pay the customer\textquotesingle{}s tab. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_a96936139983d4cd0d323c3768dd9795e}{print\+Bill}} ()
+\begin{DoxyCompactList}\small\item\em Print the customer\textquotesingle{}s bill. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a8919e11655f5e8ae749600f1c4907811}{create\+Order}} (bool)
+\begin{DoxyCompactList}\small\item\em Create a new order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_ae08855a3e96788c7f102216ba0d27883}{be\+Seated}} (int table\+Num)
+\begin{DoxyCompactList}\small\item\em Seat the customer at a table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCustomer_ab30e21197fe9cd2375a5a622c2b94bcb}{get\+Table\+Num}} ()
+\begin{DoxyCompactList}\small\item\em Get the table number where the customer is seated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_afd777672153cd71de37b66f3fdee5935}{set\+Emotion\+State}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEmotionState}{Emotion\+State}} $>$ mood)
+\begin{DoxyCompactList}\small\item\em Set the emotional state of the customer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_af085ef48619173a53395f1441127e596}{set\+Order\+Process\+State}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderProcessState}{Order\+Process\+State}} $>$ order\+Process)
+\begin{DoxyCompactList}\small\item\em Set the order process state of the customer. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEmotionState}{Emotion\+State}} $>$ \mbox{\hyperlink{classCustomer_a532f3064098055e4cea991a55a90ccd8}{get\+Mood}} ()
+\begin{DoxyCompactList}\small\item\em Get the emotional state of the customer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a7e47040b6e8195e38e3120f3cdbc460d}{set\+Total}} (float total)
+\begin{DoxyCompactList}\small\item\em Set the total cost of an item or order. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCustomer_aa746fc0c79e18b02c420b970898aea71}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Get the unique identifier of an item or order. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCustomer_a7cd763ee1b998bfc0f2ed5f6732fab1e}{get\+Total}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the total cost of an item or order. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderProcessState}{Order\+Process\+State}} $>$ \mbox{\hyperlink{classCustomer_a4c21e6b5797010b1db91091e49ce22ca}{get\+Order\+Process\+State}} ()
+\begin{DoxyCompactList}\small\item\em Get the order process state of the customer. \end{DoxyCompactList}\item 
+vector$<$ pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrder}{Order}} $>$ $>$ $>$ \mbox{\hyperlink{classCustomer_adb783b47483aeee9f3c72ffec097717b}{get\+Orders}} ()
+\begin{DoxyCompactList}\small\item\em Get a vector of customer\textquotesingle{}s orders. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCustomer_a9e54ddd8037eba0238ad92fc8ca4dbe5}{receive\+Order}} (vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$$>$)
+\begin{DoxyCompactList}\small\item\em Receive a pizza order. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCustomer_ac162b575b667ffbbc6f6b62731409f95}{print\+Customer}} ()
+\begin{DoxyCompactList}\small\item\em Print information about the customer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a1c6082408056bb248d58cbb53641f37a}{has\+Pizza}} ()
+\begin{DoxyCompactList}\small\item\em Check if the customer has received food. \end{DoxyCompactList}\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classMenuItemCommand}{Menu\+Item\+Command}} $>$ $>$ \mbox{\hyperlink{classCustomer_a81ee0cdda78e56ad09d9b99a77060e15}{add\+Menu\+Items}} ()
+\begin{DoxyCompactList}\small\item\em This function will show the menu for building the pizza. It will allow the customer to chose a variety of different base,toppings,sauce and cheese. \end{DoxyCompactList}\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classMenuItemCommand}{Menu\+Item\+Command}} $>$ $>$ \mbox{\hyperlink{classCustomer_afee801963b44fe850b77c311adb14edf}{predefined\+Order}} ()
+\begin{DoxyCompactList}\small\item\em This Function will allow the customer to pick a predefined pizza/ a basic pizza that does not require them to build a new pizza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a5d915c251c88054696d4d8db526a68e8}{talk\+To\+Waiter}} ()
+\begin{DoxyCompactList}\small\item\em Initiate communication with the waiter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a74d1ecd447b8996651b185fc9548af23}\label{classCustomer_a74d1ecd447b8996651b185fc9548af23}} 
+void {\bfseries waiter\+To\+Table} (char action)
+\item 
+\mbox{\Hypertarget{classCustomer_ab701ee509e7bd5e52c8e9aece44341af}\label{classCustomer_ab701ee509e7bd5e52c8e9aece44341af}} 
+std\+::string {\bfseries generate\+Random\+String} (int length)
+\item 
+\mbox{\Hypertarget{classCustomer_a8ae9c155cf20dfb755bce64190b0aaea}\label{classCustomer_a8ae9c155cf20dfb755bce64190b0aaea}} 
+int {\bfseries get\+Random\+Number} ()
+\item 
+\mbox{\Hypertarget{classCustomer_ac8a1bebd636ccef586dd1777c65c5a1d}\label{classCustomer_ac8a1bebd636ccef586dd1777c65c5a1d}} 
+int {\bfseries random\+Number\+For\+Messages} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTab}{Tab}} $>$ \mbox{\hyperlink{classCustomer_a1f511fd097a3b0338b915f3329f6b800}{get\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Get a shared pointer to a \mbox{\hyperlink{classTab}{Tab}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a86ee57e55352536cb8de001078d48641}{leave}} ()
+\begin{DoxyCompactList}\small\item\em Leave the restaurant or dining area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_aabe8a17ee3c196571e5b00ffc7ca4fb3}{get\+Kitchen\+Reference}} ()
+\begin{DoxyCompactList}\small\item\em Get a reference to the \mbox{\hyperlink{classKitchen}{Kitchen}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a2113b2f5b80889fc0034c739dc6d638a}{set\+Kitchen\+Reference}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ kitchen\+Ptr)
+\begin{DoxyCompactList}\small\item\em Set a reference to the \mbox{\hyperlink{classKitchen}{Kitchen}} using a shared pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classCustomer_a38014bbbb344ff46ed4e7fbf28efc88a}{has\+Ordered}} = false
+\item 
+bool \mbox{\hyperlink{classCustomer_a00ad6cdf5685231e2bec0c736dbd245d}{has\+Bill}} = false
+\item 
+bool \mbox{\hyperlink{classCustomer_aac7498cee46f5700f3d6247b0bd95345}{has\+Food}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a customer in a restaurant with various states and actions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCustomer_a1147fa9d0d9a41801804b20875e425ee}\label{classCustomer_a1147fa9d0d9a41801804b20875e425ee}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{Customer()}{Customer()}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEmotionState}{Emotion\+State}} $>$}]{mood,  }\item[{float}]{bank\+Account\+Amount }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classCustomer}{Customer}} with an initial emotional state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mood} & The initial emotional state of the customer. \\
+\hline
+{\em table\+Num} & The table number where the customer is seated. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomer_a81ee0cdda78e56ad09d9b99a77060e15}\label{classCustomer_a81ee0cdda78e56ad09d9b99a77060e15}} 
+\index{Customer@{Customer}!addMenuItems@{addMenuItems}}
+\index{addMenuItems@{addMenuItems}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{addMenuItems()}{addMenuItems()}}
+{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classMenuItemCommand}{Menu\+Item\+Command}} $>$ $>$ Customer\+::add\+Menu\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function will show the menu for building the pizza. It will allow the customer to chose a variety of different base,toppings,sauce and cheese. 
+
+\begin{DoxyReturn}{Returns}
+it will return a vector of shared\+\_\+ptr that point at Menu\+Item\+Commands 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_ae08855a3e96788c7f102216ba0d27883}\label{classCustomer_ae08855a3e96788c7f102216ba0d27883}} 
+\index{Customer@{Customer}!beSeated@{beSeated}}
+\index{beSeated@{beSeated}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{beSeated()}{beSeated()}}
+{\footnotesize\ttfamily void Customer\+::be\+Seated (\begin{DoxyParamCaption}\item[{int}]{table\+Num }\end{DoxyParamCaption})}
+
+
+
+Seat the customer at a table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Num} & The table number where the customer is seated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a8919e11655f5e8ae749600f1c4907811}\label{classCustomer_a8919e11655f5e8ae749600f1c4907811}} 
+\index{Customer@{Customer}!createOrder@{createOrder}}
+\index{createOrder@{createOrder}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{createOrder()}{createOrder()}}
+{\footnotesize\ttfamily void Customer\+::create\+Order (\begin{DoxyParamCaption}\item[{bool}]{ft }\end{DoxyParamCaption})}
+
+
+
+Create a new order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The identifier for the new order. \\
+\hline
+{\em command} & A vector of shared pointers to menu item order commands. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_aa746fc0c79e18b02c420b970898aea71}\label{classCustomer_aa746fc0c79e18b02c420b970898aea71}} 
+\index{Customer@{Customer}!getID@{getID}}
+\index{getID@{getID}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily int Customer\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the unique identifier of an item or order. 
+
+This function retrieves the unique identifier associated with the item or order and returns it as an integer value. The identifier is used to distinguish the item or order from others.
+
+\begin{DoxyReturn}{Returns}
+The unique identifier of the item or order. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_aabe8a17ee3c196571e5b00ffc7ca4fb3}\label{classCustomer_aabe8a17ee3c196571e5b00ffc7ca4fb3}} 
+\index{Customer@{Customer}!getKitchenReference@{getKitchenReference}}
+\index{getKitchenReference@{getKitchenReference}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getKitchenReference()}{getKitchenReference()}}
+{\footnotesize\ttfamily void Customer\+::get\+Kitchen\+Reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a reference to the \mbox{\hyperlink{classKitchen}{Kitchen}}. 
+
+This function provides access to the \mbox{\hyperlink{classKitchen}{Kitchen}} associated with the restaurant. It allows you to interact with and obtain information from the \mbox{\hyperlink{classKitchen}{Kitchen}}. \mbox{\Hypertarget{classCustomer_a532f3064098055e4cea991a55a90ccd8}\label{classCustomer_a532f3064098055e4cea991a55a90ccd8}} 
+\index{Customer@{Customer}!getMood@{getMood}}
+\index{getMood@{getMood}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getMood()}{getMood()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEmotionState}{Emotion\+State}} $>$ Customer\+::get\+Mood (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the emotional state of the customer. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the emotional state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a4c21e6b5797010b1db91091e49ce22ca}\label{classCustomer_a4c21e6b5797010b1db91091e49ce22ca}} 
+\index{Customer@{Customer}!getOrderProcessState@{getOrderProcessState}}
+\index{getOrderProcessState@{getOrderProcessState}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getOrderProcessState()}{getOrderProcessState()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderProcessState}{Order\+Process\+State}} $>$ Customer\+::get\+Order\+Process\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the order process state of the customer. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the order process state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_adb783b47483aeee9f3c72ffec097717b}\label{classCustomer_adb783b47483aeee9f3c72ffec097717b}} 
+\index{Customer@{Customer}!getOrders@{getOrders}}
+\index{getOrders@{getOrders}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getOrders()}{getOrders()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrder}{Order}} $>$ $>$ $>$ Customer\+::get\+Orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a vector of customer\textquotesingle{}s orders. 
+
+\begin{DoxyReturn}{Returns}
+A vector of shared pointers to orders. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a1f511fd097a3b0338b915f3329f6b800}\label{classCustomer_a1f511fd097a3b0338b915f3329f6b800}} 
+\index{Customer@{Customer}!getTab@{getTab}}
+\index{getTab@{getTab}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getTab()}{getTab()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTab}{Tab}} $>$ Customer\+::get\+Tab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a shared pointer to a \mbox{\hyperlink{classTab}{Tab}} object. 
+
+This function returns a shared pointer to a \mbox{\hyperlink{classTab}{Tab}} object, allowing you to interact with and manipulate the \mbox{\hyperlink{classTab}{Tab}}\textquotesingle{}s properties.
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to a \mbox{\hyperlink{classTab}{Tab}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_ab30e21197fe9cd2375a5a622c2b94bcb}\label{classCustomer_ab30e21197fe9cd2375a5a622c2b94bcb}} 
+\index{Customer@{Customer}!getTableNum@{getTableNum}}
+\index{getTableNum@{getTableNum}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getTableNum()}{getTableNum()}}
+{\footnotesize\ttfamily int Customer\+::get\+Table\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the table number where the customer is seated. 
+
+\begin{DoxyReturn}{Returns}
+The table number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a7cd763ee1b998bfc0f2ed5f6732fab1e}\label{classCustomer_a7cd763ee1b998bfc0f2ed5f6732fab1e}} 
+\index{Customer@{Customer}!getTotal@{getTotal}}
+\index{getTotal@{getTotal}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getTotal()}{getTotal()}}
+{\footnotesize\ttfamily float Customer\+::get\+Total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the total cost of an item or order. 
+
+Use this function to obtain the total cost, typically as a floating-\/point value, associated with an item or order. The total cost represents the financial amount for the item or order.
+
+\begin{DoxyReturn}{Returns}
+The total cost of the item or order. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a1c6082408056bb248d58cbb53641f37a}\label{classCustomer_a1c6082408056bb248d58cbb53641f37a}} 
+\index{Customer@{Customer}!hasPizza@{hasPizza}}
+\index{hasPizza@{hasPizza}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{hasPizza()}{hasPizza()}}
+{\footnotesize\ttfamily void Customer\+::has\+Pizza (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the customer has received food. 
+
+\begin{DoxyReturn}{Returns}
+True if the customer has received food, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_aaa41e7e1d9db3525635fca230d46d2db}\label{classCustomer_aaa41e7e1d9db3525635fca230d46d2db}} 
+\index{Customer@{Customer}!isLoyal@{isLoyal}}
+\index{isLoyal@{isLoyal}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{isLoyal()}{isLoyal()}}
+{\footnotesize\ttfamily bool Customer\+::is\+Loyal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the customer is loyal. 
+
+\begin{DoxyReturn}{Returns}
+True if the customer is loyal, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a86ee57e55352536cb8de001078d48641}\label{classCustomer_a86ee57e55352536cb8de001078d48641}} 
+\index{Customer@{Customer}!leave@{leave}}
+\index{leave@{leave}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{leave()}{leave()}}
+{\footnotesize\ttfamily void Customer\+::leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Leave the restaurant or dining area. 
+
+Use this function to signal that a customer is leaving the restaurant or dining area. It may involve clearing the table and making it available for the next customer. \mbox{\Hypertarget{classCustomer_a85bd2c29c7b1c6d2b015c52d2daab143}\label{classCustomer_a85bd2c29c7b1c6d2b015c52d2daab143}} 
+\index{Customer@{Customer}!payBill@{payBill}}
+\index{payBill@{payBill}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{payBill()}{payBill()}}
+{\footnotesize\ttfamily void Customer\+::pay\+Bill (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{float}]{t,  }\item[{bool}]{check }\end{DoxyParamCaption})}
+
+
+
+Pay the bill or add it to the tab. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & A character indicating payment method (P for pay, T for tab). \\
+\hline
+{\em t} & The total bill amount. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the bill is paid, false if added to the tab. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_afee801963b44fe850b77c311adb14edf}\label{classCustomer_afee801963b44fe850b77c311adb14edf}} 
+\index{Customer@{Customer}!predefinedOrder@{predefinedOrder}}
+\index{predefinedOrder@{predefinedOrder}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{predefinedOrder()}{predefinedOrder()}}
+{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classMenuItemCommand}{Menu\+Item\+Command}} $>$ $>$ Customer\+::predefined\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This Function will allow the customer to pick a predefined pizza/ a basic pizza that does not require them to build a new pizza. 
+
+\begin{DoxyReturn}{Returns}
+it will return a vector of shared\+\_\+ptr that point at Menu\+Item\+Commands 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a96936139983d4cd0d323c3768dd9795e}\label{classCustomer_a96936139983d4cd0d323c3768dd9795e}} 
+\index{Customer@{Customer}!printBill@{printBill}}
+\index{printBill@{printBill}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{printBill()}{printBill()}}
+{\footnotesize\ttfamily string Customer\+::print\+Bill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print the customer\textquotesingle{}s bill. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the customer\textquotesingle{}s bill. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_ac162b575b667ffbbc6f6b62731409f95}\label{classCustomer_ac162b575b667ffbbc6f6b62731409f95}} 
+\index{Customer@{Customer}!printCustomer@{printCustomer}}
+\index{printCustomer@{printCustomer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{printCustomer()}{printCustomer()}}
+{\footnotesize\ttfamily std\+::string Customer\+::print\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print information about the customer. 
+
+\begin{DoxyReturn}{Returns}
+A string representing customer information. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a9e54ddd8037eba0238ad92fc8ca4dbe5}\label{classCustomer_a9e54ddd8037eba0238ad92fc8ca4dbe5}} 
+\index{Customer@{Customer}!receiveOrder@{receiveOrder}}
+\index{receiveOrder@{receiveOrder}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{receiveOrder()}{receiveOrder()}}
+{\footnotesize\ttfamily bool Customer\+::receive\+Order (\begin{DoxyParamCaption}\item[{vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$$>$}]{pizza }\end{DoxyParamCaption})}
+
+
+
+Receive a pizza order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pizza} & A shared pointer to the pizza order. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the customer receives the order, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a2d255b453f970208982a10df5f0001a7}\label{classCustomer_a2d255b453f970208982a10df5f0001a7}} 
+\index{Customer@{Customer}!requestBill@{requestBill}}
+\index{requestBill@{requestBill}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{requestBill()}{requestBill()}}
+{\footnotesize\ttfamily void Customer\+::request\+Bill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the unique identifier of the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the customer.\\
+\hline
+\end{DoxyParams}
+Request the bill from the restaurant. \mbox{\Hypertarget{classCustomer_afd777672153cd71de37b66f3fdee5935}\label{classCustomer_afd777672153cd71de37b66f3fdee5935}} 
+\index{Customer@{Customer}!setEmotionState@{setEmotionState}}
+\index{setEmotionState@{setEmotionState}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setEmotionState()}{setEmotionState()}}
+{\footnotesize\ttfamily void Customer\+::set\+Emotion\+State (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEmotionState}{Emotion\+State}} $>$}]{mood }\end{DoxyParamCaption})}
+
+
+
+Set the emotional state of the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mood} & A shared pointer to the new emotional state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a2113b2f5b80889fc0034c739dc6d638a}\label{classCustomer_a2113b2f5b80889fc0034c739dc6d638a}} 
+\index{Customer@{Customer}!setKitchenReference@{setKitchenReference}}
+\index{setKitchenReference@{setKitchenReference}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setKitchenReference()}{setKitchenReference()}}
+{\footnotesize\ttfamily void Customer\+::set\+Kitchen\+Reference (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$}]{kitchen\+Ptr }\end{DoxyParamCaption})}
+
+
+
+Set a reference to the \mbox{\hyperlink{classKitchen}{Kitchen}} using a shared pointer. 
+
+This function allows you to set a reference to the \mbox{\hyperlink{classKitchen}{Kitchen}} by passing a shared pointer to a \mbox{\hyperlink{classKitchen}{Kitchen}} object. This reference can be used to communicate with and access the \mbox{\hyperlink{classKitchen}{Kitchen}}\textquotesingle{}s functionality.
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitchen\+Ptr} & A shared pointer to a \mbox{\hyperlink{classKitchen}{Kitchen}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_aa20a6b9794e88c3ca92b2fe7b5a7d6b7}\label{classCustomer_aa20a6b9794e88c3ca92b2fe7b5a7d6b7}} 
+\index{Customer@{Customer}!setName@{setName}}
+\index{setName@{setName}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Customer\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classCustomer}{Customer}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the customer. \\
+\hline
+{\em table\+Num} & The table number where the customer is seated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_af085ef48619173a53395f1441127e596}\label{classCustomer_af085ef48619173a53395f1441127e596}} 
+\index{Customer@{Customer}!setOrderProcessState@{setOrderProcessState}}
+\index{setOrderProcessState@{setOrderProcessState}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setOrderProcessState()}{setOrderProcessState()}}
+{\footnotesize\ttfamily void Customer\+::set\+Order\+Process\+State (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderProcessState}{Order\+Process\+State}} $>$}]{order\+Process }\end{DoxyParamCaption})}
+
+
+
+Set the order process state of the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Process} & A shared pointer to the new order process state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a7e47040b6e8195e38e3120f3cdbc460d}\label{classCustomer_a7e47040b6e8195e38e3120f3cdbc460d}} 
+\index{Customer@{Customer}!setTotal@{setTotal}}
+\index{setTotal@{setTotal}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{setTotal()}{setTotal()}}
+{\footnotesize\ttfamily void Customer\+::set\+Total (\begin{DoxyParamCaption}\item[{float}]{total }\end{DoxyParamCaption})}
+
+
+
+Set the total cost of an item or order. 
+
+This function allows you to specify the total cost, typically as a floating-\/point value, for an item or an order. The total cost represents the financial amount associated with the item or order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em total} & The total cost to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a5d915c251c88054696d4d8db526a68e8}\label{classCustomer_a5d915c251c88054696d4d8db526a68e8}} 
+\index{Customer@{Customer}!talkToWaiter@{talkToWaiter}}
+\index{talkToWaiter@{talkToWaiter}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{talkToWaiter()}{talkToWaiter()}}
+{\footnotesize\ttfamily void Customer\+::talk\+To\+Waiter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initiate communication with the waiter. 
+
+Use this function to signal the start of communication with the waiter. Depending on the context, it may involve requesting service, placing an order, or discussing specific requirements with the restaurant\textquotesingle{}s staff. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCustomer_a00ad6cdf5685231e2bec0c736dbd245d}\label{classCustomer_a00ad6cdf5685231e2bec0c736dbd245d}} 
+\index{Customer@{Customer}!hasBill@{hasBill}}
+\index{hasBill@{hasBill}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{hasBill}{hasBill}}
+{\footnotesize\ttfamily bool Customer\+::has\+Bill = false}
+
+A flag indicating whether the customer has a bill. \mbox{\Hypertarget{classCustomer_aac7498cee46f5700f3d6247b0bd95345}\label{classCustomer_aac7498cee46f5700f3d6247b0bd95345}} 
+\index{Customer@{Customer}!hasFood@{hasFood}}
+\index{hasFood@{hasFood}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{hasFood}{hasFood}}
+{\footnotesize\ttfamily bool Customer\+::has\+Food = false}
+
+A flag indicating whether the customer has their food. \mbox{\Hypertarget{classCustomer_a38014bbbb344ff46ed4e7fbf28efc88a}\label{classCustomer_a38014bbbb344ff46ed4e7fbf28efc88a}} 
+\index{Customer@{Customer}!hasOrdered@{hasOrdered}}
+\index{hasOrdered@{hasOrdered}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{hasOrdered}{hasOrdered}}
+{\footnotesize\ttfamily bool Customer\+::has\+Ordered = false}
+
+A flag indicating whether the customer has placed an order. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Customer.\+h\item 
+Customer.\+cpp\end{DoxyCompactItemize}
