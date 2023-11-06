@@ -91,11 +91,11 @@ void GameFacade::gameSetUp()
         index = 2;
     }
 
-    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements(index);
+    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements();
     mediator->addGameElements(gmElements);
 }
 
-std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements(int input)
+std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements()
 {
     std::vector<std::shared_ptr<gameElement>> gmElements;
 
