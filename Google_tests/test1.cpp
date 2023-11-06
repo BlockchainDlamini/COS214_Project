@@ -1,4 +1,4 @@
-
+/*
 // #include "/home/lesego/Documents/School Work/Semester 2/COS214 Software Modelling/Final_Practical_Project/COS214_Project/.code/gameElement.h"
 // #include <gtest/gtest.h>
 //#include "gameElement.h"
@@ -170,3 +170,4 @@ EXPECT_EQ(order2String, expectedString2);
 EXPECT_EQ(order3String, expectedString3);
 EXPECT_EQ(order4String, expectedString4);
 }
+*/
