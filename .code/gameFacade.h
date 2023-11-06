@@ -13,6 +13,7 @@ class GameFacade
         int numCustomerGroups, floorsize, tableSize, id; /**< Number of customer groups, floor size, table size, and an identifier. */
         std::shared_ptr<Pager> mediator; /**< Shared pointer to the Pager class. */
         std::shared_ptr<MaitreD> maitreD; /**< Shared pointer to the MaitreD class. */
+        std::vector<std::string> customerNames;
 
         /**
          * @brief Set up the initial state of the game.

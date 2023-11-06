@@ -7,6 +7,18 @@ using namespace std;
 GameFacade::GameFacade()
 {
     id = 0;
+    customerNames.push_back("Edd");
+    customerNames.push_back("Emily");
+    customerNames.push_back("Stef");
+    customerNames.push_back("Robert");
+    customerNames.push_back("Tyler");
+    customerNames.push_back("Manny");
+    customerNames.push_back("Eve");
+    customerNames.push_back("Stacy");
+    customerNames.push_back("Beth");
+    customerNames.push_back("Samual");
+    customerNames.push_back("Ebert");
+    customerNames.push_back("Lucy");
 }
 
 std::vector<std::shared_ptr<Customer>> GameFacade::generateCustomerGroup(int size)
@@ -18,6 +30,7 @@ std::vector<std::shared_ptr<Customer>> GameFacade::generateCustomerGroup(int siz
     {
         temp = std::make_shared<Customer>(id, (float)generateRandom(100, 100000));
         temp->setGameEngine(mediator);
+        temp->setName(customerNames.at(generateRandom(0,customerNames.size()-1)));
         customers.push_back(temp);
         customerElements.push_back(std::dynamic_pointer_cast<gameElement>(temp));
         id++;
