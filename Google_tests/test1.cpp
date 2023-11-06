@@ -627,3 +627,200 @@ TEST(Customer_TestTesting, Customer_Test)
     EXPECT_EQ(customer3String, expectedString3);
     EXPECT_EQ(customer4String, expectedString4);
 }
+
+class Mideator;
+class g_Test: public enable_shared_from_this<g_Test> {
+public:
+    g_Test();
+
+protected:
+    std::shared_ptr<Mideator> gameEngine;
+    int myID;
+    string operation;
+};
+
+g_Test::g_Test() {
+
+}
+
+class Customer : public enable_shared_from_this<Customer>, public g_Test
+{
+private:
+    int ID;
+    int bankAccountAmount;
+    int tableNum;
+    string name;
+
+public:
+    // Customer(string name){this->name = name;};
+    Customer(){}
+
+
+    // Customer(int bankAccountAmount, int tableNum);
+    // Customer(std::shared_ptr<EmotionState> mood, int tableNum);
+
+    bool isLoyal();
+    void startTab();
+    void payTab();
+    string getID(){
+        // cout<<"customer id: " << ID <<endl;
+        // cout<<"ID: " << ID <<endl;
+        return to_string(bankAccountAmount);
+    }
+    int getTableNum(){
+        // cout<<"customer id: " << ID <<endl;
+        // cout<<"ID: " << ID <<endl;
+        return tableNum;
+    }
+
+};
+
+class floor : public g_Test {
+private:
+    int sideLength, tableSpace;
+
+public:
+    floor(){
+    //shared_ptr<table> getTable(int){
+      //  cout<<"in func getTable"<<endl;
+      //  return std::make_shared<table>(2);
+    }
+    floor(int){}
+};
+
+class Order_Mock;
+
+class Order_Mock : public enable_shared_from_this<Order_Mock>
+{
+private:                                                /**< The total price of the order. */
+    int orderID;                                                /**< The unique identifier for the order.*/
+public:
+    Order_Mock(int orderID);
+};
+
+Order_Mock::Order_Mock(int orderID) {
+
+}
+
+class Pizza : g_Test {
+public:
+    Pizza(string name, int price){
+        cout << "in pizza " << endl;
+        name=name;
+        price=price;
+    };
+
+    // string toString(){
+    //     return name;
+    // }
+
+    int price;
+    string name;
+
+};
+
+class Waiter : public g_Test {
+public:
+    virtual string get(){ return "";}
+
+    virtual void changed() { }
+
+    virtual void setOperation(string op){}
+
+    virtual ~Waiter() {}
+};
+
+class r_Waiter :  public enable_shared_from_this<r_Waiter>, public Waiter {
+public:
+
+    r_Waiter(int Id, std::vector<int> assignedTables, shared_ptr<floor> floorObj);
+
+    std::pair<int, std::vector<std::shared_ptr<Order_Mock>>> getForKitchen();
+
+
+    vector<int> getAssignedTables();
+
+
+
+    static r_Waiter* creater_Waiter(int Id, std::vector<int> assignedTables, shared_ptr<floor> floorObj);
+
+    std::shared_ptr<r_Waiter> waiterResponsible(int tableId);
+
+    int getWaiterID();
+
+
+private:
+    shared_ptr<floor> floorObject;
+    std::vector<shared_ptr<Pizza>> pizzasForTable;
+    int Id;
+    std::vector<int> assignedTables;
+    int tableID;
+    std::vector<shared_ptr<Order_Mock>> ordersForATable;
+    std::pair<int, std::vector<std::shared_ptr<Order_Mock>>> forKitchen;
+
+
+    static std::vector<r_Waiter*> waiters;
+};
+
+
+std::vector<r_Waiter*> r_Waiter::waiters;
+
+r_Waiter::r_Waiter(int Id, std::vector<int> assignedTables, shared_ptr<floor> floorObj)
+{
+    this->Id = Id;
+    this->assignedTables = assignedTables;
+    this->floorObject = floorObj;
+}
+
+r_Waiter* r_Waiter::creater_Waiter(int Id, std::vector<int> assignedTables, shared_ptr<floor> floorObj)
+{
+    //make_shared<r_Waiter>(Id,assignedTables,floorObj);
+    auto waiter = new r_Waiter(Id, assignedTables, floorObj);
+    waiters.push_back(waiter);
+    return waiter;
+}
+
+int r_Waiter::getWaiterID()
+{
+    return Id;
+}
+
+shared_ptr<r_Waiter> r_Waiter::waiterResponsible(int tableId)
+{
+
+    for (auto &waiter : waiters)
+    {
+        vector<int> tablesOfWaiter = waiter->getAssignedTables();
+        for (unsigned int r = 0; r < tablesOfWaiter.size(); r++)
+        {
+            if (tableId == tablesOfWaiter[r])
+            {
+                cout << "Waiter: " << waiter->getWaiterID() << " is being called to table : " << tableId << endl;
+                return nullptr;
+            }
+        }
+    }
+    return nullptr;
+}
+
+pair<int, vector<shared_ptr<Order_Mock>>> r_Waiter::getForKitchen()
+{
+    return forKitchen;
+}
+
+vector<int> r_Waiter::getAssignedTables()
+{
+    return this->assignedTables;
+}
+
+
+
+
+TEST(r_WaiterTest, Creater_Waiter) {
+std::vector<int> assignedTables = {1, 2, 3};
+auto floorObj = std::make_shared<floor>();
+
+auto waiter = r_Waiter::creater_Waiter(1, assignedTables, floorObj);
+EXPECT_EQ(waiter->getWaiterID(), 1);
+EXPECT_EQ(waiter->getAssignedTables(), assignedTables);
+}
