@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classOrderProcessState.html" title="Abstract base class for representing various states in the order processing system." alt="" coords="5,107,148,133"/>
-<area shape="rect" id="node2" href="$classDinnerDone.html" title="Represents the &quot;Dinner Done&quot; state in the order processing system." alt="" coords="206,5,305,32"/>
-<area shape="rect" id="node3" href="$classOrderReceived.html" title="Represents the &quot;Order Received&quot; state in the order processing system." alt="" coords="196,56,315,83"/>
-<area shape="rect" id="node4" href="$classOrdering.html" title="A concrete class representing the ordering state of a customer&#39;s order process." alt="" coords="216,107,295,133"/>
-<area shape="rect" id="node5" href="$classPreorder.html" title="Represents the &quot;Preorder&quot; state in the order processing system." alt="" coords="217,157,294,184"/>
-<area shape="rect" id="node6" href="$classWaiting.html" title="Represents the &quot;Waiting&quot; state in the order processing system." alt="" coords="220,208,291,235"/>
-</map>

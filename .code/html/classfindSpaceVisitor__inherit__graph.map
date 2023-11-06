@@ -1,4 +1,0 @@
-<map id="findSpaceVisitor" name="findSpaceVisitor">
-<area shape="rect" id="node1" title="The findSpaceVisitor class provides a visitor for finding the available space in of each floorCompone..." alt="" coords="5,80,132,107"/>
-<area shape="rect" id="node2" href="$classvisitor.html" title="The visitor class provides an interface for visiting elements in a floor plan." alt="" coords="37,5,100,32"/>
-</map>

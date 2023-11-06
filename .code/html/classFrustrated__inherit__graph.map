@@ -1,4 +1,0 @@
-<map id="Frustrated" name="Frustrated">
-<area shape="rect" id="node1" title="A concrete class representing a frustrated emotional state of a customer." alt="" coords="17,80,105,107"/>
-<area shape="rect" id="node2" href="$classEmotionState.html" title="Abstract base class representing the emotional state of a customer." alt="" coords="5,5,116,32"/>
-</map>

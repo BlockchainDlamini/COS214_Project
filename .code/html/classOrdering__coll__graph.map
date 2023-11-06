@@ -1,4 +1,0 @@
-<map id="Ordering" name="Ordering">
-<area shape="rect" id="node1" title="A concrete class representing the ordering state of a customer&#39;s order process." alt="" coords="37,80,116,107"/>
-<area shape="rect" id="node2" href="$classOrderProcessState.html" title="Abstract base class for representing various states in the order processing system." alt="" coords="5,5,148,32"/>
-</map>

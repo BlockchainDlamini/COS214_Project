@@ -1,8 +1,0 @@
-<map id="MakeStuffedCrust" name="MakeStuffedCrust">
-<area shape="rect" id="node1" title="Represents the MakeStuffedCrust class, responsible for creating a stuffed crust for a food item in th..." alt="" coords="132,333,269,360"/>
-<area shape="rect" id="node2" href="$classMakeBase.html" title="Represents the MakeBase class, responsible for creating a base for a food item in the kitchen." alt="" coords="156,259,245,285"/>
-<area shape="rect" id="node3" href="$classMenuItemCommand.html" title=" " alt="" coords="34,177,189,203"/>
-<area shape="rect" id="node4" href="$classgameElement.html" title="A class to represent a game element. This class represents Colleagues in the Pager design pattern." alt="" coords="55,95,168,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,5,217,47"/>
-<area shape="rect" id="node6" title=" " alt="" coords="213,169,367,211"/>
-</map>
