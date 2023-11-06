@@ -11,8 +11,6 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(Testing Google_tests/test1.cpp Google_tests/test2.cpp main.cpp)
 
-target_link_libraries(Testing gtest gtest_main)
-
 file(GLOB SOURCES
         *.h
         *.cpp
@@ -20,4 +18,8 @@ file(GLOB SOURCES
 
 #add_executable(ClionProject ${SOURCE_FILES} ${SOURCES})
 
-add_executable(Testing_links .code/main.cpp)
+# Link the executable with gtest and gtest_main
+target_link_libraries(Testing gtest gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(Testing)
