@@ -46,6 +46,8 @@ class GameFacade
          */
         void singleRound();
         void waiterToKitchen();
+        void donut();
+        void delay(int);
 
     public:
 
