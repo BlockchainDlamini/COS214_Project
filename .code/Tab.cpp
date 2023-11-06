@@ -6,25 +6,32 @@ Tab::Tab()
 std::string Tab::listOutstandingOrders()
 {
     string output = "";
-    output += "HERE ARE YOUR OUTSTANDING PAYMENTS\n";
-    output += "Customer ID: " + ID + "\n";
-    for (shared_ptr<OrderMemento> order : tab)
+    if (!tab.empty())
     {
-        output += "Order ID: " + to_string(order->getID()) + "\n";
-        output += "Description: " + description;
+
+        output += "HERE ARE YOUR OUTSTANDING PAYMENTS\n";
+        output += "Customer ID: " + ID + "\n";
+        for (shared_ptr<OrderMemento> order : tab)
+        {
+            output += "Order ID: " + to_string(order->getID()) + "\n";
+            output += "Description: " + description;
+        }
+        output += "Total: " + to_string(getTotal());
+        return output;
     }
-    output += "Total: " + to_string(getTotal());
-    return output;
+    return "You do not have any outstanding payments";
 }
 
 bool Tab::payOrder()
 {
     if (tab.empty())
     {
+        listOutstandingOrders();
         return true;
     }
     else
     {
+        listOutstandingOrders();
         return false;
     }
 }
