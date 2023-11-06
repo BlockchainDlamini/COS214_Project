@@ -9,7 +9,7 @@ add_subdirectory(Google_tests)
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_executable(Testing main.cpp Google_tests/test1.cpp Google_tests/test2.cpp main.cpp)
+add_executable(Testing Google_tests/test1.cpp Google_tests/test2.cpp main.cpp)
 
 target_link_libraries(Testing gtest gtest_main)
 
