@@ -79,14 +79,14 @@ void Customer::requestBill()
     hasBill = true;
     setOperation("REQUESTBILL");
     changed();
-    
 }
 void Customer::payBill(char c, float t, bool check) // returns true if the customer has either paid or added the bill to a tab
 {
-    if (check == true) {
+    if (check == true)
+    {
         leave();
     }
-    
+
     changedOrderProcessState(); // take the state to dinnerdone from orderreceived
     setTotal(t);
     if (hasBill == true)
@@ -115,7 +115,6 @@ void Customer::payBill(char c, float t, bool check) // returns true if the custo
                 std::this_thread::sleep_for(std::chrono::milliseconds(500));
                 cout << "\033[45;97mCustomer has paid the bill, and the payment was accepted\033[0m" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
             }
         }
         else if (c == 'T' || c == 't' && isLoyal() == true) // has a tab and wants to add to tab
@@ -133,17 +132,21 @@ void Customer::payBill(char c, float t, bool check) // returns true if the custo
         else if (c == 'T' || c == 't' && isLoyal() == false) // doesn't have a tab but wants to add
         {
             cout << "The Customer [" + to_string(myID) + "] is not a loyal customer" << endl;
+            cout << "The Customer cannot add the order to the tab, because they aren't loyal. Customer will pay the bill";
+            payBill('P', t, check);
         }
         else
         {
             cout << "Incorrect input, Payment Declined" << endl;
+            cout << "Customer will pay the bill, normally";
+            payBill('P', t, check);
         }
     }
     else
     {
         cout << "Customer has not received the bill from the waiter" << endl;
     }
-    //leave();
+    // leave();
 }
 bool Customer::isLoyal()
 {
@@ -462,7 +465,7 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
 
     while (start)
     {
-        //std::cout << "\033[47;30mPick a size for your pizza : 1.Large 2.Medium 3.Small \033[0m" << std::endl;
+        // std::cout << "\033[47;30mPick a size for your pizza : 1.Large 2.Medium 3.Small \033[0m" << std::endl;
         std::cout << "\033[47;30mChoose a pizza size! (S/M/L)\033[0m" << std::endl;
         cin >> size;
         std::cout << "\033[36m1.Mozzarella Pizza R120\033[0m" << endl;
@@ -476,28 +479,28 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
         }
         switch (pizza)
         {
-            case 1:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakeMozzarella>(kitchen));
-                total += 120;
-                break;
-            case 2:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakePepperoni>(kitchen));
-                total += 122;
-                break;
-            case 3:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakeMozzarella>(kitchen));
-                result.push_back(make_shared<MakeParmesan>(kitchen));
-                result.push_back(make_shared<MakeCheddar>(kitchen));
-                total += 69;
-                break;
-            case 4:
-                result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
-                result.push_back(make_shared<MakeChicken>(kitchen));
-                total += 42069;
-                break;
+        case 1:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakeMozzarella>(kitchen));
+            total += 120;
+            break;
+        case 2:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakePepperoni>(kitchen));
+            total += 122;
+            break;
+        case 3:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakeMozzarella>(kitchen));
+            result.push_back(make_shared<MakeParmesan>(kitchen));
+            result.push_back(make_shared<MakeCheddar>(kitchen));
+            total += 69;
+            break;
+        case 4:
+            result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
+            result.push_back(make_shared<MakeChicken>(kitchen));
+            total += 42069;
+            break;
         }
         if (done == "yes" || done == "Yes")
         {
@@ -514,37 +517,38 @@ void Customer::createOrder(bool ft)
 {
     std::string decision = "";
 
-    while (!ft) {
+    while (!ft)
+    {
 
-        if (ft == false) {
+        if (ft == false)
+        {
             waiterToTable('w');
 
             std::cout << "\033[47;30mThe waiter is at your table, would you like to order or wait a couple of seconds? (wait/order)\033[0m" << std::endl;
             std::cin >> decision;
 
-
-            if (decision == "wait") {
+            if (decision == "wait")
+            {
                 std::this_thread::sleep_for(std::chrono::milliseconds(900));
                 std::cout << "Waiting ... " << endl;
                 cout << endl;
 
                 waiterToTable('f');
 
-
                 std::this_thread::sleep_for(std::chrono::seconds(1));
 
                 break;
             }
-            else if (decision == "order") {
+            else if (decision == "order")
+            {
                 break;
             }
-            else {
+            else
+            {
                 std::cout << "Invalid choice. Please enter 'wait' or 'order'." << std::endl;
             }
         }
-        
     }
-
 
     bool start = true;
     int orderCount = 0;
@@ -710,9 +714,11 @@ void Customer::getKitchenReference()
     changed();
 }
 
-void Customer::waiterToTable(char action) {
+void Customer::waiterToTable(char action)
+{
 
-    if (action == 'w') {
+    if (action == 'w')
+    {
         std::cout << "  o  " << std::endl;
         std::cout << " /|\\" << std::endl;
         std::cout << " / \\ " << std::endl;
@@ -758,7 +764,8 @@ void Customer::waiterToTable(char action) {
         std::cout << "            / \\ " << std::endl;
     }
 
-    if (action == 'f') {
+    if (action == 'f')
+    {
 
         std::cout << "  o  " << std::endl;
         std::cout << " /|\\" << std::endl;
@@ -886,5 +893,4 @@ void Customer::waiterToTable(char action) {
 
         cout << endl;
     }
-    
 }
