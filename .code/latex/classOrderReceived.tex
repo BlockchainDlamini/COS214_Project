@@ -1,0 +1,77 @@
+\hypertarget{classOrderReceived}{}\doxysection{Order\+Received Class Reference}
+\label{classOrderReceived}\index{OrderReceived@{OrderReceived}}
+
+
+Represents the \char`\"{}\+Order Received\char`\"{} state in the order processing system.  
+
+
+
+
+{\ttfamily \#include $<$Order\+Received.\+h$>$}
+
+
+
+Inheritance diagram for Order\+Received\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classOrderReceived__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Order\+Received\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classOrderReceived__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOrderReceived_acb30eb63ea2cd674debe223e0a9837b0}\label{classOrderReceived_acb30eb63ea2cd674debe223e0a9837b0}} 
+\mbox{\hyperlink{classOrderReceived_acb30eb63ea2cd674debe223e0a9837b0}{Order\+Received}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for creating an \mbox{\hyperlink{classOrderReceived}{Order\+Received}} state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrderReceived_a1001d8b0e5b2575453145fc0197f60e0}\label{classOrderReceived_a1001d8b0e5b2575453145fc0197f60e0}} 
+void \mbox{\hyperlink{classOrderReceived_a1001d8b0e5b2575453145fc0197f60e0}{execute}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Execute the \mbox{\hyperlink{classOrderReceived}{Order\+Received}} state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrderReceived_ad2f2948429fad37b95a0aa0b8cbde429}\label{classOrderReceived_ad2f2948429fad37b95a0aa0b8cbde429}} 
+std\+::string {\bfseries get\+Name} ()
+\item 
+void \mbox{\hyperlink{classOrderReceived_afa4774a67802ec5fcb9ec081b48d4e55}{handle\+Change}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$contextt)
+\begin{DoxyCompactList}\small\item\em Handle a change in the state by moving to the next state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the \char`\"{}\+Order Received\char`\"{} state in the order processing system. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOrderReceived_afa4774a67802ec5fcb9ec081b48d4e55}\label{classOrderReceived_afa4774a67802ec5fcb9ec081b48d4e55}} 
+\index{OrderReceived@{OrderReceived}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!OrderReceived@{OrderReceived}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily void Order\+Received\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{contextt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a change in the state by moving to the next state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A shared pointer to the customer context. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classOrderProcessState_abc9b86cbaeaa3cd738f4a8a6abb8d2c0}{Order\+Process\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Order\+Received.\+h\item 
+Order\+Received.\+cpp\end{DoxyCompactItemize}

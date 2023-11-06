@@ -1,0 +1,86 @@
+\hypertarget{classMakeSauce}{}\doxysection{Make\+Sauce Class Reference}
+\label{classMakeSauce}\index{MakeSauce@{MakeSauce}}
+
+
+Represents the \mbox{\hyperlink{classMakeSauce}{Make\+Sauce}} class, responsible for creating sauce toppings for food items in the kitchen.  
+
+
+
+
+{\ttfamily \#include $<$Make\+Sauce.\+h$>$}
+
+
+
+Inheritance diagram for Make\+Sauce\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMakeSauce__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Make\+Sauce\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMakeSauce__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMakeSauce_a4ba8a6e1fc3012e464d27b727081163f}{Make\+Sauce}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ state)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classMakeSauce}{Make\+Sauce}} class. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ \mbox{\hyperlink{classMakeSauce_a9c9e1eb0aa8eba6cb3300a1213da9840}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Execute the \mbox{\hyperlink{classMakeSauce}{Make\+Sauce}} command, creating and returning a shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the sauce topping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the \mbox{\hyperlink{classMakeSauce}{Make\+Sauce}} class, responsible for creating sauce toppings for food items in the kitchen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMakeSauce_a4ba8a6e1fc3012e464d27b727081163f}\label{classMakeSauce_a4ba8a6e1fc3012e464d27b727081163f}} 
+\index{MakeSauce@{MakeSauce}!MakeSauce@{MakeSauce}}
+\index{MakeSauce@{MakeSauce}!MakeSauce@{MakeSauce}}
+\doxysubsubsection{\texorpdfstring{MakeSauce()}{MakeSauce()}}
+{\footnotesize\ttfamily Make\+Sauce\+::\+Make\+Sauce (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$}]{state }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classMakeSauce}{Make\+Sauce}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & A shared pointer to the \mbox{\hyperlink{classKitchen}{Kitchen}} where the sauce is created. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMakeSauce_a9c9e1eb0aa8eba6cb3300a1213da9840}\label{classMakeSauce_a9c9e1eb0aa8eba6cb3300a1213da9840}} 
+\index{MakeSauce@{MakeSauce}!execute@{execute}}
+\index{execute@{execute}!MakeSauce@{MakeSauce}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ Make\+Sauce\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Execute the \mbox{\hyperlink{classMakeSauce}{Make\+Sauce}} command, creating and returning a shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the sauce topping. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \mbox{\hyperlink{classFoodItem}{Food\+Item}} object, which represents the sauce topping. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMenuItemCommand}{Menu\+Item\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{MakeSauce_8h}{Make\+Sauce.\+h}}\item 
+Make\+Sauce.\+cpp\end{DoxyCompactItemize}

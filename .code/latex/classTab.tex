@@ -1,0 +1,151 @@
+\hypertarget{classTab}{}\doxysection{Tab Class Reference}
+\label{classTab}\index{Tab@{Tab}}
+
+
+Represents a tab that stores a list of outstanding orders as Order\+Mementos.  
+
+
+
+
+{\ttfamily \#include $<$Tab.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTab_a72291238fc89e889d3e1e795a2f7f91d}\label{classTab_a72291238fc89e889d3e1e795a2f7f91d}} 
+\mbox{\hyperlink{classTab_a72291238fc89e889d3e1e795a2f7f91d}{Tab}} ()
+\begin{DoxyCompactList}\small\item\em Constructor to create an empty tab. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTab_af81eda0f8dc7ce015d3f4e1886d93a9e}{list\+Outstanding\+Orders}} ()
+\begin{DoxyCompactList}\small\item\em Get a string representing the list of outstanding orders in the tab. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTab_ade9b4f5c944abb0e211cf2cbfd2bebf4}{pay\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Check if the customer has paid their tab. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTab_a8ded82a0cc1732def827dbba3e3a6ad0}{set\+ID}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Set the identifier for an object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTab_a541c1b0fe3ace3a1ced9f0a05cc96187}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Get the identifier of the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTab_a20658208bfffcee6e9906deaa4aa50eb}{add\+Order}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} $>$ order\+Memento, string ID)
+\begin{DoxyCompactList}\small\item\em Add an \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} to the tab. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} $>$ $>$ \mbox{\hyperlink{classTab_ad98081dd32afe885514a76f92276b1e5}{get\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Get the list of outstanding orders in the tab. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classTab_a81f3a71bd96df53998dfcc546177843e}{get\+Total}} ()
+\begin{DoxyCompactList}\small\item\em Get the total price of outstanding orders in the tab. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTab_a5de5910a38bad2e0097fa76941ac57d7}\label{classTab_a5de5910a38bad2e0097fa76941ac57d7}} 
+void {\bfseries set\+Description} (string d)
+\item 
+\mbox{\Hypertarget{classTab_a8b1a6c05f5b27f3242d667fc61fe52cd}\label{classTab_a8b1a6c05f5b27f3242d667fc61fe52cd}} 
+bool {\bfseries check\+ID} (string ID)
+\item 
+\mbox{\Hypertarget{classTab_a62eacf46b9f9a2d9ab740efdcd481bfe}\label{classTab_a62eacf46b9f9a2d9ab740efdcd481bfe}} 
+void \mbox{\hyperlink{classTab_a62eacf46b9f9a2d9ab740efdcd481bfe}{clear\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Clear the tab by removing all outstanding orders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a tab that stores a list of outstanding orders as Order\+Mementos. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTab_a20658208bfffcee6e9906deaa4aa50eb}\label{classTab_a20658208bfffcee6e9906deaa4aa50eb}} 
+\index{Tab@{Tab}!addOrder@{addOrder}}
+\index{addOrder@{addOrder}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{addOrder()}{addOrder()}}
+{\footnotesize\ttfamily void Tab\+::add\+Order (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} $>$}]{order\+Memento,  }\item[{string}]{ID }\end{DoxyParamCaption})}
+
+
+
+Add an \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} to the tab. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Memento} & A shared pointer to the \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTab_a541c1b0fe3ace3a1ced9f0a05cc96187}\label{classTab_a541c1b0fe3ace3a1ced9f0a05cc96187}} 
+\index{Tab@{Tab}!getID@{getID}}
+\index{getID@{getID}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily string Tab\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the identifier of the object. 
+
+This function retrieves the unique identifier associated with the object and returns it as a string. The identifier helps in distinguishing the object from others.
+
+\begin{DoxyReturn}{Returns}
+The unique identifier of the object as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTab_ad98081dd32afe885514a76f92276b1e5}\label{classTab_ad98081dd32afe885514a76f92276b1e5}} 
+\index{Tab@{Tab}!getTab@{getTab}}
+\index{getTab@{getTab}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{getTab()}{getTab()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} $>$ $>$ Tab\+::get\+Tab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the list of outstanding orders in the tab. 
+
+\begin{DoxyReturn}{Returns}
+A vector of shared pointers to \mbox{\hyperlink{classOrderMemento}{Order\+Memento}} representing outstanding orders. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTab_a81f3a71bd96df53998dfcc546177843e}\label{classTab_a81f3a71bd96df53998dfcc546177843e}} 
+\index{Tab@{Tab}!getTotal@{getTotal}}
+\index{getTotal@{getTotal}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{getTotal()}{getTotal()}}
+{\footnotesize\ttfamily float Tab\+::get\+Total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the total price of outstanding orders in the tab. 
+
+\begin{DoxyReturn}{Returns}
+The total price of outstanding orders. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTab_af81eda0f8dc7ce015d3f4e1886d93a9e}\label{classTab_af81eda0f8dc7ce015d3f4e1886d93a9e}} 
+\index{Tab@{Tab}!listOutstandingOrders@{listOutstandingOrders}}
+\index{listOutstandingOrders@{listOutstandingOrders}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{listOutstandingOrders()}{listOutstandingOrders()}}
+{\footnotesize\ttfamily std\+::string Tab\+::list\+Outstanding\+Orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a string representing the list of outstanding orders in the tab. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the outstanding orders. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTab_ade9b4f5c944abb0e211cf2cbfd2bebf4}\label{classTab_ade9b4f5c944abb0e211cf2cbfd2bebf4}} 
+\index{Tab@{Tab}!payOrder@{payOrder}}
+\index{payOrder@{payOrder}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{payOrder()}{payOrder()}}
+{\footnotesize\ttfamily bool Tab\+::pay\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the customer has paid their tab. 
+
+\begin{DoxyReturn}{Returns}
+True if the customer has paid the tab, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTab_a8ded82a0cc1732def827dbba3e3a6ad0}\label{classTab_a8ded82a0cc1732def827dbba3e3a6ad0}} 
+\index{Tab@{Tab}!setID@{setID}}
+\index{setID@{setID}!Tab@{Tab}}
+\doxysubsubsection{\texorpdfstring{setID()}{setID()}}
+{\footnotesize\ttfamily void Tab\+::set\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Set the identifier for an object. 
+
+Use this function to set a unique identifier for an object, such as an entity or a record. The identifier should be a string that uniquely identifies the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier to be associated with the object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Tab.\+h\item 
+Tab.\+cpp\end{DoxyCompactItemize}

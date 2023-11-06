@@ -1,0 +1,75 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="373,1057,560,1084"/>
+<area shape="rect" id="node2" href="$classCustomer.html" title="Represents a customer in a restaurant with various states and actions." alt="" coords="625,1108,711,1135"/>
+<area shape="rect" id="node3" href="$classHeadChef.html" title="Represents the HeadChef class, responsible for creating pizzas." alt="" coords="625,1537,711,1564"/>
+<area shape="rect" id="node4" href="$classMakeBase.html" title="Represents the MakeBase class, responsible for creating a base for a food item in the kitchen." alt="" coords="623,157,713,184"/>
+<area shape="rect" id="node10" href="$classMakeCheese.html" title="Represents the MakeCheese class, responsible for creating a cheese topping for a food item in the kit..." alt="" coords="615,411,721,437"/>
+<area shape="rect" id="node16" href="$classMakeSauce.html" title="Represents the MakeSauce class, responsible for creating sauce toppings for food items in the kitchen..." alt="" coords="620,613,716,640"/>
+<area shape="rect" id="node21" href="$classMakeTopping.html" title="Represents the MakeTopping class, responsible for creating various toppings for food items in the kit..." alt="" coords="615,841,721,868"/>
+<area shape="rect" id="node28" href="$classManagerChef.html" title="A class representing a manager chef in the kitchen, derived from Kitchen and enable_shared_from_this." alt="" coords="613,1613,723,1640"/>
+<area shape="rect" id="node29" href="$classOrder.html" title="Represents an order placed by a customer." alt="" coords="639,1057,697,1084"/>
+<area shape="rect" id="node30" href="$classOrderMemento.html" title="Represents a memento for storing the state of an order." alt="" coords="608,956,728,983"/>
+<area shape="rect" id="node31" href="$classRegularWaiter.html" title="Represents a Regular Waiter responsible for serving tables and managing orders." alt="" coords="794,1019,909,1045"/>
+<area shape="rect" id="node32" href="$classWaiter.html" title="Represents a waiter responsible for taking orders, delivering food, and processing payments." alt="" coords="636,1159,700,1185"/>
+<area shape="rect" id="node5" href="$classMakeBoiledCrust.html" title="Represents the MakeBoiledCrust class, responsible for creating a boiled crust for a food item in the ..." alt="" coords="785,107,917,133"/>
+<area shape="rect" id="node6" href="$classMakeDeepDish.html" title="Represents the MakeDeepDish class, responsible for creating a deep&#45;dish crust for a food item in the ..." alt="" coords="791,157,911,184"/>
+<area shape="rect" id="node7" href="$classMakeDoubleDecker.html" title="Represents the MakeDoubleDecker class, responsible for creating a double&#45;decker crust for a food item..." alt="" coords="777,208,925,235"/>
+<area shape="rect" id="node8" href="$classMakeStuffedCrust.html" title="Represents the MakeStuffedCrust class, responsible for creating a stuffed crust for a food item in th..." alt="" coords="783,5,920,32"/>
+<area shape="rect" id="node9" href="$classMakeThinCrust.html" title="Represents the MakeThinCrust class, responsible for creating a thin crust for a food item in the kitc..." alt="" coords="792,56,911,83"/>
+<area shape="rect" id="node11" href="$classMakeBlueCheese.html" title="Represents the MakeBlueCheese class, responsible for creating a blue cheese topping for a food item i..." alt="" coords="784,360,919,387"/>
+<area shape="rect" id="node12" href="$classMakeCheddar.html" title="Represents the MakeCheddar class, responsible for creating a cheddar cheese topping for a food item i..." alt="" coords="796,411,907,437"/>
+<area shape="rect" id="node13" href="$classMakeGouda.html" title="Represents the MakeGouda class, responsible for creating a Gouda cheese topping for a food item in th..." alt="" coords="802,461,901,488"/>
+<area shape="rect" id="node14" href="$classMakeMozzarella.html" title="Represents the MakeMozzarella class, responsible for creating a Mozzarella cheese topping for a food ..." alt="" coords="787,259,915,285"/>
+<area shape="rect" id="node15" href="$classMakeParmesan.html" title="Represents the MakeParmesan class, responsible for creating a Mozzarella cheese topping for a food it..." alt="" coords="791,309,912,336"/>
+<area shape="rect" id="node17" href="$classMakeChutneySauce.html" title="Represents the MakeChutneySauce class, responsible for creating a chutney sauce for a food item in th..." alt="" coords="776,613,927,640"/>
+<area shape="rect" id="node18" href="$classMakeRanch.html" title="Represents the MakeRanch class, responsible for creating a ranch sauce for a food item in the kitchen..." alt="" coords="803,664,900,691"/>
+<area shape="rect" id="node19" href="$classMakeSweetChilli.html" title="Represents the MakeSweetChilli class, responsible for creating a sweet chili sauce for a food item in..." alt="" coords="786,512,917,539"/>
+<area shape="rect" id="node20" href="$classMakeTomatoPaste.html" title="Represents the MakeTomatoPaste class, responsible for creating tomato paste sauce for a food item in ..." alt="" coords="781,563,921,589"/>
+<area shape="rect" id="node22" href="$classMakeBeef.html" title="Represents the MakeBeef class, responsible for creating a beef topping for a food item in the kitchen..." alt="" coords="808,715,895,741"/>
+<area shape="rect" id="node23" href="$classMakeChicken.html" title="Represents the MakeChicken class, responsible for creating a chicken topping for a food item in the k..." alt="" coords="797,765,905,792"/>
+<area shape="rect" id="node24" href="$classMakeMushrooms.html" title="Represents the MakeMushrooms class, responsible for creating mushroom toppings for a food item in the..." alt="" coords="785,816,918,843"/>
+<area shape="rect" id="node25" href="$classMakeOlives.html" title="Represents the MakeOlives class, responsible for creating olive toppings for a food item in the kitch..." alt="" coords="802,867,901,893"/>
+<area shape="rect" id="node26" href="$classMakePepperoni.html" title="Represents the MakePepperoni class, responsible for creating a pepperoni topping for a food item in t..." alt="" coords="790,917,913,944"/>
+<area shape="rect" id="node27" href="$classMakePeppers.html" title="Represents the MakePeppers class, responsible for creating pepper toppings for a food item in the kit..." alt="" coords="797,968,906,995"/>
+<area shape="rect" id="node33" href="$classMaitreD.html" title="Represents a MaitreD responsible for seating customers and managing Waiters." alt="" coords="814,1069,889,1096"/>
+<area shape="rect" id="node34" title=" " alt="" coords="5,1581,151,1622"/>
+<area shape="rect" id="node35" href="$classfloorComponent.html" title="The floorComponent class represents a component in the floor hierarchy." alt="" coords="199,1841,325,1868"/>
+<area shape="rect" id="node38" href="$classgameElement.html" title="A class to represent a game element. This class represents Colleagues in the Pager design pattern." alt="" coords="205,1159,319,1185"/>
+<area shape="rect" id="node36" href="$classfloorComposite.html" title="The floorComposite class represents a composite floor component." alt="" coords="406,1892,527,1919"/>
+<area shape="rect" id="node37" href="$classtable.html" title="The table class represents a table in the restaurant floor." alt="" coords="439,1841,494,1868"/>
+<area shape="rect" id="node39" href="$classFoodItem.html" title="A class representing a food item, derived from gameElement." alt="" coords="425,1475,508,1501"/>
+<area shape="rect" id="node64" href="$classKitchen.html" title="A class representing a kitchen in a restaurant, derived from gameElement." alt="" coords="431,1740,502,1767"/>
+<area shape="rect" id="node70" href="$classKitchenInterface.html" title="A class that represents the interface for the kitchen in the game." alt="" coords="402,1791,531,1817"/>
+<area shape="rect" id="node71" href="$classMenuItemCommand.html" title=" " alt="" coords="389,613,544,640"/>
+<area shape="rect" id="node72" href="$classPizza.html" title="Represents the Pizza class, responsible for creating and describing a pizza for the player to eat." alt="" coords="439,956,495,983"/>
+<area shape="rect" id="node73" href="$classPredefinedOrders.html" title="Represents the PredefinedOrders class, responsible for creating predefined pizza orders." alt="" coords="399,1007,534,1033"/>
+<area shape="rect" id="node40" href="$classBase.html" title="A class representing a base food item, derived from FoodItem." alt="" coords="641,1235,695,1261"/>
+<area shape="rect" id="node46" href="$classCheese.html" title="A class representing cheese, derived from FoodItem." alt="" coords="633,1475,703,1501"/>
+<area shape="rect" id="node52" href="$classSauce.html" title="A class representing a sauce, derived from FoodItem." alt="" coords="637,1677,699,1704"/>
+<area shape="rect" id="node57" href="$classToppings.html" title="A class representing toppings for food items, derived from FoodItem." alt="" coords="629,1779,707,1805"/>
+<area shape="rect" id="node41" href="$classBoiled.html" title="A class representing a boiled base, derived from Base." alt="" coords="820,1221,883,1248"/>
+<area shape="rect" id="node42" href="$classDeepDish.html" title="A class representing a deep dish base, derived from Base." alt="" coords="809,1272,894,1299"/>
+<area shape="rect" id="node43" href="$classDoubleDecker.html" title="A class representing a double&#45;decker base, derived from Base." alt="" coords="795,1323,908,1349"/>
+<area shape="rect" id="node44" href="$classStuffedCrust.html" title="A class representing a stuffed crust base, derived from Base." alt="" coords="800,1120,903,1147"/>
+<area shape="rect" id="node45" href="$classThinCrust.html" title="A class representing a thin crust base, derived from Base." alt="" coords="809,1171,893,1197"/>
+<area shape="rect" id="node47" href="$classBlueCheese.html" title="A class representing blue cheese, derived from Cheese." alt="" coords="802,1475,901,1501"/>
+<area shape="rect" id="node48" href="$classCheddar.html" title="A class representing cheddar cheese, derived from Cheese." alt="" coords="813,1525,889,1552"/>
+<area shape="rect" id="node49" href="$classGouda.html" title=" " alt="" coords="819,1576,883,1603"/>
+<area shape="rect" id="node50" href="$classMozzarella.html" title="A class representing mozzarella cheese, derived from Cheese." alt="" coords="805,1373,898,1400"/>
+<area shape="rect" id="node51" href="$classParmesan.html" title="A class representing Parmesan cheese, derived from Cheese." alt="" coords="808,1424,895,1451"/>
+<area shape="rect" id="node53" href="$classChutney.html" title="A class representing chutney sauce, derived from Sauce." alt="" coords="813,1728,889,1755"/>
+<area shape="rect" id="node54" href="$classRanch.html" title="A class representing ranch sauce, derived from Sauce." alt="" coords="820,1779,883,1805"/>
+<area shape="rect" id="node55" href="$classSweetChilli.html" title="A class representing sweet chili sauce, derived from Sauce." alt="" coords="804,1627,899,1653"/>
+<area shape="rect" id="node56" href="$classTomatoPaste.html" title="A class representing tomato paste sauce, derived from Sauce." alt="" coords="799,1677,904,1704"/>
+<area shape="rect" id="node58" href="$classBeef.html" title="A class representing a beef topping, derived from Toppings." alt="" coords="825,2032,877,2059"/>
+<area shape="rect" id="node59" href="$classChicken.html" title="A class representing chicken topping, derived from Toppings." alt="" coords="815,2083,888,2109"/>
+<area shape="rect" id="node60" href="$classMushrooms.html" title="A class representing mushrooms topping, derived from Toppings." alt="" coords="802,1829,901,1856"/>
+<area shape="rect" id="node61" href="$classOlives.html" title="A class representing olives topping, derived from Toppings." alt="" coords="820,1880,883,1907"/>
+<area shape="rect" id="node62" href="$classPepperoni.html" title="A class representing pepperoni topping, derived from Toppings." alt="" coords="808,1931,895,1957"/>
+<area shape="rect" id="node63" href="$classPeppers.html" title="A class representing peppers topping, derived from Toppings." alt="" coords="814,1981,889,2008"/>
+<area shape="rect" id="node65" href="$classBaseChef.html" title="Represents a chef in the kitchen." alt="" coords="626,1880,710,1907"/>
+<area shape="rect" id="node66" href="$classCheeseChef.html" title="A class representing a chef specialized in cheese&#45;based dishes, derived from Kitchen." alt="" coords="618,1931,718,1957"/>
+<area shape="rect" id="node67" href="$classFireChef.html" title=" " alt="" coords="630,1981,706,2008"/>
+<area shape="rect" id="node68" href="$classSauceChef.html" title="A class representing a chef specialized in sauce&#45;related dishes, derived from Kitchen." alt="" coords="623,2032,713,2059"/>
+<area shape="rect" id="node69" href="$classToppingsChef.html" title="A class representing a chef specialized in toppings, derived from Kitchen." alt="" coords="613,1829,723,1856"/>
+</map>

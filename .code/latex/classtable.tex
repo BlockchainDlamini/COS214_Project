@@ -1,0 +1,397 @@
+\hypertarget{classtable}{}\doxysection{table Class Reference}
+\label{classtable}\index{table@{table}}
+
+
+The table class represents a table in the restaurant floor.  
+
+
+
+
+{\ttfamily \#include $<$table.\+h$>$}
+
+
+
+Inheritance diagram for table\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classtable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for table\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classtable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtable_ab73cf0b4b135aea6f8355dadfd4b521f}{table}} (int \mbox{\hyperlink{classfloorComponent_ae65f11e63f842698c001d590568e1863}{id}}, int space)
+\begin{DoxyCompactList}\small\item\em Constructs a table object with a specified ID and space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_af17fccb0a3e5d87e16a8574f6f864fc8}{add}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Adds a child component to the table (not supported for tables). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_ab2f678c1fe3ecd578d03ce8fdc19d099}{remove}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Removes a child component from the table (not supported for tables). \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ \mbox{\hyperlink{classtable_a19a9b76f14bd65a2038035c51d9533ca}{get\+Child}} (int index)
+\begin{DoxyCompactList}\small\item\em Gets the child component at a specified index (not supported for tables). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtable_a32585246c8c225289911c2fc2f08acb6}{get\+Num\+Children}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of children of the table (always 0 for tables). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtable_a87a66b742a20a86cd6fe4b9caa5908e9}{get\+Is\+Visible}} ()
+\begin{DoxyCompactList}\small\item\em Gets the visibility status of the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_a203557f558266c72fccded04ac9fe125}{set\+Is\+Visible}} (bool vis)
+\begin{DoxyCompactList}\small\item\em Sets the visibility status of the table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtable_a4c43f0c519bfe825882969a6f648e445}{get\+Is\+Merged}} ()
+\begin{DoxyCompactList}\small\item\em Gets the merging status of the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_ab908d86efbda112b55aa22f16e17c9f2}{set\+Is\+Merged}} (bool merge)
+\begin{DoxyCompactList}\small\item\em Sets the merging status of the table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtable_abe9b313d0a7e890e1bab674457609dfd}{get\+Is\+Space\+Available}} ()
+\begin{DoxyCompactList}\small\item\em Checks if there is available space at the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_aa6be95e4f08ad8fda8c908d79c763656}{set\+Is\+Space\+Available}} (bool available)
+\begin{DoxyCompactList}\small\item\em Sets the availability of space at the table. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmyIterator}{my\+Iterator}} $>$ \mbox{\hyperlink{classtable_a0309b16304a1be79ff63ff1e9cdcadd7}{get\+Depth\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Gets a depth-\/first iterator for the table (not supported for tables). \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmyIterator}{my\+Iterator}} $>$ \mbox{\hyperlink{classtable_ac11b0fdc10c2d4b1a02bec87eba5d6b6}{get\+Breadth\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Gets a breadth-\/first iterator for the table (not supported for tables). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_a6be8c7cba402591954d6bf68d96b7b25}{new\+Customers}} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$$>$ new\+Customers)
+\begin{DoxyCompactList}\small\item\em Adds new customers to the table. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtable_a969e483fd10d835cf3722141de6cb133}\label{classtable_a969e483fd10d835cf3722141de6cb133}} 
+void \mbox{\hyperlink{classtable_a969e483fd10d835cf3722141de6cb133}{remove\+Customers}} ()
+\begin{DoxyCompactList}\small\item\em Removes customers from the table. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$ $>$ \mbox{\hyperlink{classtable_ab2a7bd025fb02cbb45586acf2f3bf2b2}{get\+Customers}} ()
+\begin{DoxyCompactList}\small\item\em Gets the vector of customers seated at the table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtable_ab4d8c2064dce90e585871b8320b9091b}{space\+Available}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the available space at the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtable_a875d5fb3acfb75f36d857669c276e4c6}{set\+Space}} (int new\+Space)
+\begin{DoxyCompactList}\small\item\em Sets the space available at the table. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classtable_ab1bc61a5c814f5a69e872006bcf069dd}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Gets a string representation of the table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtable_a1cdef33086b65e678d3fcbd27642cd06}{accept\+Visitor}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvisitor}{visitor}} $>$ \mbox{\hyperlink{classvisitor}{visitor}})
+\begin{DoxyCompactList}\small\item\em Accepts a visitor for visiting the table. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtable_a314d9cf6ee35be9ac221982599a57d8d}\label{classtable_a314d9cf6ee35be9ac221982599a57d8d}} 
+\mbox{\hyperlink{classtable_a314d9cf6ee35be9ac221982599a57d8d}{$\sim$table}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the table object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The table class represents a table in the restaurant floor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtable_ab73cf0b4b135aea6f8355dadfd4b521f}\label{classtable_ab73cf0b4b135aea6f8355dadfd4b521f}} 
+\index{table@{table}!table@{table}}
+\index{table@{table}!table@{table}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}}
+{\footnotesize\ttfamily table\+::table (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{space }\end{DoxyParamCaption})}
+
+
+
+Constructs a table object with a specified ID and space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the table. \\
+\hline
+{\em space} & The available space at the table. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtable_a1cdef33086b65e678d3fcbd27642cd06}\label{classtable_a1cdef33086b65e678d3fcbd27642cd06}} 
+\index{table@{table}!acceptVisitor@{acceptVisitor}}
+\index{acceptVisitor@{acceptVisitor}!table@{table}}
+\doxysubsubsection{\texorpdfstring{acceptVisitor()}{acceptVisitor()}}
+{\footnotesize\ttfamily int table\+::accept\+Visitor (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvisitor}{visitor}} $>$}]{visitor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Accepts a visitor for visiting the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visitor} & The visitor to be accepted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the visitation. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_ad8ec8686f1cb8f5f1ef36a8829edb054}{floor\+Component}}.
+
+\mbox{\Hypertarget{classtable_af17fccb0a3e5d87e16a8574f6f864fc8}\label{classtable_af17fccb0a3e5d87e16a8574f6f864fc8}} 
+\index{table@{table}!add@{add}}
+\index{add@{add}!table@{table}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void table\+::add (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a child component to the table (not supported for tables). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child component to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a825a9c99d4c41b3a4803c74277d3a42c}{floor\+Component}}.
+
+\mbox{\Hypertarget{classtable_ac11b0fdc10c2d4b1a02bec87eba5d6b6}\label{classtable_ac11b0fdc10c2d4b1a02bec87eba5d6b6}} 
+\index{table@{table}!getBreadthIterator@{getBreadthIterator}}
+\index{getBreadthIterator@{getBreadthIterator}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getBreadthIterator()}{getBreadthIterator()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmyIterator}{my\+Iterator}} $>$ table\+::get\+Breadth\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a breadth-\/first iterator for the table (not supported for tables). 
+
+\begin{DoxyReturn}{Returns}
+The shared pointer to the breadth-\/first iterator. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtable_a19a9b76f14bd65a2038035c51d9533ca}\label{classtable_a19a9b76f14bd65a2038035c51d9533ca}} 
+\index{table@{table}!getChild@{getChild}}
+\index{getChild@{getChild}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getChild()}{getChild()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ table\+::get\+Child (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the child component at a specified index (not supported for tables). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the child component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shared pointer to the child component. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a0ec22edb166dc66ac1ef687a46073493}{floor\+Component}}.
+
+\mbox{\Hypertarget{classtable_ab2a7bd025fb02cbb45586acf2f3bf2b2}\label{classtable_ab2a7bd025fb02cbb45586acf2f3bf2b2}} 
+\index{table@{table}!getCustomers@{getCustomers}}
+\index{getCustomers@{getCustomers}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getCustomers()}{getCustomers()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$ $>$ table\+::get\+Customers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the vector of customers seated at the table. 
+
+\begin{DoxyReturn}{Returns}
+The vector of shared pointers to customers. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtable_a0309b16304a1be79ff63ff1e9cdcadd7}\label{classtable_a0309b16304a1be79ff63ff1e9cdcadd7}} 
+\index{table@{table}!getDepthIterator@{getDepthIterator}}
+\index{getDepthIterator@{getDepthIterator}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getDepthIterator()}{getDepthIterator()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmyIterator}{my\+Iterator}} $>$ table\+::get\+Depth\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets a depth-\/first iterator for the table (not supported for tables). 
+
+\begin{DoxyReturn}{Returns}
+The shared pointer to the depth-\/first iterator. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a2c2d33c393bfed34e236e5e827cfb16e}{floor\+Component}}.
+
+\mbox{\Hypertarget{classtable_a4c43f0c519bfe825882969a6f648e445}\label{classtable_a4c43f0c519bfe825882969a6f648e445}} 
+\index{table@{table}!getIsMerged@{getIsMerged}}
+\index{getIsMerged@{getIsMerged}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getIsMerged()}{getIsMerged()}}
+{\footnotesize\ttfamily bool table\+::get\+Is\+Merged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the merging status of the table. 
+
+\begin{DoxyReturn}{Returns}
+True if the table is merged, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtable_abe9b313d0a7e890e1bab674457609dfd}\label{classtable_abe9b313d0a7e890e1bab674457609dfd}} 
+\index{table@{table}!getIsSpaceAvailable@{getIsSpaceAvailable}}
+\index{getIsSpaceAvailable@{getIsSpaceAvailable}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getIsSpaceAvailable()}{getIsSpaceAvailable()}}
+{\footnotesize\ttfamily bool table\+::get\+Is\+Space\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if there is available space at the table. 
+
+\begin{DoxyReturn}{Returns}
+True if space is available, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtable_a87a66b742a20a86cd6fe4b9caa5908e9}\label{classtable_a87a66b742a20a86cd6fe4b9caa5908e9}} 
+\index{table@{table}!getIsVisible@{getIsVisible}}
+\index{getIsVisible@{getIsVisible}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getIsVisible()}{getIsVisible()}}
+{\footnotesize\ttfamily bool table\+::get\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the visibility status of the table. 
+
+\begin{DoxyReturn}{Returns}
+True if the table is visible, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtable_a32585246c8c225289911c2fc2f08acb6}\label{classtable_a32585246c8c225289911c2fc2f08acb6}} 
+\index{table@{table}!getNumChildren@{getNumChildren}}
+\index{getNumChildren@{getNumChildren}!table@{table}}
+\doxysubsubsection{\texorpdfstring{getNumChildren()}{getNumChildren()}}
+{\footnotesize\ttfamily int table\+::get\+Num\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the number of children of the table (always 0 for tables). 
+
+\begin{DoxyReturn}{Returns}
+The number of children. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_acfa243840342b4d44c3c688353c8325a}{floor\+Component}}.
+
+\mbox{\Hypertarget{classtable_a6be8c7cba402591954d6bf68d96b7b25}\label{classtable_a6be8c7cba402591954d6bf68d96b7b25}} 
+\index{table@{table}!newCustomers@{newCustomers}}
+\index{newCustomers@{newCustomers}!table@{table}}
+\doxysubsubsection{\texorpdfstring{newCustomers()}{newCustomers()}}
+{\footnotesize\ttfamily void table\+::new\+Customers (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$$>$}]{new\+Customers }\end{DoxyParamCaption})}
+
+
+
+Adds new customers to the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Customers} & The vector of shared pointers to customers. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtable_ab2f678c1fe3ecd578d03ce8fdc19d099}\label{classtable_ab2f678c1fe3ecd578d03ce8fdc19d099}} 
+\index{table@{table}!remove@{remove}}
+\index{remove@{remove}!table@{table}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void table\+::remove (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Removes a child component from the table (not supported for tables). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child component to be removed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_ad54c58b993df2f18024a04ad68be0c1a}{floor\+Component}}.
+
+\mbox{\Hypertarget{classtable_ab908d86efbda112b55aa22f16e17c9f2}\label{classtable_ab908d86efbda112b55aa22f16e17c9f2}} 
+\index{table@{table}!setIsMerged@{setIsMerged}}
+\index{setIsMerged@{setIsMerged}!table@{table}}
+\doxysubsubsection{\texorpdfstring{setIsMerged()}{setIsMerged()}}
+{\footnotesize\ttfamily void table\+::set\+Is\+Merged (\begin{DoxyParamCaption}\item[{bool}]{merge }\end{DoxyParamCaption})}
+
+
+
+Sets the merging status of the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em merge} & The new merging status to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtable_aa6be95e4f08ad8fda8c908d79c763656}\label{classtable_aa6be95e4f08ad8fda8c908d79c763656}} 
+\index{table@{table}!setIsSpaceAvailable@{setIsSpaceAvailable}}
+\index{setIsSpaceAvailable@{setIsSpaceAvailable}!table@{table}}
+\doxysubsubsection{\texorpdfstring{setIsSpaceAvailable()}{setIsSpaceAvailable()}}
+{\footnotesize\ttfamily void table\+::set\+Is\+Space\+Available (\begin{DoxyParamCaption}\item[{bool}]{available }\end{DoxyParamCaption})}
+
+
+
+Sets the availability of space at the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em available} & The new availability status to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtable_a203557f558266c72fccded04ac9fe125}\label{classtable_a203557f558266c72fccded04ac9fe125}} 
+\index{table@{table}!setIsVisible@{setIsVisible}}
+\index{setIsVisible@{setIsVisible}!table@{table}}
+\doxysubsubsection{\texorpdfstring{setIsVisible()}{setIsVisible()}}
+{\footnotesize\ttfamily void table\+::set\+Is\+Visible (\begin{DoxyParamCaption}\item[{bool}]{vis }\end{DoxyParamCaption})}
+
+
+
+Sets the visibility status of the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vis} & The new visibility status to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtable_a875d5fb3acfb75f36d857669c276e4c6}\label{classtable_a875d5fb3acfb75f36d857669c276e4c6}} 
+\index{table@{table}!setSpace@{setSpace}}
+\index{setSpace@{setSpace}!table@{table}}
+\doxysubsubsection{\texorpdfstring{setSpace()}{setSpace()}}
+{\footnotesize\ttfamily void table\+::set\+Space (\begin{DoxyParamCaption}\item[{int}]{new\+Space }\end{DoxyParamCaption})}
+
+
+
+Sets the space available at the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Space} & The new space value to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtable_ab4d8c2064dce90e585871b8320b9091b}\label{classtable_ab4d8c2064dce90e585871b8320b9091b}} 
+\index{table@{table}!spaceAvailable@{spaceAvailable}}
+\index{spaceAvailable@{spaceAvailable}!table@{table}}
+\doxysubsubsection{\texorpdfstring{spaceAvailable()}{spaceAvailable()}}
+{\footnotesize\ttfamily int table\+::space\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the available space at the table. 
+
+\begin{DoxyReturn}{Returns}
+The available space. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtable_ab1bc61a5c814f5a69e872006bcf069dd}\label{classtable_ab1bc61a5c814f5a69e872006bcf069dd}} 
+\index{table@{table}!toString@{toString}}
+\index{toString@{toString}!table@{table}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string table\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets a string representation of the table. 
+
+\begin{DoxyReturn}{Returns}
+The string representation. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a751120dd134d8484957c412cbf60afcb}{floor\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+table.\+h\item 
+table.\+cpp\end{DoxyCompactItemize}

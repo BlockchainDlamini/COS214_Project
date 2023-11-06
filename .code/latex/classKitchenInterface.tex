@@ -1,0 +1,117 @@
+\hypertarget{classKitchenInterface}{}\doxysection{Kitchen\+Interface Class Reference}
+\label{classKitchenInterface}\index{KitchenInterface@{KitchenInterface}}
+
+
+A class that represents the interface for the kitchen in the game.  
+
+
+
+
+{\ttfamily \#include $<$Kitchen\+Interface.\+h$>$}
+
+
+
+Inheritance diagram for Kitchen\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classKitchenInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Kitchen\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classKitchenInterface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKitchenInterface_a24f91e44d8de6a9c3deb675eccbfdc8d}\label{classKitchenInterface_a24f91e44d8de6a9c3deb675eccbfdc8d}} 
+\mbox{\hyperlink{classKitchenInterface_a24f91e44d8de6a9c3deb675eccbfdc8d}{Kitchen\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classKitchenInterface}{Kitchen\+Interface}}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ \mbox{\hyperlink{classKitchenInterface_ac9681dcf898fef47f0e9cf2f3433ef31}{get\+Kitchen\+Reference}} ()
+\begin{DoxyCompactList}\small\item\em Get the reference to the \mbox{\hyperlink{classKitchen}{Kitchen}} object. \end{DoxyCompactList}\item 
+pair$<$ int, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{classKitchenInterface_a71f68f86e59b12c7fbc9f10ca268d999}{collect\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Collect the prepared order from the kitchen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classKitchenInterface_a92feba926a4f30db580bfe0d3959ee56}{delegate\+Order\+Process}} (pair$<$ int, std\+::vector$<$ pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$$>$$>$)
+\begin{DoxyCompactList}\small\item\em Delegate the order processing to the chefs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classKitchenInterface_a7e32974ed14df5dafa6d89fcc2081c96}{get\+Waiter\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Get the ID of the waiter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKitchenInterface_a3b1c8ec49e04146defd73b7c09a724cc}\label{classKitchenInterface_a3b1c8ec49e04146defd73b7c09a724cc}} 
+void {\bfseries set\+Game\+Engine} (shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class that represents the interface for the kitchen in the game. 
+
+This class is responsible for managing the kitchen operations in the game. It delegates orders to the chefs and collects the prepared orders. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classKitchenInterface_a71f68f86e59b12c7fbc9f10ca268d999}\label{classKitchenInterface_a71f68f86e59b12c7fbc9f10ca268d999}} 
+\index{KitchenInterface@{KitchenInterface}!collectOrder@{collectOrder}}
+\index{collectOrder@{collectOrder}!KitchenInterface@{KitchenInterface}}
+\doxysubsubsection{\texorpdfstring{collectOrder()}{collectOrder()}}
+{\footnotesize\ttfamily pair$<$ int, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ $>$ $>$ $>$ $>$ Kitchen\+Interface\+::collect\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Collect the prepared order from the kitchen. 
+
+\begin{DoxyReturn}{Returns}
+A pair containing the order ID and a vector of shared pointers to the prepared pizzas. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classKitchenInterface_a92feba926a4f30db580bfe0d3959ee56}\label{classKitchenInterface_a92feba926a4f30db580bfe0d3959ee56}} 
+\index{KitchenInterface@{KitchenInterface}!delegateOrderProcess@{delegateOrderProcess}}
+\index{delegateOrderProcess@{delegateOrderProcess}!KitchenInterface@{KitchenInterface}}
+\doxysubsubsection{\texorpdfstring{delegateOrderProcess()}{delegateOrderProcess()}}
+{\footnotesize\ttfamily void Kitchen\+Interface\+::delegate\+Order\+Process (\begin{DoxyParamCaption}\item[{pair$<$ int, std\+::vector$<$ pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$$>$$>$}]{ }\end{DoxyParamCaption})}
+
+
+
+Delegate the order processing to the chefs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & A pair containing the order ID and a vector of pairs with pizza ID and shared pointer to the \mbox{\hyperlink{classOrder}{Order}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classKitchenInterface_ac9681dcf898fef47f0e9cf2f3433ef31}\label{classKitchenInterface_ac9681dcf898fef47f0e9cf2f3433ef31}} 
+\index{KitchenInterface@{KitchenInterface}!getKitchenReference@{getKitchenReference}}
+\index{getKitchenReference@{getKitchenReference}!KitchenInterface@{KitchenInterface}}
+\doxysubsubsection{\texorpdfstring{getKitchenReference()}{getKitchenReference()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ Kitchen\+Interface\+::get\+Kitchen\+Reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the reference to the \mbox{\hyperlink{classKitchen}{Kitchen}} object. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to the \mbox{\hyperlink{classKitchen}{Kitchen}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classKitchenInterface_a7e32974ed14df5dafa6d89fcc2081c96}\label{classKitchenInterface_a7e32974ed14df5dafa6d89fcc2081c96}} 
+\index{KitchenInterface@{KitchenInterface}!getWaiterID@{getWaiterID}}
+\index{getWaiterID@{getWaiterID}!KitchenInterface@{KitchenInterface}}
+\doxysubsubsection{\texorpdfstring{getWaiterID()}{getWaiterID()}}
+{\footnotesize\ttfamily int Kitchen\+Interface\+::get\+Waiter\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the ID of the waiter. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the waiter. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Kitchen\+Interface.\+h\item 
+Kitchen\+Interface.\+cpp\end{DoxyCompactItemize}

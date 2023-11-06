@@ -1,0 +1,5 @@
+<map id="floorComposite" name="floorComposite">
+<area shape="rect" id="node1" title="The floorComposite class represents a composite floor component." alt="" coords="57,169,179,196"/>
+<area shape="rect" id="node2" href="$classfloorComponent.html" title="The floorComponent class represents a component in the floor hierarchy." alt="" coords="55,95,181,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,231,47"/>
+</map>

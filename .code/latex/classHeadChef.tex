@@ -1,0 +1,205 @@
+\hypertarget{classHeadChef}{}\doxysection{Head\+Chef Class Reference}
+\label{classHeadChef}\index{HeadChef@{HeadChef}}
+
+
+Represents the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} class, responsible for creating pizzas.  
+
+
+
+
+{\ttfamily \#include $<$Head\+Chef.\+h$>$}
+
+
+
+Inheritance diagram for Head\+Chef\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classHeadChef__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Head\+Chef\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classHeadChef__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHeadChef_ac95033bbe3361915ef93af66d162579b}\label{classHeadChef_ac95033bbe3361915ef93af66d162579b}} 
+\mbox{\hyperlink{classHeadChef_ac95033bbe3361915ef93af66d162579b}{Head\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} class. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ \mbox{\hyperlink{classHeadChef_a7cac9c26e496e408e64d35afa32e77eb}{bake\+Pizza}} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$$>$ food\+Items)
+\begin{DoxyCompactList}\small\item\em Bake a pizza using the provided food items. Implements the Builder Pattern to define pizza construction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeadChef_a5d81a798dc89dd31a615e94fffd8aa81}{add\+Topping}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ pizza, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ topping)
+\begin{DoxyCompactList}\small\item\em Add a topping to a pizza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeadChef_aeb9c03c568210e49becdd905bfc410e8}{add\+Sauce}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ pizza, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ sauce)
+\begin{DoxyCompactList}\small\item\em Add a sauce to a pizza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeadChef_a4d3539db6cd6d494e34a4a422a685583}{add\+Base}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ pizza, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ base)
+\begin{DoxyCompactList}\small\item\em Add a base to a pizza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeadChef_a7883e790e98167838a32830fe4db7d31}{add\+Cheese}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ pizza, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ cheese)
+\begin{DoxyCompactList}\small\item\em Add cheese to a pizza. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classHeadChef_ad26a66d6e67ff0ce409ff2bde2603b73}{get\+Waiter\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Get the ID of the waiter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeadChef_acd213234aa137703080735a44fa46e69}{handle\+Order}} (int order\+ID, int waiter\+ID, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$$>$ food\+Items)
+\begin{DoxyCompactList}\small\item\em Handle the order from the waiter. \end{DoxyCompactList}\item 
+pair$<$ int, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{classHeadChef_a2e041960ecb8730a6425adce8349e5b4}{collect\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Collect the completed orders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} class, responsible for creating pizzas. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHeadChef_a4d3539db6cd6d494e34a4a422a685583}\label{classHeadChef_a4d3539db6cd6d494e34a4a422a685583}} 
+\index{HeadChef@{HeadChef}!addBase@{addBase}}
+\index{addBase@{addBase}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{addBase()}{addBase()}}
+{\footnotesize\ttfamily void Head\+Chef\+::add\+Base (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$}]{pizza,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$}]{base }\end{DoxyParamCaption})}
+
+
+
+Add a base to a pizza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pizza} & A shared pointer to the \mbox{\hyperlink{classPizza}{Pizza}} object. \\
+\hline
+{\em base} & A shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the pizza base. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHeadChef_a7883e790e98167838a32830fe4db7d31}\label{classHeadChef_a7883e790e98167838a32830fe4db7d31}} 
+\index{HeadChef@{HeadChef}!addCheese@{addCheese}}
+\index{addCheese@{addCheese}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{addCheese()}{addCheese()}}
+{\footnotesize\ttfamily void Head\+Chef\+::add\+Cheese (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$}]{pizza,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$}]{cheese }\end{DoxyParamCaption})}
+
+
+
+Add cheese to a pizza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pizza} & A shared pointer to the \mbox{\hyperlink{classPizza}{Pizza}} object. \\
+\hline
+{\em cheese} & A shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the cheese. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHeadChef_aeb9c03c568210e49becdd905bfc410e8}\label{classHeadChef_aeb9c03c568210e49becdd905bfc410e8}} 
+\index{HeadChef@{HeadChef}!addSauce@{addSauce}}
+\index{addSauce@{addSauce}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{addSauce()}{addSauce()}}
+{\footnotesize\ttfamily void Head\+Chef\+::add\+Sauce (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$}]{pizza,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$}]{sauce }\end{DoxyParamCaption})}
+
+
+
+Add a sauce to a pizza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pizza} & A shared pointer to the \mbox{\hyperlink{classPizza}{Pizza}} object. \\
+\hline
+{\em sauce} & A shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the sauce. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHeadChef_a5d81a798dc89dd31a615e94fffd8aa81}\label{classHeadChef_a5d81a798dc89dd31a615e94fffd8aa81}} 
+\index{HeadChef@{HeadChef}!addTopping@{addTopping}}
+\index{addTopping@{addTopping}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{addTopping()}{addTopping()}}
+{\footnotesize\ttfamily void Head\+Chef\+::add\+Topping (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$}]{pizza,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$}]{topping }\end{DoxyParamCaption})}
+
+
+
+Add a topping to a pizza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pizza} & A shared pointer to the \mbox{\hyperlink{classPizza}{Pizza}} object. \\
+\hline
+{\em topping} & A shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the topping. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHeadChef_a7cac9c26e496e408e64d35afa32e77eb}\label{classHeadChef_a7cac9c26e496e408e64d35afa32e77eb}} 
+\index{HeadChef@{HeadChef}!bakePizza@{bakePizza}}
+\index{bakePizza@{bakePizza}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{bakePizza()}{bakePizza()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ Head\+Chef\+::bake\+Pizza (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$$>$}]{food\+Items }\end{DoxyParamCaption})}
+
+
+
+Bake a pizza using the provided food items. Implements the Builder Pattern to define pizza construction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em food\+Items} & A vector of shared pointers to \mbox{\hyperlink{classFoodItem}{Food\+Item}} objects. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \mbox{\hyperlink{classPizza}{Pizza}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHeadChef_a2e041960ecb8730a6425adce8349e5b4}\label{classHeadChef_a2e041960ecb8730a6425adce8349e5b4}} 
+\index{HeadChef@{HeadChef}!collectOrder@{collectOrder}}
+\index{collectOrder@{collectOrder}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{collectOrder()}{collectOrder()}}
+{\footnotesize\ttfamily pair$<$ int, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ pair$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPizza}{Pizza}} $>$ $>$ $>$ $>$ $>$ Head\+Chef\+::collect\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Collect the completed orders. 
+
+\begin{DoxyReturn}{Returns}
+A pair containing the order ID and a vector of shared pointers to the prepared pizzas. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classKitchen}{Kitchen}}.
+
+\mbox{\Hypertarget{classHeadChef_ad26a66d6e67ff0ce409ff2bde2603b73}\label{classHeadChef_ad26a66d6e67ff0ce409ff2bde2603b73}} 
+\index{HeadChef@{HeadChef}!getWaiterID@{getWaiterID}}
+\index{getWaiterID@{getWaiterID}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{getWaiterID()}{getWaiterID()}}
+{\footnotesize\ttfamily int Head\+Chef\+::get\+Waiter\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the ID of the waiter. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the waiter. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classKitchen}{Kitchen}}.
+
+\mbox{\Hypertarget{classHeadChef_acd213234aa137703080735a44fa46e69}\label{classHeadChef_acd213234aa137703080735a44fa46e69}} 
+\index{HeadChef@{HeadChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}}
+{\footnotesize\ttfamily void Head\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{int}]{order\+ID,  }\item[{int}]{waiter\+ID,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$$>$}]{food\+Items }\end{DoxyParamCaption})}
+
+
+
+Handle the order from the waiter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+ID} & The ID of the order. \\
+\hline
+{\em waiter\+ID} & The ID of the waiter. \\
+\hline
+{\em food\+Items} & A vector of shared pointers to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} objects in the order. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{HeadChef_8h}{Head\+Chef.\+h}}\item 
+Head\+Chef.\+cpp\end{DoxyCompactItemize}

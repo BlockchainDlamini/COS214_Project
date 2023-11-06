@@ -1,0 +1,77 @@
+\hypertarget{classWaiting}{}\doxysection{Waiting Class Reference}
+\label{classWaiting}\index{Waiting@{Waiting}}
+
+
+Represents the \char`\"{}\+Waiting\char`\"{} state in the order processing system.  
+
+
+
+
+{\ttfamily \#include $<$Waiting.\+h$>$}
+
+
+
+Inheritance diagram for Waiting\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classWaiting__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Waiting\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classWaiting__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaiting_a064274e74c647f8ec27d8986d96d3948}\label{classWaiting_a064274e74c647f8ec27d8986d96d3948}} 
+\mbox{\hyperlink{classWaiting_a064274e74c647f8ec27d8986d96d3948}{Waiting}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for creating a \mbox{\hyperlink{classWaiting}{Waiting}} state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiting_a305bdb7aa6cda2c6f0e85032c11f9be5}\label{classWaiting_a305bdb7aa6cda2c6f0e85032c11f9be5}} 
+void \mbox{\hyperlink{classWaiting_a305bdb7aa6cda2c6f0e85032c11f9be5}{execute}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Execute the \mbox{\hyperlink{classWaiting}{Waiting}} state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiting_a37b2d2804f0aec9c10f8fc09f754a8a9}\label{classWaiting_a37b2d2804f0aec9c10f8fc09f754a8a9}} 
+std\+::string {\bfseries get\+Name} ()
+\item 
+void \mbox{\hyperlink{classWaiting_ab825363d117444d36ecee5c25afb77fe}{handle\+Change}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Handle a change in the state by moving to the next state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the \char`\"{}\+Waiting\char`\"{} state in the order processing system. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWaiting_ab825363d117444d36ecee5c25afb77fe}\label{classWaiting_ab825363d117444d36ecee5c25afb77fe}} 
+\index{Waiting@{Waiting}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!Waiting@{Waiting}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily void Waiting\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a change in the state by moving to the next state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A shared pointer to the customer context. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classOrderProcessState_abc9b86cbaeaa3cd738f4a8a6abb8d2c0}{Order\+Process\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Waiting.\+h\item 
+Waiting.\+cpp\end{DoxyCompactItemize}

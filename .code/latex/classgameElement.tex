@@ -1,0 +1,204 @@
+\hypertarget{classgameElement}{}\doxysection{game\+Element Class Reference}
+\label{classgameElement}\index{gameElement@{gameElement}}
+
+
+A class to represent a game element. This class represents Colleagues in the \mbox{\hyperlink{classPager}{Pager}} design pattern.  
+
+
+
+
+{\ttfamily \#include $<$game\+Element.\+h$>$}
+
+
+
+Inheritance diagram for game\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgameElement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for game\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classgameElement__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgameElement_aa4a8464f1dc799c110244c29a2742ee3}\label{classgameElement_aa4a8464f1dc799c110244c29a2742ee3}} 
+\mbox{\hyperlink{classgameElement_aa4a8464f1dc799c110244c29a2742ee3}{game\+Element}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new game element object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgameElement_a4cc500e47e08e3f4491b99ec141fec13}{game\+Element}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \&my\+Game\+Engine)
+\begin{DoxyCompactList}\small\item\em Creates a new game element object in addition to setting the game\+Engine attribute. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgameElement_a7d13c060b4fe1f2b9e881d11e65dd3ba}{game\+Element}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \&my\+Game\+Engine, int id)
+\begin{DoxyCompactList}\small\item\em Creates a new game element object which sets the \mbox{\hyperlink{classPager}{Pager}}, as well as the object\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgameElement_a8f619bef085c1f90ba9b1be00b72dd4c}\label{classgameElement_a8f619bef085c1f90ba9b1be00b72dd4c}} 
+virtual \mbox{\hyperlink{classgameElement_a8f619bef085c1f90ba9b1be00b72dd4c}{$\sim$game\+Element}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBase}{Base}} class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgameElement_a0828d8e710975188af316aa7b49050f7}{set\+Game\+Engine}} (const shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \&my\+Game\+Engine)
+\begin{DoxyCompactList}\small\item\em Set the game engine. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classgameElement_a0fd92034296b751abf8adc50241824a0}{get\+My\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the ID of the game element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgameElement_ad517e679586809c4a51e8b64a379451b}{set\+My\+Id}} (int my\+Id)
+\begin{DoxyCompactList}\small\item\em Set the ID of the game element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgameElement_a51763906f2681e155eac05014bb7c9eb}\label{classgameElement_a51763906f2681e155eac05014bb7c9eb}} 
+virtual void \mbox{\hyperlink{classgameElement_a51763906f2681e155eac05014bb7c9eb}{changed}} ()
+\begin{DoxyCompactList}\small\item\em Notify the game\+Engine that the \mbox{\hyperlink{classgameElement}{game\+Element}} has changed in some way. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{classgameElement_aabdeb04d6e5bf634471d1908a0aa473d}{get}} ()
+\begin{DoxyCompactList}\small\item\em Get the operation of the \mbox{\hyperlink{classgameElement}{game\+Element}}, which informs the mediator of what message needs to be sent. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgameElement_a07c6dae3b1d80aa2345d562df08b722e}{set\+Operation}} (string op)
+\begin{DoxyCompactList}\small\item\em Set the operation of the game element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgameElement_a44e17353e719226a89625cb1a8b304b9}\label{classgameElement_a44e17353e719226a89625cb1a8b304b9}} 
+virtual void {\bfseries do\+Something\+Cool} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgameElement_acd6a4e0947efe7fad396931cb3713d75}\label{classgameElement_acd6a4e0947efe7fad396931cb3713d75}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \mbox{\hyperlink{classgameElement_acd6a4e0947efe7fad396931cb3713d75}{game\+Engine}}
+\begin{DoxyCompactList}\small\item\em A shared pointer to the mediator representing the game engine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgameElement_aaa8104da0b43384acb522a8cb462b081}\label{classgameElement_aaa8104da0b43384acb522a8cb462b081}} 
+int \mbox{\hyperlink{classgameElement_aaa8104da0b43384acb522a8cb462b081}{my\+ID}}
+\begin{DoxyCompactList}\small\item\em An integer representing the ID of the game element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgameElement_af96b348b8d77800a6582c1e720527187}\label{classgameElement_af96b348b8d77800a6582c1e720527187}} 
+string \mbox{\hyperlink{classgameElement_af96b348b8d77800a6582c1e720527187}{operation}}
+\begin{DoxyCompactList}\small\item\em A string representing the operation of the game element, used by the \mbox{\hyperlink{classPager}{Pager}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgameElement_a6fca6aa654365caf80de5e75850fbfe3}\label{classgameElement_a6fca6aa654365caf80de5e75850fbfe3}} 
+static int \mbox{\hyperlink{classgameElement_a6fca6aa654365caf80de5e75850fbfe3}{shared\+ID}} = 0
+\begin{DoxyCompactList}\small\item\em A static integer representing a shared ID across all instances of this class. It is incremented by the constructor, thus guaranteeing that all objects have a unique ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to represent a game element. This class represents Colleagues in the \mbox{\hyperlink{classPager}{Pager}} design pattern. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgameElement_a4cc500e47e08e3f4491b99ec141fec13}\label{classgameElement_a4cc500e47e08e3f4491b99ec141fec13}} 
+\index{gameElement@{gameElement}!gameElement@{gameElement}}
+\index{gameElement@{gameElement}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{gameElement()}{gameElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily game\+Element\+::game\+Element (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \&}]{my\+Game\+Engine }\end{DoxyParamCaption})}
+
+
+
+Creates a new game element object in addition to setting the game\+Engine attribute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Game\+Engine} & The game engine to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgameElement_a7d13c060b4fe1f2b9e881d11e65dd3ba}\label{classgameElement_a7d13c060b4fe1f2b9e881d11e65dd3ba}} 
+\index{gameElement@{gameElement}!gameElement@{gameElement}}
+\index{gameElement@{gameElement}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{gameElement()}{gameElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily game\+Element\+::game\+Element (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \&}]{my\+Game\+Engine,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Creates a new game element object which sets the \mbox{\hyperlink{classPager}{Pager}}, as well as the object\textquotesingle{}s ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Game\+Engine} & The game engine to be used. \\
+\hline
+{\em id} & The ID of the game element. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgameElement_aabdeb04d6e5bf634471d1908a0aa473d}\label{classgameElement_aabdeb04d6e5bf634471d1908a0aa473d}} 
+\index{gameElement@{gameElement}!get@{get}}
+\index{get@{get}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily string game\+Element\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the operation of the \mbox{\hyperlink{classgameElement}{game\+Element}}, which informs the mediator of what message needs to be sent. 
+
+\begin{DoxyReturn}{Returns}
+The operation of the game element. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classWaiter_a445012f7c5ec40c46c071602dbfa923d}{Waiter}}, \mbox{\hyperlink{classRegularWaiter_afd2f5f75d910e8e35b0aa6a8fba5115d}{Regular\+Waiter}}, and \mbox{\hyperlink{classMaitreD_a4304d320ae925f689cef9f8b759dcf21}{MaitreD}}.
+
+\mbox{\Hypertarget{classgameElement_a0fd92034296b751abf8adc50241824a0}\label{classgameElement_a0fd92034296b751abf8adc50241824a0}} 
+\index{gameElement@{gameElement}!getMyId@{getMyId}}
+\index{getMyId@{getMyId}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{getMyId()}{getMyId()}}
+{\footnotesize\ttfamily int game\+Element\+::get\+My\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the ID of the game element. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the game element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgameElement_a0828d8e710975188af316aa7b49050f7}\label{classgameElement_a0828d8e710975188af316aa7b49050f7}} 
+\index{gameElement@{gameElement}!setGameEngine@{setGameEngine}}
+\index{setGameEngine@{setGameEngine}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{setGameEngine()}{setGameEngine()}}
+{\footnotesize\ttfamily void game\+Element\+::set\+Game\+Engine (\begin{DoxyParamCaption}\item[{const shared\+\_\+ptr$<$ \mbox{\hyperlink{classPager}{Pager}} $>$ \&}]{my\+Game\+Engine }\end{DoxyParamCaption})}
+
+
+
+Set the game engine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Game\+Engine} & The game engine to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgameElement_ad517e679586809c4a51e8b64a379451b}\label{classgameElement_ad517e679586809c4a51e8b64a379451b}} 
+\index{gameElement@{gameElement}!setMyId@{setMyId}}
+\index{setMyId@{setMyId}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{setMyId()}{setMyId()}}
+{\footnotesize\ttfamily void game\+Element\+::set\+My\+Id (\begin{DoxyParamCaption}\item[{int}]{my\+Id }\end{DoxyParamCaption})}
+
+
+
+Set the ID of the game element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Id} & The ID to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgameElement_a07c6dae3b1d80aa2345d562df08b722e}\label{classgameElement_a07c6dae3b1d80aa2345d562df08b722e}} 
+\index{gameElement@{gameElement}!setOperation@{setOperation}}
+\index{setOperation@{setOperation}!gameElement@{gameElement}}
+\doxysubsubsection{\texorpdfstring{setOperation()}{setOperation()}}
+{\footnotesize\ttfamily void game\+Element\+::set\+Operation (\begin{DoxyParamCaption}\item[{string}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set the operation of the game element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & The operation to be set. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classWaiter_a7405b0d265e79559127483f1ccb1790b}{Waiter}}, \mbox{\hyperlink{classRegularWaiter_adac82ba0801c4e388774c9dd4b2272a3}{Regular\+Waiter}}, and \mbox{\hyperlink{classMaitreD_a0ee993871b3246fa0bcc25237961a7dc}{MaitreD}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Element.\+h\item 
+game\+Element.\+cpp\end{DoxyCompactItemize}

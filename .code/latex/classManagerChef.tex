@@ -1,0 +1,131 @@
+\hypertarget{classManagerChef}{}\doxysection{Manager\+Chef Class Reference}
+\label{classManagerChef}\index{ManagerChef@{ManagerChef}}
+
+
+A class representing a manager chef in the kitchen, derived from \mbox{\hyperlink{classKitchen}{Kitchen}} and enable\+\_\+shared\+\_\+from\+\_\+this.  
+
+
+
+
+{\ttfamily \#include $<$Manager\+Chef.\+h$>$}
+
+
+
+Inheritance diagram for Manager\+Chef\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classManagerChef__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Manager\+Chef\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classManagerChef__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classManagerChef_ac99f914b60be86b81d3ee8677f271422}\label{classManagerChef_ac99f914b60be86b81d3ee8677f271422}} 
+\mbox{\hyperlink{classManagerChef_ac99f914b60be86b81d3ee8677f271422}{Manager\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classManagerChef}{Manager\+Chef}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagerChef_ad51a39b7b64e1b922b928e5168135d90}{handle\+Order}} (int order\+Number)
+\begin{DoxyCompactList}\small\item\em Handle an order by order number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagerChef_a83607ab87f98898a2c43b4eb63abce3b}{handle\+Order}} (pair$<$ int, vector$<$ pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$$>$$>$)
+\begin{DoxyCompactList}\small\item\em Handle a batch of orders with an order number and a vector of orders. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classManagerChef_a579852fa8a68d5673ea412af8ed1b924}{orders\+Complete}} ()
+\begin{DoxyCompactList}\small\item\em Check if all orders are complete. \end{DoxyCompactList}\item 
+vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ $>$ \mbox{\hyperlink{classManagerChef_ae6a830c87f8d20ac57d900bc2e0bc38e}{get\+Chefs}} ()
+\begin{DoxyCompactList}\small\item\em Get a list of chefs under the management of this manager chef. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classManagerChef_af00a02c2ad7616144d8ef69a226cb0ff}\label{classManagerChef_af00a02c2ad7616144d8ef69a226cb0ff}} 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ \mbox{\hyperlink{classManagerChef_af00a02c2ad7616144d8ef69a226cb0ff}{cycle}} ()
+\begin{DoxyCompactList}\small\item\em Perform a cycle of processing orders and coordinating chefs. This function is used to set circular linking in between the chain of resposibility. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class representing a manager chef in the kitchen, derived from \mbox{\hyperlink{classKitchen}{Kitchen}} and enable\+\_\+shared\+\_\+from\+\_\+this. 
+
+This class is responsible for managing orders and coordinating chefs in the kitchen. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classManagerChef_ae6a830c87f8d20ac57d900bc2e0bc38e}\label{classManagerChef_ae6a830c87f8d20ac57d900bc2e0bc38e}} 
+\index{ManagerChef@{ManagerChef}!getChefs@{getChefs}}
+\index{getChefs@{getChefs}!ManagerChef@{ManagerChef}}
+\doxysubsubsection{\texorpdfstring{getChefs()}{getChefs()}}
+{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ $>$ Manager\+Chef\+::get\+Chefs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a list of chefs under the management of this manager chef. 
+
+\begin{DoxyReturn}{Returns}
+A vector of shared pointers to \mbox{\hyperlink{classKitchen}{Kitchen}} objects representing chefs. This function is used to get the chefs currently in the chain 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManagerChef_ad51a39b7b64e1b922b928e5168135d90}\label{classManagerChef_ad51a39b7b64e1b922b928e5168135d90}} 
+\index{ManagerChef@{ManagerChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!ManagerChef@{ManagerChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Manager\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{int}]{order\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle an order by order number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Number} & The order number to handle. This is function is the fucntion thats used when another order is in the list. And is only called by the head\+Chef after the head\+Chef checks if there are anymore orders to be taken care of if there are then this handler is called. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classKitchen_a581f8ce023968cf3403488f75b4d1407}{Kitchen}}.
+
+\mbox{\Hypertarget{classManagerChef_a83607ab87f98898a2c43b4eb63abce3b}\label{classManagerChef_a83607ab87f98898a2c43b4eb63abce3b}} 
+\index{ManagerChef@{ManagerChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!ManagerChef@{ManagerChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Manager\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{pair$<$ int, vector$<$ pair$<$ int, shared\+\_\+ptr$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$$>$$>$}]{pr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a batch of orders with an order number and a vector of orders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Info} & A pair containing the order number and a vector of shared pointers to \mbox{\hyperlink{classOrder}{Order}} objects. This is the handler function and its purpose is to handle all of the orders that come in from a wiater and is meant to pass the orders for each pizza and once the pizza is created depending if there are still orders remaining it will pass those remaining orders through to the other chefs. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classKitchen_ad3a036a382b0c3c95cd8d7408ed98c34}{Kitchen}}.
+
+\mbox{\Hypertarget{classManagerChef_a579852fa8a68d5673ea412af8ed1b924}\label{classManagerChef_a579852fa8a68d5673ea412af8ed1b924}} 
+\index{ManagerChef@{ManagerChef}!ordersComplete@{ordersComplete}}
+\index{ordersComplete@{ordersComplete}!ManagerChef@{ManagerChef}}
+\doxysubsubsection{\texorpdfstring{ordersComplete()}{ordersComplete()}}
+{\footnotesize\ttfamily bool Manager\+Chef\+::orders\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Check if all orders are complete. 
+
+\begin{DoxyReturn}{Returns}
+true if all orders are complete, false otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classKitchen_ab675cbb0ac9e2368fe3e0105ae2eaa96}{Kitchen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Manager\+Chef.\+h\item 
+Manager\+Chef.\+cpp\end{DoxyCompactItemize}

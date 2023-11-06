@@ -7,42 +7,43 @@ BaseChef::BaseChef()
 }
 void BaseChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>>foods)
 {
+    displayBaseArt();
     for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
         if (dynamic_pointer_cast<MakeBase>((*it)))
         {
+            cout << "-------IN THE BASE CHEFF COOKING-------" << endl;
             foods.push_back((*it)->execute());
         }
     }
-    displayBaseArt();
-    nextChef->handleOrder(waiter_id,customer_id,orders, foods);
+    nextChef->handleOrder(waiter_id, customer_id, orders, foods);
 }
 
 shared_ptr<FoodItem> BaseChef::execute(MenuItemCommand* val, string t)
 {
     if (dynamic_cast<MakeStuffedCrust*>(val))
     {
-        cout << "COOKED UP A STUFFED CRUST" << endl;
+        cout << "------COOKED UP A STUFFED CRUST-------" << endl;
         return make_shared<StuffedCrust>(t);
     }
     else if (dynamic_cast<MakeThinCrust*>(val))
     {
-        cout << "COOKED UP A THIN CRUST" << endl;
+        cout << "--------COOKED UP A THIN CRUST--------" << endl;
         return make_shared<ThinCrust>(t);
     }
     else if (dynamic_cast<MakeDoubleDecker*>(val))
     {
-        cout << "COOKED UP A DOUBLE-DECKER CRUST" << endl;
+        cout << "-----COOKED UP A DOUBLE-DECKER CRUST-----" << endl;
         return make_shared<DoubleDecker>(t);
     }
     else if (dynamic_cast<MakeBoiledCrust*>(val))
     {
-        cout << "COOKED UP A BOILED CRUST" << endl;
+        cout << "--------COOKED UP A BOILED CRUST--------" << endl;
         return make_shared<Boiled>(t);
     }
     else if (dynamic_cast<MakeDeepDish*>(val))
     {
-        cout << "COOKED UP A DEEPDISH CRUST" << endl;
+        cout << "-------COOKED UP A DEEPDISH CRUST-------" << endl;
         return make_shared<DeepDish>(t);
     }
 

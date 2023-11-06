@@ -1,4 +1,6 @@
 #include "Customer.h"
+#include <thread>
+
 using namespace std;
 string Customer::getName()
 {
@@ -77,14 +79,14 @@ void Customer::requestBill()
     hasBill = true;
     setOperation("REQUESTBILL");
     changed();
-    
 }
 void Customer::payBill(char c, float t, bool check) // returns true if the customer has either paid or added the bill to a tab
 {
-    if (check == true) {
+    if (check == true)
+    {
         leave();
     }
-    
+
     changedOrderProcessState(); // take the state to dinnerdone from orderreceived
     setTotal(t);
     if (hasBill == true)
@@ -99,7 +101,20 @@ void Customer::payBill(char c, float t, bool check) // returns true if the custo
             {
                 float tip = total + (total * mood->getTip());
                 bankAccountAmount = bankAccountAmount - (total + tip);
-                cout << "Customer has paid the bill, as the payment was accepted" << endl;
+
+                cout << endl;
+                cout << "Customer busy paying";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << ".";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << ".";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << ".";
+                cout << endl;
+
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << "\033[45;97mCustomer has paid the bill, and the payment was accepted\033[0m" << endl;
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
             }
         }
         else if (c == 'T' || c == 't' && isLoyal() == true) // has a tab and wants to add to tab
@@ -117,17 +132,21 @@ void Customer::payBill(char c, float t, bool check) // returns true if the custo
         else if (c == 'T' || c == 't' && isLoyal() == false) // doesn't have a tab but wants to add
         {
             cout << "The Customer [" + to_string(myID) + "] is not a loyal customer" << endl;
+            cout << "The Customer cannot add the order to the tab, because they aren't loyal. Customer will pay the bill";
+            payBill('P', t, check);
         }
         else
         {
             cout << "Incorrect input, Payment Declined" << endl;
+            cout << "Customer will pay the bill, normally";
+            payBill('P', t, check);
         }
     }
     else
     {
         cout << "Customer has not received the bill from the waiter" << endl;
     }
-    //leave();
+    // leave();
 }
 bool Customer::isLoyal()
 {
@@ -141,6 +160,7 @@ bool Customer::isLoyal()
 
 void Customer::startTab()
 {
+    hasBill = true;
     if (isLoyal() == true)
     {
         tabID = generateRandomString(6);
@@ -199,9 +219,14 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
     float total = 0.0;
     string choice = "";
     std::cout << "\033[47;30mChoose a pizza size! (S/M/L)\033[0m" << std::endl;
-
-
     cin >> size;
+
+    while (!(size == "M" || size == "L" || size == "S"))
+    {
+        cout << "pick a valid size (S/M/L)" << endl;
+        cin >> size;
+    }
+
     while (start)
     {
         std::cout << "\033[47;30mChoose one base only from the list below: \033[0m" << std::endl;
@@ -211,40 +236,40 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
         std::cout << "\033[36m4.Boiled: R52\033[0m" << endl;
         std::cout << "\033[36m5.Deep-dish: R89\033[0m" << endl;
         std::cin >> base;
-        if (base > 5)
+        if (!(base > 0 && base < 6))
         {
             std::cout << "\033[47;30mPlease enter a valid number. 1-5\033[0m" << std::endl;
             cin >> base;
         }
         switch (base)
         {
-            case 1:
-                std::cout << "\033[34m* You have chosen Stuffed-crust *\033[0m" << endl;
-                total += 34;
-                result.push_back(make_shared<MakeStuffedCrust>(kitchen, size));
-                break;
-            case 2:
-                std::cout << "\033[34m* You have chosen Thin crust *\033[0m" << endl;
-                total += 45;
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                break;
-            case 3:
-                std::cout << "\033[34m* You have chosen Double-Decker *\033[0m" << endl;
-                total += 68;
-                result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
-                break;
-            case 4:
-                std::cout << "\033[34m* You have chosen Boiled Crust *\033[0m" << endl;
-                total += 52;
-                result.push_back(make_shared<MakeBoiledCrust>(kitchen, size));
-                break;
-            case 5:
-                std::cout << "\033[34m* You have chosen Deep-dish *\033[0m" << endl;
-                total += 89;
-                result.push_back(make_shared<MakeDeepDish>(kitchen, size));
-                break;
-            default:
-                start = false;
+        case 1:
+            std::cout << "\033[34m* You have chosen Stuffed-crust *\033[0m" << endl;
+            total += 34;
+            result.push_back(make_shared<MakeStuffedCrust>(kitchen, size));
+            break;
+        case 2:
+            std::cout << "\033[34m* You have chosen Thin crust *\033[0m" << endl;
+            total += 45;
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            break;
+        case 3:
+            std::cout << "\033[34m* You have chosen Double-Decker *\033[0m" << endl;
+            total += 68;
+            result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
+            break;
+        case 4:
+            std::cout << "\033[34m* You have chosen Boiled Crust *\033[0m" << endl;
+            total += 52;
+            result.push_back(make_shared<MakeBoiledCrust>(kitchen, size));
+            break;
+        case 5:
+            std::cout << "\033[34m* You have chosen Deep-dish *\033[0m" << endl;
+            total += 89;
+            result.push_back(make_shared<MakeDeepDish>(kitchen, size));
+            break;
+        default:
+            start = false;
         }
 
         while (startSauce && sauceCount <= 4)
@@ -255,33 +280,33 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cout << "\033[36m3.Tomato Paste: R47\033[0m" << endl;
             std::cout << "\033[36m4.Chutney sauce: R85\033[0m" << endl;
             std::cin >> sauce;
-            if (sauce > 4)
+            while (!(sauce > 0 && sauce < 5))
             {
                 cout << "Please enter a valid number. 1-4" << endl;
                 cin >> sauce;
             }
             switch (sauce)
             {
-                case 1:
-                    std::cout << "\033[34m* You have chosen Sweet-chilli *\033[0m" << endl;
-                    total += 76;
-                    result.push_back(make_shared<MakeSweetChilli>(kitchen));
-                    break;
-                case 2:
-                    std::cout << "\033[34m* You have chosen Ranch *\033[0m" << endl;
-                    total += 63;
-                    result.push_back(make_shared<MakeRanch>(kitchen));
-                    break;
-                case 3:
-                    std::cout << "\033[34m* You have chosen Tomato Paste *\033[0m" << endl;
-                    total += 47;
-                    result.push_back(make_shared<MakeTomatoPaste>(kitchen));
-                    break;
-                case 4:
-                    std::cout << "\033[34m* You have chosen Chutney sauce *\033[0m" << endl;
-                    total += 85;
-                    result.push_back(make_shared<MakeChutneySauce>(kitchen));
-                    break;
+            case 1:
+                std::cout << "\033[34m* You have chosen Sweet-chilli *\033[0m" << endl;
+                total += 76;
+                result.push_back(make_shared<MakeSweetChilli>(kitchen));
+                break;
+            case 2:
+                std::cout << "\033[34m* You have chosen Ranch *\033[0m" << endl;
+                total += 63;
+                result.push_back(make_shared<MakeRanch>(kitchen));
+                break;
+            case 3:
+                std::cout << "\033[34m* You have chosen Tomato Paste *\033[0m" << endl;
+                total += 47;
+                result.push_back(make_shared<MakeTomatoPaste>(kitchen));
+                break;
+            case 4:
+                std::cout << "\033[34m* You have chosen Chutney sauce *\033[0m" << endl;
+                total += 85;
+                result.push_back(make_shared<MakeChutneySauce>(kitchen));
+                break;
             }
             if (sauceCount < 5)
             {
@@ -307,43 +332,43 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cout << "\033[36m5.Beef: R69\033[0m" << endl;
             std::cout << "\033[36m6.Peppers: R94\033[0m" << endl;
             std::cin >> topping;
-            if (topping > 6)
+            while (!(topping > 0 && topping < 7))
             {
-                cout << "Please enter a valid number. 1-5" << endl;
+                cout << "Please enter a valid number. 1-6" << endl;
                 cin >> topping;
             }
             switch (topping)
             {
-                case 1:
-                    std::cout << "\033[34m* You have chosen Pepperoni *\033[0m" << endl;
-                    total += 91;
-                    result.push_back(make_shared<MakePepperoni>(kitchen));
-                    break;
-                case 2:
-                    std::cout << "\033[34m* You have chosen Olives *\033[0m" << endl;
-                    total += 73;
-                    result.push_back(make_shared<MakeOlives>(kitchen));
-                    break;
-                case 3:
-                    std::cout << "\033[34m* You have chosen Mushrooms *\033[0m" << endl;
-                    total += 58;
-                    result.push_back(make_shared<MakeMushrooms>(kitchen));
-                    break;
-                case 4:
-                    std::cout << "\033[34m* You have chosen Chicken *\033[0m" << endl;
-                    total += 82;
-                    result.push_back(make_shared<MakeChicken>(kitchen));
-                    break;
-                case 5:
-                    std::cout << "\033[34m* You have chosen Beef *\033[0m" << endl;
-                    total += 69;
-                    result.push_back(make_shared<MakeBeef>(kitchen));
-                    break;
-                case 6:
-                    std::cout << "\033[34m* You have chosen Peppers *\033[0m" << endl;
-                    total += 94;
-                    result.push_back(make_shared<MakePeppers>(kitchen));
-                    break;
+            case 1:
+                std::cout << "\033[34m* You have chosen Pepperoni *\033[0m" << endl;
+                total += 91;
+                result.push_back(make_shared<MakePepperoni>(kitchen));
+                break;
+            case 2:
+                std::cout << "\033[34m* You have chosen Olives *\033[0m" << endl;
+                total += 73;
+                result.push_back(make_shared<MakeOlives>(kitchen));
+                break;
+            case 3:
+                std::cout << "\033[34m* You have chosen Mushrooms *\033[0m" << endl;
+                total += 58;
+                result.push_back(make_shared<MakeMushrooms>(kitchen));
+                break;
+            case 4:
+                std::cout << "\033[34m* You have chosen Chicken *\033[0m" << endl;
+                total += 82;
+                result.push_back(make_shared<MakeChicken>(kitchen));
+                break;
+            case 5:
+                std::cout << "\033[34m* You have chosen Beef *\033[0m" << endl;
+                total += 69;
+                result.push_back(make_shared<MakeBeef>(kitchen));
+                break;
+            case 6:
+                std::cout << "\033[34m* You have chosen Peppers *\033[0m" << endl;
+                total += 94;
+                result.push_back(make_shared<MakePeppers>(kitchen));
+                break;
             }
             if (sauceTopping < 7)
             {
@@ -356,7 +381,6 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
                 }
                 else
                 {
-
                     startTopping = false;
                 }
             }
@@ -370,43 +394,43 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cout << "\033[36m4.Parmesan: R81\033[0m" << endl;
             std::cout << "\033[36m5.Blue Cheese: R96\033[0m" << endl;
             std::cin >> cheese;
-            if (cheese > 4)
+            while (!(cheese > 0 && cheese < 6))
             {
                 cout << "Please enter a valid number. 1-5" << endl;
                 cin >> cheese;
             }
             switch (cheese)
             {
-                case 1:
-                    std::cout << "\033[34m* You have chosen Mozzarella *\033[0m" << endl;
+            case 1:
+                std::cout << "\033[34m* You have chosen Mozzarella *\033[0m" << endl;
 
-                    total += 87;
-                    result.push_back(make_shared<MakeMozzarella>(kitchen));
-                    break;
-                case 2:
-                    std::cout << "\033[34m* You have chosen Cheddar *\033[0m" << endl;
+                total += 87;
+                result.push_back(make_shared<MakeMozzarella>(kitchen));
+                break;
+            case 2:
+                std::cout << "\033[34m* You have chosen Cheddar *\033[0m" << endl;
 
-                    total += 72;
-                    result.push_back(make_shared<MakeMozzarella>(kitchen));
-                    break;
-                case 3:
-                    std::cout << "\033[34m* You have chosen Gouda *\033[0m" << endl;
+                total += 72;
+                result.push_back(make_shared<MakeMozzarella>(kitchen));
+                break;
+            case 3:
+                std::cout << "\033[34m* You have chosen Gouda *\033[0m" << endl;
 
-                    total += 56;
-                    result.push_back(make_shared<MakeGouda>(kitchen));
-                    break;
-                case 4:
-                    std::cout << "\033[34m*You have chosen Parmesan *\033[0m" << endl;
+                total += 56;
+                result.push_back(make_shared<MakeGouda>(kitchen));
+                break;
+            case 4:
+                std::cout << "\033[34m*You have chosen Parmesan *\033[0m" << endl;
 
-                    total += 81;
-                    result.push_back(make_shared<MakeParmesan>(kitchen));
-                    break;
-                case 5:
-                    std::cout << "\033[34m* You have chosen Blue Cheese *\033[0m" << endl;
+                total += 81;
+                result.push_back(make_shared<MakeParmesan>(kitchen));
+                break;
+            case 5:
+                std::cout << "\033[34m* You have chosen Blue Cheese *\033[0m" << endl;
 
-                    total += 96;
-                    result.push_back(make_shared<MakeBlueCheese>(kitchen));
-                    break;
+                total += 96;
+                result.push_back(make_shared<MakeBlueCheese>(kitchen));
+                break;
             }
             if (sauceCheese < 6)
             {
@@ -441,37 +465,42 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
 
     while (start)
     {
-        std::cout << "\033[47;30mPick a size for your pizza : 1.Large 2.Medium 3.Small \033[0m" << std::endl;
-
+        // std::cout << "\033[47;30mPick a size for your pizza : 1.Large 2.Medium 3.Small \033[0m" << std::endl;
+        std::cout << "\033[47;30mChoose a pizza size! (S/M/L)\033[0m" << std::endl;
         cin >> size;
         std::cout << "\033[36m1.Mozzarella Pizza R120\033[0m" << endl;
         std::cout << "\033[36m2.Pepperoni Pizza R122\033[0m" << endl;
         std::cout << "\033[36m3.Cheesy Pizza R69\033[0m" << endl;
         cin >> pizza;
+        while (!(pizza > 0 && pizza < 4))
+        {
+            cout << "Please enter a valid number. 1-3" << endl;
+            cin >> pizza;
+        }
         switch (pizza)
         {
-            case 1:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakeMozzarella>(kitchen));
-                total += 120;
-                break;
-            case 2:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakePepperoni>(kitchen));
-                total += 122;
-                break;
-            case 3:
-                result.push_back(make_shared<MakeThinCrust>(kitchen, size));
-                result.push_back(make_shared<MakeMozzarella>(kitchen));
-                result.push_back(make_shared<MakeParmesan>(kitchen));
-                result.push_back(make_shared<MakeCheddar>(kitchen));
-                total += 69;
-                break;
-            case 4:
-                result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
-                result.push_back(make_shared<MakeChicken>(kitchen));
-                total += 42069;
-                break;
+        case 1:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakeMozzarella>(kitchen));
+            total += 120;
+            break;
+        case 2:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakePepperoni>(kitchen));
+            total += 122;
+            break;
+        case 3:
+            result.push_back(make_shared<MakeThinCrust>(kitchen, size));
+            result.push_back(make_shared<MakeMozzarella>(kitchen));
+            result.push_back(make_shared<MakeParmesan>(kitchen));
+            result.push_back(make_shared<MakeCheddar>(kitchen));
+            total += 69;
+            break;
+        case 4:
+            result.push_back(make_shared<MakeDoubleDecker>(kitchen, size));
+            result.push_back(make_shared<MakeChicken>(kitchen));
+            total += 42069;
+            break;
         }
         if (done == "yes" || done == "Yes")
         {
@@ -484,15 +513,52 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
     }
     return result;
 }
-void Customer::createOrder()
+void Customer::createOrder(bool ft)
 {
+    std::string decision = "";
+
+    while (!ft)
+    {
+
+        if (ft == false)
+        {
+            waiterToTable('w');
+
+            std::cout << "\033[47;30mThe waiter is at your table, would you like to order or wait a couple of seconds? (wait/order)\033[0m" << std::endl;
+            std::cin >> decision;
+
+            if (decision == "wait")
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(900));
+                std::cout << "Waiting ... " << endl;
+                cout << endl;
+
+                waiterToTable('f');
+
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+
+                break;
+            }
+            else if (decision == "order")
+            {
+                break;
+            }
+            else
+            {
+                std::cout << "Invalid choice. Please enter 'wait' or 'order'." << std::endl;
+            }
+        }
+    }
+
     bool start = true;
     int orderCount = 0;
     string choice = "";
     string build = "";
     while (start)
     {
-        std::cout << "\033[47;30mWould you like to build your own pizza from scratch? (yes/no)\033[0m" << std::endl;
+        std::cout << "\033[43;30m Currently taking order for customer: " << getID() << " \033[0m" << std::endl;
+
+        std::cout << "\033[47;30mWould you like to build your own pizza from scratch? (yes/no) \033[0m" << std::endl;
 
         cin >> build;
         if (build == "Yes" || build == "yes")
@@ -502,7 +568,7 @@ void Customer::createOrder()
             orders.push_back(order);
             orderCount++;
             std::cout << "Order: " + to_string(orderCount) + " has been added" << endl;
-            std::cout << "\033[47;30mWould you like to make another order? (yes/no)\033[0m" << std::endl;
+            std::cout << "\033[47;30mWould you like to make another order? (yes/no) \033[0m" << std::endl;
 
             cin >> choice;
             if (choice == "yes" || choice == "Yes")
@@ -646,4 +712,185 @@ void Customer::getKitchenReference()
 {
     setOperation("GETKITCHENREFERENCE");
     changed();
+}
+
+void Customer::waiterToTable(char action)
+{
+
+    if (action == 'w')
+    {
+        std::cout << "  o  " << std::endl;
+        std::cout << " /|\\" << std::endl;
+        std::cout << " / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "    o  " << std::endl;
+        std::cout << "   /|\\" << std::endl;
+        std::cout << "   / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "       o  " << std::endl;
+        std::cout << "      /|\\" << std::endl;
+        std::cout << "      / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "          o  " << std::endl;
+        std::cout << "         /|\\" << std::endl;
+        std::cout << "         / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "             o  " << std::endl;
+        std::cout << "            /|\\" << std::endl;
+        std::cout << "            / \\ " << std::endl;
+    }
+
+    if (action == 'f')
+    {
+
+        std::cout << "  o  " << std::endl;
+        std::cout << " /|\\" << std::endl;
+        std::cout << " / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "    o/  " << std::endl;
+        std::cout << "    |   " << std::endl;
+        std::cout << "   /|   " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "    o/  " << std::endl;
+        std::cout << "  __|   " << std::endl;
+        std::cout << "    |   " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "     o__  " << std::endl;
+        std::cout << "   \\/     " << std::endl;
+        std::cout << "    |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "            " << std::endl;
+        std::cout << "   \\__o    " << std::endl;
+        std::cout << "    | \\     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "      /      " << std::endl;
+        std::cout << "     /\\o    " << std::endl;
+        std::cout << "      |\\     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "     _____     " << std::endl;
+        std::cout << "       |o    " << std::endl;
+        std::cout << "       |     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "        \\     " << std::endl;
+        std::cout << "        /\\   " << std::endl;
+        std::cout << "       |o     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "               " << std::endl;
+        std::cout << "        __|    " << std::endl;
+        std::cout << "       |o |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "         |     " << std::endl;
+        std::cout << "        o\\/    " << std::endl;
+        std::cout << "          |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "          o/     " << std::endl;
+        std::cout << "          |__    " << std::endl;
+        std::cout << "          |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "         \\o/     " << std::endl;
+        std::cout << "          |    " << std::endl;
+        std::cout << "          |\\    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "           o  " << std::endl;
+        std::cout << "          /|\\" << std::endl;
+        std::cout << "          / \\ " << std::endl;
+
+        cout << endl;
+    }
 }

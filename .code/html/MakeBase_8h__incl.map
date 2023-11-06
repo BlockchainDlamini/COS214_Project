@@ -1,0 +1,39 @@
+<map id="MakeBase.h" name="MakeBase.h">
+<area shape="rect" id="node1" title="Contains the MakeBase class, a subclass of MenuItemCommand, responsible for creating a base for a foo..." alt="" coords="333,5,435,32"/>
+<area shape="rect" id="node2" href="$MenuItemCommand_8h_source.html" title=" " alt="" coords="301,80,467,107"/>
+<area shape="rect" id="node3" href="$DeepDish_8h_source.html" title=" " alt="" coords="335,155,433,181"/>
+<area shape="rect" id="node4" href="$Boiled_8h_source.html" title=" " alt="" coords="347,229,421,256"/>
+<area shape="rect" id="node5" href="$DoubleDecker_8h_source.html" title=" " alt="" coords="322,304,446,331"/>
+<area shape="rect" id="node6" href="$ThinCrust_8h_source.html" title=" " alt="" coords="336,379,432,405"/>
+<area shape="rect" id="node7" href="$StuffedCrust_8h_source.html" title=" " alt="" coords="327,453,441,480"/>
+<area shape="rect" id="node8" href="$Base_8h_source.html" title=" " alt="" coords="351,528,417,555"/>
+<area shape="rect" id="node9" href="$Peppers_8h_source.html" title=" " alt="" coords="341,603,427,629"/>
+<area shape="rect" id="node10" href="$Beef_8h_source.html" title=" " alt="" coords="353,677,415,704"/>
+<area shape="rect" id="node11" href="$Chicken_8h_source.html" title=" " alt="" coords="341,752,427,779"/>
+<area shape="rect" id="node12" href="$Mushrooms_8h_source.html" title=" " alt="" coords="329,827,439,853"/>
+<area shape="rect" id="node13" href="$Olives_8h_source.html" title=" " alt="" coords="347,901,421,928"/>
+<area shape="rect" id="node14" href="$Pepperoni_8h_source.html" title=" " alt="" coords="335,976,433,1003"/>
+<area shape="rect" id="node15" href="$Toppings_8h_source.html" title=" " alt="" coords="339,1051,429,1077"/>
+<area shape="rect" id="node16" href="$BlueCheese_8h_source.html" title=" " alt="" coords="329,1125,439,1152"/>
+<area shape="rect" id="node17" href="$Parmesan_8h_source.html" title=" " alt="" coords="335,1200,433,1227"/>
+<area shape="rect" id="node18" href="$Gouda_8h_source.html" title=" " alt="" coords="346,1275,422,1301"/>
+<area shape="rect" id="node19" href="$Cheddar_8h_source.html" title=" " alt="" coords="341,1349,427,1376"/>
+<area shape="rect" id="node20" href="$Mozzarella_8h_source.html" title=" " alt="" coords="331,1424,437,1451"/>
+<area shape="rect" id="node21" href="$Cheese_8h_source.html" title=" " alt="" coords="343,1499,425,1525"/>
+<area shape="rect" id="node22" href="$Chutney_8h_source.html" title=" " alt="" coords="341,1573,427,1600"/>
+<area shape="rect" id="node23" href="$TomatoPaste_8h_source.html" title=" " alt="" coords="325,1648,443,1675"/>
+<area shape="rect" id="node24" href="$Ranch_8h_source.html" title=" " alt="" coords="347,1723,421,1749"/>
+<area shape="rect" id="node25" href="$SweetChilli_8h_source.html" title=" " alt="" coords="331,1797,437,1824"/>
+<area shape="rect" id="node26" href="$Sauce_8h_source.html" title=" " alt="" coords="347,1872,421,1899"/>
+<area shape="rect" id="node27" href="$FoodItem_8h_source.html" title=" " alt="" coords="337,1947,431,1973"/>
+<area shape="rect" id="node28" href="$gameElement_8h_source.html" title=" " alt="" coords="321,2021,447,2048"/>
+<area shape="rect" id="node29" title=" " alt="" coords="5,2096,83,2123"/>
+<area shape="rect" id="node30" title=" " alt="" coords="107,2096,167,2123"/>
+<area shape="rect" id="node31" title=" " alt="" coords="192,2096,251,2123"/>
+<area shape="rect" id="node32" title=" " alt="" coords="275,2096,338,2123"/>
+<area shape="rect" id="node33" title=" " alt="" coords="363,2096,405,2123"/>
+<area shape="rect" id="node34" title=" " alt="" coords="429,2096,509,2123"/>
+<area shape="rect" id="node35" title=" " alt="" coords="534,2096,597,2123"/>
+<area shape="rect" id="node36" title=" " alt="" coords="621,2096,694,2123"/>
+<area shape="rect" id="node37" title=" " alt="" coords="719,2096,793,2123"/>
+</map>

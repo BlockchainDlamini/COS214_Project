@@ -1,0 +1,8 @@
+<map id="OrderProcessState" name="OrderProcessState">
+<area shape="rect" id="node1" title="Abstract base class for representing various states in the order processing system." alt="" coords="239,5,382,32"/>
+<area shape="rect" id="node2" href="$classDinnerDone.html" title="Represents the &quot;Dinner Done&quot; state in the order processing system." alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$classOrderReceived.html" title="Represents the &quot;Order Received&quot; state in the order processing system." alt="" coords="129,80,247,107"/>
+<area shape="rect" id="node4" href="$classOrdering.html" title="A concrete class representing the ordering state of a customer&#39;s order process." alt="" coords="271,80,350,107"/>
+<area shape="rect" id="node5" href="$classPreorder.html" title="Represents the &quot;Preorder&quot; state in the order processing system." alt="" coords="375,80,452,107"/>
+<area shape="rect" id="node6" href="$classWaiting.html" title="Represents the &quot;Waiting&quot; state in the order processing system." alt="" coords="477,80,547,107"/>
+</map>
