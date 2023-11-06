@@ -238,8 +238,8 @@ void GameFacade::singleRound()
     waiterToKitchen();
         
 
-    for (int i = 0; i < customers.size(); i++)
-        customers.at(i)->talkToWaiter();
+    //for (int i = 0; i < customers.size(); i++)
+        customers.at(0)->talkToWaiter();
 
     for (int i = 0; i < customers.size(); i++)
         std::cout << customers.at(i)->printCustomer() << std::endl;

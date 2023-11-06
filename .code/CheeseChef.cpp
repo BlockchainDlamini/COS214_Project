@@ -35,16 +35,16 @@ void CheeseChef::displayCheeseArt() {
 
 void CheeseChef::handleOrder(int waiter_id, int customer_id, vector<shared_ptr<MenuItemCommand>> orders, vector<shared_ptr<FoodItem>>foods)
 {
+    displayCheeseArt();
     //cout << "CHEF_ADDRESS::::::: " << this << endl;
     for (vector<shared_ptr<MenuItemCommand>>::iterator it = orders.begin(); it != orders.end(); it++)
     {
         if (dynamic_pointer_cast<MakeCheese>((*it)))
         {
-            cout << "****IN THE ---CHEESE--- CHEFF COOKING!!!!!!!!" << endl;
+            cout << "------IN THE CHEESE CHEFF COOKING------" << endl;
             foods.push_back((*it)->execute());
         }
     }
-    displayCheeseArt();
     nextChef->handleOrder(waiter_id, customer_id, orders, foods);
 }
 
@@ -52,27 +52,27 @@ shared_ptr<FoodItem> CheeseChef::execute(MenuItemCommand* val)
 {
     if (dynamic_cast<MakeMozzarella*>(val))
     {
-        cout << "COOKED UP A MOZZARELLA CHEESE" << endl;
+        cout << "-----COOKED UP A MOZZARELLA CHEESE-----" << endl;
         return make_shared<Mozzarella>();
     }
     else if (dynamic_cast<MakeCheddar*>(val))
     {
-        cout << "COOKED UP A CHEDDAR CHEESE" << endl;
+        cout << "------COOKED UP A CHEDDAR CHEESE-------" << endl;
         return make_shared<Cheddar>();
     }
     else if (dynamic_cast<MakeGouda*>(val))
     {
-        cout << "COOKED UP A GOUDA CHEESE" << endl;
+        cout << "-------COOKED UP A GOUDA CHEESE--------" << endl;
         return make_shared<Gouda>();
     }
     else if (dynamic_cast<MakeParmesan*>(val))
     {
-        cout << "COOKED UP A PARMESAN CHEESE" << endl;
+        cout << "------COOKED UP A PARMESAN CHEESE-------" << endl;
         return make_shared<Parmesan>();
     }
     else if (dynamic_cast<MakeBlueCheese*>(val))
     {
-        cout << "COOKED UP A BLUCHEESE" << endl;
+        cout << "--------COOKED UP A BLUE-CHEESE---------" << endl;
         return make_shared<BlueCheese>();
     }
 
