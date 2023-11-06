@@ -28,63 +28,34 @@ std::vector<std::shared_ptr<Customer>> GameFacade::generateCustomerGroup(int siz
 
 void GameFacade::gameSetUp()
 {
-    
-    std::cout << endl;
-    std::cout << "\033[46;30m~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \033[0m" << std::endl;
 
-    std::cout << "\033[46;30m  W\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30me\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30ml\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mc\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mo\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mm\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30me \033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    // print out the intro
+    const std::string CYAN_COLOR = "\033[0;36m";
+    const std::string RESET_COLOR = "\033[0m";
 
-    std::cout << "\033[46;30mt\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mo\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    int textWidth = 40; // Adjust the width as needed
 
-
-    std::cout << "\033[46;30m H\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mo\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mm\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30me\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-
-    std::cout << "\033[46;30m S\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30ml\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mi\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30mc\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30me\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-
-    std::cout << "\033[46;30m :\033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    std::cout << "\033[46;30m)  \033[0m";
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-
-    std::cout << endl;
-
-
-    std::cout << "\033[46;30m~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \033[0m" << std::endl;
-
-
-    std::cout<<endl;
+    std::ifstream file("intro.txt"); // Open the file for reading
+    if (file.is_open()) { // Check if the file was opened successfully
+        std::string line = "";
+        while (std::getline(file, line)) {
+            if (line == "		   	Welcome to Home Slice :)") {
+                for (char c : line) {
+                    std::cout << CYAN_COLOR << c << RESET_COLOR;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                }
+            }
+            else {
+                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                std::cout << CYAN_COLOR << line << RESET_COLOR;
+            }
+            std::cout << std::endl;
+        }
+        file.close(); // Close the file when done
+    }
+    else {
+        std::cerr << "Failed to open the file." << std::endl;
+    }
 
 
     std::cout << "\033[47;30mWould you like to configure the game before starting? (yes/no)\033[0m" << std::endl;
@@ -93,7 +64,7 @@ void GameFacade::gameSetUp()
     cin >> input;
     if (input == "no")
     {
-        numCustomerGroups = 10;
+        numCustomerGroups = 1;
         floorsize = 4;
         tableSize = 4;
     }
@@ -173,14 +144,69 @@ void GameFacade::runGame()
         std::cin.ignore(1000000000, '\n');
     }
 
-    std::cout << "The game is now done! We hope you enjoyed it!!" << std::endl;
+
+
+
+
+
+
+
+    const std::string CYAN_COLOR = "\033[0;36m";
+    const std::string RESET_COLOR = "\033[0m";
+
+    int textWidth = 40; // Adjust the width as needed
+
+    std::ifstream file("done.txt"); // Open the file for reading
+    if (file.is_open()) { // Check if the file was opened successfully
+        std::string line = "";
+        // Read and display each line of the file with color
+        while (std::getline(file, line)) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::cout << CYAN_COLOR << line << RESET_COLOR << std::endl;
+        }
+        file.close(); // Close the file when done
+    }
+    else {
+        std::cerr << "Failed to open the file." << std::endl;
+    }
+
+
+
 }
 
 void GameFacade::singleRound()
 {
-    std::vector<std::shared_ptr<Customer>> customers = generateCustomerGroup(generateRandom(1, 10));
+    std::vector<std::shared_ptr<Customer>> customers = generateCustomerGroup(generateRandom(1, 2));
 
     std::cout << endl;
+    std::cout << " ~ " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
+    std::cout << "   ~ " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
+    std::cout << "      ~ " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
+    std::cout << "~         ~ " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
+    std::cout << "   ~        " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
+    std::cout << "      ~     " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
+    std::cout << "         ~  " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+    std::cout << "\033[A\033[K";
+
     std::cout << "\033[46;30m ~ A new group of customers has just entered the restuarant! ~\033[0m" << std::endl;
 
 
@@ -190,20 +216,30 @@ void GameFacade::singleRound()
     std::cin.ignore(1000000000, '\n');
 
     maitreD->seatCustomers(customers);
-    std::cout << "\033[46;30m ~ The customer group has been seated! ~\033[0m" << std::endl;
+    //std::cout << "\033[46;30m ~ The customer group has been seated! ~\033[0m" << std::endl;
 
-
+    std::cout << "\033[46;30m ~ Welcome to the customers: ~\033[0m" << std::endl;
     for (int i = 0; i < customers.size(); i++)
         std::cout << customers.at(i)->printCustomer() << std::endl;
     std::cout << "Press Enter to continue" << std::endl;
     std::cin.ignore(1000000000, '\n');
 
-    for (int i = 0; i < customers.size(); i++)
-        customers.at(i)->createOrder();
+    for (int i = 0; i < customers.size(); i++) {
+        if (i == 0) {
+            customers.at(i)->createOrder(false);
+        }
+        else {
+            customers.at(i)->createOrder(true);
+        }
+    }
+
+    std::cout << "\033[46;30m ~ The customers have placed their orders! ~\033[0m" << std::endl;
+
+    waiterToKitchen();
+        
 
     for (int i = 0; i < customers.size(); i++)
         customers.at(i)->talkToWaiter();
-    std::cout << "\033[46;30m ~ The customers have placed their orders! ~\033[0m" << std::endl;
 
     for (int i = 0; i < customers.size(); i++)
         std::cout << customers.at(i)->printCustomer() << std::endl;
@@ -240,4 +276,60 @@ void GameFacade::runGame2() {
     c->setGameEngine(mediator1);
     c->setOperation("getKitchenReference");
     c->changed();
+}
+
+void GameFacade::waiterToKitchen() {
+
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    cout << endl;
+    std::cout << "\033[46;30m ~ The waiter will take your order to the kitchen now :) ~\033[0m" << std::endl;
+    cout << endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+
+
+    std::cout << "             o  " << std::endl;
+    std::cout << "           ./|\\" << std::endl;
+    std::cout << "            / \\ " << std::endl;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(800));
+
+    std::cout << "\033[A\033[K"; // move up a line and erase
+    std::cout << "\033[A\033[K";
+    std::cout << "\033[A\033[K";
+
+    std::cout << "          o  " << std::endl;
+    std::cout << "        ./|\\" << std::endl;
+    std::cout << "         / \\ " << std::endl;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(800));
+
+    std::cout << "\033[A\033[K"; // move up a line and erase
+    std::cout << "\033[A\033[K";
+    std::cout << "\033[A\033[K";
+
+    std::cout << "       o  " << std::endl;
+    std::cout << "     ./|\\" << std::endl;
+    std::cout << "      / \\ " << std::endl;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(800));
+
+    std::cout << "\033[A\033[K"; // move up a line and erase
+    std::cout << "\033[A\033[K";
+    std::cout << "\033[A\033[K";
+
+    std::cout << "    o  " << std::endl;
+    std::cout << "  ./|\\" << std::endl;
+    std::cout << "   / \\ " << std::endl;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(800));
+
+    std::cout << "\033[A\033[K"; // move up a line and erase
+    std::cout << "\033[A\033[K";
+    std::cout << "\033[A\033[K";
+
+    std::cout << "  o  " << std::endl;
+    std::cout << "./|\\" << std::endl;
+    std::cout << " / \\ " << std::endl;
+
+    cout << endl;
 }

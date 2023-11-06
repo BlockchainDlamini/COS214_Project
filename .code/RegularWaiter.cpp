@@ -36,7 +36,7 @@ shared_ptr<RegularWaiter> RegularWaiter::waiterResponsible(int tableId)
         {
             if (tableId == tablesOfWaiter[r])
             {
-                cout << "Waiter: " << waiter->getWaiterID() << " is being called to table : " << tableId << endl;
+                //cout << "Waiter: " << waiter->getWaiterID() << " is being called to table : " << tableId << endl;
                 return waiter;
             }
         }
@@ -53,7 +53,7 @@ void RegularWaiter::takeOrder(int tableId)
 
     if (waiter)
     {
-        cout << "Waiter: " << waiter->getWaiterID() << " is taking the order for table number: " << tableId << endl;
+        //cout << "Waiter: " << waiter->getWaiterID() << " is taking the order for table number: " << tableId << endl;
     }
 
     //ERROR
@@ -154,7 +154,7 @@ void RegularWaiter::takeOrderToTable(std::vector<std::shared_ptr<pair<int, std::
 void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> order)
 {
 
-    cout << "NEW CALL" << endl;
+    //cout << "NEW CALL" << endl;
 
     shared_ptr<RegularWaiter> waiter = waiterResponsible(tableId);
 
@@ -191,7 +191,7 @@ void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::s
     // terminal get if split
     string splitChoice;
 
-    cout << "Would you like to split the bill? (yes/no): ";
+    std::cout << "\033[47;30mWould you like to split the bill? (yes/no)\033[0m" << std::endl;
     cin >> splitChoice;
 
     // ----------------------------------- if splitting bill -----------------------------------
@@ -207,30 +207,32 @@ void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::s
             std::string orderAmountStr = std::to_string(orderAmount);
 
             float floatValue = std::stof(orderAmountStr);
-            cout << "Amount payable for customer " << customer->getID() << " is: " << pizzasForTable[count]->getPrice() << " ZAR";
+            cout << "\033[35mAmount payable for customer " << customer->getID() << " is: " << pizzasForTable[count]->getPrice() << " ZAR\033[0m" << endl;
 
             string tabChoice;
 
-            cout << "Would you like to put the bill on your tab? (yes/no): ";
+            std::cout << "\033[47;30mWould you like to put the bill on your tab? (yes/no)\033[0m" << std::endl;
+
             cin >> tabChoice;
 
             if (tabChoice == "yes")
             {
                 if (customer->isLoyal())
                 {
-                    cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
+                    cout << "\033[35mPutting the bill of amount: " << orderAmount << " onto your tab.\033[0m" << endl;
                     customer->payBill( 'T',floatValue, false);
                 }
                 else
                 {
+                    cout << "\033[35m You do not yet have a tab, so lets make you one!\033[0m" << endl;
                     customer->startTab();
-                    cout << "Putting the bill of amount: " << orderAmount << " onto your tab.";
+                    cout << "\033[35mPutting the bill of amount: " << orderAmount << " onto your tab.\033[0m" << endl;
                     customer->payBill('T',floatValue, false);
                 }
             }
             else
             {
-                cout << "Paying the bill of amount: " << orderAmount << endl;
+                cout << "\033[35mPaying the bill of amount: " << orderAmount << "\033[0m" << endl;
                 customer->payBill('P', floatValue, false);
             }
             // SEG
@@ -241,7 +243,7 @@ void RegularWaiter::payBill(int tableId, vector<std::shared_ptr<pair<int, std::s
     else
     {
         // ----------------------------------- if NOT splitting bill -----------------------------------
-        cout << "Full amount payable: " << orderAmount;
+        cout << "Full amount payable: " << orderAmount << endl;
 
         std::string orderAmountStr = std::to_string(orderAmount);
 

@@ -55,6 +55,7 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
         }            
     }
 
+    cout << std::endl;
     std::cout << "Please wait while we find a table for the customers";
     std::this_thread::sleep_for(std::chrono::milliseconds(700));
     std::cout << ".";
@@ -65,6 +66,7 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
     std::this_thread::sleep_for(std::chrono::milliseconds(700));
     std::cout << ".";
     
+    cout << std::endl;
     cout << std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
@@ -83,7 +85,9 @@ bool Floor::seatCustomer(std::vector<std::shared_ptr<Customer>> customers)  //no
             for (size_t i = 0; i < customers.size(); i++)
                 customers.at(i)->beSeated(tb->getID());
             //std::cout<<"The customers have been seated at table "<<tb->getID()<<std::endl;
-            std::cout << " ~ The customers have been seated at table " << tb->getID() << " ~ " << std::endl;
+            //std::cout << " ~ The customers have been seated at table " << tb->getID() << " ~ " << std::endl;
+            std::cout << "\033[46;30m ~ The customer group has been seated at table " << tb->getID() << " ~ \033[0m" << std::endl;
+
 
             return true;
         }

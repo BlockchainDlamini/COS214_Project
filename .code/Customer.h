@@ -120,7 +120,7 @@ public:
      * @param orderID The identifier for the new order.
      * @param command A vector of shared pointers to menu item order commands.
      */
-    void createOrder();
+    void createOrder(bool);
 
     /**
      * @brief Seat the customer at a table.
@@ -232,6 +232,8 @@ public:
      * Use this function to signal the start of communication with the waiter. Depending on the context, it may involve requesting service, placing an order, or discussing specific requirements with the restaurant's staff.
      */
     void talkToWaiter();
+
+    void waiterToTable(char action);
 
     std::string generateRandomString(int length)
     {

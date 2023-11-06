@@ -1,4 +1,6 @@
 #include "Customer.h"
+#include <thread>
+
 using namespace std;
 string Customer::getName()
 {
@@ -99,7 +101,21 @@ void Customer::payBill(char c, float t, bool check) // returns true if the custo
             {
                 float tip = total + (total * mood->getTip());
                 bankAccountAmount = bankAccountAmount - (total + tip);
-                cout << "Customer has paid the bill, as the payment was accepted" << endl;
+
+                cout << endl;
+                cout << "Customer busy paying";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << ".";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << ".";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << ".";
+                cout << endl;
+
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                cout << "\033[45;97mCustomer has paid the bill, and the payment was accepted\033[0m" << endl;
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
             }
         }
         else if (c == 'T' || c == 't' && isLoyal() == true) // has a tab and wants to add to tab
@@ -141,6 +157,7 @@ bool Customer::isLoyal()
 
 void Customer::startTab()
 {
+    hasBill = true;
     if (isLoyal() == true)
     {
         tabID = generateRandomString(6);
@@ -309,7 +326,7 @@ vector<shared_ptr<MenuItemCommand>> Customer::addMenuItems() // for building own
             std::cin >> topping;
             if (topping > 4)
             {
-                cout << "Please enter a valid number. 1-5" << endl;
+                cout << "Please enter a valid number. 1-6" << endl;
                 cin >> topping;
             }
             switch (topping)
@@ -484,15 +501,51 @@ vector<shared_ptr<MenuItemCommand>> Customer::predefinedOrder()
     }
     return result;
 }
-void Customer::createOrder()
+void Customer::createOrder(bool ft)
 {
+    std::string decision = "";
+
+    while (!ft) {
+
+        if (ft == false) {
+            waiterToTable('w');
+
+            std::cout << "\033[47;30mThe waiter is at your table, would you like to order or wait a couple of seconds? (wait/order)\033[0m" << std::endl;
+            std::cin >> decision;
+
+
+            if (decision == "wait") {
+                std::this_thread::sleep_for(std::chrono::milliseconds(900));
+                std::cout << "Waiting ... " << endl;
+                cout << endl;
+
+                waiterToTable('f');
+
+
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+
+                break;
+            }
+            else if (decision == "order") {
+                break;
+            }
+            else {
+                std::cout << "Invalid choice. Please enter 'wait' or 'order'." << std::endl;
+            }
+        }
+        
+    }
+
+
     bool start = true;
     int orderCount = 0;
     string choice = "";
     string build = "";
     while (start)
     {
-        std::cout << "\033[47;30mWould you like to build your own pizza from scratch? (yes/no)\033[0m" << std::endl;
+        std::cout << "\033[43;30m Currently taking order for customer: " << getID() << " \033[0m" << std::endl;
+
+        std::cout << "\033[47;30mWould you like to build your own pizza from scratch? (yes/no) \033[0m" << std::endl;
 
         cin >> build;
         if (build == "Yes" || build == "yes")
@@ -502,7 +555,7 @@ void Customer::createOrder()
             orders.push_back(order);
             orderCount++;
             std::cout << "Order: " + to_string(orderCount) + " has been added" << endl;
-            std::cout << "\033[47;30mWould you like to make another order? (yes/no)\033[0m" << std::endl;
+            std::cout << "\033[47;30mWould you like to make another order? (yes/no) \033[0m" << std::endl;
 
             cin >> choice;
             if (choice == "yes" || choice == "Yes")
@@ -646,4 +699,183 @@ void Customer::getKitchenReference()
 {
     setOperation("GETKITCHENREFERENCE");
     changed();
+}
+
+void Customer::waiterToTable(char action) {
+
+    if (action == 'w') {
+        std::cout << "  o  " << std::endl;
+        std::cout << " /|\\" << std::endl;
+        std::cout << " / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "    o  " << std::endl;
+        std::cout << "   /|\\" << std::endl;
+        std::cout << "   / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "       o  " << std::endl;
+        std::cout << "      /|\\" << std::endl;
+        std::cout << "      / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "          o  " << std::endl;
+        std::cout << "         /|\\" << std::endl;
+        std::cout << "         / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "             o  " << std::endl;
+        std::cout << "            /|\\" << std::endl;
+        std::cout << "            / \\ " << std::endl;
+    }
+
+    if (action == 'f') {
+
+        std::cout << "  o  " << std::endl;
+        std::cout << " /|\\" << std::endl;
+        std::cout << " / \\ " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "    o/  " << std::endl;
+        std::cout << "    |   " << std::endl;
+        std::cout << "   /|   " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "    o/  " << std::endl;
+        std::cout << "  __|   " << std::endl;
+        std::cout << "    |   " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "     o__  " << std::endl;
+        std::cout << "   \\/     " << std::endl;
+        std::cout << "    |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "            " << std::endl;
+        std::cout << "   \\__o    " << std::endl;
+        std::cout << "    | \\     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "      /      " << std::endl;
+        std::cout << "     /\\o    " << std::endl;
+        std::cout << "      |\\     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "     _____     " << std::endl;
+        std::cout << "       |o    " << std::endl;
+        std::cout << "       |     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "        \\     " << std::endl;
+        std::cout << "        /\\   " << std::endl;
+        std::cout << "       |o     " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "               " << std::endl;
+        std::cout << "        __|    " << std::endl;
+        std::cout << "       |o |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "         |     " << std::endl;
+        std::cout << "        o\\/    " << std::endl;
+        std::cout << "          |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "          o/     " << std::endl;
+        std::cout << "          |__    " << std::endl;
+        std::cout << "          |    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "         \\o/     " << std::endl;
+        std::cout << "          |    " << std::endl;
+        std::cout << "          |\\    " << std::endl;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+
+        std::cout << "\033[A\033[K"; // move up a line and erase
+        std::cout << "\033[A\033[K";
+        std::cout << "\033[A\033[K";
+
+        std::cout << "           o  " << std::endl;
+        std::cout << "          /|\\" << std::endl;
+        std::cout << "          / \\ " << std::endl;
+
+        cout << endl;
+    }
+    
 }

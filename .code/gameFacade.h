@@ -17,6 +17,7 @@ class GameFacade
         std::vector<std::shared_ptr<gameElement>> createGameElements(int);
         int generateRandom(int, int);
         void singleRound();
+        void waiterToKitchen();
     public:
         void runGame2();
         GameFacade();
