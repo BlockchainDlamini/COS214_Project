@@ -28,7 +28,7 @@ int KitchenInterface::getWaiterID() {
 }
 
 
-void KitchenInterface::setGameEngine(shared_ptr<Mediator> val)
+void KitchenInterface::setGameEngine(shared_ptr<Pager> val)
 {
     gameEngine = val;
     headChef->setGameEngine(val);

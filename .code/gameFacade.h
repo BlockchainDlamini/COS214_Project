@@ -3,14 +3,14 @@
 
 #include "KitchenInterface.h"
 class Customer;
-class Mediator;
+class Pager;
 class MaitreD;
 
 class GameFacade
 {
     private:
         int numCustomerGroups, floorsize, tableSize, id;
-        std::shared_ptr<Mediator> mediator;
+        std::shared_ptr<Pager> mediator;
         std::shared_ptr<MaitreD> maitreD;
         void gameSetUp();
         std::vector<std::shared_ptr<Customer>> generateCustomerGroup(int);

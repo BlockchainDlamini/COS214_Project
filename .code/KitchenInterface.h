@@ -5,7 +5,7 @@
  */
 #ifndef __KITCHEN_INTERFACE_H__
 #define __KITCHEN_INTERFACE_H__
-#include "Mediator.h"
+#include "Pager.h"
 class KitchenInterface : public gameElement {
 public: 
     /**
@@ -39,7 +39,7 @@ public:
 
 
     //void printKitchenloop();
-    void setGameEngine(shared_ptr<Mediator>);
+    void setGameEngine(shared_ptr<Pager>);
 
 private: 
     std::shared_ptr<Kitchen> managerChef; 

@@ -5,13 +5,15 @@
 #ifndef CODE_MEDIATOR_H
 #define CODE_MEDIATOR_H
 
-#include "MaitreD.h"
+//#include "MaitreD.h"
 #include <string>
 #include <memory>
 #include <vector>
+#include <iostream>
 
 class gameElement;
-class KitchenInterface;
+using namespace std;
+//class KitchenInterface;
 /**
  * @class Mediator
  * @brief A class to represent the mediator in the Mediator Design Pattern.
@@ -23,6 +25,8 @@ public:
     * @param element The game element that would like to notify communicate with gameElement.
     */
     virtual void notify(gameElement* element);
+
+    bool notified(gameElement* element);
 
     /**
     * @brief Add a game element to the list of elements.
@@ -57,10 +61,6 @@ private:
     * @param message The specific message to be output
     */
     static void errorMessage(const string& message);
-
-    int globalTN;
-
-    vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> globalTO;
 
 };
 #endif //CODE_MEDIATOR_H

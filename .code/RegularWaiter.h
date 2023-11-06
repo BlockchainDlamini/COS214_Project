@@ -101,6 +101,12 @@ public:
     int getWaiterID();
 
 
+    /**
+    * @brief Call the leave function of the mediator
+    */
+    void leave();
+
+
 private:
     shared_ptr<Floor> floorObject;
     std::vector<shared_ptr<Pizza>> pizzasForTable;

@@ -1,0 +1,66 @@
+//
+// Created by User on 24/10/2023.
+//
+
+#ifndef CODE_MEDIATOR_H
+#define CODE_MEDIATOR_H
+
+#include "MaitreD.h"
+#include <string>
+#include <memory>
+#include <vector>
+
+class gameElement;
+class KitchenInterface;
+/**
+ * @class Pager
+ * @brief A class to represent the mediator in the Pager Design Pattern.
+ */
+class Pager {
+public:
+    /**
+    * @brief Notifies the mediator of a gameElement attempting to communicate with another gameElement.
+    * @param element The game element that would like to notify communicate with gameElement.
+    */
+    virtual void notify(gameElement* element);
+
+    /**
+    * @brief Add a game element to the list of elements.
+    * @param element The game element to be added.
+    */
+    void addGameElement(std::shared_ptr<gameElement> element);
+
+    /**
+    * @brief Add multiple game elements to the list of elements.
+    * @param elements The game elements to be added.
+    */
+    void addGameElements(std::vector<std::shared_ptr<gameElement>> elements);
+
+    /**
+    * @brief Remove a game element from the list of elements.
+    * @param element The game element to be removed.
+    */
+    void removeGameElement(std::shared_ptr<gameElement> element);
+
+private:
+    /**
+    * @brief A vector to hold the list of game elements.
+    */
+    std::vector<std::shared_ptr<gameElement>> listOfElements;
+
+    const string noKitchenFound = "No kitchen found";
+    const string noWaiterFound = "No Waiter found";
+    const string specificWaiterNotFound = "Specific waiter not found";
+
+    /**
+    * @brief Outputs error messages to the user.
+    * @param message The specific message to be output
+    */
+    static void errorMessage(const string& message);
+
+    int globalTN;
+
+    vector<std::shared_ptr<pair<int, std::shared_ptr<Pizza>>>> globalTO;
+
+};
+#endif //CODE_MEDIATOR_H

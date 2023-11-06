@@ -16,21 +16,21 @@ using namespace std;
 class Waiter : public enable_shared_from_this<Waiter>, public gameElement {
 public:
     /**
-     * @brief Get function for Mediator.
-     * @details This function is used to get information from the Mediator.
+     * @brief Get function for Pager.
+     * @details This function is used to get information from the Pager.
      */
     virtual string get() = 0;
 
     /**
-     * @brief Changed function for Mediator.
-     * @details This function is called when the Mediator needs to notify the Waiter of a change.
+     * @brief Changed function for Pager.
+     * @details This function is called when the Pager needs to notify the Waiter of a change.
      */
     //virtual void changed() = 0;
 
     /**
-     * @brief Set function for Mediator.
-     * @param op The operation to be performed by the Mediator.
-     * @details This function is used to send a request to the Mediator with a specified operation.
+     * @brief Set function for Pager.
+     * @param op The operation to be performed by the Pager.
+     * @details This function is used to send a request to the Pager with a specified operation.
      */
     virtual void setOperation(string op) = 0;
 

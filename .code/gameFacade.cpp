@@ -1,5 +1,8 @@
-
 #include "gameFacade.h"
+#include <iostream>
+#include <string>
+#include <thread>
+using namespace std;
 
 GameFacade::GameFacade()
 {
@@ -25,11 +28,70 @@ std::vector<std::shared_ptr<Customer>> GameFacade::generateCustomerGroup(int siz
 
 void GameFacade::gameSetUp()
 {
-    std::cout << "Welcome to The Pizzaria game!!" << std::endl;
-    std::cout << "Would you like to configure the game before starting?\n1=='YES' and 2=='NO': ";
-    int input;
+    
+    std::cout << endl;
+    std::cout << "\033[46;30m~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \033[0m" << std::endl;
+
+    std::cout << "\033[46;30m  W\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30me\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30ml\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mc\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mo\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mm\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30me \033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    std::cout << "\033[46;30mt\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mo\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+
+    std::cout << "\033[46;30m H\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mo\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mm\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30me\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    std::cout << "\033[46;30m S\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30ml\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mi\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30mc\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30me\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    std::cout << "\033[46;30m :\033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::cout << "\033[46;30m)  \033[0m";
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    std::cout << endl;
+
+
+    std::cout << "\033[46;30m~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \033[0m" << std::endl;
+
+
+    std::cout<<endl;
+
+
+    std::cout << "\033[47;30mWould you like to configure the game before starting? (yes/no)\033[0m" << std::endl;
+
+    string input;
     cin >> input;
-    if (input == 2)
+    if (input == "no")
     {
         numCustomerGroups = 10;
         floorsize = 4;
@@ -37,17 +99,28 @@ void GameFacade::gameSetUp()
     }
     else
     {
-        std::cout << "How many rounds of customer would you like the game to have?" << std::endl;
+        std::cout << "\033[47;30mHow many rounds of customer would you like the game to have?\033[0m" << std::endl;
         cin >> numCustomerGroups;
-        std::cout << "The returant floor is a square. How many tile should 1 of the side have?" << std::endl;
+
+        std::cout << "\033[47;30mThe restaurant floor is a square matrix. How many tiles would you like one side of the square to have?\033[0m" << std::endl;
         cin >> floorsize;
-        std::cout << "How many seats should each ;=table have?" << std::endl;
+
+        std::cout << "\033[47;30mHow many seats would you like each table to have?\033[0m" << std::endl;
         cin >> tableSize;
     }
 
-    mediator = std::make_shared<Mediator>();
+    mediator = std::make_shared<Pager>();
 
-    ;    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements(input);
+    int index = 0;
+
+    if (input == "yes") {
+        index = 1;
+    }
+    else {
+        index = 2;
+    }
+
+    std::vector<std::shared_ptr<gameElement>> gmElements = createGameElements(index);
     mediator->addGameElements(gmElements);
 }
 
@@ -56,10 +129,10 @@ std::vector<std::shared_ptr<gameElement>> GameFacade::createGameElements(int inp
     std::vector<std::shared_ptr<gameElement>> gmElements;
 
 
-    shared_ptr<Floor> floorObj = make_shared<Floor>(3,3);
+    shared_ptr<Floor> floorObj = make_shared<Floor>(3, 3);
 
     //Floor* floor1 = new Floor(3,3);
-    maitreD= std::make_shared<MaitreD>("Steve", floorObj);
+    maitreD = std::make_shared<MaitreD>("Steve", floorObj);
     maitreD->setGameEngine(mediator);
     gmElements.push_back(maitreD);
     //gmElements.push_back();
@@ -106,14 +179,20 @@ void GameFacade::runGame()
 void GameFacade::singleRound()
 {
     std::vector<std::shared_ptr<Customer>> customers = generateCustomerGroup(generateRandom(1, 10));
-    std::cout << "A new group of customers has just entered the restuarant" << std::endl;
+
+    std::cout << endl;
+    std::cout << "\033[46;30m ~ A new group of customers has just entered the restuarant! ~\033[0m" << std::endl;
+
+
     for (int i = 0; i < customers.size(); i++)
-        std::cout << customers.at(i)->printCustomer() << std::endl;
+        //std::cout << customers.at(i)->printCustomer() << std::endl;
     std::cout << "Press Enter to continue" << std::endl;
     std::cin.ignore(1000000000, '\n');
 
     maitreD->seatCustomers(customers);
-    std::cout << "The customer group has been seated" << std::endl;
+    std::cout << "\033[46;30m ~ The customer group has been seated! ~\033[0m" << std::endl;
+
+
     for (int i = 0; i < customers.size(); i++)
         std::cout << customers.at(i)->printCustomer() << std::endl;
     std::cout << "Press Enter to continue" << std::endl;
@@ -124,7 +203,8 @@ void GameFacade::singleRound()
 
     for (int i = 0; i < customers.size(); i++)
         customers.at(i)->talkToWaiter();
-    std::cout << "The customer group has placed their orders" << std::endl;
+    std::cout << "\033[46;30m ~ The customers have placed their orders! ~\033[0m" << std::endl;
+
     for (int i = 0; i < customers.size(); i++)
         std::cout << customers.at(i)->printCustomer() << std::endl;
 
@@ -152,10 +232,10 @@ GameFacade::~GameFacade()
 }
 
 void GameFacade::runGame2() {
-    shared_ptr<Mediator> mediator1 = make_shared<Mediator>();
+    shared_ptr<Pager> mediator1 = make_shared<Pager>();
     shared_ptr<KitchenInterface> kitchenInterface = make_shared<KitchenInterface>();
-   mediator1->addGameElement(kitchenInterface);
-    shared_ptr<Customer> c =make_shared<Customer>(234);
+    mediator1->addGameElement(kitchenInterface);
+    shared_ptr<Customer> c = make_shared<Customer>(234);
     mediator1->addGameElement(c);
     c->setGameEngine(mediator1);
     c->setOperation("getKitchenReference");

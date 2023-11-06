@@ -2,12 +2,9 @@
 // Created by User on 24/10/2023.
 //
 
-#include "KitchenInterface.h"
-#include "Mediator.h"
-<<<<<<< HEAD
+//#include "KitchenInterface.h"
 #include "gameElement.h"
-=======
->>>>>>> main
+#include "Mediator.h"
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -23,48 +20,28 @@ void Mediator::addGameElements(std::vector<std::shared_ptr<gameElement>> element
         listOfElements.push_back(element);
     }
 }
-
-void Mediator::notify(gameElement* element) {
-  
-
+void Mediator::notify(gameElement* element){
     string temp = element->get();
     transform(temp.begin(), temp.end(), temp.begin(), ::toupper);
-<<<<<<< HEAD
-    //if (...)  //Mediator logic using get():string
-/*    if (temp == "SENDTOKITCHEN") {
-        for (auto & listOfElement : listOfElements) {  //There should only be one
-            if (dynamic_cast<Kitchen*>(listOfElement)!= nullptr) {
-               auto a = dynamic_cast<regularWaiter*>(element)->getForKitchen();
-                dynamic_cast<Kitchen*>(listOfElement)->
-            }
-        }
-        return;
-    }
-    if (temp == "COLLECTORDER") {
-        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
-            if (dynamic_cast<Waiter*>(listOfElements[i])!= nullptr) {
-                auto a = dynamic_cast<regularWaiter*>(element)->getForKitchen();
-                dynamic_cast<Kitchen*>(listOfElements[i])->
-            }
-        }
-        return;
-    }*/
-=======
+
+}
+/*void Mediator::notify(gameElement* element) {
+    string temp = element->get();
+    transform(temp.begin(), temp.end(), temp.begin(), ::toupper);
 
     shared_ptr<KitchenInterface> theKitchen;
-    for (int i = 0; i < listOfElements.size(); ++i) {
+    for (unsigned int i = 0; i < listOfElements.size(); ++i) {
         theKitchen = dynamic_pointer_cast<KitchenInterface>(listOfElements[i]);
         if (theKitchen != nullptr) {
             break;
         }
     }
 
-    //theKitchen->printKitchenloop();
     if (theKitchen == nullptr) {
         errorMessage(noKitchenFound);
-        return;
+        //return;
     }
-  
+
     if (temp == "SENDTOKITCHEN") {  //Invoked by Regular waiter
         RegularWaiter* theWaiter = dynamic_cast<RegularWaiter*>(element);
         if (theWaiter == nullptr) {
@@ -72,7 +49,7 @@ void Mediator::notify(gameElement* element) {
             return;
         }
 
-        for (int i = 0; i < listOfElements.size(); ++i) {
+        for (unsigned int i = 0; i < listOfElements.size(); ++i) {
             auto order = theWaiter->getForKitchen();
             theKitchen->delegateOrderProcess(order);
             return;
@@ -94,13 +71,13 @@ void Mediator::notify(gameElement* element) {
         int wantedID = temp.first;
 
 
-        for (int i = 0; i < listOfElements.size(); ++i) {
-            shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);            //shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(element);
+        for (unsigned int i = 0; i < listOfElements.size(); ++i) {
+            RegularWaiter* aWaiter = dynamic_cast<RegularWaiter*>(element);
+            //shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(element);
             if (aWaiter != nullptr) {
                 if (aWaiter->getWaiterID() == wantedID) {
                     auto theOrder = temp.second;
-                    globalTO = theOrder;
-                    aWaiter->takeOrderToTable(theOrder, globalTN);
+                    aWaiter->takeOrderToTable(theOrder);
                     return;
                 }
             }
@@ -118,14 +95,12 @@ void Mediator::notify(gameElement* element) {
             return;
         }
         int tableNum = theCustomer->getTableNum();
-        globalTN = tableNum;
 
-        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
+        for (unsigned int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);
             if (aWaiter != nullptr) {
                 auto theWaiter = aWaiter->waiterResponsible(tableNum);
                 theWaiter->takeOrder(tableNum);
-
                 return;
             }
         }
@@ -142,11 +117,11 @@ void Mediator::notify(gameElement* element) {
         }
         int tableNum = theCustomer->getTableNum();
 
-        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
+        for (unsigned int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<RegularWaiter> aWaiter = dynamic_pointer_cast<RegularWaiter>(listOfElements[i]);
             if (aWaiter != nullptr) {
                 auto theWaiter = aWaiter->waiterResponsible(tableNum);
-                theWaiter->payBill(tableNum, globalTO);
+                theWaiter->payBill(tableNum);
                 return;
             }
         }
@@ -163,7 +138,7 @@ void Mediator::notify(gameElement* element) {
         }
         int tableNum = theCustomer->getTableNum();
 
-        for (int i = 0; i < listOfElements.size(); ++i) {
+        for (unsigned int i = 0; i < listOfElements.size(); ++i) {
             shared_ptr<MaitreD> theMaitreD = dynamic_pointer_cast<MaitreD>(listOfElements[i]);
             if (theMaitreD != nullptr) {
                 theMaitreD->customersLeft(tableNum);
@@ -176,23 +151,29 @@ void Mediator::notify(gameElement* element) {
 
     if (temp == "GETKITCHENREFERENCE") {  //Only a Customer can call this.
         auto* theCustomer = dynamic_cast<Customer*>(element);
+        //auto theCustomer = dynamic_pointer_cast<Customer>(element);
+
+        cout << "Returning reference" <<endl;
         if (theCustomer == nullptr) {
             errorMessage("Invalid call to getKitchen Reference");
             return;
         }
 
-        for (int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
+        for (unsigned int i = 0; i < listOfElements.size(); ++i) {  //There should only be one
             shared_ptr<KitchenInterface> theInterface = dynamic_pointer_cast<KitchenInterface>(listOfElements[i]);
             if (theInterface != nullptr) {
                 auto reference = theInterface->getKitchenReference();
                 theCustomer->setKitchenReference(reference);
+                cout << "Done" <<endl;
                 return;
             }
         }
         errorMessage("The wrong class attempted to call sendToKitchen/waiter not found");
         return;
     }
-}
+
+
+}*/
 
 void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Still to be tested
     auto it = listOfElements.begin();
@@ -207,10 +188,12 @@ void Mediator::removeGameElement(std::shared_ptr<gameElement> element) {  //Stil
         }
     }
 }
-=======
-}
 
 void Mediator::errorMessage(const string& message) {
     cerr << "Error: " << message << "!";
 }
->>>>>>> main
+
+bool Mediator::notified(gameElement *element) {
+    string temp = element->get();
+    return (temp == "TestString");
+}
