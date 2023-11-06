@@ -32,6 +32,9 @@ public:
      */
     shared_ptr<FoodItem> execute(MenuItemCommand *);
 
+    /**
+     * @brief This function displays the visual representation of Sauce which is a bottle in this case
+     */
     void displaySauceArt();
 };
 
