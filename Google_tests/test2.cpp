@@ -5,7 +5,7 @@
 #include <memory>
 
 #include "lib/googletest/include/gtest/gtest.h"
-#include "Google_tests/gameElement.h"
+#include "gameElement.h"
 
 //
 class Mediator {
