@@ -1,0 +1,7 @@
+<map id="ManagerChef" name="ManagerChef">
+<area shape="rect" id="node1" title="A class representing a manager chef in the kitchen, derived from Kitchen and enable_shared_from_this." alt="" coords="129,259,238,285"/>
+<area shape="rect" id="node2" href="$classKitchen.html" title="A class representing a kitchen in a restaurant, derived from gameElement." alt="" coords="76,177,147,203"/>
+<area shape="rect" id="node3" href="$classgameElement.html" title="A class to represent a game element. This class represents Colleagues in the Pager design pattern." alt="" coords="55,95,168,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,5,217,47"/>
+<area shape="rect" id="node5" title=" " alt="" coords="171,169,342,211"/>
+</map>

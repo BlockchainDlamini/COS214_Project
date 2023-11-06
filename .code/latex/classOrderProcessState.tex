@@ -1,0 +1,81 @@
+\hypertarget{classOrderProcessState}{}\doxysection{Order\+Process\+State Class Reference}
+\label{classOrderProcessState}\index{OrderProcessState@{OrderProcessState}}
+
+
+Abstract base class for representing various states in the order processing system.  
+
+
+
+
+{\ttfamily \#include $<$Order\+Process\+State.\+h$>$}
+
+
+
+Inheritance diagram for Order\+Process\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classOrderProcessState__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOrderProcessState_a7488b682eb6f9df0465fa3501735908c}\label{classOrderProcessState_a7488b682eb6f9df0465fa3501735908c}} 
+virtual std\+::string {\bfseries get\+Name} ()=0
+\item 
+\mbox{\Hypertarget{classOrderProcessState_aaeb3ecea55000b8f453b42c68b8594e3}\label{classOrderProcessState_aaeb3ecea55000b8f453b42c68b8594e3}} 
+\mbox{\hyperlink{classOrderProcessState_aaeb3ecea55000b8f453b42c68b8594e3}{Order\+Process\+State}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classOrderProcessState}{Order\+Process\+State}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrderProcessState_a972e68159b52f2c7ae1a29663574b3bc}\label{classOrderProcessState_a972e68159b52f2c7ae1a29663574b3bc}} 
+virtual void \mbox{\hyperlink{classOrderProcessState_a972e68159b52f2c7ae1a29663574b3bc}{execute}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$context)=0
+\begin{DoxyCompactList}\small\item\em Execute the state-\/specific behavior. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classOrderProcessState_abc9b86cbaeaa3cd738f4a8a6abb8d2c0}{handle\+Change}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)=0
+\begin{DoxyCompactList}\small\item\em Handle a change in the state by moving to the next state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOrderProcessState_a5f642b57672aeb360099c041b4bdbecd}\label{classOrderProcessState_a5f642b57672aeb360099c041b4bdbecd}} 
+void \mbox{\hyperlink{classOrderProcessState_a5f642b57672aeb360099c041b4bdbecd}{print\+State\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Print information about the state change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOrderProcessState_a0b97844e629cc4f6fabdc4e472112493}\label{classOrderProcessState_a0b97844e629cc4f6fabdc4e472112493}} 
+std\+::string {\bfseries state\+Name}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOrderProcessState_a6f7ad9550e8336e7bc9d9ff1a079e0dd}\label{classOrderProcessState_a6f7ad9550e8336e7bc9d9ff1a079e0dd}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCustomer}{Customer}} $>$ {\bfseries context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for representing various states in the order processing system. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOrderProcessState_abc9b86cbaeaa3cd738f4a8a6abb8d2c0}\label{classOrderProcessState_abc9b86cbaeaa3cd738f4a8a6abb8d2c0}} 
+\index{OrderProcessState@{OrderProcessState}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!OrderProcessState@{OrderProcessState}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily virtual void Order\+Process\+State\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle a change in the state by moving to the next state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & A shared pointer to the customer context. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classOrderReceived_afa4774a67802ec5fcb9ec081b48d4e55}{Order\+Received}}, \mbox{\hyperlink{classWaiting_ab825363d117444d36ecee5c25afb77fe}{Waiting}}, \mbox{\hyperlink{classPreorder_ae62e4d00eceb3a5fa3eae3c784a486e0}{Preorder}}, and \mbox{\hyperlink{classDinnerDone_a1ba99d8de735d379c671732c7d13ee6b}{Dinner\+Done}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Order\+Process\+State.\+h\item 
+Order\+Process\+State.\+cpp\end{DoxyCompactItemize}

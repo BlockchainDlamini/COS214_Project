@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classEmotionState.html" title="Abstract base class representing the emotional state of a customer." alt="" coords="5,81,116,108"/>
+<area shape="rect" id="node2" href="$classDisgruntaled.html" title=" " alt="" coords="164,5,269,32"/>
+<area shape="rect" id="node3" href="$classFrustrated.html" title="A concrete class representing a frustrated emotional state of a customer." alt="" coords="173,56,261,83"/>
+<area shape="rect" id="node4" href="$classHappy.html" title="A concrete class representing a happy emotional state of a customer." alt="" coords="185,107,249,133"/>
+<area shape="rect" id="node5" href="$classSatisfied.html" title="A concrete class representing a satisfied emotional state of a customer." alt="" coords="177,157,256,184"/>
+</map>

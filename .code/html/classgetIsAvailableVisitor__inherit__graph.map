@@ -1,0 +1,4 @@
+<map id="getIsAvailableVisitor" name="getIsAvailableVisitor">
+<area shape="rect" id="node1" title="The getIsAvailableVisitor class provides a visitor for checking availability of elements." alt="" coords="5,80,161,107"/>
+<area shape="rect" id="node2" href="$classvisitor.html" title="The visitor class provides an interface for visiting elements in a floor plan." alt="" coords="52,5,115,32"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="RegularWaiter" name="RegularWaiter">
+<area shape="rect" id="node1" title="Represents a Regular Waiter responsible for serving tables and managing orders." alt="" coords="107,273,222,300"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,184,180,225"/>
+<area shape="rect" id="node3" href="$classWaiter.html" title="Represents a waiter responsible for taking orders, delivering food, and processing payments." alt="" coords="205,191,269,218"/>
+<area shape="rect" id="node4" title=" " alt="" coords="81,95,235,136"/>
+<area shape="rect" id="node5" href="$classgameElement.html" title="A class to represent a game element. This class represents Colleagues in the Pager design pattern." alt="" coords="260,102,373,129"/>
+<area shape="rect" id="node6" title=" " alt="" coords="211,5,423,47"/>
+</map>

@@ -1,0 +1,100 @@
+\hypertarget{classfindSpaceVisitor}{}\doxysection{find\+Space\+Visitor Class Reference}
+\label{classfindSpaceVisitor}\index{findSpaceVisitor@{findSpaceVisitor}}
+
+
+The \mbox{\hyperlink{classfindSpaceVisitor}{find\+Space\+Visitor}} class provides a visitor for finding the available space in of each \mbox{\hyperlink{classfloorComponent}{floor\+Component}}.  
+
+
+
+
+{\ttfamily \#include $<$find\+Space\+Visitor.\+h$>$}
+
+
+
+Inheritance diagram for find\+Space\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classfindSpaceVisitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for find\+Space\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classfindSpaceVisitor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classfindSpaceVisitor_a8539cc24cbd07da9c7b0c937c7fe98d4}\label{classfindSpaceVisitor_a8539cc24cbd07da9c7b0c937c7fe98d4}} 
+\mbox{\hyperlink{classfindSpaceVisitor_a8539cc24cbd07da9c7b0c937c7fe98d4}{find\+Space\+Visitor}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classfindSpaceVisitor}{find\+Space\+Visitor}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classfindSpaceVisitor_ad8e4f69a6da6444dcd4bfd418183895f}{visit\+Table}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtable}{table}} $>$ table\+Ptr)
+\begin{DoxyCompactList}\small\item\em Visits a table and returns numbet of seats of the table if the table is visible. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classfindSpaceVisitor_a44170c73977af82601cc87cebb88223f}{visit\+Tile}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} $>$ floor\+Composite\+Ptr)
+\begin{DoxyCompactList}\small\item\em Visits a floor composite. Always returns 0 since the floor\+Composites do not have number of seats. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfindSpaceVisitor_ad524f6b67e2ac78be7e9ff36bd35f80c}\label{classfindSpaceVisitor_ad524f6b67e2ac78be7e9ff36bd35f80c}} 
+\mbox{\hyperlink{classfindSpaceVisitor_ad524f6b67e2ac78be7e9ff36bd35f80c}{$\sim$find\+Space\+Visitor}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classfindSpaceVisitor}{find\+Space\+Visitor}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classfindSpaceVisitor}{find\+Space\+Visitor}} class provides a visitor for finding the available space in of each \mbox{\hyperlink{classfloorComponent}{floor\+Component}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfindSpaceVisitor_ad8e4f69a6da6444dcd4bfd418183895f}\label{classfindSpaceVisitor_ad8e4f69a6da6444dcd4bfd418183895f}} 
+\index{findSpaceVisitor@{findSpaceVisitor}!visitTable@{visitTable}}
+\index{visitTable@{visitTable}!findSpaceVisitor@{findSpaceVisitor}}
+\doxysubsubsection{\texorpdfstring{visitTable()}{visitTable()}}
+{\footnotesize\ttfamily int find\+Space\+Visitor\+::visit\+Table (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtable}{table}} $>$}]{table\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Visits a table and returns numbet of seats of the table if the table is visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Ptr} & The shared pointer to the table being visited. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating availability of space. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classvisitor_a2731100a3b384c22bfafdc87fbc7c416}{visitor}}.
+
+\mbox{\Hypertarget{classfindSpaceVisitor_a44170c73977af82601cc87cebb88223f}\label{classfindSpaceVisitor_a44170c73977af82601cc87cebb88223f}} 
+\index{findSpaceVisitor@{findSpaceVisitor}!visitTile@{visitTile}}
+\index{visitTile@{visitTile}!findSpaceVisitor@{findSpaceVisitor}}
+\doxysubsubsection{\texorpdfstring{visitTile()}{visitTile()}}
+{\footnotesize\ttfamily int find\+Space\+Visitor\+::visit\+Tile (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} $>$}]{floor\+Composite\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Visits a floor composite. Always returns 0 since the floor\+Composites do not have number of seats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor\+Composite\+Ptr} & The shared pointer to the \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} being visited. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classvisitor_a2533b6982a4b50d0b0884e65ed67440b}{visitor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+find\+Space\+Visitor.\+h\item 
+find\+Space\+Visitor.\+cpp\end{DoxyCompactItemize}

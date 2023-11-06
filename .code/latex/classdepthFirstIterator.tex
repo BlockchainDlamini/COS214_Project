@@ -1,0 +1,130 @@
+\hypertarget{classdepthFirstIterator}{}\doxysection{depth\+First\+Iterator Class Reference}
+\label{classdepthFirstIterator}\index{depthFirstIterator@{depthFirstIterator}}
+
+
+The \mbox{\hyperlink{classdepthFirstIterator}{depth\+First\+Iterator}} class provides an iterator for traversing a tree in depth-\/first order.  
+
+
+
+
+{\ttfamily \#include $<$depth\+First\+Iterator.\+h$>$}
+
+
+
+Inheritance diagram for depth\+First\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classdepthFirstIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for depth\+First\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classdepthFirstIterator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdepthFirstIterator_a65af837167663b4279dde6ca40da3710}{depth\+First\+Iterator}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ \mbox{\hyperlink{classmyIterator_af65a23eebb850a57cbb3517ed2519a71}{head}})
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classdepthFirstIterator}{depth\+First\+Iterator}} with the specified head node. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ \mbox{\hyperlink{classdepthFirstIterator_a5a97bac472599f0780c1c42a5a9f65a0}{first}} ()
+\begin{DoxyCompactList}\small\item\em Returns the first item in the iteration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdepthFirstIterator_a5f34df16fef4415168e09a6452cfc970}\label{classdepthFirstIterator_a5f34df16fef4415168e09a6452cfc970}} 
+void \mbox{\hyperlink{classdepthFirstIterator_a5f34df16fef4415168e09a6452cfc970}{next}} ()
+\begin{DoxyCompactList}\small\item\em Moves to the next item in the iteration. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ \mbox{\hyperlink{classdepthFirstIterator_a1f098cfc3b52c196215f46847dc8afc1}{current\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current item in the iteration. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdepthFirstIterator_aca0a71e4a2d9938bcced54c8d940792a}{has\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Checks if there are more items in the iteration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdepthFirstIterator_ad99c9f2f1165de179937023297a61ce8}\label{classdepthFirstIterator_ad99c9f2f1165de179937023297a61ce8}} 
+\mbox{\hyperlink{classdepthFirstIterator_ad99c9f2f1165de179937023297a61ce8}{$\sim$depth\+First\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classdepthFirstIterator}{depth\+First\+Iterator}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classdepthFirstIterator}{depth\+First\+Iterator}} class provides an iterator for traversing a tree in depth-\/first order. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdepthFirstIterator_a65af837167663b4279dde6ca40da3710}\label{classdepthFirstIterator_a65af837167663b4279dde6ca40da3710}} 
+\index{depthFirstIterator@{depthFirstIterator}!depthFirstIterator@{depthFirstIterator}}
+\index{depthFirstIterator@{depthFirstIterator}!depthFirstIterator@{depthFirstIterator}}
+\doxysubsubsection{\texorpdfstring{depthFirstIterator()}{depthFirstIterator()}}
+{\footnotesize\ttfamily depth\+First\+Iterator\+::depth\+First\+Iterator (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$}]{head }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classdepthFirstIterator}{depth\+First\+Iterator}} with the specified head node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & The head node of the tree to be iterated. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdepthFirstIterator_a1f098cfc3b52c196215f46847dc8afc1}\label{classdepthFirstIterator_a1f098cfc3b52c196215f46847dc8afc1}} 
+\index{depthFirstIterator@{depthFirstIterator}!currentItem@{currentItem}}
+\index{currentItem@{currentItem}!depthFirstIterator@{depthFirstIterator}}
+\doxysubsubsection{\texorpdfstring{currentItem()}{currentItem()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classfloorComponent}{floor\+Component}}$>$ depth\+First\+Iterator\+::current\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the current item in the iteration. 
+
+\begin{DoxyReturn}{Returns}
+The current item. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classmyIterator_a1b5c9df782f9a236dd1d1b09f5985eb3}{my\+Iterator}}.
+
+\mbox{\Hypertarget{classdepthFirstIterator_a5a97bac472599f0780c1c42a5a9f65a0}\label{classdepthFirstIterator_a5a97bac472599f0780c1c42a5a9f65a0}} 
+\index{depthFirstIterator@{depthFirstIterator}!first@{first}}
+\index{first@{first}!depthFirstIterator@{depthFirstIterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classfloorComponent}{floor\+Component}}$>$ depth\+First\+Iterator\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the first item in the iteration. 
+
+\begin{DoxyReturn}{Returns}
+The first item. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classmyIterator_a8a3559287416f1f2808d776edd017630}{my\+Iterator}}.
+
+\mbox{\Hypertarget{classdepthFirstIterator_aca0a71e4a2d9938bcced54c8d940792a}\label{classdepthFirstIterator_aca0a71e4a2d9938bcced54c8d940792a}} 
+\index{depthFirstIterator@{depthFirstIterator}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!depthFirstIterator@{depthFirstIterator}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily bool depth\+First\+Iterator\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Checks if there are more items in the iteration. 
+
+\begin{DoxyReturn}{Returns}
+True if there are more items, false otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classmyIterator_afc83376a0e9726bb6d183cf476a1bd28}{my\+Iterator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+depth\+First\+Iterator.\+h\item 
+depth\+First\+Iterator.\+cpp\end{DoxyCompactItemize}

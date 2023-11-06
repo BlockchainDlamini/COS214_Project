@@ -1,0 +1,225 @@
+\hypertarget{classfloorComposite}{}\doxysection{floor\+Composite Class Reference}
+\label{classfloorComposite}\index{floorComposite@{floorComposite}}
+
+
+The \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} class represents a composite floor component.  
+
+
+
+
+{\ttfamily \#include $<$floor\+Composite.\+h$>$}
+
+
+
+Inheritance diagram for floor\+Composite\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classfloorComposite__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for floor\+Composite\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classfloorComposite__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfloorComposite_aaee89a108e00cc5f69a86b8fa86ecaad}{floor\+Composite}} (int \mbox{\hyperlink{classfloorComponent_ae65f11e63f842698c001d590568e1863}{id}})
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} with a specified ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfloorComposite_ae808a30fcff8f8a181d135cf1279ff28}{add}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Adds a child component to the composite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfloorComposite_a302be797718ce9693bc508d476c60f14}{remove}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Removes a child component from the composite. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ \mbox{\hyperlink{classfloorComposite_a646495906611416f51426338f25c8b54}{get\+Child}} (int index)
+\begin{DoxyCompactList}\small\item\em Gets the child component at a specified index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classfloorComposite_a9b76bf370b862ba1e315ed3133d32df2}{get\+Num\+Children}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of children of the composite. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmyIterator}{my\+Iterator}} $>$ \mbox{\hyperlink{classfloorComposite_a0f25cbb239842d1234fafa5d36176381}{get\+Depth\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Gets a depth-\/first iterator for the composite hierarchy. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classfloorComposite_ad4c762e1084eba81c34863d2f8db42c0}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Gets a breadth-\/first iterator for the composite hierarchy. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classfloorComposite_af90a530df14193597c2068eeb4323fe6}{accept\+Visitor}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvisitor}{visitor}} $>$ \mbox{\hyperlink{classvisitor}{visitor}})
+\begin{DoxyCompactList}\small\item\em Accepts a visitor for visiting the composite. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classfloorComposite_ae2f795289b73fd84d4df1c195c7b3ec4}\label{classfloorComposite_ae2f795289b73fd84d4df1c195c7b3ec4}} 
+virtual \mbox{\hyperlink{classfloorComposite_ae2f795289b73fd84d4df1c195c7b3ec4}{$\sim$floor\+Composite}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classfloorComposite_ab5d3ee870190734829cb68b8539d251c}\label{classfloorComposite_ab5d3ee870190734829cb68b8539d251c}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ $>$ \mbox{\hyperlink{classfloorComposite_ab5d3ee870190734829cb68b8539d251c}{next}}
+\begin{DoxyCompactList}\small\item\em Vector of child components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} class represents a composite floor component. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfloorComposite_aaee89a108e00cc5f69a86b8fa86ecaad}\label{classfloorComposite_aaee89a108e00cc5f69a86b8fa86ecaad}} 
+\index{floorComposite@{floorComposite}!floorComposite@{floorComposite}}
+\index{floorComposite@{floorComposite}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{floorComposite()}{floorComposite()}}
+{\footnotesize\ttfamily floor\+Composite\+::floor\+Composite (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classfloorComposite}{floor\+Composite}} with a specified ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the \mbox{\hyperlink{classfloorComposite}{floor\+Composite}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfloorComposite_af90a530df14193597c2068eeb4323fe6}\label{classfloorComposite_af90a530df14193597c2068eeb4323fe6}} 
+\index{floorComposite@{floorComposite}!acceptVisitor@{acceptVisitor}}
+\index{acceptVisitor@{acceptVisitor}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{acceptVisitor()}{acceptVisitor()}}
+{\footnotesize\ttfamily int floor\+Composite\+::accept\+Visitor (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvisitor}{visitor}} $>$}]{visitor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Accepts a visitor for visiting the composite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visitor} & The visitor to be accepted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the visitation. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_ad8ec8686f1cb8f5f1ef36a8829edb054}{floor\+Component}}.
+
+\mbox{\Hypertarget{classfloorComposite_ae808a30fcff8f8a181d135cf1279ff28}\label{classfloorComposite_ae808a30fcff8f8a181d135cf1279ff28}} 
+\index{floorComposite@{floorComposite}!add@{add}}
+\index{add@{add}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void floor\+Composite\+::add (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a child component to the composite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child component to be added. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a825a9c99d4c41b3a4803c74277d3a42c}{floor\+Component}}.
+
+\mbox{\Hypertarget{classfloorComposite_a646495906611416f51426338f25c8b54}\label{classfloorComposite_a646495906611416f51426338f25c8b54}} 
+\index{floorComposite@{floorComposite}!getChild@{getChild}}
+\index{getChild@{getChild}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{getChild()}{getChild()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$ floor\+Composite\+::get\+Child (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the child component at a specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the child component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shared pointer to the child component. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a0ec22edb166dc66ac1ef687a46073493}{floor\+Component}}.
+
+\mbox{\Hypertarget{classfloorComposite_a0f25cbb239842d1234fafa5d36176381}\label{classfloorComposite_a0f25cbb239842d1234fafa5d36176381}} 
+\index{floorComposite@{floorComposite}!getDepthIterator@{getDepthIterator}}
+\index{getDepthIterator@{getDepthIterator}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{getDepthIterator()}{getDepthIterator()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmyIterator}{my\+Iterator}} $>$ floor\+Composite\+::get\+Depth\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets a depth-\/first iterator for the composite hierarchy. 
+
+\begin{DoxyReturn}{Returns}
+The shared pointer to the depth-\/first iterator. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a2c2d33c393bfed34e236e5e827cfb16e}{floor\+Component}}.
+
+\mbox{\Hypertarget{classfloorComposite_a9b76bf370b862ba1e315ed3133d32df2}\label{classfloorComposite_a9b76bf370b862ba1e315ed3133d32df2}} 
+\index{floorComposite@{floorComposite}!getNumChildren@{getNumChildren}}
+\index{getNumChildren@{getNumChildren}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{getNumChildren()}{getNumChildren()}}
+{\footnotesize\ttfamily int floor\+Composite\+::get\+Num\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the number of children of the composite. 
+
+\begin{DoxyReturn}{Returns}
+The number of children. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_acfa243840342b4d44c3c688353c8325a}{floor\+Component}}.
+
+\mbox{\Hypertarget{classfloorComposite_a302be797718ce9693bc508d476c60f14}\label{classfloorComposite_a302be797718ce9693bc508d476c60f14}} 
+\index{floorComposite@{floorComposite}!remove@{remove}}
+\index{remove@{remove}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void floor\+Composite\+::remove (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classfloorComponent}{floor\+Component}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Removes a child component from the composite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child component to be removed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_ad54c58b993df2f18024a04ad68be0c1a}{floor\+Component}}.
+
+\mbox{\Hypertarget{classfloorComposite_ad4c762e1084eba81c34863d2f8db42c0}\label{classfloorComposite_ad4c762e1084eba81c34863d2f8db42c0}} 
+\index{floorComposite@{floorComposite}!toString@{toString}}
+\index{toString@{toString}!floorComposite@{floorComposite}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string floor\+Composite\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets a breadth-\/first iterator for the composite hierarchy. 
+
+\begin{DoxyReturn}{Returns}
+The shared pointer to the breadth-\/first iterator.
+\end{DoxyReturn}
+Gets a string representation of the composite. \begin{DoxyReturn}{Returns}
+The string representation. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classfloorComponent_a751120dd134d8484957c412cbf60afcb}{floor\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+floor\+Composite.\+h\item 
+floor\+Composite.\+cpp\end{DoxyCompactItemize}

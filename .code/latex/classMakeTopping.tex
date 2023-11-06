@@ -1,0 +1,86 @@
+\hypertarget{classMakeTopping}{}\doxysection{Make\+Topping Class Reference}
+\label{classMakeTopping}\index{MakeTopping@{MakeTopping}}
+
+
+Represents the \mbox{\hyperlink{classMakeTopping}{Make\+Topping}} class, responsible for creating various toppings for food items in the kitchen.  
+
+
+
+
+{\ttfamily \#include $<$Make\+Topping.\+h$>$}
+
+
+
+Inheritance diagram for Make\+Topping\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMakeTopping__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Make\+Topping\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMakeTopping__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMakeTopping_a52e390bf95910055b3c9531e6441d242}{Make\+Topping}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$ state)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classMakeTopping}{Make\+Topping}} class. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ \mbox{\hyperlink{classMakeTopping_a633ea160a0a29c11afff6b931e584e66}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Execute the \mbox{\hyperlink{classMakeTopping}{Make\+Topping}} command, creating and returning a shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the topping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents the \mbox{\hyperlink{classMakeTopping}{Make\+Topping}} class, responsible for creating various toppings for food items in the kitchen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMakeTopping_a52e390bf95910055b3c9531e6441d242}\label{classMakeTopping_a52e390bf95910055b3c9531e6441d242}} 
+\index{MakeTopping@{MakeTopping}!MakeTopping@{MakeTopping}}
+\index{MakeTopping@{MakeTopping}!MakeTopping@{MakeTopping}}
+\doxysubsubsection{\texorpdfstring{MakeTopping()}{MakeTopping()}}
+{\footnotesize\ttfamily Make\+Topping\+::\+Make\+Topping (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classKitchen}{Kitchen}} $>$}]{state }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classMakeTopping}{Make\+Topping}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & A shared pointer to the \mbox{\hyperlink{classKitchen}{Kitchen}} where the toppings are created. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMakeTopping_a633ea160a0a29c11afff6b931e584e66}\label{classMakeTopping_a633ea160a0a29c11afff6b931e584e66}} 
+\index{MakeTopping@{MakeTopping}!execute@{execute}}
+\index{execute@{execute}!MakeTopping@{MakeTopping}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $>$ Make\+Topping\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Execute the \mbox{\hyperlink{classMakeTopping}{Make\+Topping}} command, creating and returning a shared pointer to the \mbox{\hyperlink{classFoodItem}{Food\+Item}} representing the topping. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \mbox{\hyperlink{classFoodItem}{Food\+Item}} object, which represents the topping. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMenuItemCommand}{Menu\+Item\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{MakeTopping_8h}{Make\+Topping.\+h}}\item 
+Make\+Topping.\+cpp\end{DoxyCompactItemize}
