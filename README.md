@@ -17,7 +17,7 @@ We have used several design patterns in this project to ensure that the code is 
 - **Factory Method**: For the creation of different components of a pizza. Like the pizza base, our variety of cheeses and toppings.
 - **Façade**: To add convenience to the customers, allowing them to choose pre-configured, popular pizzas.
 - **Iterator**: For the maitreD/Head-waiter to momentarily check on customers.
-- **Pager**: For managing the communication between staff members.
+- **Mediator**: For managing the communication between staff members.
 - **Memento**: For saving and retrieving customer information, used when users try to repay or access their **Tab**.
 - **State**: To model customers' emotional state throughout the course of the game.
 - **Template Method**: For customers to choose how they'd like their meal prepared. E.g. Fried/Grilled
